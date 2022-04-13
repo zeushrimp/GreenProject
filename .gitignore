@@ -27,5 +27,5 @@ META-INF/*
 hs_err_pid*
 
 # Spring 팀프로젝트 충돌 방지
-MANIFEST.MF
-pom.properties
+#MANIFEST.MF
+#pom.properties
