@@ -95,4 +95,6 @@ hs_err_pid*
 replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse
-/src/main/webapp/META-INF/MANIFEST.MF
+# Spring 팀프로젝트 충돌 방지
+MANIFEST.MF
+pom.properties
