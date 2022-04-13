@@ -1,6 +1,7 @@
 # 충돌 원인이었던 폴더 모두 제외
-META-INF/
-pom.properties
+target/*
+META-INF/*
+.springBeans
 # Compiled class file
 *.class
 
