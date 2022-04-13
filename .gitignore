@@ -1,6 +1,6 @@
 # 충돌 원인이었던 폴더 모두 제외
 META-INF/
-
+pom.properties
 # Compiled class file
 *.class
 
