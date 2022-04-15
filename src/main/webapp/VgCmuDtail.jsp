@@ -11,14 +11,28 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="resources/images/favicon.ico" />
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<style type="text/css">
+		.three-fourth {width: 100%;}
+		.comments .depth-4 	{padding-left:180px;margin-left:0;}
+		.depth-4 .avatar {left:90px;}
+		
+		.comments .depth-5 	{padding-left:270px; margin-left:0;}
+		.depth-5 .avatar {left:180px;}
+		
+		.cumtitle {border: 1px; float:left; width:100%; margin-bottom:10px; background: #fff; border-radius: 3px;}
+		.cumtitle .lead{font-size:30px; font-weight:500;  padding: 0px;}
+
+		.cmurlink{display: block; align: center;}
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius:3px;}
+		.post .entry-content {float: left; padding: 17px 20px 0; min-height: 600px;}
+		.post .container 		{float:left;width: 1079px !important; padding:0; border-radius: 3px;}
+	</style>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -32,9 +46,11 @@
 	</div>
 	<!--//preloader-->
 	
-    <!--header-->
-    <%@ include file="resources/Header.jsp" %> 
-    <!--//header--> 
+	<!--header-->
+	<header class="head" role="banner">
+<%-- 		<%@ include file="resources/Header.jsp" %> --%>
+	</header>
+	<!--//header-->
 		
 	<!--main-->
 	<main class="main" role="main">
@@ -56,12 +72,17 @@
 				<header class="s-title">
 					<h1>커뮤니티 상세 글</h1>
 				</header>
-				
-				
+								
 				<!--content-->
 				<section class="content three-fourth">
 					<!--blog entry-->
-					<article class="post single">
+					<div class="cmucate cumtitle">
+						<p class="lead">카테고리 </p>
+					</div>
+					<div class="cmucon cumtitle">
+						<p class="lead">제목 </p>
+					</div>	
+					<article class="post single">					
 						<div class="entry-meta">
 							<div class="date">
 								<span class="day">29</span> 
@@ -73,10 +94,9 @@
 							</div>
 						</div>
 						<div class="container">
-							<div class="entry-featured"><a href="#"><img src="resources/images/img.jpg" alt="" /></a></div>
 							<div class="entry-content">
 								<p class="lead">작성한 글 보여주는 위치 </p>
-								</div>
+							</div>
 						</div>
 					</article>
 					<!--//blog entry-->
@@ -116,7 +136,7 @@
 							<!--//comment-->
 							
 							<!--comment-->
-							<li class="comment depth-2">
+							<li class="comment depth-4">
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
@@ -131,7 +151,7 @@
 							<!--//comment-->
 							
 							<!--comment-->
-							<li class="comment depth-3">
+							<li class="comment depth-5">
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
@@ -167,8 +187,7 @@
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
-							<p><strong>주의 :</strong> 예시) 욕설은 작성이 불가합니다.</p>
-							<p>Your email address will not be published. Required fields are signed with <span class="req">*</span></p>
+							<p><strong>주의 :</strong> 욕설은 작성이 불가합니다.<span class="req">*</span></p>
 							<form>
 								<div class="f-row">
 									<textarea></textarea>
@@ -182,33 +201,14 @@
 							</form>
 						</div>
 					</div>
-					<!-- 글 목록가는 링크 -->
-					<a href="VgCmuList.jsp"> 글 목록 가기</a>
+
 					<!--//respond-->
 				</section>
-				<!--//content-->
-			
-				<!--right sidebar-->
-<!-- 				<aside class="sidebar one-fourth">
-					<div class="widget">
-						<ul class="categories right">
-							<li><a href="#">All recipes</a></li>
-							<li class="active"><a href="#">Tips and Tricks</a></li>
-							<li><a href="#">Events</a></li>
-							<li><a href="#">Inspiration</a></li>
-							<li><a href="#">Category name</a></li>
-							<li><a href="#">Lorem ipsum</a></li>
-							<li><a href="#">Dolor</a></li>
-							<li><a href="#">Sit amet</a></li>
-						</ul>
-					</div>
-					<div class="widget">
-						<h3>Advertisment</h3>
-						<a href="#"><img src="resources/images/advertisment.jpg" alt="" /></a>
-					</div>
-				</aside> -->
-				<!--//right sidebar-->
 			</div>
+				<div class ="cmurlink">
+					<!-- 글 목록가는 링크 -->
+					<a class="R-rlink" href="VgCmuList.jsp"> 글 목록 가기</a>
+				</div>
 			<!--//row-->
 		</div>
 		<!--//wrap-->
@@ -216,9 +216,11 @@
 	<!--//main-->
 	
 	
-    <!--footer-->
-    <%@ include file="resources/Footer.jsp" %>
-    <!--//footer-->
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+<%-- 		<%@ include file="resources/Footer.jsp" %> --%>
+	</footer>
+	<!--//footer-->
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>

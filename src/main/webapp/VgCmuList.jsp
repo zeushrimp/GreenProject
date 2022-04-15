@@ -11,13 +11,18 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="resources/images/favicon.ico" />
-	
+	<style type="text/css">
+		.three-fourth {width: 100%;}
+		.cmurlink{display: block; align: center;}
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}
+		
+		.one-third {width: 25%}
+	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -32,9 +37,11 @@
 	</div>
 	<!--//preloader-->
 	
-    <!--header-->
-    <%@ include file="resources/Header.jsp" %> 
-    <!--//header--> 
+	<!--header-->
+	<header class="head" role="banner">
+<%-- 		<%@ include file="resources/Header.jsp" %> --%>
+	</header>
+	<!--//header-->
 		
 	<!--main-->
 	<main class="main" role="main">
@@ -55,7 +62,11 @@
 				<header class="s-title">
 					<h1>커뮤니티 게시판</h1>
 				</header>
-				
+				<div class="box bg-2">
+	          <button class="button" data-text="카테고리">
+	          <span>카테고리</span>
+	          </button>
+          		</div>
 				<!--content-->
 				<section class="content three-fourth">
 					<!--blog entry-->
@@ -203,8 +214,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- 글 작성가는 링크 -->
-					<a href="VgCmuRegst.jsp"> 게시글 작성 </a>
 
 					<!-- 커뮤니티 리스트 버튼 링크 -->
 					<div class="pager">
@@ -215,6 +224,10 @@
 						<a href="VgCmuList.jsp">5</a>
 					</div>
 				</section>
+				<div class ="cmurlink">
+					<!-- 글 작성가는 링크 -->
+					<a class="R-rlink" href="VgCmuRegst.jsp"> 게시글 작성 </a>
+				</div>
 				<!--//content-->
 				
 			</div>
@@ -225,9 +238,11 @@
 	<!--//main-->
 	
 	
-    <!--footer-->
-    <%@ include file="resources/Footer.jsp" %>
-    <!--//footer-->
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+<%-- 		<%@ include file="resources/Footer.jsp" %> --%>
+	</footer>
+	<!--//footer-->
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>

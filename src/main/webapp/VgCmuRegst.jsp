@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,13 +11,29 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="resources/images/favicon.ico" />
-	
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	  
+	<script src="${pageContext.request.contextPath}/resources/summernote/summernote-lite.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/summernote/summernote-lite.css">
+		<style type="text/css">
+		.post .container-cmu {width:100%;}
+		.three-fourth {width: 100%;}
+		
+		.cmurlink{display: block; align: center;}
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}
+		.post .container {float:left;width: 1079px !important; padding:0; border-radius: 3px;}
+	</style>
+  <!--  -->
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -32,9 +48,11 @@
 	</div>
 	<!--//preloader-->
 	
-    <!--header-->
-    <%@ include file="resources/Header.jsp" %> 
-    <!--//header--> 
+	<!--header-->
+	<header class="head" role="banner">
+<%-- 		<%@ include file="resources/Header.jsp" %> --%>
+	</header>
+	<!--//header-->
 		
 	<!--main-->
 	<main class="main" role="main">
@@ -56,12 +74,27 @@
 				<header class="s-title">
 					<h1>커뮤니티 글 작성</h1>
 				</header>
-				
-				
+								
 				<!--content-->
 				<section class="content three-fourth">
 					<!--blog entry-->
 					<article class="post single">
+					<form>
+					<div class="cmucate cumtitle">
+						<select name="category" required>
+						<option disabled selected style="display: none;">카테고리</option>
+						<option>공지</option>
+						<option>채식 소식</option>
+						<option>동네 맛집</option>
+						<option>일상 소식</option>
+						<option>운동/건강</option>
+						<option>취미 생활</option>
+						</select>
+					</div>
+					<div class="cmucon cumtitle">
+						<p><input  type="text" name="cmucomtitle" placeholder="제목을 적어주세요." /></p>
+					</div>
+					
 						<div class="entry-meta">
 							<div class="date">
 								<span class="day">29</span> 
@@ -72,38 +105,32 @@
 								<a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
 							</div>
 						</div>
-						<div class="container">
-							<div class="entry-featured"><a href="#"><img src="resources/images/img.jpg" alt="" /></a></div>
-							<div class="entry-content">
-								<p class="lead">지금 완성본 아님 </p>
+						<div class="container-cmu">
+								<div class="container">
+								  <textarea class="summernote" name="editordata"></textarea>    
 								</div>
-						</div>
-					</article>
-					<!--//blog entry-->
-					
-					<!--respond-->
-					<div class="comment-respond" id="respond">
-						<h2>댓글창</h2>
-						<div class="container">
-							<p><strong>주의 :</strong> 예시) 욕설은 작성이 불가합니다.</p>
-							<p>Your email address will not be published. Required fields are signed with <span class="req">*</span></p>
-							<form>
-								<div class="f-row">
-									<textarea></textarea>
-								</div>
-								
-								<div class="f-row">
+								<script>
+								$('.summernote').summernote({
+									  height: 600,
+									  lang: "ko-KR"
+									});
+								</script>							
+								<div class="f-row" style="padding-top: 20px;">
 									<div class="third bwrap">
 										<input type="submit" value="글 작성" />
 									</div>
 								</div>
-							</form>
 						</div>
-					</div>
-					<!-- 글 목록가는 링크 -->
-					<a href="VgCmuList.jsp"> 글 목록 가기</a>
+						</form>
+					</article>
+					<!--//blog entry-->
+
 					<!--//respond-->
 				</section>
+				<div class ="cmurlink">
+					<!-- 글 목록가는 링크 -->
+					<a class="R-rlink" href="VgCmuList.jsp"> 글 목록 가기</a>
+				</div>
 				<!--//content-->			
 			</div>
 			<!--//row-->
@@ -113,9 +140,11 @@
 	<!--//main-->
 	
 	
-    <!--footer-->
-    <%@ include file="resources/Footer.jsp" %>
-    <!--//footer-->
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+<%-- 		<%@ include file="resources/Footer.jsp" %> --%>
+	</footer>
+	<!--//footer-->
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>
