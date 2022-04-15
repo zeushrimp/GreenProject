@@ -1,46 +1,142 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
-	<meta name="description" content="SocialChef - Social Recipe HTML Template">
-	<meta name="author" content="themeenergy.com">
-	
-	<title>VegeProject</title>
-	
-	
-	<link rel="stylesheet" href="resources/css/styleHeader.css" />
-	<link rel="stylesheet" href="resources/css/styleFooter.css" />
-	<link rel="stylesheet" href="resources/css/styleMpg.css" />
-	
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
+<meta name="description"
+	content="SocialChef - Social Recipe HTML Template">
+<meta name="author" content="themeenergy.com">
 
-	
-	<link rel="stylesheet" href="resources/css/icons.css" />
-	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
-	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="resources/images/favicon.ico" />
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
+<title>SocialChef</title>
+
+<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="resources/css/icons.css" />
+<link
+	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
+	rel="stylesheet">
+<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<style type="text/css">
+.tab-content .basic dt {
+	width: 25%;
+	height: 38px;
+	line-height: 40px;
+}
+
+.tab-content .basic dd {
+	width: 45%;
+	height: 38px;
+	line-height: 38px;
+}
+
+.two-third {
+	float: left;
+	width: 100%;
+	padding: 0 15px 30px;
+	max-width: 100%;
+}
+
+.user-nav {
+	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@media ( max-width : 1240px) {
+	#about .one-third, #about .two-third {
+		width: 100%;
+	}
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/respond.resources/js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>	
+<body>
 	<!--preloader-->
 	<div class="preloader">
 		<div class="spinner"></div>
 	</div>
 	<!--//preloader-->
-	
+
 	<!--header-->
-    <%@ include file="resources/Header.jsp" %> 
-    <!--//header--> 
-		
+	<header class="head" role="banner">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<a href="index.jsp" title="SocialChef" class="logo"><img
+				src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+
+			<nav class="main-nav" role="navigation" id="menu">
+				<ul>
+					<li><a href="index.jsp" title="Home"><span>Home</span></a></li>
+					<li><a href="recipes.jsp" title="Recipes"><span>Recipes</span></a>
+						<ul>
+							<li><a href="recipes2.jsp" title="Recipes 2">Recipes 2</a></li>
+							<li><a href="VgRcpDtail.jsp" title="Recipe">Recipe</a></li>
+						</ul></li>
+					<li><a href="blog.jsp" title="Blog"><span>Blog</span></a>
+						<ul>
+							<li><a href="VgCmuDtail.jsp" title="Blog post">Blog
+									post</a></li>
+						</ul></li>
+					<li><a href="#" title="Pages"><span>Pages</span></a>
+						<ul>
+							<li><a href="left_sidebar.jsp" title="Left sidebar page">Left
+									sidebar page</a></li>
+							<li><a href="right_sidebar.jsp" title="Right sidebar page">Right
+									sidebar page</a></li>
+							<li><a href="two_sidebars.jsp" title="Both sidebars page">Both
+									sidebars page</a></li>
+							<li><a href="full_width.jsp" title="Full width page">Full
+									width page</a></li>
+							<li><a href="login.jsp" title="Login page">Login page</a></li>
+							<li><a href="register.jsp" title="Register page">Register
+									page</a></li>
+							<li><a href="error404.jsp" title="Error page">Error
+									page</a></li>
+						</ul></li>
+					<li><a href="#" title="Features"><span>Features</span></a>
+						<ul>
+							<li><a href="icons.jsp" title="Icons">Icons</a></li>
+							<li><a href="grid.jsp" title="Grid">Grid</a></li>
+							<li><a href="shortcodes.jsp" title="Shortcodes">Shortcodes</a></li>
+							<li><a href="pricing.jsp" title="Pricing tables">Pricing
+									tables</a></li>
+						</ul></li>
+					<li><a href="contact.jsp" title="Contact"><span>Contact</span></a></li>
+					<li><a
+						href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy"
+						title="Buy now"><span>Buy now</span></a></li>
+				</ul>
+			</nav>
+
+			<nav class="user-nav" role="navigation">
+				<ul>
+					<li class="light"><a href="find_recipe.jsp"
+						title="Search for recipes"><i
+							class="icon icon-themeenergy_search"></i> <span>Search for
+								recipes</span></a></li>
+					<li class="medium current-menu-item"><a href="my_profile.jsp"
+						title="My account"><i class="icon icon-themeenergy_chef-hat"></i>
+							<span>My account</span></a></li>
+					<li class="dark"><a href="submit_recipe.jsp"
+						title="Submit a recipe"><i
+							class="icon icon-themeenergy_fork-spoon"></i> <span>Submit
+								a recipe</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!--//header-->
+
 	<!--main-->
 	<main class="main" role="main">
 		<!--wrap-->
@@ -53,8 +149,8 @@
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
-			
-		
+
+
 			<!--content-->
 			<section class="content">
 				<!--row-->
@@ -65,53 +161,68 @@
 							<img src="resources/images/Mr.hong.png" alt="" />
 						</figure>
 						<div class="container">
-							<h2 align="center">홍길동</h2> 
+							<h2 align="center">홍길동</h2>
 						</div>
 					</div>
 					<!--//profile left part-->
-					
+
 					<div class="three-fourth">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#about" title="About me">내 정보</a></li>
+								<li class="active"><a href="#about" title="About me">내정보</a></li>
 								<li><a href="#recipes" title="My recipes">내 레시피</a></li>
 								<li><a href="#favorites" title="My favorites">스크랩 레시피</a></li>
 								<li><a href="#posts" title="My posts">내 게시글</a></li>
-								<li><a href="NewFile.jsp" title="My orderhistory">주문내역</a></li>
-								<!-- 장바구니로 넘어가는 링크 -->
-								<li><a href="#cart" title="My cart" onclick="location.href='VgMktCart.jsp'">장바구니</a></li>
 							</ul>
 						</nav>
-						
+
 						<!--about-->
 						<div class="tab-content" id="about">
 							<div class="row">
 								<dl class="basic two-third">
 									<dt>이름</dt>
 									<dd>홍길동(변수)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgRsnMr.jsp" target='_blank'>회원탈퇴</a></dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgRsnMr.jsp" target='_blank'>회원탈퇴</a>
+									</dd>
 									<dt>채식종류</dt>
 									<dd>락토-오보 베지테리언(변수,드롭다운)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgEdtMc.jsp" target='_blank'>채식 종류 변경</a></dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgEdtMc.jsp" target='_blank'>채식 종류 변경</a>
+									</dd>
 									<dt>닉네임</dt>
 									<dd>호부호형못함(변수)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgEdtMn.jsp" target='_blank'>닉네임 변경</a></dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgEdtMn.jsp" target='_blank'>닉네임 변경</a>
+									</dd>
 									<dt>비밀번호</dt>
 									<dd>*************(변수,안보여줌)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgEdtMp.jsp" target='_blank'>비밀번호 변경</a></dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgEdtMp.jsp" target='_blank'>비밀번호 변경</a>
+									</dd>
 									<dt>주소</dt>
 									<dd>경기도 수원시 팔달구 중부대로 101번지 3층(변수)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgEdtMa.jsp" target='_blank'>주소 변경</a></dd>
-									<dt>내 포인트</dt>
-									<dd>1000P(변수)</dd>
-									<dd style="text-align: right;background-color: transparent;width: 30%;"><a href="VgMpgShwMp.jsp" target='_blank'>내역 보기</a></dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgEdtMa.jsp" target='_blank'>주소 변경</a>
+									</dd>
+									<dt>내 등급</dt>
+									<dd>실버(변수)</dd>
+									<dd
+										style="text-align: right; background-color: transparent; width: 30%;">
+										<a href="VgMpgShwMp.jsp" target='_blank'>내역 보기</a>
+									</dd>
 								</dl>
-								
-								
+
+
 							</div>
 						</div>
 						<!--//about-->
-					
+
 						<!--my recipes-->
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
@@ -119,63 +230,106 @@
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Thai fried rice with fruit and vegetables</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
+												vegetables</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-medium"></i><a href="#">medium</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry
+												tomatoes</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-hard"></i><a href="#">hard</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-easy"></i><a href="#">easy</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
 							</div>
+							<div class="pager">
+								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
+								<a href="#">4</a> <a href="#">5</a>
+							</div>
 						</div>
+
 						<!--//my recipes-->
-						
-						
+
+
 						<!--my favorites-->
 						<div class="tab-content" id="favorites">
 							<div class="entries row">
@@ -183,130 +337,276 @@
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Thai fried rice with fruit and vegetables</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
+												vegetables</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-medium"></i><a href="#">medium</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry
+												tomatoes</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-hard"></i><a href="#">hard</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
 										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgRcpDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption>
+											<a href="VgRcpDtail.jsp"><i
+												class="icon icon-themeenergy_eye2"></i> <span>View
+													recipe</span></a>
+										</figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a></h2> 
+										<h2>
+											<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a></div>
+												<div class="difficulty">
+													<i class="ico i-easy"></i><a href="#">easy</a>
+												</div>
+												<div class="likes">
+													<i class="fa fa-heart"></i><a href="#">10</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
 							</div>
+							<div class="pager">
+								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
+								<a href="#">4</a> <a href="#">5</a>
+							</div>
 						</div>
 						<!--//my favorites-->
-						
+
 						<!--my posts-->
 						<div class="tab-content" id="posts">
 							<!--entries-->
 							<div class="entries row">
 								<!--item-->
 								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
+
 									<div class="container">
-										<h2><a href="VgCmuDtail.jsp">Barbeque party</a></h2> 
+										<h2>
+											<a href="VgCmuDtail.jsp">Barbeque party</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">27</a></div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
+
 									<div class="container">
-										<h2><a href="VgCmuDtail.jsp">How to make sushi</a></h2> 
+										<h2>
+											<a href="VgCmuDtail.jsp">How to make sushi</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">27</a></div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
+
 								<!--item-->
 								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
+
 									<div class="container">
-										<h2><a href="VgCmuDtail.jsp">Make your own bread</a></h2> 
+										<h2>
+											<a href="VgCmuDtail.jsp">Make your own bread</a>
+										</h2>
 										<div class="actions">
 											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">27</a></div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
 											</div>
 										</div>
 										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
 										</div>
 									</div>
 								</div>
+
+								<!--item-->
+								<!--item-->
+								<div class="entry one-third">
+
+									<div class="container">
+										<h2>
+											<a href="VgCmuDtail.jsp">Make your own bread</a>
+										</h2>
+										<div class="actions">
+											<div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
+											</div>
+										</div>
+										<div class="excerpt">
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
+										</div>
+									</div>
+								</div>
+
+								<!--item-->
+								<!--item-->
+								<div class="entry one-third">
+
+									<div class="container">
+										<h2>
+											<a href="VgCmuDtail.jsp">Make your own bread</a>
+										</h2>
+										<div class="actions">
+											<div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
+											</div>
+										</div>
+										<div class="excerpt">
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
+										</div>
+									</div>
+								</div>
+
+								<!--item-->
+								<!--item-->
+								<div class="entry one-third">
+
+									<div class="container">
+										<h2>
+											<a href="VgCmuDtail.jsp">Make your own bread</a>
+										</h2>
+										<div class="actions">
+											<div>
+												<div class="date">
+													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
+												</div>
+												<div class="comments">
+													<i class="fa fa-comment"></i><a
+														href="VgCmuDtail.jsp#comments">27</a>
+												</div>
+											</div>
+										</div>
+										<div class="excerpt">
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
+												amet . . .</p>
+										</div>
+									</div>
+								</div>
+
 								<!--item-->
 							</div>
 							<!--//entries-->
+							<div class="pager">
+								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
+								<a href="#">4</a> <a href="#">5</a>
+							</div>
 						</div>
 						<!--//my posts-->
 					</div>
@@ -318,11 +618,68 @@
 		<!--//wrap-->
 	</main>
 	<!--//main-->
-	
-    <!--footer-->
-    <%@ include file="resources/Footer.jsp" %>
-    <!--//footer-->	
-	
+
+
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+		<div class="wrap clearfix">
+			<div class="row">
+				<article class="one-half">
+					<h5>About SocialChef Community</h5>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+						aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+						exerci.</p>
+				</article>
+				<article class="one-fourth">
+					<h5>Need help?</h5>
+					<p>Contact us via phone or email</p>
+					<p>
+						<em>T:</em> +1 555 555 555<br /> <em>E:</em> <a href="#">socialchef@email.com</a>
+					</p>
+				</article>
+				<article class="one-fourth">
+					<h5>Follow us</h5>
+					<ul class="social">
+						<li><a href="#" title="facebook"><i
+								class="fa fa-fw fa-facebook"></i></a></li>
+						<li><a href="#" title="youtube"><i
+								class="fa  fa-fw fa-youtube"></i></a></li>
+						<li><a href="#" title="rss"><i class="fa  fa-fw fa-rss"></i></a></li>
+						<li><a href="#" title="gplus"><i
+								class="fa fa-fw fa-google-plus"></i></a></li>
+						<li><a href="#" title="linkedin"><i
+								class="fa fa-fw fa-linkedin"></i></a></li>
+						<li><a href="#" title="twitter"><i
+								class="fa fa-fw fa-twitter"></i></a></li>
+						<li><a href="#" title="pinterest"><i
+								class="fa fa-fw fa-pinterest-p"></i></a></li>
+						<li><a href="#" title="vimeo"><i
+								class="fa fa-fw fa-vimeo"></i></a></li>
+					</ul>
+				</article>
+
+				<div class="bottom">
+					<p class="copy">Copyright 2016 SocialChef. All rights reserved</p>
+
+					<nav class="foot-nav">
+						<ul>
+							<li><a href="index.jsp" title="Home">Home</a></li>
+							<li><a href="recipes.jsp" title="Recipes">Recipes</a></li>
+							<li><a href="blog.jsp" title="Blog">Blog</a></li>
+							<li><a href="contact.jsp" title="Contact">Contact</a></li>
+							<li><a href="find_recipe.jsp" title="Search for recipes">Search
+									for recipes</a></li>
+							<li><a href="login.jsp" title="Login">Login</a></li>
+							<li><a href="register.jsp" title="Register">Register</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--//footer-->
+
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>
 	<script src="resources/js/jquery.slicknav.min.js"></script>
