@@ -395,7 +395,7 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .submit_recipe .ingredient > div 				{padding-right:20px;float:left;}
 .submit_recipe .large					 	{width:50%;}
 .submit_recipe .small					 	{width:11.7%;}
-.submit_recipe .remove						{float:right;font-size:37px;padding:0;width:37px;height:37px;line-height:37px;}
+.submit_recipe .remove						{float:none;font-size:37px;padding:0;width:37px;height:37px;line-height:37px;}
 .submit_recipe .instruction .full			{width:95%;}
 .submit_recipe h2		{padding:0 0 18px;}
 .submit_recipe h2 span 	{font-size:13px;font-weight:400;display:inline-block;}
@@ -499,7 +499,7 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .boxed li a:hover			{-webkit-box-shadow:inset 0 0 30px rgba(0,0,0,.2);-moz-box-shadow:inset 0 0 30px rgba(0,0,0,.2);box-shadow:inset 0 0 30px rgba(0,0,0,.2);}
 .boxed li a:hover .icon 		{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}
 
-.above-sidebar .boxed li {width: auto;margin:0 auto;padding:40px;height: 20%;font-size: 100%;}
+.above-sidebar .boxed li {width: auto;margin:0 auto;margin-left: 20px;padding:40px;height: 20%;font-size: 100%;}
 
 
 

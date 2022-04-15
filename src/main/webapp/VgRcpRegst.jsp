@@ -11,8 +11,7 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
+	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
@@ -35,113 +34,115 @@
     <!--header-->
     <%@ include file="resources/Header.jsp" %> 
     <!--//header--> 
-		
+	<form>
 	<!--main-->
-	<main class="main" role="main">
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<!--breadcrumbs-->
-			<nav class="breadcrumbs">
-				<ul>
-					<li><a href="VgMain.jsp" title="Home">Home</a></li>
-					<li>Submit a recipe</li>
-				</ul>
-			</nav>
-			<!--//breadcrumbs-->
-			
-			<!--row-->
-			<div class="row">
-				<header class="s-title">
-					<h1>Add a new recipe</h1>
-				</header>
-					
-				<!--content-->
-				<section class="content full-width">
-					<div class="submit_recipe container">
-						<form>
-							<section>
-								<h2>Basics</h2>
-								<p>All fields are required.</p>
-								<div class="f-row">
-									<div class="full"><input type="text" placeholder="Recipe title" /></div>
-								</div>
-								<div class="f-row">
-									<div class="third"><input type="text" placeholder="Preparation time" /></div>
-									<div class="third"><input type="text" placeholder="Cooking time" /></div>
-									<div class="third"><input type="text" placeholder="Difficulty" /></div>
-								</div>
-								<div class="f-row">
-									<div class="third"><input type="text" placeholder="Serves how many people?" /></div>
-									<div class="third"><select><option selected="selected">Select a category</option></select></div>
-								</div>
-							</section>
-							
-							<section>
-								<h2>Description</h2>
-								<div class="f-row">
-									<div class="full"><textarea placeholder="Recipe title"></textarea></div>
-								</div>
-							</section>	
-							
-							<section>
-								<h2>Ingredients</h2>
-								<div class="f-row ingredient">
-									<div class="large"><input type="text" placeholder="Ingredient" /></div>
-									<div class="small"><input type="text" placeholder="Quantity" /></div>
-									<div class="third"><select><option selected="selected">Select a category</option></select></div>
-									<button class="remove">-</button>
-								</div>
+		<main class="main" role="main">
+			<!--wrap-->
+			<div class="wrap clearfix">
+				<!--breadcrumbs-->
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="VgMain.jsp" title="Home">메인</a></li>
+						<li>레시피 등록</li>
+					</ul>
+				</nav>
+				<!--//breadcrumbs-->
+				
+				<!--row-->
+				<div class="row">
+					<header class="s-title">
+					</header>
+						
+					<!--content-->
+					<section class="content full-width">
+						<div class="submit_recipe container">
+							<form>
+								<section>
+									<div class="f-row">
+										<div class="full"><span style="font-size: x-large;font-weight: 600;">제목 입력하기</span>
+										<input type="text" placeholder="레시피의 제목을 입력해주세요" style="width: 75% !important;float: right !important;"/></div>
+									</div>
+									<div class="f-row">
+										<div class="full"><span style="font-size: x-large;font-weight: 600;">한줄설명 입력하기</span>
+										<input type="text" placeholder="레시피를 소개할 수 있는 한줄설명을 입력해주세요" style="width: 75% !important;float: right !important;" /></div>
+									</div>
+									<div class="f-row">
+										<div class="third" style="width: 50%"><span>조리시간 총  </span><input id="cocktime" type="text" placeholder="조리 시간" style="float: none !important; width: 80px !important;"/><span> 분 소요 (숫자로만 입력해주세요)</span></div>
+										<div class="third" style="float: right !important;">
+										<select naem="vege" required>
+										<option disabled selected style="display: none;">알맞는 채식의 유형을 선택해주세요</option>
+										<option>프루테리언</option>
+										<option>비건</option>
+										<option>락토 베지테리언</option>
+										<option>오보 베지테리언</option>
+										<option>락토 오보 베지테리언</option>
+										<option>폴로 베지테리언</option>
+										</select>
+										</div>
+										<div class="third" style="width: 50%"><span>조리분량 총  </span><input id="cocktime" type="text" placeholder="조리 분량" style="float: none !important; width: 80px !important;"/><span> 인분 (숫자로만 입력해주세요)</span></div>
+									</div>
+								</section>
+								<section>
+									<div class="f-row"><span style="font-size: x-large;font-weight: 600;">재료 입력하기</span>
+									</div>
+									<div class="f-row ingredient">
+										<div class="large"><input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)" /></div>
+										<div class="small"><input type="text" placeholder="수량 (예. 1포기)" /></div>
+										<button class="remove">-</button>
+									</div>
+									<div class="f-row full">
+										<button class="add">재료 추가하기</button>
+									</div>
+								</section>
+								<section>
+									<div class="f-row"><span style="font-size: x-large;font-weight: 600;">조리과정 입력하기</span>
+									</div>
+									<div class="f-row ingredient">
+										<div class="large" style="width: 80%; "><input type="text" placeholder="(한 번에 각 단계에 조리과정 입력)"/></div>
+										<button class="remove">-</button>
+									</div>
+									<div class="f-row full">
+										<button class="add">조리과정 단계 추가하기</button>
+									</div>
+								</section>
+								
+								<section>
+									<div class="full"><span style="font-size: x-large;font-weight: 600;">사진</span>(대표사진 1장만 등록해주세요)
+									<div class="f-row full">
+										<input type="file" />
+									</div>
+									</div>
+								</section>	
+								
+								<section>
+									<h2>상태 <span>(이 레시피를 추가로 편집하시겠습니까, 아니면 게시할 준비가 되셨습니까?)</span></h2>
+									<div class="f-row full">
+										<input type="radio" id="r1" name="radio"/>
+										<label for="r1">아직 작업 중입니다.</label>
+									</div>
+									<div class="f-row full">
+										<input type="radio" id="r2" name="radio"/>
+										<label for="r2">이 레시피를 게시할 준비가 되었습니다.</label>
+									</div>
+								</section>
+								
 								<div class="f-row full">
-									<button class="add">Add an ingredient</button>
+									<input type="submit" class="button" id="submitRecipe" value="레시피 게시" />
 								</div>
-							</section>	
-							
-							<section>
-								<h2>Instructions <span>(enter instructions, each step at a time)</span></h2>
-								<div class="f-row instruction">
-									<div class="full"><input type="text" placeholder="Instructions" /></div>
-									<button class="remove">-</button>
-								</div>
-								<div class="f-row full">
-									<button class="add">Add a step</button>
-								</div>
-							</section>
-							
-							<section>
-								<h2>Photo</h2>
-								<div class="f-row full">
-									<input type="file" />
-								</div>
-							</section>	
-							
-							<section>
-								<h2>Status <span>(would you like to further edit this recipe or are you ready to publish it?)</span></h2>
-								<div class="f-row full">
-									<input type="radio" id="r1" name="radio"/>
-									<label for="r1">I am still working on it</label>
-								</div>
-								<div class="f-row full">
-									<input type="radio" id="r2" name="radio"/>
-									<label for="r2">I am ready to publish this recipe</label>
-								</div>
-							</section>
-							
-							<div class="f-row full">
-								<input type="submit" class="button" id="submitRecipe" value="Publish this recipe" />
-							</div>
-						</form>
-					</div>
-				</section>
-				<!--//content-->
+							</form>
+						</div>
+					</section>
+					<!--//content-->
+				</div>
+				<!--//row-->
 			</div>
-			<!--//row-->
-		</div>
-		<!--//wrap-->
-	</main>
-	<!--//main-->
-	
-	
-    <!--footer-->
+			<!--//wrap-->
+		</main>
+		<!--//main-->
+		
+		
+	  </form>
+	<!--footer-->
     <%@ include file="resources/Footer.jsp" %>
     <!--//footer-->
 	

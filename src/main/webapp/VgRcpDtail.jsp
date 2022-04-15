@@ -18,6 +18,7 @@
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="resources/images/favicon.ico" />
 	
+	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -63,12 +64,15 @@
 							<div class="row">
 								<!--two-third-->
 								<article class="two-third">
-									<div class="image"><a href="#"><img src="resources/images/restmb_idxmake.jpg" alt="" /></a></div>
-									<div class="intro"><p><strong>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas</strong></p> <p>Molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p></div>
+									<div class="image"><a href="#"><img src="resources/images/img.jpg" alt="" /></a></div>
+									<div class="intro"><p><strong>레시피 한줄 소개</strong></p> <p></p></div>
 									<div class="instructions">
 										<ol>
-											<li>물 2컵에 렌틸콩 2컵을 넣고 20분간 잘 저으면서 끓여준다.</li>
+											<li>물 2컵에 렌틸콩 2컵을 넣고 20분간 잘 저으면서 끓여준다.
+											동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리 나라 만세
+											</li>
 											<li>올리브 오일을 두른 후라이팬에 양파, 마늘을 넣고 2~3분간 볶는다.</li>
+											<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
 											<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
 										</ol>
 									</div>
@@ -251,71 +255,6 @@
 				</section>
 				<!--//content-->
 				
-				<!--right sidebar-->
-				<aside class="sidebar one-fourth">
-					<div class="widget nutrition">
-						<h3>Nutrition facts <span>(per serving)</span></h3>
-						<table>
-							<tr>
-								<td>Calories </td>
-								<td>505</td>
-							</tr>
-							<tr>
-								<td>Protein</td>
-								<td>59g</td>
-							</tr>
-							<tr>
-								<td>Carbs</td>
-								<td>59g</td>
-							</tr>
-							<tr>
-								<td>Fat</td>
-								<td>29g</td>
-							</tr>
-							<tr>
-								<td>Saturates</td>
-								<td>17g</td>
-							</tr>
-							<tr>
-								<td>Fibre</td>
-								<td>2g</td>
-							</tr>
-							<tr>
-								<td>Sugar</td>
-								<td>44g</td>
-							</tr>
-							<tr>
-								<td>Salt</td>
-								<td>0.51g</td>
-							</tr>
-						</table>
-					</div>
-					
-					<div class="widget share">
-						<ul class="boxed">
-							<li class="light"><a href="#" title="Facebook"><i class="fa fa-facebook"></i> <span>Share on Facebook</span></a></li>
-							<li class="medium"><a href="#" title="Twitter"><i class="fa fa-twitter"></i> <span>Share on Twitter</span></a></li>
-							<li class="dark"><a href="#" title="Favourites"><i class="fa fa-heart"></i> <span>Add to Favourites</span></a></li>
-						</ul>
-					</div>
-					
-					<div class="widget members">
-						<h3>Members who liked this recipe</h3>
-						<ul class="boxed">
-						<!-- 개개인의 마이페이지로 이동 -->
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Kimberly C.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Alex J.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Denise M.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Jason H.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Jennifer W.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Anabelle Q.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Thomas M.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Michelle S.</span></a></div></li>
-							<li><div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>Bryan A.</span></a></div></li>
-						</ul>
-					</div>
-				</aside>
-				<!--//right sidebar-->
 			</div>
 			<!--//row-->
 		</div>

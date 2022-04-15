@@ -63,26 +63,18 @@
 								<li><span></span></li>
 							</ul>
 							<ul class="boxed">
-								<li><span>단계별</span></li>
+								<li><a href="#"><span>베스트레시피</span></a></li>
+								<li><a href="#"><span>베스트레시피</span></a></li>
+								<!--<li><a href="#"><span>프루테리언</span></a></li>
+								<li><a href="#"><span>프루테리언</span></a></li> -->
+							</ul>
+							<ul class="boxed">
 								<li><a href="#"><span>프루테리</span></a></li>
 								<li><a href="#"><span>비건</span></a></li>
 								<li><a href="#"><span>락토</span></a></li>
 								<li><a href="#"><span>오보</span></a></li>
 								<li><a href="#"><span>락토오보</span></a></li>
 								<li><a href="#"><span>전체</span></a></li>
-								<!--<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li> -->
-							</ul>
-							<ul class="boxed">
-								<li><span>종류별</span></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<!-- <li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>프루테리언</span></a></li> -->
 							</ul>
 						</div>
 						<div class="RcpSearch">
@@ -108,6 +100,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -126,6 +119,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2>  
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -144,6 +138,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -162,6 +157,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -180,6 +176,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2>  
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -198,6 +195,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -216,6 +214,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -234,6 +233,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -252,6 +252,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2>  
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -270,6 +271,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -288,6 +290,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -306,6 +309,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -324,6 +328,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -342,6 +347,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -360,6 +366,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>
@@ -378,6 +385,7 @@
 								<h2><a href="VgRcpDtail.jsp">음식이름</a></h2> 
 								<div class="actions">
 									<div>
+										<div class="writer" style="width: 200px;border-right: none !important;"><span>닉네임  </span><a href="#">a</a></div>
 										<div class="likes"><span>좋아요 </span><a href="#">10</a></div>
 										<div class="comments"><span>댓글수 </span><a href="VgRcpDtail.jsp#comments">27</a></div>
 									</div>

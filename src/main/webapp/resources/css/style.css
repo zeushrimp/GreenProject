@@ -393,9 +393,9 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .f-row .third 						{width:33.33%;float:left;padding-right:20px;position:relative;}
 .f-row .third:nth-child(3n)			{padding-right:0;}
 .submit_recipe .ingredient > div 				{padding-right:20px;float:left;}
-.submit_recipe .large					 	{width:50%;}
-.submit_recipe .small					 	{width:11.7%;}
-.submit_recipe .remove						{float:right;font-size:37px;padding:0;width:37px;height:37px;line-height:37px;}
+.submit_recipe .large					 	{width:65%;}
+.submit_recipe .small					 	{width:15%;}
+.submit_recipe .remove						{float: none;font-size:37px;padding:0;width:37px;height:37px;line-height:37px;}
 .submit_recipe .instruction .full			{width:95%;}
 .submit_recipe h2		{padding:0 0 18px;}
 .submit_recipe h2 span 	{font-size:13px;font-weight:400;display:inline-block;}
