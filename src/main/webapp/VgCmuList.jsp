@@ -38,9 +38,7 @@
 	<!--//preloader-->
 	
 	<!--header-->
-	<header class="head" role="banner">
-<%-- 		<%@ include file="resources/Header.jsp" %> --%>
-	</header>
+		<%@ include file="resources/Header.jsp" %>
 	<!--//header-->
 		
 	<!--main-->
@@ -236,13 +234,10 @@
 		<!--//wrap-->
 	</main>
 	<!--//main-->
-	
-	
-	<!--footer-->
-	<footer class="foot" role="contentinfo">
-<%-- 		<%@ include file="resources/Footer.jsp" %> --%>
-	</footer>
-	<!--//footer-->
+		
+    <!--footer-->
+    <%@ include file="resources/Footer.jsp" %>
+    <!--//footer-->
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>
