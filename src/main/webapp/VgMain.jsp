@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="resources/css/styleHeader.css" />
 <link rel="stylesheet" href="resources/css/styleFooter.css" />
 <link rel="stylesheet" href="resources/css/icons.css" />
-		
+<link rel="stylesheet" href="resources/css/style.css" />
 		
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
@@ -41,7 +41,6 @@
 	});
 </script>
 
-
 </head>
 <body class="home">
 
@@ -50,18 +49,17 @@
 		<div class="spinner"></div>
 	</div>
 	<!--//preloader-->
-
-	<%@ include file="resources/Header.jsp"%>
+<%@ include file="resources/Header.jsp"%>
+	
 
 	<!--main-->
-	<main class="main" role="main">
+	<main class="main" role="main" style="margin-top: 250px;">
 		<!--intro-->
-		<div class="intro">
+		<!-- <div class="intro">
 			<figure class="bg">
-				<img src="resources/images/int.jpg" width="1920px" height="1440px"
-					alt="" />
+				<img src="resources/images/intro.jpg" alt="" />
 			</figure>
-		</div>
+		</div> -->
 		<!--//intro-->
 
 		<!--wrap-->
@@ -77,13 +75,13 @@
 					<!--cwrap-->
 					<div class="cwrap">
 						<header class="s-title">
-							<h2 class="ribbon bright">Latest recipes</h2>
+							<h2 class="ribbon bright">오늘의 레시피</h2>
 						</header>
 
 						<!--entries-->
 						<div class="entries row">
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -100,7 +98,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-medium"></i><a href="#">medium</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -116,7 +114,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -133,7 +131,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-hard"></i><a href="#">hard</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -149,7 +147,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -165,7 +163,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-easy"></i><a href="#">easy</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -186,17 +184,17 @@
 						<!--//entries-->
 					</div>
 					<!--//cwrap-->
-
+					
 					<!--cwrap-->
 					<div class="cwrap">
 						<header class="s-title">
-							<h2 class="ribbon bright">Latest recipes</h2>
+							<h2 class="ribbon bright">베스트 레시피</h2>
 						</header>
 
 						<!--entries-->
 						<div class="entries row">
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -213,7 +211,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-medium"></i><a href="#">medium</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -229,7 +227,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -246,7 +244,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-hard"></i><a href="#">hard</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -262,7 +260,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -278,7 +276,7 @@
 									<div class="actions">
 										<div>
 											<div class="difficulty">
-												<i class="ico i-easy"></i><a href="#">easy</a>
+												
 											</div>
 											<div class="likes">
 												<i class="fa fa-heart"></i><a href="#">10</a>
@@ -299,18 +297,18 @@
 						<!--//entries-->
 					</div>
 					<!--//cwrap-->
-
+					
 
 
 					<!--cwrap-->
 					<div class="cwrap">
 						<header class="s-title">
-							<h2 class="ribbon bright">Latest articles</h2>
+							<h2 class="ribbon bright">최신글</h2>
 						</header>
 						<!--entries-->
 						<div class="entries row">
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -344,7 +342,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -378,7 +376,7 @@
 							<!--item-->
 
 							<!--item-->
-							<div class="entry one-third">
+							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="resources/images/img.jpg" alt="" />
 									<figcaption>
@@ -417,7 +415,7 @@
 					</div>
 					<!--//cwrap-->
 
-
+				
 				</section>
 				<!--//content-->
 

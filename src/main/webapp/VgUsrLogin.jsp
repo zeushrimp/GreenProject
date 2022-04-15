@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/css/styleHeader.css" />
 <link rel="stylesheet" href="resources/css/styleFooter.css" />
 <link rel="stylesheet" href="resources/css/icons.css" />
+<link rel="stylesheet" href="resources/css/style.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
@@ -93,7 +94,6 @@
 							<p>
 								아직 회원이 아니신가요?&nbsp;<a href="VgUsrRegst.jsp">가입하러 가기</a>
 							</p>
-							<a href="VgAdmMain.jsp">관리자(아직 컨트롤러 없어서 링크 달아둘게요)</a>
 					</div>
 					</form>
 				</section>
