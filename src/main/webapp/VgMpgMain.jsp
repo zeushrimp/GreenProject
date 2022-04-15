@@ -12,46 +12,16 @@
 
 <title>SocialChef</title>
 
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="resources/css/Mpg.css" />
 <link rel="stylesheet" href="resources/css/icons.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
 <link rel="shortcut icon" href="resources/images/favicon.ico" />
-<style type="text/css">
-.tab-content .basic dt {
-	width: 25%;
-	height: 38px;
-	line-height: 40px;
-}
 
-.tab-content .basic dd {
-	width: 45%;
-	height: 38px;
-	line-height: 38px;
-}
-
-.two-third {
-	float: left;
-	width: 100%;
-	padding: 0 15px 30px;
-	max-width: 100%;
-}
-
-.user-nav {
-	float: right;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-@media ( max-width : 1240px) {
-	#about .one-third, #about .two-third {
-		width: 100%;
-	}
-}
-</style>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,8 +54,7 @@
 						</ul></li>
 					<li><a href="blog.jsp" title="Blog"><span>Blog</span></a>
 						<ul>
-							<li><a href="VgCmuDtail.jsp" title="Blog post">Blog
-									post</a></li>
+							<li><a href="VgCmuDtail.jsp" title="Blog post">Blog post</a></li>
 						</ul></li>
 					<li><a href="#" title="Pages"><span>Pages</span></a>
 						<ul>
@@ -100,8 +69,7 @@
 							<li><a href="login.jsp" title="Login page">Login page</a></li>
 							<li><a href="register.jsp" title="Register page">Register
 									page</a></li>
-							<li><a href="error404.jsp" title="Error page">Error
-									page</a></li>
+							<li><a href="error404.jsp" title="Error page">Error page</a></li>
 						</ul></li>
 					<li><a href="#" title="Features"><span>Features</span></a>
 						<ul>
@@ -163,6 +131,10 @@
 						<div class="container">
 							<h2 align="center">홍길동</h2>
 						</div>
+						<div align="right">
+							<a class="btn btn-default" data-target="#modal7"
+								data-toggle="modal">등급표 보기</a>
+						</div>
 					</div>
 					<!--//profile left part-->
 
@@ -184,37 +156,44 @@
 									<dd>홍길동(변수)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgRsnMr.jsp" target='_blank'>회원탈퇴</a>
+										<a class="btn btn-default" data-target="#modal1"
+											data-toggle="modal">회원탈퇴</a>
+
 									</dd>
 									<dt>채식종류</dt>
 									<dd>락토-오보 베지테리언(변수,드롭다운)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMc.jsp" target='_blank'>채식 종류 변경</a>
+										<a class="btn btn-default" data-target="#modal2"
+											data-toggle="modal">채식 종류 변경</a>
 									</dd>
 									<dt>닉네임</dt>
 									<dd>호부호형못함(변수)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMn.jsp" target='_blank'>닉네임 변경</a>
+										<a class="btn btn-default" data-target="#modal3"
+											data-toggle="modal">닉네임 변경</a>
 									</dd>
 									<dt>비밀번호</dt>
 									<dd>*************(변수,안보여줌)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMp.jsp" target='_blank'>비밀번호 변경</a>
+										<a class="btn btn-default" data-target="#modal4"
+											data-toggle="modal">비밀번호 변경</a>
 									</dd>
 									<dt>주소</dt>
 									<dd>경기도 수원시 팔달구 중부대로 101번지 3층(변수)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMa.jsp" target='_blank'>주소 변경</a>
+										<a class="btn btn-default" data-target="#modal5"
+											data-toggle="modal">주소 변경</a>
 									</dd>
 									<dt>내 등급</dt>
 									<dd>실버(변수)</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgShwMp.jsp" target='_blank'>내역 보기</a>
+										<a class="btn btn-default" data-target="#modal6"
+											data-toggle="modal">포인트 내역보기</a>
 									</dd>
 								</dl>
 
@@ -250,7 +229,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -270,8 +250,8 @@
 									</figure>
 									<div class="container">
 										<h2>
-											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry
-												tomatoes</a>
+											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
+												cherry tomatoes</a>
 										</h2>
 										<div class="actions">
 											<div>
@@ -282,7 +262,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -313,7 +294,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -357,7 +339,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -377,8 +360,8 @@
 									</figure>
 									<div class="container">
 										<h2>
-											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with cherry
-												tomatoes</a>
+											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
+												cherry tomatoes</a>
 										</h2>
 										<div class="actions">
 											<div>
@@ -389,7 +372,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -420,7 +404,8 @@
 													<i class="fa fa-heart"></i><a href="#">10</a>
 												</div>
 												<div class="comments">
-													<i class="fa fa-comment"></i><a href="VgRcpDtail.jsp#comments">27</a>
+													<i class="fa fa-comment"></i><a
+														href="VgRcpDtail.jsp#comments">27</a>
 												</div>
 											</div>
 										</div>
@@ -677,13 +662,21 @@
 				</div>
 			</div>
 		</div>
+
 	</footer>
 	<!--//footer-->
-
+	<%@ include file="VgMpgEdtMa.jsp"%>
+	<%@ include file="VgMpgEdtMc.jsp"%>
+	<%@ include file="VgMpgEdtMn.jsp"%>
+	<%@ include file="VgMpgEdtMp.jsp"%>
+	<%@ include file="VgMpgRsnMr.jsp"%>
+	<%@ include file="VgMpgShwMp.jsp"%>
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>
 	<script src="resources/js/jquery.slicknav.min.js"></script>
 	<script src="resources/js/scripts.js"></script>
+	<script src="resources/js/bootstrap.js"></script>
+
 </body>
 </html>
 
