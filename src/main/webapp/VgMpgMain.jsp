@@ -195,7 +195,28 @@
 										<a class="btn btn-default" data-target="#modal6"
 											data-toggle="modal">포인트 내역보기</a>
 									</dd>
+
+									<!-- 회원탈퇴시 checkbox -->
+									<div class="VgMpgRsnMrshow">
+										<span class="checkT"
+											style="width: 15%; background-color: transparent; text-align: right;">
+											<input type="checkbox">
+										</span> <span style="width: 55%;">회원정보만 삭제되고, 게시글을 그대로 남습니다.
+											삭제하시겠습니까 ? </span>
+										<%!int i;%>
+										<%
+										for (int i = 0; i < 8; i++) {
+										%>
+										&nbsp;
+										<%
+										}
+										%>
+										<span class="btnArea"><button class="btn"
+												disabled="disabled" onclick="alert('탈퇴되었습니다.')"
+												type="button">탈퇴하기</button></span>
+									</div>
 								</dl>
+
 
 
 							</div>
@@ -676,6 +697,7 @@
 	<script src="resources/js/jquery.slicknav.min.js"></script>
 	<script src="resources/js/scripts.js"></script>
 	<script src="resources/js/bootstrap.js"></script>
+	<script src="resources/js/Mpg.js"></script>
 
 </body>
 </html>
