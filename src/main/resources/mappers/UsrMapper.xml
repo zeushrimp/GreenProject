@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="UsrDao">
+  <mapper namespace="Usr">
   
   	<select id="test" resultType="USR">
   	select * from USR
