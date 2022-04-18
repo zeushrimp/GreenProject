@@ -1,5 +1,6 @@
-
-target/*
+MANIFEST.MF
+pom.properties
+target\*
 META-INF/*
 .springBeans
 # Compiled class file
