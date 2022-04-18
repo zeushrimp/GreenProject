@@ -11,9 +11,9 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
-<link rel="stylesheet" href="resources/css/styleRcp.css" />
+	<link rel="stylesheet" href="resources/css/styleHeader.css" />
+	<link rel="stylesheet" href="resources/css/styleFooter.css" />
+	<link rel="stylesheet" href="resources/css/styleRcp.css" />
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
