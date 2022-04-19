@@ -19,6 +19,7 @@
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
+
 <link rel="shortcut icon" href="resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,31 +42,7 @@ select option[value=""][disabled] {
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-function idcheck(){
-    if(form.u_id.value==""){
-        alert("아이디를 입력해주세요");
-        form.u_id.focus();
-        return false;
-    }
 
-    $.ajax({
-		url : "/login/checkId.do",
-		type : "post",
-		dataType : "text",
-		data : {"USR_ID" : $("#id").val()},
-		success : function(data){
-			if(data == 1){
-				alert("중복된 아이디입니다.");
-			}else if(data == 0){
-				$("#idDuplication").attr("value", $("#id").val());
-				alert("사용가능한 아이디입니다.");
-			}
-		}
-	})
-}
-
-</script>
 
 
 
@@ -152,18 +129,19 @@ function idcheck(){
 							<div class="f-row">
 
 
-								<input type="text" placeholder="아이디" name="USR_ID" id="id"
+								<input type="text" placeholder="아이디" name="USR_ID" id="USR_ID"
 									class="int" onkeydown="inputIdChk()" title="4~12자의 영문 대소문자와 숫자로만 입력."
 									style="width:200px !important;"
 									required />
-								<input type="button" onclick="idcheck()" value="중복확인"><br>
+								<input type="button" onclick="idcheck()" value="중복확인" class="recheck"><br>
+								 <input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck" >
 								<div id="idmessage" style="display: none;"></div>
 
 							</div>
 							<div class="f-row">
 
 
-								<input type="text" placeholder="이름" name="USR_NAME" size="30"/>
+								<input type="text" placeholder="이름" id = "USR_NAME" name="USR_NAME" size="30" required/>
 
 
 							</div>
@@ -176,7 +154,7 @@ function idcheck(){
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1" onkeyup="check_pw()"/>
+								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1"/>
 	
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
@@ -194,24 +172,15 @@ function idcheck(){
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_TEL" class="usernickname"
-									value="" minlength="3" maxlength="5" size="30"
-									placeholder="전화번호" title="3~5자의 한글 입력."
-									required />
+								<input type="text" name="USR_TEL" id="USR_TEL" placeholder="전화번호" required />
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_NICK" class="usernickname"
-									value="" minlength="3" maxlength="5" size="30"
-									placeholder="닉네임" title="3~5자의 한글 입력."
-									required />
+								<input type="text" name="USR_NICK" id="USR_NICK" placeholder="닉네임" required />
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_EMAIL" class="usernickname"
-									placeholder="이메일"
-									pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}"
-									required />
+								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}" required />
 							</div>
 							<div class="f-row">
 

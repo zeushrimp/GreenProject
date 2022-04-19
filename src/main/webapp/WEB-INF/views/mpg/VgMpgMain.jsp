@@ -12,22 +12,22 @@
 
 <title>SocialChef</title>
 
-<link rel="stylesheet" href="resources/css/bootstrap.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
-<link rel="stylesheet" href="resources/css/Mpg.css" />
-<link rel="stylesheet" href="resources/css/icons.css" />
+<link rel="stylesheet" href="/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/Mpg.css" />
+<link rel="stylesheet" href="/resources/css/icons.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.resources/js/1.3.0/respond.min.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond./resources/js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
@@ -42,7 +42,7 @@
 		<!--wrap-->
 		<div class="wrap clearfix">
 			<a href="index.jsp" title="SocialChef" class="logo"><img
-				src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+				src="/resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul>
@@ -126,7 +126,7 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="resources/images/Mr.hong.png" alt="" />
+							<img src="/resources/images/Mr.hong.png" alt="" />
 						</figure>
 						<div class="container">
 							<h2 align="center">홍길동</h2>
@@ -229,7 +229,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -262,7 +262,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -295,7 +295,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -339,7 +339,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -372,7 +372,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -405,7 +405,7 @@
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="resources/images/img.jpg" alt="" />
+										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
 											<a href="VgRcpDtail.jsp"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
@@ -692,12 +692,12 @@
 	<%@ include file="VgMpgEdtMp.jsp"%>
 	<%@ include file="VgMpgRsnMr.jsp"%>
 	<%@ include file="VgMpgShwMp.jsp"%>
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
-	<script src="resources/js/bootstrap.js"></script>
-	<script src="resources/js/Mpg.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
+	<script src="/resources/js/bootstrap.js"></script>
+	<script src="/resources/js/Mpg.js"></script>
 
 </body>
 </html>
