@@ -11,6 +11,9 @@ public class UsrRegSerImpl implements UsrRegSer{
 		@Autowired
 		private UsrRegDao usrregdao;
 		
-		
+		public int checkId(UsrVO vo) {
+			
+			return usrregdao.checkId(vo);
+		};
 
 }

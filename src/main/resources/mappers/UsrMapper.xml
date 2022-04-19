@@ -8,4 +8,9 @@
   	<select id="test" resultType="USR">
   	select * from USR
   	</select>
+  	
+  	<select id="checkId" parameterType="USR" resultType="int">
+  		SELECT count(USR_ID) FROM USR where USR_ID = #{USR_ID}
+  	</select>
+  	
   </mapper>

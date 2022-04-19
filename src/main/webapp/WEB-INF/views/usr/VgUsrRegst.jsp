@@ -13,13 +13,13 @@
 <title>SocialChef</title>
 
 
-<link rel="stylesheet" href="resources/css/icons.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="../../../resources/css/icons.css" />
+<link rel="stylesheet" href="../../../resources/css/style.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -124,7 +124,7 @@ select option[value=""][disabled] {
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="index.html" title="SocialChef" class="logo"><img src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+			<a href="index.html" title="SocialChef" class="logo"><img src="../../../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 			
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul>
@@ -185,7 +185,7 @@ select option[value=""][disabled] {
 						<h3>회원가입하기</h3>
 
 
-						<form method="post" action="userInsert.do" name="userinput"
+						<form method="post" action="VgUsrRegst_com.do" name="userinput"
 							id="userinput">
 							<div class="f-row">
 
@@ -365,10 +365,10 @@ select option[value=""][disabled] {
 	</footer>
 
 
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="../../../resources/js/jquery-3.1.0.min.js"></script>
+	<script src="../../../resources/js/jquery.uniform.min.js"></script>
+	<script src="../../../resources/js/jquery.slicknav.min.js"></script>
+	<script src="../../../resources/js/scripts.js"></script>
 	
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
