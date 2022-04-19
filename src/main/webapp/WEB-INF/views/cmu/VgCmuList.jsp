@@ -70,13 +70,13 @@
 					<!--blog entry-->
 					<div class="entry one-third">
 						<figure>
-							<img src="resources/images/img.jpg" alt="" />
+							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
@@ -89,49 +89,13 @@
 					
 					<div class="entry one-third">
 						<figure>
-							<img src="resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<img src="resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<!-- 상세 페이지 가는 링크 -->
 							<img src="/resources/images/img.jpg" alt="" />
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<!-- 상세 페이지 가는 링크 -->
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
@@ -145,11 +109,29 @@
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
+							<div class="actions">
+								<div>
+									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
+									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry one-third">
+						<figure>
+							<!-- 상세 페이지 가는 링크 -->
+							<img src="/resources/images/img.jpg" alt="" />
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+						</figure>
+						<div class="container">
+							<!-- 상세 페이지 가는 링크 -->
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
@@ -163,11 +145,11 @@
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
@@ -181,11 +163,11 @@
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
@@ -199,15 +181,33 @@
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
 							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
 									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
+									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry one-third">
+						<figure>
+							<img src="/resources/images/img.jpg" alt="" />
+							<!-- 상세 페이지 가는 링크 -->
+							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+						</figure>
+						<div class="container">
+							<!-- 상세 페이지 가는 링크 -->
+							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
+							<div class="actions">
+								<div>
+									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
 						</div>
@@ -215,16 +215,16 @@
 
 					<!-- 커뮤니티 리스트 버튼 링크 -->
 					<div class="pager">
-						<a href="VgCmuList.jsp">1</a>
-						<a href="VgCmuList.jsp" class="current">2</a>
-						<a href="VgCmuList.jsp">3</a>
-						<a href="VgCmuList.jsp">4</a>
-						<a href="VgCmuList.jsp">5</a>
+						<a href="VgCmuList.do">1</a>
+						<a href="VgCmuList.do" class="current">2</a>
+						<a href="VgCmuList.do">3</a>
+						<a href="VgCmuList.do">4</a>
+						<a href="VgCmuList.do">5</a>
 					</div>
 				</section>
 				<div class ="cmurlink">
 					<!-- 글 작성가는 링크 -->
-					<a class="R-rlink" href="VgCmuRegst.jsp"> 게시글 작성 </a>
+					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
 				</div>
 				<!--//content-->
 				

@@ -11,11 +11,11 @@
 	
 	<title>SocialChef</title>
 	
-	<link rel="stylesheet" href="resources/css/style.css" />
-	<link rel="stylesheet" href="resources/css/icons.css" />
+	<link rel="stylesheet" href="/resources/css/style.css" />
+	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="resources/images/favicon.ico" />
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
 		.three-fourth {width: 100%;}
 		.comments .depth-4 	{padding-left:180px;margin-left:0;}
@@ -87,7 +87,7 @@
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
-								<a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
+								<a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
 							</div>
 						</div>
 						<div class="container">
@@ -105,7 +105,7 @@
 							<!--comment-->
 							<li class="comment depth-1">
 								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
+								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
 										<strong>Kimberly C.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
@@ -120,7 +120,7 @@
 							<!--comment-->
 							<li class="comment depth-1">
 								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
+								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
 										<strong>Alex J.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
@@ -135,7 +135,7 @@
 							<!--comment-->
 							<li class="comment depth-4">
 								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
+								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
 										<strong>Kimberly C.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
@@ -150,7 +150,7 @@
 							<!--comment-->
 							<li class="comment depth-5">
 								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
+								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
 										<strong>Alex J.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
@@ -165,7 +165,7 @@
 							<!--comment-->
 							<li class="comment depth-1">
 								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /></a></div>
+								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
 										<strong>Denise M.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
@@ -184,7 +184,7 @@
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
-							<p><strong>주의 :</strong> 욕설은 작성이 불가합니다.<span class="req">*</span></p>
+							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다.<span class="req">*</span></p>
 							<form>
 								<div class="f-row">
 									<textarea></textarea>
@@ -204,7 +204,7 @@
 			</div>
 				<div class ="cmurlink">
 					<!-- 글 목록가는 링크 -->
-					<a class="R-rlink" href="VgCmuList.jsp"> 글 목록 가기</a>
+					<a class="R-rlink" href="VgCmuList.do"> 글 목록 가기</a>
 				</div>
 			<!--//row-->
 		</div>
@@ -216,10 +216,10 @@
     <%@ include file="/resources/Footer.jsp" %>
     <!--//footer-->
 	
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 </body>
 </html>
 

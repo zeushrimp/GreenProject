@@ -11,11 +11,11 @@
 	
 	<title>SocialChef</title>
 	
-	<link rel="stylesheet" href="resources/css/style.css" />
-	<link rel="stylesheet" href="resources/css/icons.css" />
+	<link rel="stylesheet" href="/resources/css/style.css" />
+	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="resources/images/favicon.ico" />
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -26,7 +26,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
 
-		<style type="text/css">
+	<style type="text/css">
 		.post .container-cmu {width:100%;}
 		.three-fourth {width: 100%;}
 		
@@ -91,7 +91,7 @@
 						</select>
 					</div>
 					<div class="cmucon cumtitle">
-						<p><input  type="text" name="cmucomtitle" placeholder="제목을 적어주세요." /></p>
+						<p><input  type="text" name="cmuregtitle" id="cmuregtitle" value="" placeholder="제목을 적어주세요." /></p>
 					</div>
 					
 						<div class="entry-meta">
@@ -101,7 +101,7 @@
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
-								<a href="VgMpgMain.jsp"><img src="resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
+								<a href="/mpg/VgMpgInUsr.do"><img src="/resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
 							</div>
 						</div>
 						<div class="container-cmu">
@@ -175,7 +175,7 @@
 				</section>
 				<div class ="cmurlink">
 					<!-- 글 목록가는 링크 -->
-					<a class="R-rlink" href="VgCmuList.jsp"> 글 목록 가기</a>
+					<a class="R-rlink" href="VgCmuList.do"> 글 목록 가기</a>
 				</div>
 				<!--//content-->			
 			</div>
@@ -189,10 +189,10 @@
     <%@ include file="/resources/Footer.jsp" %>
     <!--//footer-->
 	
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 </body>
 </html>
 
