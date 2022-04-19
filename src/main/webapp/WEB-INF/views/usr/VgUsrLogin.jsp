@@ -106,12 +106,12 @@
 				<section class="content center full-width">
 					<div class="modal container">
 						<h3>로그인</h3>
-						<form action="VgMain.jsp" method="post">
+						<form action="VgUsrLogincon.do" method="post">
 							<div class="f-row">
 
 
 
-								<input type="text" placeholder="Your username" id="id" name="id" />
+								<input type="text" placeholder="Your username" id="id" name="USR_ID" />
 
 
 
@@ -122,7 +122,7 @@
 
 
 								<input type="password" placeholder="Your password" id="password"
-									name="password" />
+									name="USR_PW" />
 
 
 

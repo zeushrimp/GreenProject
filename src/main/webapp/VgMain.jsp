@@ -97,7 +97,7 @@ width: 100%;
 			<nav class="user-nav" role="navigation">
 				<ul>
 					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
-					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
+					<li class="medium"><a href="/mpg/VgMpgMain.do" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
 					<li class="dark"><a href="submit_recipe.html" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>Submit a recipe</span></a></li>
 				</ul>
 			</nav>
@@ -528,7 +528,7 @@ width: 100%;
 							<li><a href="blog.html" title="Blog">Blog</a></li>
 							<li><a href="contact.html" title="Contact">Contact</a></li>    
 							<li><a href="find_recipe.html" title="Search for recipes">Search for recipes</a></li>
-							<li><a href="login.html" title="Login">Login</a></li>	<li><a href="register.html" title="Register">Register</a></li>													
+							<li><a href="/usr/VgUsrLogin.do" title="Login">Login</a></li>	<li><a href="/usr/VgUsrRegst.do" title="Register">Register</a></li>													
 						</ul>
 					</nav>
 				</div>

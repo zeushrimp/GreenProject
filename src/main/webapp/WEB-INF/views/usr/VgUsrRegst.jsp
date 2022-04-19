@@ -19,7 +19,7 @@
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
+<link rel="shortcut icon" href="resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,67 +42,29 @@ select option[value=""][disabled] {
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	$(function() {
-		$('.userid').keyup(function() {
-			var id = $('input[name=id]').val();
-			// 제이쿼리에서 제공하는 메소드. 화면과 무관하게 폼태그에서 강제로 서브밋되는 과정
-			$.ajax({
-				url : 'IdCheck.do', // STS라면 *.do
-				type : 'get',
-				data : {
-					userid : id
-				}, // 미리 변수화 시켜도 상관없음 input 태그로 만든 변수다. {키:값} 같이..
-				dataType : 'text', // 응답 데이터. VO의 형태면 무조건 json으로 받는다. 내가즈는건 데이터. 받는 건 데이터 타입(서버 응답데이터)
-				success : function(data) { // 저곳의 예스 오어 노가 바로 이거
-					// 서버에 접속하여 처리가 다 완료되었을 때 실행.  /cont - db - cont - view 까지 정상적으로 왔을 때
-					if (data.trim() == 'YES') {
-						$('#idmessage').text("이미 사용중인 아이디입니다.");
-						$('#idmessage').show();
-						$("#confirm").prop("disabled", true);
-					} else {
-						$('#idmessage').text("사용할 수 있는 아이디입니다.");
-						$('#idmessage').show();
-						$("#confirm").prop("disabled", false);
-					}
-				},
-				error : function(err) {
-					alert('에러발생' + err);
-				}
-			});
-		});
+function idcheck(){
+    if(form.u_id.value==""){
+        alert("아이디를 입력해주세요");
+        form.u_id.focus();
+        return false;
+    }
 
-	});
-
-	function check_pw() { //비밀번호 확인 
-		var p = document.getElementById('pw').value;
-		var p_cf = document.getElementById('pw_cf').value;
-
-		if (p != p_cf) {
-			document.getElementById('pw_check_msg').innerHTML = "비밀번호가 다릅니다. 다시 확인해 주세요.";
-		} else {
-			document.getElementById('pw_check_msg').innerHTML = "";
+    $.ajax({
+		url : "/login/checkId.do",
+		type : "post",
+		dataType : "text",
+		data : {"USR_ID" : $("#id").val()},
+		success : function(data){
+			if(data == 1){
+				alert("중복된 아이디입니다.");
+			}else if(data == 0){
+				$("#idDuplication").attr("value", $("#id").val());
+				alert("사용가능한 아이디입니다.");
+			}
 		}
-		if (p_cf == "") {
-			document.getElementById('pw_check_msg').innerHTML = "";
-		}
-	}
+	})
+}
 
-	function checked() { //form 유효성 검사 
-		var p = document.getElementById('pw');
-		var p_cf = document.getElementById('pw_cf');
-		var count = 0;
-		var check = document.getElementsByName('my_hobby');
-		if (p.value != p_cf.value) { //비밀번호 확인 
-			alert("비밀번호가 일치하지 않습니다. 확인해 주세요");
-			p_cf.focus();
-			return false;
-		}
-
-		else {
-			return true;
-		}
-
-	}
 </script>
 
 
@@ -185,84 +147,75 @@ select option[value=""][disabled] {
 						<h3>회원가입하기</h3>
 
 
-						<form method="post" action="VgUsrRegst_com.do" name="userinput"
-							id="userinput">
+						<form method="post" action="VgUsrRegst_com.do" name="from"
+							 onsubmit="return check()" accept-charset="UTF-8">
 							<div class="f-row">
 
 
-								<input type="text" placeholder="이름" name="id" id="id"
-									class="userid" size="30" pattern="[a-zA-Z0-9]{4,12}" title="4~12자의 영문 대소문자와 숫자로만 입력."
+								<input type="text" placeholder="아이디" name="USR_ID" id="id"
+									class="int" onkeydown="inputIdChk()" title="4~12자의 영문 대소문자와 숫자로만 입력."
+									style="width:200px !important;"
 									required />
-
+								<input type="button" onclick="idcheck()" value="중복확인"><br>
 								<div id="idmessage" style="display: none;"></div>
 
 							</div>
 							<div class="f-row">
 
 
-								<input type="email" placeholder="이메일" name="email"
-									value="" size="30"
-									pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}"
-									required />
+								<input type="text" placeholder="이름" name="USR_NAME" size="30"/>
 
 
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="pw"
-									name="password" minlength="4" maxlength="12" size="30"
-									placeholder="영문 대소문자, 숫자 4~12자" pattern="[a-zA-Z0-9]{4,12}"
-									title="4~12자의 영문 대소문자와 숫자로만 입력." required />
+								<input type="password" placeholder="패스워드" id="USR_PW" name="USR_PW" />
 
 
 
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="pw_cf"
-									name="password_confirm" onkeyup="check_pw()" value=""
-									maxlength="12" size="30" required /> <span id="pw_check_msg"></span>
-
-
-
-
+								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1" onkeyup="check_pw()"/>
+	
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
 
-								<input type="text" id="sample4_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;">
-								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+								<input type="text" name="USR_ADDR1" id="sample6_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;">
+								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
-								<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style= "width:500px !important; padding:10px;">
+								<input type="text" name="USR_ADDR2" id="sample6_address" placeholder="주소" style= "width:500px !important; padding:10px;">
 							</div>
 							<div class="f-row">	
 								<span id="guide" style="color:#999;display:none"></span>
-								<input type="text" id="sample4_detailAddress" placeholder="상세주소" style= "width:275px !important; padding:10px;">
+								<input type="text" name="USR_ADDR3" id="sample6_detailAddress" placeholder="상세주소" style= "width:275px !important; padding:10px;">
+								<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="nickname" class="usernickname"
+								<input type="text" name="USR_TEL" class="usernickname"
 									value="" minlength="3" maxlength="5" size="30"
 									placeholder="전화번호" title="3~5자의 한글 입력."
 									required />
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="" class="usernickname"
+								<input type="text" name="USR_NICK" class="usernickname"
 									value="" minlength="3" maxlength="5" size="30"
 									placeholder="닉네임" title="3~5자의 한글 입력."
 									required />
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="" class="usernickname"
-									value="" minlength="3" maxlength="5" size="30"
-									placeholder="이메일" title="3~5자의 한글 입력."
+								<input type="text" name="USR_EMAIL" class="usernickname"
+									placeholder="이메일"
+									pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}"
 									required />
 							</div>
 							<div class="f-row">
 
-								<select name="vegetype" required>
+								<select name="USR_VEGE">
 								<option value="" disabled selected>채식 타입</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -272,7 +225,7 @@ select option[value=""][disabled] {
 								</select>
 							</div>
 							<p>
-								Already have an account yet? <a href="VgUsrLogin.jsp">Log
+								Already have an account yet? <a href="VgUsrLogin.do">Log
 									in.</a>
 							</p>
 							<div class="f-row">
@@ -373,58 +326,50 @@ select option[value=""][disabled] {
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
+    function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
 
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
                 }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-                
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
-
-                var guideTextBox = document.getElementById("guide");
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
-
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
             }
         }).open();
     }

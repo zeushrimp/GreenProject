@@ -6,6 +6,6 @@
   <configuration>
   	<typeAliases>
   		<typeAlias alias="USR" type="com.human.java.UsrVO.UsrVO"></typeAlias>
-  	
+
   	</typeAliases>
   </configuration>

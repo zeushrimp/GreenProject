@@ -6,8 +6,8 @@
 
 <mapper namespace="Mpg">
 
-	<select id="test" resultType="MPG">
-		select * from MPG
+	<select id="test" resultType="USR">
+		select * from USR
 	</select>
 
 	
