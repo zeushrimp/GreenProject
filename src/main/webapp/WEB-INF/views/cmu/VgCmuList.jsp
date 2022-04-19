@@ -11,11 +11,11 @@
 	
 	<title>SocialChef</title>
 	
-	<link rel="stylesheet" href="resources/css/style.css" />
-	<link rel="stylesheet" href="resources/css/icons.css" />
+	<link rel="stylesheet" href="/resources/css/style.css" />
+	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="resources/images/favicon.ico" />
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
 		.three-fourth {width: 100%;}
 		.cmurlink{display: block; align: center;}
@@ -126,7 +126,7 @@
 					<div class="entry one-third">
 						<figure>
 							<!-- 상세 페이지 가는 링크 -->
-							<img src="resources/images/img.jpg" alt="" />
+							<img src="/resources/images/img.jpg" alt="" />
 							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
@@ -143,25 +143,7 @@
 					
 					<div class="entry one-third">
 						<figure>
-							<img src="resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<img src="resources/images/img.jpg" alt="" />
+							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
 							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
@@ -179,7 +161,7 @@
 					
 					<div class="entry one-third">
 						<figure>
-							<img src="resources/images/img.jpg" alt="" />
+							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
 							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
@@ -197,7 +179,25 @@
 					
 					<div class="entry one-third">
 						<figure>
-							<img src="resources/images/img.jpg" alt="" />
+							<img src="/resources/images/img.jpg" alt="" />
+							<!-- 상세 페이지 가는 링크 -->
+							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+						</figure>
+						<div class="container">
+							<!-- 상세 페이지 가는 링크 -->
+							<h2><a href="VgCmuDtail.jsp">커뮤니티 제목</a></h2> 
+							<div class="actions">
+								<div>
+									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
+									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="entry one-third">
+						<figure>
+							<img src="/resources/images/img.jpg" alt="" />
 							<!-- 상세 페이지 가는 링크 -->
 							<figcaption><a href="VgCmuDtail.jsp"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
@@ -239,10 +239,10 @@
     <%@ include file="/resources/Footer.jsp" %>
     <!--//footer-->
 	
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 </body>
 </html>
 
