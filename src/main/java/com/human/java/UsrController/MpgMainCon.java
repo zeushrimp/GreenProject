@@ -5,14 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.human.java.UsrService.UsrRegSer;
+import com.human.java.UsrService.MpgMainSer;
 
 @Controller
 @RequestMapping("/mpg")
 public class MpgMainCon {
 
 	@Autowired
-	private UsrRegSer UsrRegSer;
+	private MpgMainSer MpgMainSer;
 
 	@RequestMapping("/{url}.do")
 	public String userJoin(@PathVariable String url) {
