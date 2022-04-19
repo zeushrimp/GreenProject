@@ -9,7 +9,7 @@
 <body>
 <script>
 alert("아이디 또는 비밀번호가 맞지 않습니다");
-location.href="VgUsrLoginCom.do";
+location.href="VgUsrLogin.do";
 // response.sendRedirect("login.do");
 </script>
 </body>

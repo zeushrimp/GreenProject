@@ -10,7 +10,7 @@
   	<select id="UsrLogin" parameterType="USR" resultType="USR">
   		SELECT * 
   		FROM USR
-  		 where USR_ID = #{USR_ID}
+  		 where USR_ID = #{USR_ID} AND USR_PW = #{USR_PW}
   	</select>
   </mapper>
 

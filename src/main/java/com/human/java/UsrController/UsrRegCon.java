@@ -43,8 +43,7 @@ public class UsrRegCon {
 			
 			session.setAttribute("usrid", result.getUSR_ID());
 			
-//			return "/user/login_ok";
-//			return "../../index";
+
 			return "redirect:/usr/VgUsrlogin_ok.do";
 			
 		}

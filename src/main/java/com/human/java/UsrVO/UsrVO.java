@@ -1,5 +1,8 @@
 package com.human.java.UsrVO;
 
+import lombok.Data;
+
+@Data
 public class UsrVO {
 	String USR_ID;
 	String USR_PW;
