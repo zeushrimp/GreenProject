@@ -5,8 +5,8 @@
 
 <mapper namespace="Mpg">
 
-	<select id="test" resultType="USR">
-		select * from USR
+	<select id="Mpg_login_check" resultType="String">
+		select name from USR where usr_id=#{USR_ID}
 	</select>
 
 	
