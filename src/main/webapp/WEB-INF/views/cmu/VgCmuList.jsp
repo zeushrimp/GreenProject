@@ -79,7 +79,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>
 								</div>
@@ -98,7 +98,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
@@ -116,7 +116,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
@@ -134,7 +134,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
@@ -152,7 +152,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
@@ -170,7 +170,7 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
@@ -188,29 +188,31 @@
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
+									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
 									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
 						</div>
 					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<img src="/resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
-							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
-							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
+					<!-- 커뮤니티 리스트 갯수 반복문 -->	
+<%-- 					<c:forEach items="${커뮤list}" var="vo" begin="0" end="7">
+						<div class="entry one-third">
+							<figure>
+								<img src="/resources/images/img.jpg" alt="" />
+								<!-- 상세 페이지 가는 링크 -->
+								<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+							</figure>
+							<div class="container">
+								<!-- 상세 페이지 가는 링크 -->
+								<h2><a href="VgCmuDtail.do">커뮤니티 제목${vo.CMU_TITLE}</a></h2> 
+								<div class="actions">
+									<div>
+										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디 ${vo.USR_ID}</a></div>
+										<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글${vo.CMU_COM}</a></div>
+										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${vo.CMU_LIKE}</a></div>								</div>
+								</div>
 							</div>
-						</div>
+						</c:forEach> --%>
 					</div>
 
 					<!-- 커뮤니티 리스트 버튼 링크 -->
@@ -221,7 +223,26 @@
 						<a href="VgCmuList.do">4</a>
 						<a href="VgCmuList.do">5</a>
 					</div>
-				</section>
+					<!-- 페이징 -->
+<%-- 					<divvclass="pager">
+						<c:if test="${paging.startPage != 1 }">
+							<a href="VgCmuList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+						</c:if>
+						<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+							<c:choose>
+								<c:when test="${p == paging.nowPage }">
+									<b>${p }</b>
+								</c:when>
+								<c:when test="${p != paging.nowPage }">
+									<a
+										href="VgCmuList.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="paging_num">${p }</a>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${paging.endPage != paging.lastPage}">
+							<ahref="getResell_BoardList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+						</c:if>
+				</section> --%>
 				<div class ="cmurlink">
 					<!-- 글 작성가는 링크 -->
 					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
