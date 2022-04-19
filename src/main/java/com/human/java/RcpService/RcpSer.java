@@ -1,5 +1,5 @@
 package com.human.java.RcpService;
 
-public class test {
+public interface RcpSer {
 
 }

@@ -13,13 +13,13 @@
 <title>SocialChef</title>
 
 
-<link rel="stylesheet" href="resources/css/icons.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="../../../resources/css/icons.css" />
+<link rel="stylesheet" href="../../../resources/css/style.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,12 +106,12 @@
 				<section class="content center full-width">
 					<div class="modal container">
 						<h3>로그인</h3>
-						<form action="VgUsrLogincon.do" method="post">
+						<form action="VgUsrLoginCom.do" method="post">
 							<div class="f-row">
 
 
 
-								<input type="text" placeholder="Your username" id="id" name="USR_ID" />
+								<input type="text" placeholder="아이디" id="id" name="USR_ID" />
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-								<input type="password" placeholder="Your password" id="password"
+								<input type="password" placeholder="비밀번호" id="password"
 									name="USR_PW" />
 
 
@@ -138,11 +138,11 @@
 							</div>
 
 							<p>
-								<a href="VgUsrFid.jsp">아이디 찾기</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a
-									href="VgUsrFpw.jsp">비밀번호 찾기</a>
+								<a href="VgUsrFid.do">아이디 찾기</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a
+									href="VgUsrFpw.do">비밀번호 찾기</a>
 							</p>
 							<p>
-								아직 회원이 아니신가요?&nbsp;<a href="VgUsrRegst.jsp">가입하러 가기</a>
+								아직 회원이 아니신가요?&nbsp;<a href="VgUsrRegst.do">가입하러 가기</a>
 							</p>
 					</div>
 					</form>

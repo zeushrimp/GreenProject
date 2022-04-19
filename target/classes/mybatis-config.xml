@@ -5,7 +5,8 @@
   
   <configuration>
   	<typeAliases>
-  		<typeAlias alias="USR" type="com.human.java.UsrVO.UsrVO"></typeAlias>
-
+  	<typeAlias alias="USR" type="com.human.java.UsrVO.UsrVO"></typeAlias>
+	<typeAlias alias="CMU" type="com.human.java.CmuVO.CmuVO"></typeAlias>
+	<typeAlias alias="RCP" type="com.human.java.RcpVO.RcpVO"></typeAlias>
   	</typeAliases>
   </configuration>

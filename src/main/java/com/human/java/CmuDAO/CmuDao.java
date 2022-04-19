@@ -1,5 +1,5 @@
 package com.human.java.CmuDAO;
 
-public class test {
+public interface CmuDao {
 
 }

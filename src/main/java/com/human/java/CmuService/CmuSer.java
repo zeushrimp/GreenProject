@@ -1,5 +1,5 @@
 package com.human.java.CmuService;
 
-public class test {
+public interface CmuSer {
 
 }
