@@ -136,16 +136,15 @@
 										    ['view', ['codeview','fullscreen', 'help']]],
 									// 폰트 글꼴, 사이즈
 									fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
-									fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
-									  
-									callbacks : { //여기 부분이 이미지를 첨부하는 부분
+									fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],									  
+									callbacks : { //이미지를 첨부하는 부분
 							            onImageUpload : function(files, editor, welEditable) {
 							            for (var i = files.length - 1; i >= 0; i--) {
-							            uploadSummernoteImageFile(files[i],this); }
+							            uploadImageFile(files[i],this); }
 							              }
 							          }	
 								});
-						        function uploadSummernoteImageFile(file, el) {
+						        function uploadImageFile(file, el) {
 									data = new FormData();
 									data.append("file", file);
 									$.ajax({
@@ -157,7 +156,10 @@
 										processData : false,
 										success : function(data) {
 											$(el).summernote('editor.insertImage', data.url);
-										}
+										},
+										error: function(data) {
+								            console.log(data);
+								        }
 									});
 								}
 						</script>							
