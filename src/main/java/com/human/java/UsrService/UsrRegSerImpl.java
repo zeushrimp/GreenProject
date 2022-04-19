@@ -14,6 +14,12 @@ public class UsrRegSerImpl implements UsrRegSer{
 		public int checkId(UsrVO vo) {
 			
 			return usrregdao.checkId(vo);
-		};
+		}
 
+		@Override
+		public UsrVO Usr_Login(UsrVO vo) {
+			// TODO Auto-generated method stub
+			return usrregdao.Usr_Login(vo);
+		};
+		
 }

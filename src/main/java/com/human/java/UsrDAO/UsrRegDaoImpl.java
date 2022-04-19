@@ -8,13 +8,21 @@ import com.human.java.UsrVO.UsrVO;
 
 @Repository("UsrRegDao")
 public class UsrRegDaoImpl implements UsrRegDao{
+	
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
 	@Override
 	public int checkId(UsrVO vo) {
 	
-	return mybatis.selectOne("Usr.checkId",vo);
-}
+		return mybatis.selectOne("Usr.checkId",vo);
+	}
+
+	@Override
+	public UsrVO Usr_Login(UsrVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("test");
+		return mybatis.selectOne("Usr.UsrLogin",vo);
+	}
 
 }

@@ -202,10 +202,10 @@
 	</footer>
 
 
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="../../../resources/js/jquery-3.1.0.min.js"></script>
+	<script src="../../../resources/js/jquery.uniform.min.js"></script>
+	<script src="../../../resources/js/jquery.slicknav.min.js"></script>
+	<script src="../../../resources/js/scripts.js"></script>
 </body>
 </html>
 

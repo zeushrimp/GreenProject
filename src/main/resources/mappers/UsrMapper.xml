@@ -4,10 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Usr">
- 
-  	
   	<select id="checkId" parameterType="USR" resultType="int">
   		SELECT count(USR_ID) FROM USR where USR_ID = #{USR_ID}
   	</select>
-  	
+  	<select id="UsrLogin" parameterType="USR" resultType="USR">
+  		SELECT * 
+  		FROM USR
+  		 where USR_ID = #{USR_ID}
+  	</select>
   </mapper>
+
+ 

@@ -7,4 +7,5 @@ public interface UsrRegSer {
 	
 	public int checkId(UsrVO vo);
 	
+	public UsrVO Usr_Login(UsrVO vo);
 }
