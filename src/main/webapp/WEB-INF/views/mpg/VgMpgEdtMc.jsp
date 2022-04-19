@@ -16,7 +16,7 @@
 					</div>
 					<div style="text-align: center;">
 						<div style="display: inline-block;">
-							<img src="resources/images/vegetarian.png" id="imagepreview"
+							<img src="/resources/images/vegetarian.png" id="imagepreview"
 								style="width: 256px; height: 256px;">
 						</div>
 						<div class="modal-body"

@@ -17,7 +17,7 @@
 					<div class="modal-body" style="text-align: center;">
 						마이페이지의 주소 변경 모달 페이지입니다.<br> <br> 
 						<img
-							src="resources/images/admin.png" id="imagepreview"
+							src="/resources/images/admin.png" id="imagepreview"
 							style="width: 256px; height: 256px;">
 					</div>
 				</div>
