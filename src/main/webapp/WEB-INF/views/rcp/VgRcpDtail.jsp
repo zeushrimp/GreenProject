@@ -12,15 +12,19 @@
 
 <title>SocialChef</title>
 
-<link rel="stylesheet" href="resources/css/styleHeader.css" />
-<link rel="stylesheet" href="resources/css/styleFooter.css" />
-<link rel="stylesheet" href="resources/css/icons.css" />
+<link rel="stylesheet" href="../../../resources/css/styleHeader.css" />
+<link rel="stylesheet" href="../../../resources/css/styleFooter.css" />
+<link rel="stylesheet" href="../../../resources/css/icons.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
-
+<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
+<script src="/resources/js/jquery-3.1.0.min.js"></script>
+<script src="/resources/js/jquery.uniform.min.js"></script>
+<script src="/resources/js/jquery.slicknav.min.js"></script>
+<script src="/resources/js/scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 .three-fourth {
 	width: 100%;
@@ -85,13 +89,9 @@
 	border-radius: 3px;
 }
 
-.Rcprd {
-	
-}
 
 .Rcprd .RCPrewrite {
 	cursor: pointer;
-	padding: 11px 14px;
 	background: #fff;
 	color: #FF7B74;
 	border-radius: 3px;
@@ -99,7 +99,6 @@
 
 .Rcprd .RCPdelete {
 	cursor: pointer;
-	padding: 11px 14px;
 	background: #fff;
 	color: #FF7B74;
 	border-radius: 3px;
@@ -109,6 +108,43 @@
 	float: right;
 	padding-bottom: 15px;
 	padding-right: 15px;
+}
+
+html, body {
+	overflow: auto;
+	height: 100%;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+	overflow: hidden;
+	display: block;
+	position: fixed;
+	margin: 0px;
+	overflow: hidden;
+}
+
+.modal_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+	height: 400px;
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
 }
 </style>
 
@@ -120,6 +156,10 @@
 	<![endif]-->
 </head>
 <body class="recipePage">
+
+
+
+
 	<!--preloader-->
 	<div class="preloader">
 		<div class="spinner"></div>
@@ -127,7 +167,74 @@
 	<!--//preloader-->
 
 	<!--header-->
-	<%@ include file="resources/Header.jsp"%>
+	<header class="head" role="banner">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<a href="index.html" title="SocialChef" class="logo"><img
+				src="/resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+
+			<nav class="main-nav" role="navigation" id="menu">
+				<ul>
+					<li class="current-menu-item"><a href="index.html"
+						title="Home"><span>Home</span></a></li>
+					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
+						<ul>
+							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li>
+							<li><a href="recipe.html" title="Recipe">Recipe</a></li>
+						</ul></li>
+					<li><a href="blog.html" title="Blog"><span>Blog</span></a>
+						<ul>
+							<li><a href="blog_single.html" title="Blog post">Blog
+									post</a></li>
+						</ul></li>
+					<li><a href="#" title="Pages"><span>Pages</span></a>
+						<ul>
+							<li><a href="left_sidebar.html" title="Left sidebar page">Left
+									sidebar page</a></li>
+							<li><a href="right_sidebar.html" title="Right sidebar page">Right
+									sidebar page</a></li>
+							<li><a href="two_sidebars.html" title="Both sidebars page">Both
+									sidebars page</a></li>
+							<li><a href="full_width.html" title="Full width page">Full
+									width page</a></li>
+							<li><a href="login.html" title="Login page">Login page</a></li>
+							<li><a href="register.html" title="Register page">Register
+									page</a></li>
+							<li><a href="error404.html" title="Error page">Error
+									page</a></li>
+						</ul></li>
+					<li><a href="#" title="Features"><span>Features</span></a>
+						<ul>
+							<li><a href="icons.html" title="Icons">Icons</a></li>
+							<li><a href="grid.html" title="Grid">Grid</a></li>
+							<li><a href="shortcodes.html" title="Shortcodes">Shortcodes</a></li>
+							<li><a href="pricing.html" title="Pricing tables">Pricing
+									tables</a></li>
+						</ul></li>
+					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>
+					<li><a
+						href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy"
+						title="Buy now"><span>Buy now</span></a></li>
+				</ul>
+			</nav>
+
+			<nav class="user-nav" role="navigation">
+				<ul>
+					<li class="light"><a href="/rcp/VgRcpDtail.do"
+						title="Search for recipes"><i
+							class="icon icon-themeenergy_search"></i> <span>Search for
+								recipes</span></a></li>
+					<li class="medium"><a href="/mpg/VgMpgMain.do"
+						title="My account"><i class="icon icon-themeenergy_chef-hat"></i>
+							<span>My account</span></a></li>
+					<li class="dark"><a href="/rcp/VgRcpRegst.do"
+						title="Submit a recipe"><i
+							class="icon icon-themeenergy_fork-spoon"></i> <span>Submit
+								a recipe</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 	<!--//header-->
 
 	<!--main-->
@@ -137,8 +244,8 @@
 			<!--breadcrumbs-->
 			<nav class="breadcrumbs">
 				<ul>
-					<li><a href="VgMain.jsp" title="Home">메인</a></li>
-					<li><a href="VgRcpList.jsp" title="Recipes">레시피</a></li>
+					<li><a href="/VgMain.jsp" title="Home">메인</a></li>
+					<li><a href="VgRcpList.do" title="Recipes">레시피</a></li>
 					<li>레시피 상세</a></li>
 				</ul>
 			</nav>
@@ -154,10 +261,10 @@
 					<!--recipe-->
 					<div class="recipe">
 						<div class="row">
-							<!--two-third-->
+							<!--레시피 상세-->
 							<article class="two-third">
 								<div class="image">
-									<a href="#"><img src="resources/images/img.jpg" alt="" /></a>
+									<a href="#"><img src="/resources/images/img.jpg" alt="" /></a>
 								</div>
 								<div class="intro">
 									<p>
@@ -167,51 +274,35 @@
 								</div>
 								<div class="instructions">
 									<ol>
-										<li>물 2컵에 렌틸콩 2컵을 넣고 20분간 잘 저으면서 끓여준다. 동해물과 백두산이 마르고 닳도록
-											하느님이 보우하사 우리 나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
-											우워어어어어어어어어어어어엉
-											우어ㅜ어ㅝ푸어푸어ㅜ어풔우퍈며오리ㅏ버도ㅟㅑ녀ㅜ파오ㅜㅠㅏabcdefghijklmnopqrstuvwxyz a a a
-											adkdl;이ㅓ패ㅓㅐㅓ이ㅏㅓㅏㅣㅓㅏㅓㅣ
-											org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
-											- Mapped
-											"{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}"
-											onto public java.lang.String
-											com.human.java.HomeController.home(java.util.Locale,org.springframework.ui.Model)
-											INFO :
-											org.springframework.web.servlet.handler.SimpleUrlHandlerMapping
-											- Mapped URL path [/resources/**] onto handler
-											'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
-											INFO : org.springframework.web.servlet.DispatcherServlet -
-											FrameworkServlet 'appServlet': initialization completed in
-											646 ms 길어져도 노상관</li>
+										<li>물 2컵에 렌틸콩 2컵을 넣고 20분간 잘 저으면서 끓여준다.</li>
 										<li>올리브 오일을 두른 후라이팬에 양파, 마늘을 넣고 2~3분간 볶는다.</li>
 										<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
 										<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
 									</ol>
 								</div>
 							</article>
-							<!--//two-third-->
+							<!--//레시피 상세-->
 
-							<!--one-third-->
+							<!--레시피 재료 및 요건-->
 							<article class="one-third">
-								<dl class="basic">
+								<dl class="basic" id="time">
 									<dt>조리시간</dt>
 									<dd>10 분</dd>
 									<dt>조리분량</dt>
 									<dd>3 인분</dd>
 								</dl>
 
-								<dl class="user">
+								<dl class="user" id="type">
 									<dt>채식유형</dt>
 									<dd>비건</dd>
 									<dt>작성자</dt>
 									<dd>(닉네임)Jennifer W.</dd>
 									<dt>좋아요수</dt>
-									<dd class="likes" style="padding: 0 0px">
+									<dd id="likes" style="padding: 0 0px">
 										<button style="padding: 9px; width: 100%">좋아요</button>
 									</dd>
 									<dt>스크랩 하기</dt>
-									<dd class="scrap" style="padding: 0 0px">
+									<dd id="scrap" style="padding: 0 0px">
 										<button style="padding: 9px; width: 100%">스크랩</button>
 									</dd>
 								</dl>
@@ -239,16 +330,23 @@
 									<dd>카옌페퍼</dd>
 								</dl>
 							</article>
-							<!--//one-third-->
+							<!--//레시피 재료 및 요건-->
 						</div>
+
+
+
 						<div class="Rcprd">
 							<!-- 레시피 삭제하기 (비밀번호 일치할때) -->
 							<div class="R-div">
-								<a class="RCPdelete" href="#"> 삭제하기</a>
+								<a class="RCPdelete" href="#time">
+									<button type="button" id="btn-open-RCPd" style="width: 130px">삭제하기</button>
+								</a>
 							</div>
 							<!-- 레시피 수정하기 (비밀번호 일치할때) -->
 							<div class="R-div">
-								<a class="RCPrewrite" href="#"> 수정하기</a>
+								<a class="RCPrewrite" href="#time">
+									<button type="button" id="btn-open-RCPr" style="width: 130px">수정하기</button>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -263,7 +361,7 @@
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar">
 									<a href="VgMpgMain.jsp"><img
-										src="resources/images/avatar.jpg" alt="" /></a>
+										src="/resources/images/avatar.jpg" alt="" /></a>
 								</div>
 								<div class="comment-box">
 									<div class="comment-author meta">
@@ -282,7 +380,7 @@
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar">
 									<a href="VgMpgMain.jsp"><img
-										src="resources/images/avatar.jpg" alt="" /></a>
+										src="/resources/images/avatar.jpg" alt="" /></a>
 								</div>
 								<div class="comment-box">
 									<div class="comment-author meta">
@@ -301,7 +399,7 @@
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar">
 									<a href="VgMpgMain.jsp"><img
-										src="resources/images/avatar.jpg" alt="" /></a>
+										src="/resources/images/avatar.jpg" alt="" /></a>
 								</div>
 								<div class="comment-box">
 									<div class="comment-author meta">
@@ -320,7 +418,7 @@
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar">
 									<a href="VgMpgMain.jsp"><img
-										src="resources/images/avatar.jpg" alt="" /></a>
+										src="/resources/images/avatar.jpg" alt="" /></a>
 								</div>
 								<div class="comment-box">
 									<div class="comment-author meta">
@@ -339,7 +437,7 @@
 								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar">
 									<a href="VgMpgMain.jsp"><img
-										src="resources/images/avatar.jpg" alt="" /></a>
+										src="/resources/images/avatar.jpg" alt="" /></a>
 								</div>
 								<div class="comment-box">
 									<div class="comment-author meta">
@@ -383,19 +481,74 @@
 
 			</div>
 			<!--//row-->
+
 		</div>
 		<!--//wrap-->
+
+		<!-- 모달 -->
+		<div class="modal" id="rewrite-modal">
+			<div class="modal_body">수정을 원하시면 비밀번호를 입력해주세요</div>
+
+		</div>
+
+		<div class="modal" id="delete-modal">
+			<div class="modal_body">삭제를 원하시면 비밀번호를 입력해주세요</div>
+		</div>
+		<!--//모달 -->
+
 	</main>
 	<!--//main-->
 
 	<!--footer-->
-	<%@ include file="resources/Footer.jsp"%>
+	<%@ include file="/resources/Footer.jsp"%>
 	<!--//footer-->
 
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+
+
+	<script>
+      const body = document.querySelector('body');
+      const remodal = document.querySelector('#rewrite-modal');
+      const demodal = document.querySelector('#delete-modal');
+      const btnOpenModalr = document.querySelector('#btn-open-RCPr');
+      const btnOpenModald = document.querySelector('#btn-open-RCPd');
+      
+      btnOpenModalr.addEventListener('click', () => {
+        remodal.classList.toggle('show');
+
+        if (remodal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+      
+      remodal.addEventListener('click', (event) => {
+          if (event.target === remodal) {
+            remodal.classList.toggle('show');
+
+            if (!remodal.classList.contains('show')) {
+              body.style.overflow = 'auto';
+            }
+          }
+        });
+      
+      btnOpenModald.addEventListener('click', () => {
+          demodal.classList.toggle('show');
+			
+          if (demodal.classList.contains('show')) {
+            body.style.overflow = 'hidden';
+          }
+        });
+
+      demodal.addEventListener('click', (event) => {
+        if (event.target === demodal) {
+          demodal.classList.toggle('show');
+
+          if (!demodal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
+        }
+      });
+    </script>
+
 </body>
 </html>
 
