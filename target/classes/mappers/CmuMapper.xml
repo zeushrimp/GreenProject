@@ -5,7 +5,7 @@
     
   <mapper namespace="Cmu_mapper">
   
-   <insert id="insert_cmu" parameterType="resell">
+   <insert id="insert_cmu" parameterType="String">
    
    </insert>
   
