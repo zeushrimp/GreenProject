@@ -10,15 +10,15 @@
 		select * from USR where usr_id=#{USR_ID}
 	</select>
 
-	<select id="Mpg_resign_user" parameterType="String"
-		resultType="String">
+	<update id="Mpg_resign_user" parameterType="String"
+		>
 		UPDATE USR
 		SET
 		USR_OUT = 0
 		WHERE
 		usr_id =#{USR_ID}
 
-	</select>
+	</update>
 
 
 </mapper>

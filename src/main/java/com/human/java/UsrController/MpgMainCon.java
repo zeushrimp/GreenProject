@@ -43,18 +43,18 @@ public class MpgMainCon {
 			return "/mpg/VgMpgMain";
 
 		} else {
-			return "redirect:/url/VgUsrLogin.do";
+			return "redirect:/usr/VgUsrLogin.do";
 		}
 	}
-
+	// 회원탈퇴 컨트롤러
 	@RequestMapping("VgMpgMainRsn.do")
 	public String resignuser(UsrVO mpgvo, HttpSession session) {
 		session.setAttribute("usr_Id", "test01");
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
-		String id = MpgMainSer.resignuser(mpgvo);
+		MpgMainSer.resignuser(mpgvo);
 		
 		
-		return "/GreenPRJT/src/main/webapp/test.jsp";
+		return "redirect:/usr/VgUsrLogin.do";
 		
 	}
 

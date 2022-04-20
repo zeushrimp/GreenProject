@@ -22,9 +22,9 @@ public class MpgMainSerImpl implements MpgMainSer {
 	}
 
 	@Override
-	public String resignuser(UsrVO mpgvo) {
-		
-		return null;
+	public void resignuser(UsrVO mpgvo) {
+		mpgmaindao.resignuser(mpgvo);
+
 	}
 
 }

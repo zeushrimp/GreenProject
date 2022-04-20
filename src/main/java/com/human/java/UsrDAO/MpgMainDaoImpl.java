@@ -20,8 +20,8 @@ public class MpgMainDaoImpl implements MpgMainDao {
 	}
 
 	@Override
-	public String resignuser(UsrVO mpgvo) {
-		return sqlSession.selectOne("Mpg.Mpg_resign_user", mpgvo);
+	public void resignuser(UsrVO mpgvo) {
+		sqlSession.update("Mpg.Mpg_resign_user", mpgvo);
 	
 	}
 }
