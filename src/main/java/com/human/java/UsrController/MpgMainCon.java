@@ -28,18 +28,20 @@ public class MpgMainCon {
 
 	}
 
-	@RequestMapping("Mpglogin_check.do")
-	public ModelAndView login_check(@ModelAttribute UsrVO vo, HttpSession session) {
-	session.setAttribute("USR_ID", "test01");
-		
-	 String name = MpgMainSer.mpglogincheck(vo, session);  
-	 ModelAndView mav = new ModelAndView();
-	  if (name != null) { // 로그인상태일경우
-	   mav.setViewName("VgMpgMain"); // 뷰의 이름
-	   } else { // 로그인 상태가 아닐경우
-	     mav.setViewName("VgUsrLogin");
-	     }
-	     return mav;
-	   }
+	@RequestMapping("mpglogin_check.do")
+	public String login_check(UsrVO mpgvo, HttpSession session) {
+		session.setAttribute("usr_Id", "test01");
+		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		// session은 오브젝트로 받아오기 때문에 적절한 타입에 담아주는 과정 필요.
+		UsrVO alldata = MpgMainSer.mpglogincheck(mpgvo);
+		String name = alldata.getUSR_NAME();
+		if (name != null) { // 로그인상태일경우
+
+			return "redirect:/mpg/VgMpgMain.do";
+
+		} else {
+			return "redirect:/url/VgUsrLogin.do";
+		}
+	}
 
 }

@@ -4,5 +4,5 @@ import com.human.java.UsrVO.UsrVO;
 
 public interface MpgMainDao {
 
-	public String mpglogincheck(UsrVO vo);
+	public UsrVO mpglogincheck(UsrVO mpgvo);
 }

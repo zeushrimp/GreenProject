@@ -6,6 +6,6 @@ import com.human.java.UsrVO.UsrVO;
 
 public interface MpgMainSer {
 	
-	public String mpglogincheck(UsrVO vo, HttpSession session);
+	public UsrVO mpglogincheck(UsrVO mpgvo);
 
 }

@@ -8,17 +8,14 @@ import org.springframework.stereotype.Repository;
 import com.human.java.UsrVO.UsrVO;
 
 @Repository("MpgMainDao")
-public class MpgMaiDaoImpl implements MpgMainDao {
-	
-@Inject
-SqlSession sqlSession;
+public class MpgMainDaoImpl implements MpgMainDao {
 
-@Override
-public String mpglogincheck(UsrVO vo) {
-	return sqlSession.selectOne("Mpg.Mpg_login_check",vo);
-	
-}
+	@Inject
+	SqlSession sqlSession;
 
-	
+	@Override
+	public UsrVO mpglogincheck(UsrVO mpgvo) {
+		return sqlSession.selectOne("Mpg.Mpg_login_check", mpgvo);
 
+	}
 }
