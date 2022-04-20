@@ -39,9 +39,33 @@ select option[value=""][disabled] {
 	display: none;
 }
 </style>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+function idcheck(){
+	if(form.USR_ID.value==""){
+    	
+        alert("아이디를 입력해주세요");
+        form.USR_ID.focus();
+        return false;
+    }
 
+    $.ajax({
+		url : "/usr/checkId.do",
+		type : "post",
+		dataType : "text",
+		data : {"USR_ID" : $("#USR_ID").val()},
+		success : function(data){
+			if(data == 1){
+				alert("중복된 아이디입니다.");
+			}else if(data == 0){
+				$("#idDuplication").attr("value", $("#USR_ID").val());
+				alert("사용가능한 아이디입니다.");
+			}
+		}
+	}) 
+}
+
+</script>
 
 
 
@@ -124,7 +148,7 @@ select option[value=""][disabled] {
 						<h3>회원가입하기</h3>
 
 
-						<form method="post" action="VgUsrRegst_com.do" name="from"
+						<form method="post" action="VgUsrRegstDone.do" name="form"
 							 onsubmit="return check()" accept-charset="UTF-8">
 							<div class="f-row">
 
@@ -134,10 +158,8 @@ select option[value=""][disabled] {
 									style="width:200px !important;"
 									required />
 								<input type="button" onclick="idcheck()" value="중복확인" class="recheck"><br>
-								 <input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck" >
-								<div id="idmessage" style="display: none;"></div>
-
-							</div>
+								<input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck" >
+								</div>
 							<div class="f-row">
 
 
@@ -147,23 +169,23 @@ select option[value=""][disabled] {
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="USR_PW" name="USR_PW" />
+								<input type="password" placeholder="패스워드" id="USR_PW" name="USR_PW" required/>
 
 
 
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1"/>
+								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1" required/>
 	
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
 
-								<input type="text" name="USR_ADDR1" id="sample6_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;">
+								<input type="text" name="USR_ADDR1" id="sample6_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;" required>
 								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
-								<input type="text" name="USR_ADDR2" id="sample6_address" placeholder="주소" style= "width:500px !important; padding:10px;">
+								<input type="text" name="USR_ADDR2" id="sample6_address" placeholder="주소" style= "width:500px !important; padding:10px;" required>
 							</div>
 							<div class="f-row">	
 								<span id="guide" style="color:#999;display:none"></span>
@@ -180,17 +202,20 @@ select option[value=""][disabled] {
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}" required />
+								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" style="width:180px !important;" required /> &nbsp;@&nbsp;
+								<input type="text" name="USR_EMAIL1" id="USR_EMAIL1" style="width:250px !important;" required />
 							</div>
 							<div class="f-row">
 
-								<select name="USR_VEGE">
+								<select name="USR_VEGE" required>
 								<option value="" disabled selected>채식 타입</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+								<option value="프루테라">프루테라</option>
+								<option value="비건">비건</option>
+								<option value="락토">락토</option>
+								<option value="오보">오보</option>
+								<option value="락토오보">락토오보</option>
+								<option value="페스코">페스코</option>
+								<option value="폴로">폴로</option>
 								</select>
 							</div>
 							<p>
@@ -208,7 +233,7 @@ select option[value=""][disabled] {
 								친구에게 그 이야기를 재차 확인하고 싶었지만 어쩐지 입이 떨어지지 않았다. 자동차로 한두 시간 거리에 그토록 어둠에 찬 곳이 있다는 사실이 우선 믿기지 않았다. 그리고 그런 곳에 사는 것이 왜 그리 즐겁고 들뜬 일인지 짐작할 수조차 없었다.<br />
 								<br />
 								</div>
-								<input type="radio" name="first" value="1">동의합니다.
+								<input type="radio" name="first" value="1" required>동의합니다.
 								<input type="radio" name="first" value="2">동의하지않습니다.
 							</div>
 							<div class="f-row">
@@ -223,11 +248,11 @@ select option[value=""][disabled] {
 								<br />
 								</div>
 
-								<input type="radio" name="sec" value="1">동의합니다.
+								<input type="radio" name="sec" value="1" required>동의합니다.
 								<input type="radio" name="sec" value="2">동의하지않습니다.
 							</div>
 							<div class="f-row">
-							<button type = "submit" name = "" id ="">가입하기</button>
+							<input type="submit" class="join" value="회원가입">
 							</div>
 						</form>
 					</div>

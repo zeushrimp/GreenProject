@@ -11,7 +11,7 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
 
 	<link rel="stylesheet" href="resources/css/icons.css" />
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
@@ -144,7 +144,7 @@
 	<!--//main-->
 	
 	
-		<%@ include file="resources/Footer.jsp"%>
+		<%@ include file="/resources/Footer.jsp"%>
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>

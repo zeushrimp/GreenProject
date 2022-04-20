@@ -30,7 +30,16 @@
             form.USR_NAME.focus();
             return false;
         }
-   
+   		else if(form.USR_EMAIL.value==""){
+            alert("이메일을 입력해주세요");
+            form.USR_EMAIL.focus();
+            return false;
+        }
+        else if(form.USR_EMAIL1.value==""){
+            alert("이메일을 입력해주세요");
+            form.USR_EMAIL1.focus();
+            return false;
+        }
 
         else if(form.USR_TEL.value==""){
             alert("휴대전화를 입력해주세요");
@@ -50,6 +59,16 @@
         else if(form.USR_ADDR3.value==""){
             alert("주소를 입력해주세요");
             form.USR_ADDR3.focus();
+            return false;
+        }
+        else if(form.first.value=="1"){
+            alert("동의하지 않으셨습니다.");
+            form.first.focus();
+            return false;
+        }
+        else if(form.sec.value=="1"){
+            alert("동의하지 않으셨습니다.");
+            form.sec.focus();
             return false;
         }
         else if(form.idDuplication.value=="idUncheck" || form.USR_ID.value != form.idDuplication.value){

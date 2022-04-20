@@ -11,15 +11,21 @@ public class UsrRegSerImpl implements UsrRegSer{
 		@Autowired
 		private UsrRegDao usrregdao;
 		
-		public int checkId(UsrVO vo) {
+		public int checkId(UsrVO usrvo) {
 			
-			return usrregdao.checkId(vo);
+			return usrregdao.checkId(usrvo);
 		}
 
 		@Override
-		public UsrVO Usr_Login(UsrVO vo) {
+		public UsrVO Usr_Login(UsrVO usrvo) {
 			// TODO Auto-generated method stub
-			return usrregdao.Usr_Login(vo);
+			return usrregdao.Usr_Login(usrvo);
+		}
+
+		@Override
+		public void insertUsr(UsrVO usrvo) {
+			usrregdao.insertUsr(usrvo);
+			
 		};
 		
 }

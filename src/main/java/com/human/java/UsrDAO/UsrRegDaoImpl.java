@@ -13,16 +13,24 @@ public class UsrRegDaoImpl implements UsrRegDao{
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public int checkId(UsrVO vo) {
+	public int checkId(UsrVO usrvo) {
 	
-		return mybatis.selectOne("Usr.checkId",vo);
+		return mybatis.selectOne("Usr.checkId",usrvo);
 	}
 
 	@Override
-	public UsrVO Usr_Login(UsrVO vo) {
+	public UsrVO Usr_Login(UsrVO usrvo) {
 		// TODO Auto-generated method stub
 		System.out.println("test");
-		return mybatis.selectOne("Usr.UsrLogin",vo);
+		return mybatis.selectOne("Usr.UsrLogin",usrvo);
+	}
+
+	@Override
+	public void insertUsr(UsrVO usrvo) {
+		
+		
+		mybatis.insert("Usr.insertUsr",usrvo);
+		
 	}
 
 }

@@ -149,7 +149,7 @@
 	<!--//main-->
 	
 	
-		<%@ include file="resources/Footer.jsp"%>
+		<%@ include file="/resources/Footer.jsp"%>
 	
 	<script src="resources/js/jquery-3.1.0.min.js"></script>
 	<script src="resources/js/jquery.uniform.min.js"></script>
