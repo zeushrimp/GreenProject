@@ -53,6 +53,7 @@ public class CmuCon {
 	@RequestMapping("/VgCmuList.do")
 	public String cmu_readlist(CmuVO cmuvo, Model model, HttpSession session) {
 		// 리스트로 받아옴
+		model.addAttribute("cmu_readlist", CmuSer.cum_readlist(cmuvo));
 		
 		return "redirect:/cmu/VgCmuList";
 	}

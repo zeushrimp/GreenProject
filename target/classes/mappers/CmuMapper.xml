@@ -12,5 +12,10 @@
     VALUES
     ( #{CMU_CATE},#{CMU_TITLE},#{CMU_CONTENT},SYSDATE,#{USR_ID});
    </insert>
+   
+   <!-- 글 목록 불러오기 -->
+   <select id="select_list">
+   
+   </select>
   
   </mapper>

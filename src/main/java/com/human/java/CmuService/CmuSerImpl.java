@@ -1,5 +1,7 @@
 package com.human.java.CmuService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,18 @@ public class CmuSerImpl implements CmuSer{
 	@Autowired
 	private CmuDao cmudao;
 	
-	// 글 작성
+	// 글 등록 버튼
 	@Override
 	public void cmu_write(CmuVO cmuvo) {
 		// TODO Auto-generated method stub
 		cmudao.cmu_write(cmuvo);
+	}
+	
+	// 글 목록 불러오기
+	@Override
+	public List<CmuVO> cum_readlist(CmuVO cmuvo) {
+		// TODO Auto-generated method stub
+		return cmudao.cum_readlist();
 	}
 	
 	
