@@ -195,7 +195,7 @@
 						</div>
 					</div>
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
-<%-- 					<c:forEach items="${커뮤list}" var="vo" begin="0" end="7">
+<%-- 					<c:forEach items="${커뮤list}" var="cmuvo" begin="1" end="8">
 						<div class="entry one-third">
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />
@@ -204,12 +204,13 @@
 							</figure>
 							<div class="container">
 								<!-- 상세 페이지 가는 링크 -->
-								<h2><a href="VgCmuDtail.do">커뮤니티 제목${vo.CMU_TITLE}</a></h2> 
+								<h2><a href="VgCmuDtail.do">커뮤니티 제목${cmuvo.CMU_TITLE}</a></h2> 
 								<div class="actions">
 									<div>
-										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디 ${vo.USR_ID}</a></div>
-										<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글${vo.CMU_COM}</a></div>
-										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${vo.CMU_LIKE}</a></div>								</div>
+										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디 ${cmuvo.USR_ID}</a></div>
+										<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글${cmuvo.CMU_COM}</a></div>
+										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${cmuvo.CMU_LIKE}</a></div>								
+									</div>
 								</div>
 							</div>
 						</c:forEach> --%>

@@ -1,5 +1,8 @@
 package com.human.java.CmuService;
 
-public interface CmuSer {
+import com.human.java.CmuVO.CmuVO;
 
+public interface CmuSer {
+	
+	CmuVO cmu_write(CmuVO cmuvo);
 }

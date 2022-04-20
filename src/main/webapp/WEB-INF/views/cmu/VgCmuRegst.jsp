@@ -80,7 +80,7 @@
 					<article class="post single">
 					<form>
 					<div class="cmucate cumtitle">
-						<select name="category" required>
+						<select name="cmucategory" required>
 						<option disabled selected style="display: none;">카테고리</option>
 						<option>공지</option>
 						<option>채식 소식</option>
