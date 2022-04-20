@@ -12,10 +12,15 @@ public class CmuDaoImpl implements CmuDao{
 	private SqlSessionTemplate mybatis;
 
 	@Override
-	public void cmu_write(CmuVO cmuvo) {
+	public CmuVO cmu_write(CmuVO vo) {
 		// TODO Auto-generated method stub
-		mybatis.insert("Cmu_mapper.insert_cmu",cmuvo);
+		return null;
 	}
+
+	/*
+	 * @Override public void cmu_write(CmuVO cmuvo) { // TODO Auto-generated method
+	 * stub mybatis.insert("Cmu.insert_cmu",cmuvo); }
+	 */
 	
 	
 }
