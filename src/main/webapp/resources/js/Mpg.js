@@ -9,7 +9,9 @@ $('.checkT input[type="checkbox"]').click(function() {
 	}
 });
 
-var pwd = '1234';
+//사용자의 패스워드 불러오기
+var pwd = document.getElementById("jjjj2222").innerHTML;
+
 
 function RsnMrshow() {
 

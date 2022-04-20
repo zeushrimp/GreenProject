@@ -18,4 +18,10 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		return sqlSession.selectOne("Mpg.Mpg_login_check", mpgvo);
 
 	}
+
+	@Override
+	public String resignuser(UsrVO mpgvo) {
+		return sqlSession.selectOne("Mpg.Mpg_resign_user", mpgvo);
+	
+	}
 }

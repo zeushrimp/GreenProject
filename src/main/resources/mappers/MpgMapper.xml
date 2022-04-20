@@ -5,9 +5,20 @@
 
 <mapper namespace="Mpg">
 
-	<select id="Mpg_login_check" parameterType="String" resultType="USR">
+	<select id="Mpg_login_check" parameterType="String"
+		resultType="USR">
 		select * from USR where usr_id=#{USR_ID}
 	</select>
 
-	
+	<select id="Mpg_resign_user" parameterType="String"
+		resultType="String">
+		UPDATE USR
+		SET
+		USR_OUT = 0
+		WHERE
+		usr_id =#{USR_ID}
+
+	</select>
+
+
 </mapper>

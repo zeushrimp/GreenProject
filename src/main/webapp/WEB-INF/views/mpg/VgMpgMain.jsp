@@ -176,13 +176,17 @@
 									</dd>
 									<dt>비밀번호</dt>
 									<dd>${pwhide}</dd>
+									<dd style="display: none;">
+										<a id="jjjj2222">${mpgdata.USR_PW}</a>
+									</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal4"
 											data-toggle="modal">비밀번호 변경</a>
 									</dd>
 									<dt>주소</dt>
-									<dd>${mpgdata.USR_ADDR2}${mpgdata.USR_ADDR3}${mpgdata.USR_ADDR1}</dd>
+									<dd>${mpgdata.USR_ADDR2}&nbsp;
+										${mpgdata.USR_ADDR3}&nbsp;${mpgdata.USR_ADDR1}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal5"
@@ -212,8 +216,7 @@
 										}
 										%>
 										<span class="btnArea"><button class="btn"
-												disabled="disabled" onclick="alert('탈퇴되었습니다.')"
-												type="button">탈퇴하기</button></span>
+												disabled="disabled" onclick='location.href="VgMpgMainRsn.do";' type="button">탈퇴하기</button></span>
 									</div>
 								</dl>
 

@@ -21,4 +21,10 @@ public class MpgMainSerImpl implements MpgMainSer {
 		return alldata;
 	}
 
+	@Override
+	public String resignuser(UsrVO mpgvo) {
+		
+		return null;
+	}
+
 }

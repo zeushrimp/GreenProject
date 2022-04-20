@@ -8,4 +8,6 @@ public interface MpgMainSer {
 	
 	public UsrVO mpglogincheck(UsrVO mpgvo);
 
+	
+	public String resignuser(UsrVO mpgvo);
 }
