@@ -13,7 +13,7 @@
 <a href ="/rcp/VgRcpList.do">레시피</a></br>
 <a href ="/usr/VgUsrLogin.do">로그인</a></br>
 <a href ="/usr/VgUsrRegst.do">회원가입</a></br>
-<a href ="/mpg/mpglogin_check.do">마이페이지</a></br>
+<a href ="/mpg/VgMpgMain.do">마이페이지</a></br>
 
 </body>
 </html>

@@ -153,7 +153,7 @@
 							<div class="row">
 								<dl class="basic two-third">
 									<dt>이름</dt>
-									<dd>홍길동(변수)</dd>
+									<dd>${mpgdata.USR_NAME}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal1"
@@ -161,35 +161,35 @@
 
 									</dd>
 									<dt>채식종류</dt>
-									<dd>락토-오보 베지테리언(변수,드롭다운)</dd>
+									<dd>${mpgdata.USR_VEGE}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal2"
 											data-toggle="modal">채식 종류 변경</a>
 									</dd>
 									<dt>닉네임</dt>
-									<dd>호부호형못함(변수)</dd>
+									<dd>${mpgdata.USR_NICK}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal3"
 											data-toggle="modal">닉네임 변경</a>
 									</dd>
 									<dt>비밀번호</dt>
-									<dd>*************(변수,안보여줌)</dd>
+									<dd>${pwhide}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal4"
 											data-toggle="modal">비밀번호 변경</a>
 									</dd>
 									<dt>주소</dt>
-									<dd>경기도 수원시 팔달구 중부대로 101번지 3층(변수)</dd>
+									<dd>${mpgdata.USR_ADDR2}${mpgdata.USR_ADDR3}${mpgdata.USR_ADDR1}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal5"
 											data-toggle="modal">주소 변경</a>
 									</dd>
 									<dt>내 등급</dt>
-									<dd>실버(변수)</dd>
+									<dd>${mpgdata.USR_GRADE}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal6"
