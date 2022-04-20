@@ -15,7 +15,7 @@
   	<insert id="insertUsr" parameterType="USR">
   		insert into USR
   		(USR_ID, USR_PW, USR_NAME, USR_NICK, USR_TEL, USR_EMAIL, USR_ADDR1, USR_ADDR2, USR_ADDR3, USR_VEGE, USR_GRADE, USR_POINT, USR_ADMIN, USR_OUT)
-  		VALUES(#{USR_ID},#{USR_PW},#{USR_NAME},#{USR_NICK},#{USR_TEL},#{USR_EMAIL2},#{USR_ADDR1},#{USR_ADDR2},#{USR_ADDR3},#{USR_VEGE},'브론즈',0,0,0)
+  		VALUES(#{USR_ID},#{USR_PW},#{USR_NAME},#{USR_NICK},#{USR_TEL},#{USR_EMAIL2},#{USR_ADDR1},#{USR_ADDR2},#{USR_ADDR3},#{USR_VEGE},'브론즈',0,0,1)
   	</insert>
   </mapper>
 

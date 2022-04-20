@@ -15,9 +15,9 @@ public class UsrVO {
 	String USR_ADDR3;
 	String USR_VEGE;
 	String USR_GRADE;
-	String USR_POINT;
-	String USR_ADMIN;
-	String USR_OUT;
+	int USR_POINT;
+	int USR_ADMIN;
+	int USR_OUT;
 	String USR_EMAIL1;
 	String USR_EMAIL2;
 	

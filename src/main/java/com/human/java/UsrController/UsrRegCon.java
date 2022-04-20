@@ -38,13 +38,16 @@ public class UsrRegCon {
 		if( result == null ) {
 			
 			
-			return "redirect:/usr/VgUsrlogin_no.do";
+			return "redirect:/usr/VgUsrLogin_no.do";
+		} else if(result.getUSR_OUT() == 0) {
+			
+			return "redirect:/usr/VgUsrLogin_cant.do";
 		} else {
 			
 			session.setAttribute("usr_id", result.getUSR_ID());
 			session.setAttribute("usr_admin", result.getUSR_ADMIN());
 
-			return "redirect:/usr/VgUsrlogin_ok.do";
+			return "redirect:/usr/VgUsrLogin_ok.do";
 			
 		}
 		

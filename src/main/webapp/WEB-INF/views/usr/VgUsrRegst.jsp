@@ -20,7 +20,7 @@
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
 
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -219,8 +219,7 @@ function idcheck(){
 								</select>
 							</div>
 							<p>
-								Already have an account yet? <a href="VgUsrLogin.do">Log
-									in.</a>
+								Already have an account yet? <a href="VgUsrLogin.do">Login.</a>
 							</p>
 							<div class="f-row">
 								이용 약관 동의(필수)<br>
@@ -234,7 +233,7 @@ function idcheck(){
 								<br />
 								</div>
 								<input type="radio" name="first" value="1" required>동의합니다.
-								<input type="radio" name="first" value="2">동의하지않습니다.
+								
 							</div>
 							<div class="f-row">
 								개인정보의 수집 및 이용에 대한 동의(필수)
@@ -249,7 +248,7 @@ function idcheck(){
 								</div>
 
 								<input type="radio" name="sec" value="1" required>동의합니다.
-								<input type="radio" name="sec" value="2">동의하지않습니다.
+								
 							</div>
 							<div class="f-row">
 							<input type="submit" class="join" value="회원가입">

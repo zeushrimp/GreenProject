@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-		response.sendRedirect("../../test.jsp");
-	%>
+<script>
+
+alert("탈퇴한 회원입니다.");
+location.href="VgUsrLogin.do";
+// response.sendRedirect("login.do");
+</script>
 </body>
 </html>
