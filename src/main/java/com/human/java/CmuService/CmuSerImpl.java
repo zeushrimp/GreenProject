@@ -11,11 +11,12 @@ public class CmuSerImpl implements CmuSer{
 	
 	@Autowired
 	private CmuDao cmudao;
-
+	
+	// 글 작성
 	@Override
-	public CmuVO cmu_write(CmuVO cmuvo) {
+	public void cmu_write(CmuVO cmuvo) {
 		// TODO Auto-generated method stub
-		return cmudao.cmu_write(cmuvo);
+		cmudao.cmu_write(cmuvo);
 	}
 	
 	

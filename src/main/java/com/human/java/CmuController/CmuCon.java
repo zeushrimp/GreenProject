@@ -1,9 +1,11 @@
 package com.human.java.CmuController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,7 +25,7 @@ public class CmuCon {
 		return "/cmu/"+url;
 	}
 	
-	//유저인지 아닌지 확인
+	// 글 쓸 때, 유저인지 아닌지 확인
 	@RequestMapping("cum_check.do")
 	public String cmu_check(HttpSession session){
 		
@@ -34,7 +36,7 @@ public class CmuCon {
 
 	}
 	
-	// 커뮤니티 글 작성
+	// 커뮤니티 글 등록하기(버튼)
 	@RequestMapping("cmu_write.do")
 	public String cmu_write(CmuVO cmuvo, HttpSession session){
 		// 여기서 서비스 호출
@@ -45,6 +47,14 @@ public class CmuCon {
 		CmuSer.cmu_write(cmuvo);
 		
 		return "redirect:/cmu/VgCmuList.do";
+	}
+	
+	// 커뮤니티 리스트 불러오기
+	@RequestMapping("/VgCmuList.do")
+	public String cmu_readlist(CmuVO cmuvo, Model model, HttpSession session) {
+		// 리스트로 받아옴
+		
+		return "redirect:/cmu/VgCmuList";
 	}
 
 }

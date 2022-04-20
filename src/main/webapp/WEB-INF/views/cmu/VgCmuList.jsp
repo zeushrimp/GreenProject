@@ -195,7 +195,7 @@
 						</div>
 					</div>
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
-<%-- 					<c:forEach items="${커뮤list}" var="cmuvo" begin="1" end="8">
+<%-- 					<c:forEach items="${cmureadlist}" var="cmuvo" begin="1" end="8">
 						<div class="entry one-third">
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />

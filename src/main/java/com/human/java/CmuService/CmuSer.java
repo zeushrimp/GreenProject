@@ -4,5 +4,6 @@ import com.human.java.CmuVO.CmuVO;
 
 public interface CmuSer {
 	
-	CmuVO cmu_write(CmuVO cmuvo);
+	// 글 등록하기
+	void cmu_write(CmuVO cmuvo);
 }

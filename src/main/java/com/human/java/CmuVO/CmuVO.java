@@ -12,9 +12,9 @@ public class CmuVO {
 	String CMU_TITLE;
 	String CMU_CONTENT;
 	Date CMU_REG;
-	int CMU_HIT;
-	int CMU_like;
-	int CMU_COM;
+	int CMU_HIT; // 조회수
+	int CMU_like; // 좋아요수
+	int CMU_COM; // 댓글수
 	String USR_ID;
 
 	

@@ -10,17 +10,13 @@ import com.human.java.CmuVO.CmuVO;
 public class CmuDaoImpl implements CmuDao{
 	@Autowired
 	private SqlSessionTemplate mybatis;
-
+	
+	// 글 작성
 	@Override
-	public CmuVO cmu_write(CmuVO vo) {
+	public void cmu_write(CmuVO cmuvo) {
 		// TODO Auto-generated method stub
-		return null;
+		mybatis.insert("Cmu.insert_cmu",cmuvo);
 	}
-
-	/*
-	 * @Override public void cmu_write(CmuVO cmuvo) { // TODO Auto-generated method
-	 * stub mybatis.insert("Cmu.insert_cmu",cmuvo); }
-	 */
 	
 	
 }
