@@ -36,5 +36,13 @@
    		WHERE
 		usr_id =#{USR_ID}
    </update>
+   
+      <update id="Mpg_vg_modify" parameterType="USR">
+   		UPDATE USR
+   		SET
+		USR_VEGE = #{USR_VEGE}
+   		WHERE
+		usr_id =#{USR_ID}
+   </update>
 
 </mapper>

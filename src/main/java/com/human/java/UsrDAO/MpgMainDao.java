@@ -11,4 +11,6 @@ public interface MpgMainDao {
 	public void modifyfpw(UsrVO mpgvo);
 	
 	public void modifyfnk(UsrVO mpgvo);
+	
+	public void modifyvg(UsrVO mpgvo);
 }

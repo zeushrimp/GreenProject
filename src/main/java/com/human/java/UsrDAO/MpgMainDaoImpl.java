@@ -37,4 +37,10 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		
 	}
 
+	@Override
+	public void modifyvg(UsrVO mpgvo) {
+		sqlSession.update("Mpg.Mpg_vg_modify", mpgvo);
+		
+	}
+
 }

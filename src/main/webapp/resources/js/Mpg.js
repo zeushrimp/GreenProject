@@ -1,4 +1,4 @@
-$('.checkT input[type="checkbox"]').click(function() {
+식('.checkT input[type="checkbox"]').click(function() {
 	var tmpp = $(this).prop('checked');
 	// this를 사용하여 클릭한 checkbox 가 체크되도록 설정
 	if (tmpp) {
@@ -182,6 +182,15 @@ function Mf_nksubmit(){
 		$('#Mf_nk').submit();		
 	})
 	alert("닉네임이 변경되었습니다.")
+	
+}
+
+//채식변경-submit
+function Mf_vgsubmit(){
+	$('.VgMpg_modify_vgclose').click(function(){
+		$('#Mf_vg').submit();		
+	})
+	alert("채식종류가 변경되었습니다.")
 	
 }
 
