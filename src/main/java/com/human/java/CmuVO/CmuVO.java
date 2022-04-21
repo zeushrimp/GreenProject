@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class CmuVO {
+public class CmuVO  extends PageVO {
 
 	int CMU_PK;
 	String CMU_CATE;

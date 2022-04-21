@@ -20,12 +20,20 @@ public class CmuDaoImpl implements CmuDao{
 		mybatis.insert("Cmu.insert_cmu",cmuvo);
 	}
 	
-	// 글 목록 불러오기
+	// 글 리스트
 	@Override
-	public List<CmuVO> cum_readlist() {
+	public List<CmuVO> cmugetList(CmuVO cmuvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("Cmu.select_list");
+		return mybatis.selectList("Cmu.get_cmuList",cmuvo);
 	}
+	
+	// 글 페이징
+	@Override
+	public int cum_readlistcnt(CmuVO cmuvo) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("Cmu.insert_cmu",cmuvo);
+	}
+
 	
 	
 }

@@ -23,10 +23,14 @@ public class CmuSerImpl implements CmuSer{
 	
 	// 글 목록 불러오기
 	@Override
-	public List<CmuVO> cum_readlist(CmuVO cmuvo) {
-		// TODO Auto-generated method stub
-		return cmudao.cum_readlist();
+	public int cum_readlistcnt(CmuVO cmuvo) {
+		return cmudao.cum_readlistcnt(cmuvo);
 	}
-	
-	
+
+	// 글 목록 리스트 불러오기
+	@Override
+	public List<CmuVO> cmugetList(CmuVO cmuvo) {
+		return cmudao.cmugetList(cmuvo);
+	}
+		
 }

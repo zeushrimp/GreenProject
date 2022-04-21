@@ -1,6 +1,7 @@
 package com.human.java.CmuController;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.human.java.CmuService.CmuSer;
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.CmuVO.Pagination;
 
 @Controller
 @RequestMapping("/cmu")
@@ -49,12 +51,29 @@ public class CmuCon {
 		return "redirect:/cmu/VgCmuList.do";
 	}
 	
-	// 커뮤니티 리스트 불러오기
+	// 커뮤니티 리스트 불러오기(페이징)
 	@RequestMapping("/VgCmuList.do")
-	public String cmu_readlist(CmuVO cmuvo, Model model, HttpSession session) {
-		// 리스트로 받아옴
-		model.addAttribute("cmu_readlist", CmuSer.cum_readlist(cmuvo));
+	public String cmu_readlist(CmuVO cmuvo, Model model) {
 		
+		Pagination pagination = new Pagination();
+		pagination.setCurrentPageNo(cmuvo.getPageIndex());
+		pagination.setRecordCountPerPage(cmuvo.getPageUnit());
+		pagination.setPageSize(cmuvo.getPageSize());
+
+		cmuvo.setFirstIndex(pagination.getFirstRecordIndex());
+		cmuvo.setRecordCountPerPage(pagination.getRecordCountPerPage());
+		
+		// 리스트로 받아옴	
+		List<CmuVO> cmuboardlist = CmuSer.cmugetList(cmuvo);
+
+		cmuvo.setEndDate(pagination.getLastPageNoOnPageList());
+		cmuvo.setStartDate(pagination.getFirstPageNoOnPageList());
+		cmuvo.setPrev(pagination.getXprev());
+		cmuvo.setNext(pagination.getXnext());
+		cmuvo.setRealEnd(pagination.getRealEnd());
+
+		model.addAttribute("boardList",cmuboardlist);
+		model.addAttribute("pagination",pagination);
 		return "redirect:/cmu/VgCmuList";
 	}
 

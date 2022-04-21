@@ -13,6 +13,11 @@
     ( #{CMU_CATE},#{CMU_TITLE},#{CMU_CONTENT},SYSDATE,#{USR_ID});
    </insert>
    
+   <select id="get_cmuList">
+	SELECT * FROM CMU 
+	ORDER BY CMU_PK DESC;   
+   </select>
+   
    <!-- 글 목록 불러오기 -->
    <select id="select_list">
    

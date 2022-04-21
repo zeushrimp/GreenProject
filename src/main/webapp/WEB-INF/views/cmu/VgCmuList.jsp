@@ -70,14 +70,14 @@
 				<!--content-->
 				<section class="content three-fourth">
 					<!--blog entry-->
-					<div class="entry one-third">
+					<!-- <div class="entry one-third">
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
@@ -92,11 +92,11 @@
 					<div class="entry one-third">
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
@@ -110,11 +110,11 @@
 					<div class="entry one-third">
 						<figure>
 							<img src="/resources/images/img.jpg" alt="" />
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
@@ -127,12 +127,12 @@
 					
 					<div class="entry one-third">
 						<figure>
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<img src="/resources/images/img.jpg" alt="" />
 							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 						</figure>
 						<div class="container">
-							<!-- 상세 페이지 가는 링크 -->
+							상세 페이지 가는 링크
 							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
 							<div class="actions">
 								<div>
@@ -141,10 +141,10 @@
 									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
-<%-- 					<c:forEach items="${cmu_readlist}" var="cmuvo" begin="1" end="8">
+ 					<c:forEach items="${cmu_readlist}" var="cmuvo" begin="1" end="8">
 						<div class="entry one-third">
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />
@@ -162,8 +162,8 @@
 									</div>
 								</div>
 							</div>
-						</c:forEach> --%>
-					</div>
+						</div>	
+					</c:forEach>
 
 					<!-- 커뮤니티 리스트 버튼 링크 -->
 					<div class="pager">
@@ -174,25 +174,40 @@
 						<a href="VgCmuList.do">5</a>
 					</div>
 					<!-- 페이징 -->
-<%-- 					<divvclass="pager">
-						<c:if test="${paging.startPage != 1 }">
-							<a href="VgCmuList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-						</c:if>
-						<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-							<c:choose>
-								<c:when test="${p == paging.nowPage }">
-									<b>${p }</b>
-								</c:when>
-								<c:when test="${p != paging.nowPage }">
-									<a
-										href="VgCmuList.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}" class="paging_num">${p }</a>
-								</c:when>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${paging.endPage != paging.lastPage}">
-							<ahref="getResell_BoardList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-						</c:if>
-				</section> --%>
+					<div class="pager">
+						<div class="dataTables_paginate paging_simple_numbers"
+							id="dataTable_paginate">
+							<ul class="pagination">
+
+								<c:if test="${cmuvo.prev}">
+									<li class="paginate_button page-item previous"
+										id="dataTable_previous"><a href="javascript:void(0);"
+										onclick="fn_go_page(${cmuvo.startDate - 1}); return false;"
+										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+										class="page-link">Previous</a></li>
+								</c:if>
+
+								<c:forEach var="num" begin="${cmuvo.startDate}"
+									end="${cmuvo.endDate}">
+									<li class="paginate_button page-item"><a
+										href="javascript:void(0);"
+										onclick="fn_go_page(${num}); return false;"
+										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+										class="page-link">${num}</a></li>
+								</c:forEach>
+
+								<c:if test="${cmuvo.next}">
+									<li class="paginate_button page-item next" id="dataTable_next">
+										<a href="javascript:void(0);"
+										onclick="fn_go_page(${cmuvo.endDate + 1}); return false;"
+										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+										class="page-link">Next</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+				</section>
 				<div class ="cmurlink">
 					<!-- 글 작성가는 링크 -->
 					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
