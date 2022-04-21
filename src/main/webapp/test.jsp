@@ -12,6 +12,7 @@
 <a href ="/cmu/VgCmuList.do">게시판</a></br>
 <a href ="/rcp/VgRcpList.do">레시피</a></br>
 <a href ="/usr/VgUsrLogin.do">로그인</a></br>
+<a href ="/usr/VgUsrLogout.do">로그아웃</a></br>
 <a href ="/usr/VgUsrRegst.do">회원가입</a></br>
 <a href ="/mpg/VgMpgMain.do">마이페이지</a></br>
 

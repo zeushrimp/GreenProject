@@ -38,34 +38,16 @@
 select option[value=""][disabled] {
 	display: none;
 }
+#mail_check_input_box_false{
+    background-color:#ebebe4;
+}
+ 
+#mail_check_input_box_true{
+    background-color:white;
+}
 </style>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
-function idcheck(){
-	if(form.USR_ID.value==""){
-    	
-        alert("아이디를 입력해주세요");
-        form.USR_ID.focus();
-        return false;
-    }
 
-    $.ajax({
-		url : "/usr/checkId.do",
-		type : "post",
-		dataType : "text",
-		data : {"USR_ID" : $("#USR_ID").val()},
-		success : function(data){
-			if(data == 1){
-				alert("중복된 아이디입니다.");
-			}else if(data == 0){
-				$("#idDuplication").attr("value", $("#USR_ID").val());
-				alert("사용가능한 아이디입니다.");
-			}
-		}
-	}) 
-}
-
-</script>
 
 
 
@@ -205,6 +187,15 @@ function idcheck(){
 								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" style="width:180px !important;" required /> &nbsp;@&nbsp;
 								<input type="text" name="USR_EMAIL1" id="USR_EMAIL1" style="width:250px !important;" required />
 							</div>
+								<div class="f-row">
+								<div class="mail_check_input_box" id="mail_check_input_box_false">
+									<input type="text" clsass="mail_check_input" id="USR_CHK" style="width:250px !important;" disabled="disabled" onkeyup="EmailCheck()" required />
+									<input type="button" id="mail_check_button" value="인증번호 받기" onclick="sendEmail()">
+								</div>	
+									
+									
+								
+							</div>
 							<div class="f-row">
 
 								<select name="USR_VEGE" required>
@@ -251,7 +242,7 @@ function idcheck(){
 								
 							</div>
 							<div class="f-row">
-							<input type="submit" class="join" value="회원가입">
+							<input type="submit" class="join" value="회원가입" id="join" disabled="disabled">
 							</div>
 						</form>
 					</div>
@@ -366,6 +357,66 @@ function idcheck(){
             }
         }).open();
     }
+</script>
+<script type="text/javascript">
+var num=0;
+function idcheck(){
+	if(form.USR_ID.value==""){
+    	
+        alert("아이디를 입력해주세요");
+        form.USR_ID.focus();
+        return false;
+    }
+
+    $.ajax({
+		url : "/usr/checkId.do",
+		type : "post",
+		dataType : "text",
+		data : {"USR_ID" : $("#USR_ID").val()},
+		success : function(data){
+			if(data == 1){
+				alert("중복된 아이디입니다.");
+			}else if(data == 0){
+				$("#idDuplication").attr("value", $("#USR_ID").val());
+				alert("사용가능한 아이디입니다.");
+			}
+		}
+	}) 
+};
+/*인증번호 이메일 전송*/
+
+function sendEmail(){
+	var email = $("#USR_EMAIL").val() + "@"+ $("#USR_EMAIL1").val() ;
+	 var checkBox = $(".mail_check_input"); 
+	 var boxWrap = $(".mail_check_input_box");
+	 alert(email);
+	$.ajax({
+        
+        type:"GET",
+        url:"mailCheck?email=" + email,
+        
+        success : function(result){
+        	num = result;
+        	var input = document.getElementById("USR_CHK");
+
+            input.removeAttribute("disabled");
+        	
+        },
+		error : function(request, status, error){
+			alert("이메일을 확인해주세요.")
+		}
+    }); 
+}
+
+
+function EmailCheck(){
+	var num1=$("#USR_CHK").val()
+	var submit=document.getElementById("join");
+	if(num1==num){
+		alert("인증성공")
+	submit.removeAttribute("disabled");
+	}
+}
 </script>
 </body>
 </html>
