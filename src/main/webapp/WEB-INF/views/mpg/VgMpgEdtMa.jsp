@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 
-<body >
+<body>
 	<div class="row">
 		<div class="modal" id="modal5" tabindex="-1">
 			<div class="modal-dialog">
@@ -47,10 +47,10 @@
 											placeholder="상세주소"> <input type="hidden"
 											id="sample6_extraAddress1" placeholder="참고항목">
 									</div>
-									<span id="s_result3" style="font-size: 12px; color: red;">상세
+									<span id="s_result3" style="font-size: 12px; color: red; visibility: hidden;">상세
 										주소를 입력해주세요.</span> <input type="button"
 										class="close VgMpg_modify_addrclose" data-dismiss="modal"
-										value="확인" disabled="disabled" onclick="Mf_addrsubmit()">
+										value="확인" disabled="disabled" onclick="addr_not_null_check()">
 								</form>
 
 

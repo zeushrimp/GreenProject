@@ -260,22 +260,11 @@ function sample6_execDaumPostcode1() {
 function addr_not_null_check() {
 	var $woopyeon = $('#sample6_postcode1');
 	var $sangsae = $('#sample6_detailAddress1');
-	var $text = $('s_result3');
-
-	if ($woopyeon != null) {
-
-		$text.text("상세주소를 입력해주세요");
-	} if ($sangsae != null) {
-		$text.text("확인버튼을 눌러주세요").css('color', 'green');
-
-	} else if ($sangsae != null&&$woopyeon == null) {
-		$text.text("우편번호 찾기로 주소를 넣어주세요");
-
-	}
+	var $text = $('#s_result3');
+	
+	
 
 
-
-
-};
+}
 
 
