@@ -26,21 +26,20 @@
 								<br> <br> <br> <br>
 								<h5 style="text-align: left;">${mpgdata.USR_NAME}</h5>
 
-								<form name="select_vegiterian_type">
+								<form id="Mf_vg" action="modifyvg.do">
 									<div style=" width:65%; vertical-align : top; display: inline-block;">
-										<select>
-											<option value="Vegan">비건 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-											<option value="Lacto">락토 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-											<option value="Ovo">오보 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-											<option value="Lacto_Ovo">락토 오보 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-											<option value="Pollo">폴로 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-											<option value="Pesko">페스코 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-
+										<select name = "USR_VEGE">
+											<option value="비건">비건 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+											<option value="락토">락토 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+											<option value="오보">오보 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+											<option value="락토-오보">락토 오보 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+											<option value="폴로">폴로 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+											<option value="페스코">페스코 채식&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 										</select>
 									</div>
 									<div style="display: inline-block;">
-										<input type="button" class="close VgMpgRsnMrclose"
-											data-dismiss="modal" value="확인" onclrick="changeVgType()">
+										<input type="button" class="close VgMpg_modify_vgclose"
+											data-dismiss="modal" value="확인" onclick="Mf_vgsubmit()">
 									</div>
 								</form>
 								<br>

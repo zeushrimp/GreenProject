@@ -38,6 +38,12 @@ public class MpgMainSerImpl implements MpgMainSer {
 		
 	}
 
+	@Override
+	public void modifyvg(UsrVO mpgvo) {
+		mpgmaindao.modifyvg(mpgvo);
+		
+	}
+
 
 
 }

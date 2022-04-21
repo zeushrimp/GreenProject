@@ -14,4 +14,6 @@ public interface MpgMainSer {
 	public void modifyfpw(UsrVO mpgvo);
 	
 	public void modifynk(UsrVO mpgvo);
+	
+	public void modifyvg(UsrVO mpgvo);
 }
