@@ -74,7 +74,7 @@ public class CmuCon {
 
 		model.addAttribute("boardList",cmuboardlist);
 		model.addAttribute("pagination",pagination);
-		return "redirect:/cmu/VgCmuList";
+		return "/VgCmuList";
 	}
 
 }
