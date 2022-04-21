@@ -106,7 +106,7 @@
 								<c:if test="${cmuvo.prev}">
 									<li class="paginate_button page-item previous"
 										id="dataTable_previous"><a href="javascript:void(0);"
-										onclick="fn_go_page(${cmuvo.startDate - 1}); return false;"
+										onclick="fn_go_page('${cmuvo.startDate}-1'); return false;"
 										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
 										class="page-link">Previous</a></li>
 								</c:if>
@@ -115,7 +115,7 @@
 									end="${cmuvo.endDate}">
 									<li class="paginate_button page-item"><a
 										href="javascript:void(0);"
-										onclick="fn_go_page(${num}); return false;"
+										onclick="fn_go_page('${num}'); return false;"
 										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
 										class="page-link">${num}</a></li>
 								</c:forEach>
@@ -123,7 +123,7 @@
 								<c:if test="${cmuvo.next}">
 									<li class="paginate_button page-item next" id="dataTable_next">
 										<a href="javascript:void(0);"
-										onclick="fn_go_page(${cmuvo.endDate + 1}); return false;"
+										onclick="fn_go_page('${cmuvo.endDate}+1'); return false;"
 										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
 										class="page-link">Next</a>
 									</li>

@@ -71,6 +71,7 @@ public class Pagination {
 	}
 	
 	public int getFirstRecordIndex() {
+		
 		firstRecordIndex = (getCurrentPageNo() - 1) * getRecordCountPerPage();
 		return firstRecordIndex;
 	}

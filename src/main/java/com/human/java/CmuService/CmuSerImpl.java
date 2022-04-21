@@ -32,5 +32,10 @@ public class CmuSerImpl implements CmuSer{
 	public List<CmuVO> cmugetList(CmuVO cmuvo) {
 		return cmudao.cmugetList(cmuvo);
 	}
+
+	@Override
+	public int cmulistcnt() {
+		return cmudao.cmulistcnt();
+	}
 		
 }

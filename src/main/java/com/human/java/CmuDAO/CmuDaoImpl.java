@@ -16,22 +16,25 @@ public class CmuDaoImpl implements CmuDao{
 	// 글 등록 버튼
 	@Override
 	public void cmu_write(CmuVO cmuvo) {
-		// TODO Auto-generated method stub
 		mybatis.insert("Cmu.insert_cmu",cmuvo);
 	}
 	
 	// 글 리스트
 	@Override
 	public List<CmuVO> cmugetList(CmuVO cmuvo) {
-		// TODO Auto-generated method stub
 		return mybatis.selectList("Cmu.get_cmuList",cmuvo);
 	}
 	
 	// 글 페이징
 	@Override
 	public int cum_readlistcnt(CmuVO cmuvo) {
-		// TODO Auto-generated method stub
 		return mybatis.insert("Cmu.insert_cmu",cmuvo);
+	}
+
+	@Override
+	public int cmulistcnt() {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Cmu.count_list");
 	}
 
 	

@@ -14,4 +14,7 @@ public interface CmuDao {
 	
 	// 글 페이징
 	public int cum_readlistcnt(CmuVO cmuvo);
+	
+	// 개시물 총 갯수
+	public int cmulistcnt();
 }

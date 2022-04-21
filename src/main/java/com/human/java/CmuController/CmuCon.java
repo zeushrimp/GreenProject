@@ -54,28 +54,42 @@ public class CmuCon {
 	// 커뮤니티 리스트 불러오기(페이징)
 	@RequestMapping("/VgCmuList.do")
 	public String cmu_readlist(CmuVO cmuvo, Model model) {
-		
+
 		Pagination pagination = new Pagination();
 		pagination.setCurrentPageNo(cmuvo.getPageIndex());
 		pagination.setRecordCountPerPage(cmuvo.getPageUnit());
 		pagination.setPageSize(cmuvo.getPageSize());
-
+		System.out.println("현재 페이지 : " + cmuvo.getPageIndex());
+		System.out.println("현재 페이지갯수 : " + cmuvo.getPageUnit());
+		System.out.println("현재 페이지사이즈 : " + cmuvo.getPageSize());
+		
+		System.out.println("시작 페이지 인덱스1 : " + pagination.getFirstRecordIndex());
+		System.out.println("시작 페이지 인덱스2 : " + pagination.getRecordCountPerPage());
+		
+		
 		cmuvo.setFirstIndex(pagination.getFirstRecordIndex());
 		cmuvo.setRecordCountPerPage(pagination.getRecordCountPerPage());
 		
 		// 리스트로 받아옴
 		List<CmuVO> cmuboardlist = CmuSer.cmugetList(cmuvo);
+		int totCnt = CmuSer.cmulistcnt();
+		
 		System.out.println(cmuboardlist.size());
+		
 		cmuvo.setEndDate(pagination.getLastPageNoOnPageList());
 		cmuvo.setStartDate(pagination.getFirstPageNoOnPageList());
 		cmuvo.setPrev(pagination.getXprev());
 		cmuvo.setNext(pagination.getXnext());
 		cmuvo.setRealEnd(pagination.getRealEnd());
 		
+		pagination.setTotalRecordCount(totCnt);
+		
+		model.addAttribute("totCnt",totCnt);
 		model.addAttribute("boardList",cmuboardlist);
 		model.addAttribute("pagination",pagination);
 		
 		return "/cmu/VgCmuList";
 	}
+
 
 }
