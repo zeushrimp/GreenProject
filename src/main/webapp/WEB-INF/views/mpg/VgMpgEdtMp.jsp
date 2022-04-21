@@ -25,17 +25,14 @@
 							<div>
 								<h1 style="text-align: center;">비밀번호 변경하기</h1>
 								<br>
-								
+
 								<form>
-								로그인 아이디 <input type="text" placeholder="test01" readonly/>
-								현재비밀번호 <input type="password" placeholder="ex) *******" 
-										name="pw" onkeyup="enterkey()"> 새 비밀번호 <input type="password"
-										placeholder="ex) *******" name="pw"
-										onkeyup="enterkey()">  새 비밀번호확인<input type="password"
-										placeholder="ex) *******" name="pw"
-										onkeyup="enterkey()"> <input type="button"
-										class="close VgMpgRsnMrclose" data-dismiss="modal" value="확인"
-										>
+									로그인 아이디 <input type="text" placeholder="${mpgdata.USR_ID}"
+										readonly /> 현재비밀번호 <input type="password"
+										placeholder="ex) *******" name="pw" onkeyup="enterkey()">
+									새 비밀번호 <input type="password" placeholder="ex) *******"
+										name="pw" onkeyup="enterkey()"> <input type="button"
+										class="close VgMpgRsnMrclose" data-dismiss="modal" value="확인">
 								</form>
 
 

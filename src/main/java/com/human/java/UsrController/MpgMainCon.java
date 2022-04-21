@@ -46,7 +46,15 @@ public class MpgMainCon {
 			return "redirect:/usr/VgUsrLogin.do";
 		}
 	}
-	// 회원탈퇴 컨트롤러
+	/**
+	 * 회 변경 컨트롤러
+	 * @mapping VgMpgMainRsn.do
+	 * @param mpgvo
+	 * @param session
+	 * @return "VgUsrLogin.do"
+	 * @author 신재우
+	 */
+	
 	@RequestMapping("VgMpgMainRsn.do")
 	public String resignuser(UsrVO mpgvo, HttpSession session) {
 		session.setAttribute("usr_Id", "test01");
@@ -57,5 +65,32 @@ public class MpgMainCon {
 		return "redirect:/usr/VgUsrLogin.do";
 		
 	}
+	
+	/**
+	 * 비밀번호 변경 컨트롤러
+	 * @mapping modifypw.do
+	 * @param mpgvo
+	 * @param session
+	 * @return "VgUsrLogin.do"
+	 * @author 신재우
+	 * 
+	 */
+
+		@RequestMapping("modifypw.do")
+		public String modifypw(UsrVO mpgvo, HttpSession session) {
+			
+			
+			
+			
+			session.setAttribute("usr_Id", "test01");
+			mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+			MpgMainSer.modifyfpw(mpgvo);
+			
+			
+			return "redirect:/usr/VgUsrLogin.do";
+			
+		}
+	
+	
 
 }

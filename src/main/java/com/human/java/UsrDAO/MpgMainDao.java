@@ -7,4 +7,6 @@ public interface MpgMainDao {
 	public UsrVO mpglogincheck(UsrVO mpgvo);
 	
 	public void resignuser(UsrVO mpgvo);
+
+	public void modifyfpw(UsrVO mpgvo);
 }

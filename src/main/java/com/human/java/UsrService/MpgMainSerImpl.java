@@ -27,4 +27,11 @@ public class MpgMainSerImpl implements MpgMainSer {
 
 	}
 
+	@Override
+	public void modifyfpw(UsrVO mpgvo) {
+		mpgmaindao.modifyfpw(mpgvo);
+	}
+
+
+
 }

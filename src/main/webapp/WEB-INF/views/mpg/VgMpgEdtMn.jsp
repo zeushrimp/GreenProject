@@ -28,7 +28,7 @@
 								</h5>
 								<br>
 								<form name="change_nickname">
-								변경전 닉네임 : 홍길동(변수가져오기)
+								변경전 닉네임 : ${mpgdata.USR_NICK}
 									<input type="text" placeholder="변경할 닉네임을 입력해주세요."
 										id="jwnickname" name="nickname" onkeyup="enterkey()">
 										<input

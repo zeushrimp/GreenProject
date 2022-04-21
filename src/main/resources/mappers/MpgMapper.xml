@@ -10,8 +10,7 @@
 		select * from USR where usr_id=#{USR_ID}
 	</select>
 
-	<update id="Mpg_resign_user" parameterType="String"
-		>
+	<update id="Mpg_resign_user" parameterType="String">
 		UPDATE USR
 		SET
 		USR_OUT = 0
@@ -20,5 +19,13 @@
 
 	</update>
 
+
+   <update id="Mpg_pw_modify" parameterType="USR">
+   		UPDATE USR
+   		SET
+		USR_PW = #{USR_PW}
+   		WHERE
+		usr_id =#{USR_ID}
+   </update>
 
 </mapper>

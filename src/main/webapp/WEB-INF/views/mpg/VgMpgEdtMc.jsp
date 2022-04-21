@@ -24,7 +24,7 @@
 							<div>
 								<h1 style="text-align: center;">채식종류변경</h1>
 								<br> <br> <br> <br>
-								<h5 style="text-align: left;">신재우(변경)</h5>
+								<h5 style="text-align: left;">${mpgdata.USR_NAME}</h5>
 
 								<form name="select_vegiterian_type">
 									<div style=" width:65%; vertical-align : top; display: inline-block;">

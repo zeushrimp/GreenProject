@@ -186,7 +186,7 @@
 									</dd>
 									<dt>주소</dt>
 									<dd>${mpgdata.USR_ADDR2}&nbsp;
-										${mpgdata.USR_ADDR3}&nbsp;${mpgdata.USR_ADDR1}</dd>
+										${mpgdata.USR_ADDR3}&nbsp;,우편번호 : ${mpgdata.USR_ADDR1}</dd>
 									<dd
 										style="text-align: right; background-color: transparent; width: 30%;">
 										<a class="btn btn-default" data-target="#modal5"

@@ -22,6 +22,13 @@ public class MpgMainDaoImpl implements MpgMainDao {
 	@Override
 	public void resignuser(UsrVO mpgvo) {
 		sqlSession.update("Mpg.Mpg_resign_user", mpgvo);
-	
+
 	}
+
+	@Override
+	public void modifyfpw(UsrVO mpgvo) {
+		sqlSession.update("Mpg.Mpg_pw_modify", mpgvo);
+
+	}
+
 }
