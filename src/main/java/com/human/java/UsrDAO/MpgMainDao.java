@@ -9,4 +9,6 @@ public interface MpgMainDao {
 	public void resignuser(UsrVO mpgvo);
 
 	public void modifyfpw(UsrVO mpgvo);
+	
+	public void modifyfnk(UsrVO mpgvo);
 }

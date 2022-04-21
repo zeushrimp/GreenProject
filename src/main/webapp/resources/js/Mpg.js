@@ -93,11 +93,12 @@ function fn_compare_pwd() {
 
 }
 
-function fn_compare_cr_pwd() {
+//비밀번호변경-현재 비밀번호 check
+function fn_compare_cr_pwd1() {
 
 
 
-	var pwd1 = $("#crpwcheck").val();
+	var pwd1 = $("#crpwcheck1").val();
 
 
 	var $s_result = $("#s_result1");
@@ -128,13 +129,59 @@ function fn_compare_cr_pwd() {
 
 }
 
+//닉네임변경-현재 비밀번호 check
+function fn_compare_cr_pwd2() {
 
 
+
+	var pwd1 = $("#crpwcheck2").val();
+
+
+	var $s_result = $("#s_result2");
+
+	$s_result.css('visibility', 'visible');
+
+	if (pwd == pwd1) {
+
+		compare_result = true;
+
+		$s_result.text("비밀번호가 일치합니다.");
+
+		$s_result.css('color', 'green');
+		$('.VgMpg_modify_nkclose').prop("disabled", false);
+
+		return;
+
+	}
+
+
+
+	compare_result = false;
+	$('.VgMpg_modify_nkclose').prop("disabled", true);
+
+
+	$s_result.text("비밀번호가 일치하지 않습니다.");
+	$s_result.css('color', 'red');
+
+}
+
+
+
+//비밀번호변경-submit
 function Mf_pwsubmit(){
 	$('.VgMpg_modify_pwclose').click(function(){
 		$('#Mf_pw').submit();		
 	})
 	alert("비밀번호가 변경되었습니다.")
+	
+}
+
+//닉네임변경-submit
+function Mf_nksubmit(){
+	$('.VgMpg_modify_nkclose').click(function(){
+		$('#Mf_nk').submit();		
+	})
+	alert("닉네임이 변경되었습니다.")
 	
 }
 

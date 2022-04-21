@@ -12,4 +12,6 @@ public interface MpgMainSer {
 	public void resignuser(UsrVO mpgvo);
 	
 	public void modifyfpw(UsrVO mpgvo);
+	
+	public void modifynk(UsrVO mpgvo);
 }

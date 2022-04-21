@@ -91,6 +91,28 @@ public class MpgMainCon {
 			return "redirect:/usr/VgUsrLogin.do";
 			
 		}
+		
+		/**
+		 * 닉네임 변경 컨트롤러
+		 * @mapping modifypnk.do
+		 * @param mpgvo
+		 * @param session
+		 * @return "VgMpgMain.do"
+		 * @author 신재우
+		 * 
+		 */
+
+			@RequestMapping("modifynk.do")
+			public String modifynk(UsrVO mpgvo, HttpSession session) {
+				System.out.println("test");			
+				session.setAttribute("usr_Id", "test01");
+				mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+				MpgMainSer.modifynk(mpgvo);
+				
+							
+				return "redirect:/mpg/VgMpgMain.do";
+				
+			}
 	
 	
 

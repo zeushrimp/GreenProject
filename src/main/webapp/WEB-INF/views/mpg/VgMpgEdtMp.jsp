@@ -27,7 +27,7 @@
 								<br> 로그인 아이디 <input type="text"
 									placeholder="${mpgdata.USR_ID}" readonly /> 현재비밀번호 <input
 									type="password" placeholder="ex) *******"
-									onkeyup="fn_compare_cr_pwd()" id="crpwcheck"> <span
+									onkeyup="fn_compare_cr_pwd1()" id="crpwcheck1"> <span
 									id="s_result1"
 									style="font-size: 12px; display: none; color: red;">비밀번호가
 									일치하지 않습니다.</span>

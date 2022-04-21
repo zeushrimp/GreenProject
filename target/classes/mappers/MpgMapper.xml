@@ -27,5 +27,14 @@
    		WHERE
 		usr_id =#{USR_ID}
    </update>
+   
+   
+   <update id="Mpg_nk_modify" parameterType="USR">
+   		UPDATE USR
+   		SET
+		USR_NICK = #{USR_NICK}
+   		WHERE
+		usr_id =#{USR_ID}
+   </update>
 
 </mapper>

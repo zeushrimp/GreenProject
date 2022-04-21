@@ -31,4 +31,10 @@ public class MpgMainDaoImpl implements MpgMainDao {
 
 	}
 
+	@Override
+	public void modifyfnk(UsrVO mpgvo) {
+		sqlSession.update("Mpg.Mpg_nk_modify", mpgvo);
+		
+	}
+
 }
