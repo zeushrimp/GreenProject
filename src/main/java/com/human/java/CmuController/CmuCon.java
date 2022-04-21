@@ -45,7 +45,7 @@ public class CmuCon {
 		// 세션에서 아이디만 가져오기
 		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		// 여기서 vo 값 확인 (컬럼 데이터)
-		System.out.println(cmuvo);
+		System.out.println(cmuvo.toString());
 		CmuSer.cmu_write(cmuvo);
 		
 		return "redirect:/cmu/VgCmuList.do";
@@ -63,18 +63,19 @@ public class CmuCon {
 		cmuvo.setFirstIndex(pagination.getFirstRecordIndex());
 		cmuvo.setRecordCountPerPage(pagination.getRecordCountPerPage());
 		
-		// 리스트로 받아옴	
+		// 리스트로 받아옴
 		List<CmuVO> cmuboardlist = CmuSer.cmugetList(cmuvo);
-
+		System.out.println(cmuboardlist.size());
 		cmuvo.setEndDate(pagination.getLastPageNoOnPageList());
 		cmuvo.setStartDate(pagination.getFirstPageNoOnPageList());
 		cmuvo.setPrev(pagination.getXprev());
 		cmuvo.setNext(pagination.getXnext());
 		cmuvo.setRealEnd(pagination.getRealEnd());
-
+		
 		model.addAttribute("boardList",cmuboardlist);
 		model.addAttribute("pagination",pagination);
-		return "/VgCmuList";
+		
+		return "/cmu/VgCmuList";
 	}
 
 }

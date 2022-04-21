@@ -98,9 +98,8 @@ public class PageVO {
     public int getRealEnd() {
 		return realEnd;
 	}
-
+    
 	public void setRealEnd(int realEnd) {
 		this.realEnd = realEnd;
 	}
-	
 }

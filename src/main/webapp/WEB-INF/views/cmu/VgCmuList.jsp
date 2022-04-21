@@ -69,82 +69,10 @@
           		</div>
 				<!--content-->
 				<section class="content three-fourth">
-					<!--blog entry-->
-					<!-- <div class="entry one-third">
-						<figure>
-							<img src="/resources/images/img.jpg" alt="" />
-							상세 페이지 가는 링크
-							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							상세 페이지 가는 링크
-							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<img src="/resources/images/img.jpg" alt="" />
-							상세 페이지 가는 링크
-							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							상세 페이지 가는 링크
-							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							<img src="/resources/images/img.jpg" alt="" />
-							상세 페이지 가는 링크
-							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							상세 페이지 가는 링크
-							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="entry one-third">
-						<figure>
-							상세 페이지 가는 링크
-							<img src="/resources/images/img.jpg" alt="" />
-							<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
-						</figure>
-						<div class="container">
-							상세 페이지 가는 링크
-							<h2><a href="VgCmuDtail.do">커뮤니티 제목</a></h2> 
-							<div class="actions">
-								<div>
-									<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디</a></div>
-									<div class="comments"><i class="fa fa-comment"></i><a href="VgCmuDtail.jsp#comments">댓글</a></div>
-									<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요</a></div>								</div>
-							</div>
-						</div>
-					</div> -->
-					
+				<form method="get"  id="listForm" action="/cmu/VgCmuList">
+					<input type="hidden" id="pageIndex" name="pageIndex" val=""/>
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
- 					<c:forEach items="${cmu_readlist}" var="cmuvo" begin="1" end="8">
+ 					<c:forEach items="${boardList}" var="cmuvo">
 						<div class="entry one-third">
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />
@@ -158,27 +86,23 @@
 									<div>
 										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디 ${cmuvo.USR_ID}</a></div>
 										<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글${cmuvo.CMU_COM}</a></div>
-										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${cmuvo.CMU_LIKE}</a></div>								
+										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${cmuvo.CMU_Like}</a></div>								
 									</div>
 								</div>
 							</div>
 						</div>	
 					</c:forEach>
-
-					<!-- 커뮤니티 리스트 버튼 링크 -->
-					<div class="pager">
-						<a href="VgCmuList.do">1</a>
-						<a href="VgCmuList.do" class="current">2</a>
-						<a href="VgCmuList.do">3</a>
-						<a href="VgCmuList.do">4</a>
-						<a href="VgCmuList.do">5</a>
-					</div>
+					<script>
+					function fn_go_page(pageNo) {
+						$("#pageIndex").val(pageNo);
+						$("#listForm").submit();
+						return false;
+					}
+					</script>
 					<!-- 페이징 -->
-					<div class="pager">
-						<div class="dataTables_paginate paging_simple_numbers"
-							id="dataTable_paginate">
+ 					<div class="pager">
+						<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
 							<ul class="pagination">
-
 								<c:if test="${cmuvo.prev}">
 									<li class="paginate_button page-item previous"
 										id="dataTable_previous"><a href="javascript:void(0);"
@@ -207,6 +131,8 @@
 							</ul>
 						</div>
 					</div>
+					
+					</form>
 				</section>
 				<div class ="cmurlink">
 					<!-- 글 작성가는 링크 -->
