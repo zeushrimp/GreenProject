@@ -28,19 +28,19 @@ function RsnMrshow() {
 	//});
 
 
-//제이쿼리 클래스 제거 생성 검색 
-//attr 검색
+	//제이쿼리 클래스 제거 생성 검색 
+	//attr 검색
 
 	if (y == pwd) {
 		$('.VgMpgRsnMrshow').css('visibility', 'visible');
-		
+
 
 	} else {
-		$('#testssss').innerHTML="비밀번호가 맞지 않습니다."
+		$('#testssss').innerHTML = "비밀번호가 맞지 않습니다."
 		$('#jwpwd').val("").focus();
 		$('.VgMpgRsnMrshow').css('visibility', 'hidden');
-		
-		
+
+
 	}
 
 
@@ -55,7 +55,88 @@ document.addEventListener('keydown', function(event) {
 	};
 }, true);
 
+var compare_result = false;
 
+function fn_compare_pwd() {
+
+
+
+	var pwd1 = $("#mpgpasscheck1").val();
+
+	var pwd2 = $("#mpgpasscheck2").val();
+
+	var $s_result = $("#s_result");
+
+	$s_result.css('visibility', 'visible');
+
+	if (pwd1 == pwd2) {
+
+		compare_result = true;
+
+		$s_result.text("비밀번호가 일치합니다.");
+
+		$s_result.css('color', 'green');
+		$('.VgMpg_modify_pwclose').prop("disabled", false);
+
+		return;
+
+
+	}
+
+
+
+	compare_result = false;
+	$('.VgMpg_modify_pwclose').prop("disabled", true);
+
+	$s_result.text("비밀번호가 일치하지 않습니다.");
+	$s_result.css('color', 'red');
+
+}
+
+function fn_compare_cr_pwd() {
+
+
+
+	var pwd1 = $("#crpwcheck").val();
+
+
+	var $s_result = $("#s_result1");
+
+	$s_result.css('display', 'inline-block');
+
+	if (pwd == pwd1) {
+
+		compare_result = true;
+
+		$s_result.text("비밀번호가 일치합니다.");
+
+		$s_result.css('color', 'green');
+		$('.VgMpg_modify_pwclose').prop("disabled", false);
+
+		return;
+
+	}
+
+
+
+	compare_result = false;
+	$('.VgMpg_modify_pwclose').prop("disabled", true);
+
+
+	$s_result.text("비밀번호가 일치하지 않습니다.");
+	$s_result.css('color', 'red');
+
+}
+
+
+
+function Mf_pwsubmit(){
+	$('.VgMpg_modify_pwclose').click(function(){
+		$('#Mf_pw').submit();		
+	})
+	alert("비밀번호가 변경되었습니다.")
+	
+}
 
 
 

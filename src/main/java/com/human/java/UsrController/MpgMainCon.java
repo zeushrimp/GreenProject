@@ -23,6 +23,7 @@ public class MpgMainCon {
 
 	@RequestMapping("/{url}.do")
 	public String userJoin(@PathVariable String url) {
+		
 		return "/mpg/" + url;
 
 	}
@@ -30,6 +31,8 @@ public class MpgMainCon {
 	// 로그인 상태 유무로 마이페이지 or 로그인 페이지로 들어가는 컨트롤러
 	@RequestMapping("VgMpgMain.do")
 	public String login_check(UsrVO mpgvo, HttpSession session, Model model) {
+		System.out.println("VgMpgMain +   호출 ");
+		
 		session.setAttribute("usr_Id", "test01");
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		// session은 오브젝트로 받아오기 때문에 적절한 타입에 담아주는 과정 필요.
@@ -60,6 +63,7 @@ public class MpgMainCon {
 		session.setAttribute("usr_Id", "test01");
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		MpgMainSer.resignuser(mpgvo);
+		System.out.println("탈퇴 ");
 		
 		
 		return "redirect:/usr/VgUsrLogin.do";
@@ -78,15 +82,12 @@ public class MpgMainCon {
 
 		@RequestMapping("modifypw.do")
 		public String modifypw(UsrVO mpgvo, HttpSession session) {
-			
-			
-			
-			
+			System.out.println("test");			
 			session.setAttribute("usr_Id", "test01");
 			mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 			MpgMainSer.modifyfpw(mpgvo);
 			
-			
+						
 			return "redirect:/usr/VgUsrLogin.do";
 			
 		}
