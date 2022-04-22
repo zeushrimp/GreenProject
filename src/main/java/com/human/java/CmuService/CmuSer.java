@@ -16,6 +16,6 @@ public interface CmuSer {
 	// 글 리스트 불러오기
 	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
 	
-	// 커뮤니티 페이징
-	int cum_readlistcnt(CmuVO cmuvo);
+	// 커뮤니티 상세보기
+	public List<CmuVO> cmu_detailread(CmuVO cmuvo);
 }

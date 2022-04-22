@@ -21,6 +21,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 순수한 multipartResolver를 사용하기 위해 빈 이름으로 "multipartResolver"를 등록, 프로퍼티를 이용 최대 가능한 업로드 사이즈 지정 -->    
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="100000000"></beans:property>
+	</beans:bean>
+		
 	<context:component-scan base-package="com.human.java" />
 	
 	

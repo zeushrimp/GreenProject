@@ -10,12 +10,12 @@ public interface CmuDao {
 	// 글 작성
 	void cmu_write(CmuVO cmuvo);
 	
-	// 글 목록 리스트 불러오기 
+	// 글 목록 리스트 불러오기 (페이징)
 	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
-	
-	// 글 페이징
-	public int cum_readlistcnt(CmuVO cmuvo);
 	
 	// 개시물 총 갯수
 	public int cmulistcnt();
+	
+	//  커뮤니티 상세보기
+	public List<CmuVO> cmu_detailread(CmuVO cmuvo);
 }

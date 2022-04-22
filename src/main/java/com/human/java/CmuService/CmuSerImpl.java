@@ -22,21 +22,22 @@ public class CmuSerImpl implements CmuSer{
 		cmudao.cmu_write(cmuvo);
 	}
 	
-	// 글 목록 불러오기
+	// 총 갯수 카운트 
 	@Override
-	public int cum_readlistcnt(CmuVO cmuvo) {
-		return cmudao.cum_readlistcnt(cmuvo);
+	public int cmulistcnt() {
+		return cmudao.cmulistcnt();
 	}
-
+	
 	// 글 목록 리스트 불러오기
 	@Override
 	public List<CmuVO> cmugetlist(CmupageVO cmupagevo) {
 		return cmudao.cmugetlist(cmupagevo);
 	}
 
-	@Override
-	public int cmulistcnt() {
-		return cmudao.cmulistcnt();
+	//  커뮤니티 상세보기
+	public List<CmuVO> cmu_detailread(CmuVO cmuvo){
+		return cmudao.cmu_detailread(cmuvo);
 	}
+	
 		
 }

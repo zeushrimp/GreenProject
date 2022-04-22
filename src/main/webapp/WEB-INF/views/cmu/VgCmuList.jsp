@@ -69,7 +69,7 @@
           		</div>
 				<!--content-->
 				<section class="content three-fourth">
-				<form method="get"  id="listForm" action="/cmu/VgCmuList">
+				<form method="get" id="listForm" action="/cmu/VgCmuList">
 
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
  					<c:forEach items="${cmupagelist}" var="cmuvo">
@@ -77,16 +77,16 @@
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />
 								<!-- 상세 페이지 가는 링크 -->
-								<figcaption><a href="VgCmuDtail.do"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
+								<figcaption><a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"><i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a></figcaption>
 							</figure>
 							<div class="container">
 								<!-- 상세 페이지 가는 링크 -->
-								<h2><a href="VgCmuDtail.do">커뮤니티 제목${cmuvo.CMU_TITLE}</a></h2> 
+								<h2><a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">${cmuvo.CMU_TITLE}</a></h2> 
 								<div class="actions">
 									<div>
-										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">아이디 ${cmuvo.USR_ID}</a></div>
-										<div class="comments"><i class="fa fa-comment"></i><a href="#">댓글${cmuvo.CMU_COM}</a></div>
-										<div class="likes"><i class="fa fa-heart"></i><a href="#">좋아요${cmuvo.CMU_Like}</a></div>								
+										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">${cmuvo.USR_ID}</a></div>
+										<div class="comments"><i class="fa fa-comment"></i><a href="#">${cmuvo.CMU_COM}</a></div>
+										<div class="likes"><i class="fa fa-heart"></i><a href="#">${cmuvo.CMU_Like}</a></div>								
 									</div>
 								</div>
 							</div>

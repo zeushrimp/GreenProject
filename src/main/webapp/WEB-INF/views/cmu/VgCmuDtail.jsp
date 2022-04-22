@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,18 +74,18 @@
 								
 				<!--content-->
 				<section class="content three-fourth">
-					<!--blog entry-->
+					<input name="cmuvo" type="hidden" value="${cmuvo.CMU_PK}" id="detailread"/>
 					<div class="cmucate cumtitle">
-						<p class="lead">카테고리 </p>
+						<p class="lead">카테 ${cmuvo.CMU_CATE}</p>
 					</div>
 					<div class="cmucon cumtitle">
-						<p class="lead">제목 </p>
+						<p class="lead">제목 ${cmuvo.CMU_TITLE}</p>
 					</div>	
 					<article class="post single">					
 						<div class="entry-meta">
 							<div class="date">
-								<span class="day">29</span> 
-								<span class="my">June, 2014</span>
+								<span class="day"><fmt:formatDate pattern="yyyy-MM-dd" value="${cmuvo.CMU_REG}"/>26</span> 
+								<span class="my"><fmt:formatDate pattern="MM-yyyy" value="${cmuvo.CMU_REG}"/>june, 2022</span>
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
@@ -92,7 +94,7 @@
 						</div>
 						<div class="container">
 							<div class="entry-content">
-								<p class="lead">작성한 글 보여주는 위치 </p>
+								<p class="lead">내용 ${cmuvo.CMU_CONTENT}</p>
 							</div>
 						</div>
 					</article>

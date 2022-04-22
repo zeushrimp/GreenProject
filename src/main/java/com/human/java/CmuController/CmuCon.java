@@ -70,6 +70,16 @@ public class CmuCon {
 		
 		return "/cmu/VgCmuList";
 	}
-
+	
+	// 커뮤니티 상세보기
+	@RequestMapping("/VgCmuDtail.do")
+	public String cmu_detailread(CmuVO cmuvo, Model model){
+		
+		System.out.println("VgCmuDtail   cmu_pk : " + cmuvo.getCMU_PK());
+		model.addAttribute("detailread", CmuSer.cmu_detailread(cmuvo));
+		
+		
+		return "/cmu/VgCmuDtail";
+	}
 
 }
