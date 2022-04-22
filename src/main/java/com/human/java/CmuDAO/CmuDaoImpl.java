@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.CmuVO.CmupageVO;
 
 @Repository("CmuDao")
 public class CmuDaoImpl implements CmuDao{
@@ -21,8 +22,8 @@ public class CmuDaoImpl implements CmuDao{
 	
 	// 글 리스트
 	@Override
-	public List<CmuVO> cmugetList(CmuVO cmuvo) {
-		return mybatis.selectList("Cmu.get_cmuList",cmuvo);
+	public List<CmuVO> cmugetlist(CmupageVO cmupagevo) {
+		return mybatis.selectList("Cmu.get_cmulist",cmupagevo);
 	}
 	
 	// 글 페이징

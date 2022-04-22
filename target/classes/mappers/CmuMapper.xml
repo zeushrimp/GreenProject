@@ -13,11 +13,11 @@
     ( #{CMU_CATE},#{CMU_TITLE},#{CMU_CONTENT},SYSDATE,#{USR_ID})
    </insert>
 
-   <select id="get_cmuList" parameterType="CMU" resultType="CMU">	
+   <select id="get_cmulist" parameterType="CMU" resultType="CMU">	
 	SELECT *
 	FROM cmu
 	ORDER BY cmu_pk DESC
-	OFFSET #{firstIndex} ROWS FETCH NEXT 8 ROWS ONLY 
+	OFFSET #{start} ROWS FETCH NEXT #{cntPerPage} ROWS ONLY
    </select>
    
    <!-- 글 목록 불러오기 -->

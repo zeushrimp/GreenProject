@@ -1,11 +1,11 @@
 package com.human.java.CmuVO;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
 @Data
-public class CmuVO extends PageVO{
+public class CmuVO{
 
 	int CMU_PK;
 	String CMU_CATE;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.human.java.CmuDAO.CmuDao;
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.CmuVO.CmupageVO;
 
 @Service("CmuSer")
 public class CmuSerImpl implements CmuSer{
@@ -29,8 +30,8 @@ public class CmuSerImpl implements CmuSer{
 
 	// 글 목록 리스트 불러오기
 	@Override
-	public List<CmuVO> cmugetList(CmuVO cmuvo) {
-		return cmudao.cmugetList(cmuvo);
+	public List<CmuVO> cmugetlist(CmupageVO cmupagevo) {
+		return cmudao.cmugetlist(cmupagevo);
 	}
 
 	@Override

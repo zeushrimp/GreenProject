@@ -3,6 +3,7 @@ package com.human.java.CmuService;
 import java.util.List;
 
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.CmuVO.CmupageVO;
 
 public interface CmuSer {
 	
@@ -13,7 +14,7 @@ public interface CmuSer {
 	public int cmulistcnt();
 	
 	// 글 리스트 불러오기
-	public List<CmuVO> cmugetList(CmuVO cmuvo);
+	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
 	
 	// 커뮤니티 페이징
 	int cum_readlistcnt(CmuVO cmuvo);

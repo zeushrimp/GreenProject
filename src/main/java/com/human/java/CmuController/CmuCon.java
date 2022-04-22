@@ -1,7 +1,5 @@
 package com.human.java.CmuController;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.human.java.CmuService.CmuSer;
 import com.human.java.CmuVO.CmuVO;
-import com.human.java.CmuVO.Pagination;
+import com.human.java.CmuVO.CmupageVO;
 
 @Controller
 @RequestMapping("/cmu")
@@ -53,40 +52,21 @@ public class CmuCon {
 	
 	// 커뮤니티 리스트 불러오기(페이징)
 	@RequestMapping("/VgCmuList.do")
-	public String cmu_readlist(CmuVO cmuvo, Model model) {
-
-		Pagination pagination = new Pagination();
-		pagination.setCurrentPageNo(cmuvo.getPageIndex());
-		pagination.setRecordCountPerPage(cmuvo.getPageUnit());
-		pagination.setPageSize(cmuvo.getPageSize());
-		System.out.println("현재 페이지 : " + cmuvo.getPageIndex());
-		System.out.println("현재 페이지갯수 : " + cmuvo.getPageUnit());
-		System.out.println("현재 페이지사이즈 : " + cmuvo.getPageSize());
+	public String cmu_readlist(CmupageVO cmupagevo, Model model, @RequestParam(value = "nowPage", required = false)String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,String searchCondition,String searchKeyword) {
+		int total = CmuSer.cmulistcnt();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "8";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "8";
+		}
 		
-		System.out.println("시작 페이지 인덱스1 : " + pagination.getFirstRecordIndex());
-		System.out.println("시작 페이지 인덱스2 : " + pagination.getRecordCountPerPage());
-		
-		
-		cmuvo.setFirstIndex(pagination.getFirstRecordIndex());
-		cmuvo.setRecordCountPerPage(pagination.getRecordCountPerPage());
-		
-		// 리스트로 받아옴
-		List<CmuVO> cmuboardlist = CmuSer.cmugetList(cmuvo);
-		int totCnt = CmuSer.cmulistcnt();
-		
-		System.out.println(cmuboardlist.size());
-		
-		cmuvo.setEndDate(pagination.getLastPageNoOnPageList());
-		cmuvo.setStartDate(pagination.getFirstPageNoOnPageList());
-		cmuvo.setPrev(pagination.getXprev());
-		cmuvo.setNext(pagination.getXnext());
-		cmuvo.setRealEnd(pagination.getRealEnd());
-		
-		pagination.setTotalRecordCount(totCnt);
-		
-		model.addAttribute("totCnt",totCnt);
-		model.addAttribute("boardList",cmuboardlist);
-		model.addAttribute("pagination",pagination);
+		cmupagevo = new CmupageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage),searchCondition,searchKeyword);
+		model.addAttribute("paging", cmupagevo);
+		model.addAttribute("cmupagelist", CmuSer.cmugetlist(cmupagevo));
 		
 		return "/cmu/VgCmuList";
 	}

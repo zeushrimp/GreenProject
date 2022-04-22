@@ -70,9 +70,9 @@
 				<!--content-->
 				<section class="content three-fourth">
 				<form method="get"  id="listForm" action="/cmu/VgCmuList">
-					<input type="hidden" id="pageIndex" name="pageIndex" val=""/>
+
 					<!-- 커뮤니티 리스트 갯수 반복문 -->	
- 					<c:forEach items="${boardList}" var="cmuvo">
+ 					<c:forEach items="${cmupagelist}" var="cmuvo">
 						<div class="entry one-third">
 							<figure>
 								<img src="/resources/images/img.jpg" alt="" />
@@ -92,44 +92,29 @@
 							</div>
 						</div>	
 					</c:forEach>
-					<script>
-					function fn_go_page(pageNo) {
-						$("#pageIndex").val(pageNo);
-						$("#listForm").submit();
-						return false;
-					}
-					</script>
+
 					<!-- 페이징 -->
- 					<div class="pager">
-						<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-							<ul class="pagination">
-								<c:if test="${cmuvo.prev}">
-									<li class="paginate_button page-item previous"
-										id="dataTable_previous"><a href="javascript:void(0);"
-										onclick="fn_go_page('${cmuvo.startDate}-1'); return false;"
-										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-										class="page-link">Previous</a></li>
-								</c:if>
-
-								<c:forEach var="num" begin="${cmuvo.startDate}"
-									end="${cmuvo.endDate}">
-									<li class="paginate_button page-item"><a
-										href="javascript:void(0);"
-										onclick="fn_go_page('${num}'); return false;"
-										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-										class="page-link">${num}</a></li>
-								</c:forEach>
-
-								<c:if test="${cmuvo.next}">
-									<li class="paginate_button page-item next" id="dataTable_next">
-										<a href="javascript:void(0);"
-										onclick="fn_go_page('${cmuvo.endDate}+1'); return false;"
-										aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-										class="page-link">Next</a>
-									</li>
-								</c:if>
-							</ul>
-						</div>
+					<div class="pager">
+						<c:if test="${paging.startPage != 1 }">
+							<a
+								href="VgCmuList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+						</c:if>
+						<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+							var="pagenum">
+							<c:choose>
+								<c:when test="${pagenum == paging.nowPage }">
+									<a class="current">${pagenum }</a>
+								</c:when>
+								<c:when test="${pagenum != paging.nowPage }">
+									<a
+										href="VgCmuList.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}" class="paging_num">${pagenum }</a>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${paging.endPage != paging.lastPage}">
+							<a
+								href="VgCmuList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+						</c:if>
 					</div>
 					
 					</form>
