@@ -47,7 +47,7 @@
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="index.html" title="SocialChef" class="logo"><img src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+			<a href="index.html" title="SocialChef" class="logo"><img src="../../../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 			
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul>

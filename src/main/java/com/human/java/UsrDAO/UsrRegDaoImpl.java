@@ -33,4 +33,17 @@ public class UsrRegDaoImpl implements UsrRegDao{
 		
 	}
 
+	@Override
+	public String FindId(UsrVO usrvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Usr.FindId",usrvo);
+	}
+
+	@Override
+	public String FindPw(UsrVO usrvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Usr.FindPw",usrvo);
+	}
+	
+
 }

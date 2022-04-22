@@ -17,6 +17,17 @@
   		(USR_ID, USR_PW, USR_NAME, USR_NICK, USR_TEL, USR_EMAIL, USR_ADDR1, USR_ADDR2, USR_ADDR3, USR_VEGE, USR_GRADE, USR_POINT, USR_ADMIN, USR_OUT,USR_DATE)
   		VALUES(#{USR_ID},#{USR_PW},#{USR_NAME},#{USR_NICK},#{USR_TEL},#{USR_EMAIL2},#{USR_ADDR1},#{USR_ADDR2},#{USR_ADDR3},#{USR_VEGE},'브론즈',0,0,1,sysdate)
   	</insert>
+  	
+  	<select id="FindId" parameterType="USR" resultType="String">
+  		SELECT USR_ID
+  		FROM USR
+  		WHERE USR_NAME=#{USR_NAME} and USR_TEL=#{USR_TEL}	
+  	</select>
+  	<select id="FindPw" parameterType="USR" resultType="String">
+  		SELECT USR_PW
+  		FROM USR
+  		WHERE USR_NAME=#{USR_NAME} and USR_TEL=#{USR_TEL} and USR_ID = #{USR_ID}	
+  	</select>
   </mapper>
 
  

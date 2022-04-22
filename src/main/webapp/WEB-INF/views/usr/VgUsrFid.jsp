@@ -11,13 +11,13 @@
 	
 	<title>SocialChef</title>
 	
-<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="../../../resources/css/style.css" />
 
-	<link rel="stylesheet" href="resources/css/icons.css" />
+	<link rel="stylesheet" href="../../../resources/css/icons.css" />
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="resources/images/favicon.ico" />
-	
+	<link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="index.html" title="SocialChef" class="logo"><img src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+			<a href="index.html" title="SocialChef" class="logo"><img src="../../../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 			
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul>
@@ -99,13 +99,13 @@
 				<section class="content center full-width">
 					<div class="modal container">
 					
-						<h3><a href="VgUsrFid.jsp">아이디 찾기</a> / <a href="VgUsrFpw.jsp">비밀번호 찾기</a></h3>
+						<h3><a href="VgUsrFid.do">아이디 찾기</a> / <a href="VgUsrFpw.do">비밀번호 찾기</a></h3>
 							<form action="VgUsrFidMi.jsp" method="post">
 						<div class="f-row">
 						
 						
 						
-							<input type="text" placeholder="이름" id="name" name="name"/>
+							<input type="text" placeholder="이름" id="USR_NAME" name="USR_NAME"/>
 							
 							
 							
@@ -115,14 +115,14 @@
 						
 						
 						
-							<input type="password" placeholder="휴대폰번호" id="pnum" name="pnum"/>
+							<input type="text" placeholder="휴대폰번호" id="USR_TEL" name="USR_TEL"/>
 							
 							
 							
 						</div>
 						
 						<div class="f-row">
-							<input type="button" value="Modal 띄우기" class="" style="width: 25%"/>
+							<input type="button" value="확인" onclick="FindId()" class="" style="width: 25%"/>
 							<input type="reset" value="취소" style="width: 25%; float: right;"/>
 							
 		
@@ -142,14 +142,46 @@
 		<!--//wrap-->
 	</main>
 	<!--//main-->
+	<
 	
 	
 		<%@ include file="/resources/Footer.jsp"%>
 	
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+	<script src="../../../resources/js/jquery-3.1.0.min.js"></script>
+	<script src="../../../resources/js/jquery.uniform.min.js"></script>
+	<script src="../../../resources/js/jquery.slicknav.min.js"></script>
+	<script src="../../../resources/js/scripts.js"></script>
+	
+	<script type="text/javascript">
+	function FindId() {
+		var USR_NAME=$("#USR_NAME").val()
+		var USR_TEL=$("#USR_TEL").val()
+		$.ajax({
+			type:"POST",
+			url:"/usr/UsrFindId.do",
+			dataType:'text',
+			data: {
+				"USR_NAME" : USR_NAME,
+				"USR_TEL" : USR_TEL	
+			},
+			success: function(result){
+				if(result==""){
+					alert("일치하는 회원정보가 없습니다.")
+				}else{
+			alert("회원님의 아이디는 "+ result +" 입니다")
+			location.href="VgUsrLogin.do";
+				}
+			},	
+			error : function(request, status, error){
+			alert("실패.")
+			}
+			
+			
+			
+		});
+	}
+	
+	</script>
 </body>
 </html>
 

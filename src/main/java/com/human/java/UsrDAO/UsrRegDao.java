@@ -8,4 +8,6 @@ public interface UsrRegDao {
 	
 	public UsrVO Usr_Login(UsrVO usrvo);
 	public void insertUsr(UsrVO usrvo);
+	public String FindId(UsrVO usrvo);
+	public String FindPw(UsrVO usrvo);
 }

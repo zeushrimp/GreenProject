@@ -26,6 +26,18 @@ public class UsrRegSerImpl implements UsrRegSer{
 		public void insertUsr(UsrVO usrvo) {
 			usrregdao.insertUsr(usrvo);
 			
+		}
+
+		@Override
+		public String FindId(UsrVO usrvo) {
+			
+			return usrregdao.FindId(usrvo);
+		}
+
+		@Override
+		public String FindPw(UsrVO usrvo) {
+			// TODO Auto-generated method stub
+			return usrregdao.FindPw(usrvo);
 		};
 		
 }
