@@ -35,8 +35,8 @@ public class CmuDaoImpl implements CmuDao{
 
 	//  커뮤니티 상세보기
 	@Override
-	public List<CmuVO> cmu_detailread(CmuVO cmuvo) {
-		return mybatis.selectList("Cmu.get_detailread",cmuvo);
+	public CmuVO cmu_detailread(CmuVO cmuvo) {
+		return mybatis.selectOne("Cmu.get_detailread",cmuvo);
 	}	
 	
 }

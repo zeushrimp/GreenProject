@@ -17,5 +17,5 @@ public interface CmuSer {
 	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
 	
 	// 커뮤니티 상세보기
-	public List<CmuVO> cmu_detailread(CmuVO cmuvo);
+	public CmuVO cmu_detailread(CmuVO cmuvo);
 }

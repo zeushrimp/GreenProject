@@ -76,8 +76,8 @@ public class CmuCon {
 	public String cmu_detailread(CmuVO cmuvo, Model model){
 		
 		System.out.println("VgCmuDtail   cmu_pk : " + cmuvo.getCMU_PK());
-		model.addAttribute("detailread", CmuSer.cmu_detailread(cmuvo));
-		
+		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
+		System.out.println("VgCmuDtail   이게뭐지 : " + CmuSer.cmu_detailread(cmuvo));
 		
 		return "/cmu/VgCmuDtail";
 	}

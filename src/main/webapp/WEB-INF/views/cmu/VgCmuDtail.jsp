@@ -74,18 +74,18 @@
 								
 				<!--content-->
 				<section class="content three-fourth">
-					<input name="cmuvo" type="hidden" value="${cmuvo.CMU_PK}" id="detailread"/>
+					<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}"/>
 					<div class="cmucate cumtitle">
-						<p class="lead">카테 ${cmuvo.CMU_CATE}</p>
+						<p class="lead">${cmuvo.CMU_CATE}</p>
 					</div>
 					<div class="cmucon cumtitle">
-						<p class="lead">제목 ${cmuvo.CMU_TITLE}</p>
+						<p class="lead">${cmuvo.CMU_TITLE}</p>
 					</div>	
 					<article class="post single">					
 						<div class="entry-meta">
 							<div class="date">
-								<span class="day"><fmt:formatDate pattern="yyyy-MM-dd" value="${cmuvo.CMU_REG}"/>26</span> 
-								<span class="my"><fmt:formatDate pattern="MM-yyyy" value="${cmuvo.CMU_REG}"/>june, 2022</span>
+								<span class="day"><fmt:formatDate pattern="dd" value="${cmuvo.CMU_REG}"/></span> 
+								<span class="my"><fmt:formatDate pattern="MM-yyyy" value="${cmuvo.CMU_REG}"/></span>
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
@@ -94,7 +94,7 @@
 						</div>
 						<div class="container">
 							<div class="entry-content">
-								<p class="lead">내용 ${cmuvo.CMU_CONTENT}</p>
+								<p class="lead">${cmuvo.CMU_CONTENT}</p>
 							</div>
 						</div>
 					</article>
