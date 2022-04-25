@@ -26,10 +26,22 @@ public class UsrRegCon {
 	private UsrRegSer UsrRegSer;
 	@Autowired
 	private JavaMailSender mailSender;
+	
 	@RequestMapping("/{url}.do")
 	public String userJoin(@PathVariable String url) {
+
 		return "/usr/"+url;
 	}
+	
+	@RequestMapping("/VgUsrLogin_no.do")
+	public String LoginFail() {
+		
+	
+		return "/usr/VgUsrLogin";
+	}
+	
+	
+	
 	
 	
 	@RequestMapping("/checkId.do")
@@ -44,7 +56,7 @@ public class UsrRegCon {
 	public String login(UsrVO usrvo, HttpSession session) {
 		UsrVO result = UsrRegSer.Usr_Login(usrvo);
 		if( result == null ) {
-			
+		
 			
 			return "redirect:/usr/VgUsrLogin_no.do";
 		} else if(result.getUSR_OUT() == 0) {

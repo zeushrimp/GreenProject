@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,11 +98,31 @@ width: 100%;
 			
 			<nav class="user-nav" role="navigation" style="width: 360px">
 				<ul>
-					<li class="light"><a href="/rcp/VgRcpList.do" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>레시피 검색</span></a></li>
-					<li class="medium"><a href="/mpg/VgMpgMain.do" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>마이 페이지</span></a></li>
+					<li class="dark"><a href="/rcp/VgRcpList.do" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>레시피 검색</span></a></li>
+					<li class="dark">
+					<f:choose>
+						<f:when test="${usr_admin == 1}">
+							<a href='../../VgAdmMain.do'
+						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>관리자페이지</span></a>	
+						</f:when>
+						<f:otherwise>
+							<a href="/mpg/VgMpgMain.do"
+						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>마이페이지</span></a>
+						</f:otherwise>	
+					</f:choose></li>
 					<li class="dark"><a href="/rcp/VgRcpRegst.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
 					
-					<li class="dark"><a href="/usr/VgUsrLogin.do" title="Login Page"><i class="icon icon-themeenergy_fork-spoon"></i> <span>로그인</span></a></li>
+					<li class="dark"><f:choose>
+						<f:when test="${usr_id != null}">
+							<a href='/usr/VgUsrLogout.do'
+						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_fork-spoon"></i><span>로그아웃</span></a>	
+						</f:when>
+						<f:otherwise>
+							<a href="/usr/VgUsrLogin.do"
+						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_fork-spoon"></i><span>로그인</span></a>
+						</f:otherwise>	
+					</f:choose>
+					</li>
 				</ul>
 			</nav>
 		</div>
