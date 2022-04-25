@@ -1,5 +1,9 @@
 package com.human.java.UsrDAO;
 
-public interface HomeDao {
+import java.util.List;
 
+import com.human.java.CmuVO.CmuVO;
+
+public interface HomeDao {
+	public List<CmuVO> newcmu();
 }

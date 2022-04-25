@@ -54,7 +54,7 @@ width: 100%;
 	</div>
 	<!--//preloader-->
 	<%@ include file="../../../Header.jsp" %>
-	<div style="padding-top: 200"></div>
+	<div style="padding-top: 200px"></div>
 
 	<!--main-->
 	<main class="main" role="main" style="margin-top: 200px;">
@@ -345,73 +345,7 @@ width: 100%;
 							</div>
 							<!--item-->
 
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgMktDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												product</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="blog_single.jsp">How to make sushi</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="date">
-												<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="blog_single.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-											elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-											amet . . .</p>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgMktDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												product</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="blog_single.jsp">Make your own bread</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="date">
-												<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="blog_single.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-											elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-											amet . . .</p>
-									</div>
-								</div>
-							</div>
-							<!--item-->
+							
 
 
 						</div>

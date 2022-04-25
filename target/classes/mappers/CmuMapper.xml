@@ -48,5 +48,15 @@
         </choose>
   		)	
 	</insert>
+	<select id="maincmu" resultType="CMU">
+	SELECT *
+	FROM(
+	SELECT *
+	FROM CMU
+	ORDER BY CMU_REG
+	)
+	WHERE ROWNUM <![CDATA[<]]> 3
+	
+	</select>
 
   </mapper>
