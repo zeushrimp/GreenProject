@@ -1,12 +1,14 @@
 package com.human.java.CmuController;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,7 +59,7 @@ public class CmuCon {
 	@RequestMapping("/VgCmuList.do")
 	public String cmu_readlist(CmupageVO cmupagevo, Model model, @RequestParam(value = "nowPage", required = false)String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,String searchCondition,String searchKeyword) {
-		int total = CmuSer.cmulistcnt();
+		int total = CmuSer.cmu_listcnt();
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "8";
@@ -69,7 +71,7 @@ public class CmuCon {
 		
 		cmupagevo = new CmupageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage),searchCondition,searchKeyword);
 		model.addAttribute("paging", cmupagevo);
-		model.addAttribute("cmupagelist", CmuSer.cmugetlist(cmupagevo));
+		model.addAttribute("cmupagelist", CmuSer.cmu_getlist(cmupagevo));
 		
 		return "/cmu/VgCmuList";
 	}
@@ -82,6 +84,7 @@ public class CmuCon {
 		return "/cmu/VgCmuDtail";
 	}
 	
+	// 댓글 작성
     @RequestMapping("/cmu_comentsave.do")
     public String cmu_comentsave(HttpServletRequest request, CmureplVO cmureplvo) {
    	
@@ -89,4 +92,19 @@ public class CmuCon {
 
         return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmureplvo.getCMU_PK();
     }
+    
+    // 댓글 불러오기
+    public String board5Read(HttpServletRequest request, ModelMap modelmap) {
+    	   
+        String cmupk = request.getParameter("CMU_PK");
+        
+        CmuSer.cmu_comentlist(cmupk); // 댓글 리스트를 가져오는 서비스
+
+        List<?> replylist = CmuSer.cmu_comentselect(cmupk); // 리스트를 반환받고
+
+        modelmap.addAttribute("replylist", replylist); // 모델로 전달
+       
+        return "board5/BoardRead";
+    }
+
 }

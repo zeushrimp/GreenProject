@@ -12,15 +12,17 @@ public interface CmuSer {
 	void cmu_write(CmuVO cmuvo);
 	
 	// 총 갯수 카운트 
-	public int cmulistcnt();
+	public int cmu_listcnt();
 	
 	// 글 리스트 불러오기
-	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
+	public List<CmuVO> cmu_getlist(CmupageVO cmupagevo);
 	
 	// 커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
 	
 	// 댓글 저장
     public void cmu_comentsave(CmureplVO cmureplvo);
-
+    
+    // 댓글 리스트
+    public List<?> cmu_comentlist(String cmuparam);
 }

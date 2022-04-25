@@ -35,8 +35,8 @@
 	WHERE CMU_PK = #{CMU_PK}
 	</select>
 	
-	<!-- 댓글 작성 -->
- 	<insert id="cmu_comentsave" parameterType="CMU">
+	<!-- 댓글 작성 insert-->
+ 	<insert id="cmu_comentinsert" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
         SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
     </selectKey>       
@@ -48,6 +48,26 @@
         </choose>
   		)	
 	</insert>
+	
+	<!-- 댓글 update -->
+	<update id="cmu_comentupdate" parameterType="CMU">
+    UPDATE CMU_COM
+    SET CCM_CONTENT = #{CCM_CONTENT}
+    WHERE CCM_PK = #{CCM_PK}
+	</update>
+	
+	<!-- 댓글 리스트 -->
+	<select id="get_comentlist" parameterType="CMU" resultType="CMU">
+	SELECT COUNT(*)
+	FROM CMU_COM
+	WHERE CMU_PK = #{CMU_PK}
+	ORDER BY CCM_PK DESC
+	</select>
+	
+	
+	
+	
+	<!-- 메인페이지 최신글 3개 출력 -->
 	<select id="maincmu" resultType="CMU">
 	SELECT *
 	FROM(
@@ -55,8 +75,7 @@
 	FROM CMU
 	ORDER BY CMU_REG
 	)
-	WHERE ROWNUM <![CDATA[<]]> 3
-	
+	WHERE ROWNUM <![CDATA[<]]> 3	
 	</select>
 
   </mapper>
