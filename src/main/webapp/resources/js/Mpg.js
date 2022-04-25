@@ -1,4 +1,4 @@
-('.checkT input[type="checkbox"]').click(function() {
+$('.checkT input[type="checkbox"]').click(function() {
 	var tmpp = $(this).prop('checked');
 	// this를 사용하여 클릭한 checkbox 가 체크되도록 설정
 	if (tmpp) {

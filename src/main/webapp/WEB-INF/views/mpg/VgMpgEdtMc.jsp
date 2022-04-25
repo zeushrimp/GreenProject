@@ -23,8 +23,8 @@
 							style="text-align: center; display: inline-block;">
 							<div>
 								<h1 style="text-align: center;">채식종류변경</h1>
-								<br> <br> <br> <br>
-								<h5 style="text-align: left;">${mpgdata.USR_NAME}</h5>
+								<br> <br> <br> <br><br><br>
+								
 
 								<form id="Mf_vg" action="modifyvg.do">
 									<div style=" width:65%; vertical-align : top; display: inline-block;">
