@@ -1,7 +1,9 @@
 package com.human.java.CmuController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.human.java.CmuService.CmuSer;
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
+import com.human.java.CmuVO.CmureplVO;
 
 @Controller
 @RequestMapping("/cmu")
@@ -75,11 +78,15 @@ public class CmuCon {
 	@RequestMapping("/VgCmuDtail.do")
 	public String cmu_detailread(CmuVO cmuvo, Model model){
 		
-		System.out.println("VgCmuDtail   cmu_pk : " + cmuvo.getCMU_PK());
-		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
-		System.out.println("VgCmuDtail   이게뭐지 : " + CmuSer.cmu_detailread(cmuvo));
-		
+		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));		
 		return "/cmu/VgCmuDtail";
 	}
+	
+    @RequestMapping("/cmu_comentsave.do")
+    public String cmu_comentsave(HttpServletRequest request, CmureplVO cmureplvo) {
+   	
+    	CmuSer.cmu_comentsave(cmureplvo);
 
+        return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmureplvo.getCMU_PK();
+    }
 }

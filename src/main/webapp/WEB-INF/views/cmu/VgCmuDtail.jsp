@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<script src="/resources/js/cmu_coment.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
 		.three-fourth {width: 100%;}
@@ -110,10 +111,10 @@
 								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 								<div class="comment-box">
 									<div class="comment-author meta"> 
-										<strong>Kimberly C.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
+										<strong>작성자</strong> 댓글 작성일 <a href="#" class="comment-reply-link"> Reply</a>
 									</div>
 									<div class="comment-text">
-										<p>댓글 1</p>
+										<p>코멘트</p>
 									</div>
 								</div> 
 							</li>
@@ -182,19 +183,39 @@
 					</div>
 					<!--//comments-->
 					
+					<!--comments-->
+					<c:forEach var="replylist" items="${replylist}" varStatus="status">
+					    <div class="comment-box" style="margin-left: <c:out value="${20*replylist.redepth}"/>px;">   
+					        <c:out value="${replylist.USR_ID}"/> 
+					        <c:out value="${replylist.CCM_REG}"/>
+					        <a class="comment-reply-link" href="#" onclick="fn_replyDelete('<c:out value="${replylist.CCM_PK}"/>')">삭제</a>
+					        <a class="comment-reply-link" href="#" onclick="fn_replyUpdate('<c:out value="${replylist.CCM_PK}"/>')">수정</a>
+					        <a class="comment-reply-link" href="#" onclick="fn_replyReply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
+					        <br/>
+					        <div id="reply<c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>
+					    </div>
+					</c:forEach>
+					<!--comments-->
+					
 					<!--respond-->
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
 							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다.<span class="req">*</span></p>
-							<form>
+							<form name="comentform" action="cmu_comentsave.do" method="post">
+							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
 								<div class="f-row">
-									<textarea></textarea>
+									<!-- 게시글 번호 받음 -->
+									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
+									<!-- <input type="hidden" id="CCM_PK" name="CCM_PK"> -->
+									<!-- 임시 작성자 받음 -->
+        							작성자: <input id="USR_ID1" type="text" name="USR_ID" size="20" maxlength="20"> <br/>
+									<textarea id="CCM_CONTENT1" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								
 								<div class="f-row">
 									<div class="third bwrap">
-										<input type="submit" value="댓글 작성" />
+										<input type="submit" onclick="cmu_submit()" value="댓글 작성" />
 									</div>
 								</div>
 							</form>

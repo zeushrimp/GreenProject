@@ -34,7 +34,14 @@
 	FROM cmu
 	WHERE CMU_PK = #{CMU_PK}
 	</select>
+	
+	<!-- 댓글 작성 -->
+ 	<insert id="cmu_comentsave" parameterType="CMU">
+ 	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
+        SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
+    </selectKey>       
+	    INSERT INTO CMU_COM (CMU_PK, CCM_PK, USR_ID, CCM_DEL, CCM_CONTENT, CCM_REG)
+	    VALUES (#{CMU_PK}, #{CCM_PK}, #{USR_ID}, 0, #{CCM_CONTENT}, SYSDATE)
+	</insert>
 
- 
-  
   </mapper>

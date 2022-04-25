@@ -7,14 +7,14 @@ import lombok.Data;
 @Data
 public class CmuVO{
 
-	int CMU_PK;
-	String CMU_CATE;
-	String CMU_TITLE;
-	String CMU_CONTENT;
-	Date CMU_REG;
-	int CMU_HIT; // 조회수
-	int CMU_Like; // 좋아요수
-	int CMU_COM; // 댓글수
-	String USR_ID;
+	private  int CMU_PK;
+	private  String CMU_CATE;
+	private  String CMU_TITLE;
+	private  String CMU_CONTENT;
+	private  Date CMU_REG;
+	private  int CMU_HIT; // 조회수
+	private  int CMU_Like; // 좋아요수
+	private  int CMU_COM; // 댓글수
+	private  String USR_ID;
 	
 }

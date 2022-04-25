@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
+import com.human.java.CmuVO.CmureplVO;
 
 @Repository("CmuDao")
 public class CmuDaoImpl implements CmuDao{
@@ -37,6 +38,12 @@ public class CmuDaoImpl implements CmuDao{
 	@Override
 	public CmuVO cmu_detailread(CmuVO cmuvo) {
 		return mybatis.selectOne("Cmu.get_detailread",cmuvo);
+	}
+
+	@Override
+	public void cmu_comentsave(CmureplVO cmureplvo) {
+		mybatis.insert("Cmu.cmu_comentsave", cmureplvo);
 	}	
+	
 	
 }

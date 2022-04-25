@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
+import com.human.java.CmuVO.CmureplVO;
 
 public interface CmuDao {
 	
@@ -18,4 +19,7 @@ public interface CmuDao {
 	
 	//  커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
+	
+	// 댓글 쓰기
+	public void cmu_comentsave(CmureplVO cmureplvo);
 }

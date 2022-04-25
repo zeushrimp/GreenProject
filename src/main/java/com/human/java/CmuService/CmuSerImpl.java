@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.human.java.CmuDAO.CmuDao;
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
+import com.human.java.CmuVO.CmureplVO;
 
 @Service("CmuSer")
 public class CmuSerImpl implements CmuSer{
@@ -34,9 +35,14 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmugetlist(cmupagevo);
 	}
 
-	//  커뮤니티 상세보기
+	// 커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo){
 		return cmudao.cmu_detailread(cmuvo);
+	}
+
+	// 댓글쓰기
+	public void cmu_comentsave(CmureplVO cmureplvo) {
+		cmudao.cmu_comentsave(cmureplvo);
 	}
 	
 		

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!--예시) <a herf ="/컨트롤에 있는 리퀘스트 맵핑명/VgCmuList.do">커뮤니티 리스트</a>  -->
+<!--예시) <a href ="/컨트롤에 있는 리퀘스트 맵핑명/VgCmuList.do">커뮤니티 리스트</a>  -->
 <a href ="/cmu/VgCmuList.do">게시판</a></br>
 <a href ="/rcp/VgRcpList.do">레시피</a></br>
 <a href ="/usr/VgUsrLogin.do">로그인</a></br>
