@@ -273,6 +273,14 @@
     	<artifactId>thumbnailator</artifactId>
     	<version>0.4.8</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
+<dependency>
+    <groupId>com.jfinal</groupId>
+    <artifactId>cos</artifactId>
+    <version>2020.4</version>
+</dependency>
+	
 		
 
 	</dependencies>
