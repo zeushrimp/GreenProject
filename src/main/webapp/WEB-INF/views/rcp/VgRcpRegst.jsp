@@ -17,52 +17,15 @@
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
-<script src="jquery-1.7.1.min.js"></script>
-<script src="/resources/js/jquery-3.1.0.min.js"></script>
-<script src="/resources/js/jquery.uniform.min.js"></script>
-<script src="/resources/js/jquery.slicknav.min.js"></script>
-<script src="/resources/js/scripts.js"></script>
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
 <link rel="shortcut icon" href="../../../resources/images/favicon.ico" />
-    <script> <!-- 재료 추가 삭제 -->           
-        $(document).ready (function () {                
-            $('#materialadd').click (function () {                                        
-                $('.ingredient').append (                        
-                    '<div class="large"><input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)" name="RCPRS_TITLE" /></div><div class="small"><input type="text" placeholder="수량 (예. 1포기)" name="RCPRS_AMOUNT" /></div><button class="remove ingredientremove">-</button>'                    
-                ); // 추가 끝                           
-                $('.ingredientremove').on('click', function () { 
-                    $(this).prev().remove (); // remove the textbox
-                    $(this).remove (); // remove the button
-                });
-            }); // end click                                            
-        }); // end ready        
-    </script>
-        <script> <!-- 과정 추가 삭제 -->           
-        $(document).ready (function () {                
-            $('#procedureadd').click (function () {                                        
-                $('.procedure').append (                        
-                    '<div class="large"><input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)" name="RCPRS_TITLE" /></div><div class="small"><input type="text" placeholder="수량 (예. 1포기)" name="RCPRS_AMOUNT" /></div><button class="remove ingredientremove">-</button>'                    
-                ); // 추가 끝                           
-                $('.ingredientremove').on('click', function () { 
-                    $(this).prev().remove (); // remove the textbox
-                    $(this).remove (); // remove the button
-                });
-            }); // end click                                            
-        }); // end ready        
-    </script>  
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-<style type="text/css">
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
-	{
-	-webkit-appearance: none;
-	margin: 0;
-}
-</style>
 </head>
 <body>
 	<!--preloader-->
@@ -72,10 +35,76 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	<!--//preloader-->
 
 	<!--header-->
-	<%@ include file="../../../Header.jsp"%>
-	<div style="padding-top: 200px" />
+	<header class="head" role="banner">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<a href="index.html" title="SocialChef" class="logo"><img
+				src="/resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+
+			<nav class="main-nav" role="navigation" id="menu">
+				<ul>
+					<li class="current-menu-item"><a href="index.html"
+						title="Home"><span>Home</span></a></li>
+					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
+						<ul>
+							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li>
+							<li><a href="recipe.html" title="Recipe">Recipe</a></li>
+						</ul></li>
+					<li><a href="blog.html" title="Blog"><span>Blog</span></a>
+						<ul>
+							<li><a href="blog_single.html" title="Blog post">Blog
+									post</a></li>
+						</ul></li>
+					<li><a href="#" title="Pages"><span>Pages</span></a>
+						<ul>
+							<li><a href="left_sidebar.html" title="Left sidebar page">Left
+									sidebar page</a></li>
+							<li><a href="right_sidebar.html" title="Right sidebar page">Right
+									sidebar page</a></li>
+							<li><a href="two_sidebars.html" title="Both sidebars page">Both
+									sidebars page</a></li>
+							<li><a href="full_width.html" title="Full width page">Full
+									width page</a></li>
+							<li><a href="login.html" title="Login page">Login page</a></li>
+							<li><a href="register.html" title="Register page">Register
+									page</a></li>
+							<li><a href="error404.html" title="Error page">Error
+									page</a></li>
+						</ul></li>
+					<li><a href="#" title="Features"><span>Features</span></a>
+						<ul>
+							<li><a href="icons.html" title="Icons">Icons</a></li>
+							<li><a href="grid.html" title="Grid">Grid</a></li>
+							<li><a href="shortcodes.html" title="Shortcodes">Shortcodes</a></li>
+							<li><a href="pricing.html" title="Pricing tables">Pricing
+									tables</a></li>
+						</ul></li>
+					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>
+					<li><a
+						href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy"
+						title="Buy now"><span>Buy now</span></a></li>
+				</ul>
+			</nav>
+
+			<nav class="user-nav" role="navigation">
+				<ul>
+					<li class="light"><a href="/rcp/VgRcpDtail.do"
+						title="Search for recipes"><i
+							class="icon icon-themeenergy_search"></i> <span>Search for
+								recipes</span></a></li>
+					<li class="medium"><a href="/mpg/VgMpgMain.do"
+						title="My account"><i class="icon icon-themeenergy_chef-hat"></i>
+							<span>My account</span></a></li>
+					<li class="dark"><a href="/rcp/VgRcpRegst.do"
+						title="Submit a recipe"><i
+							class="icon icon-themeenergy_fork-spoon"></i> <span>Submit
+								a recipe</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 	<!--//header-->
-	<form method="post">
+	<form>
 		<!--main-->
 		<main class="main" role="main">
 			<!--wrap-->
@@ -102,8 +131,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<div class="full">
 											<span style="font-size: x-large; font-weight: 600;">제목
 												입력하기</span> <input type="text" placeholder="레시피의 제목을 입력해주세요"
-												style="width: 75% !important; float: right !important;"
-												name="RCP_TITLE" />
+												style="width: 75% !important; float: right !important;" />
 										</div>
 									</div>
 									<div class="f-row">
@@ -111,33 +139,33 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 											<span style="font-size: x-large; font-weight: 600;">한줄설명
 												입력하기</span> <input type="text"
 												placeholder="레시피를 소개할 수 있는 한줄설명을 입력해주세요"
-												style="width: 75% !important; float: right !important;"
-												name="RCP_CONTENT" />
+												style="width: 75% !important; float: right !important;" />
 										</div>
 									</div>
 									<div class="f-row">
 										<div class="third" style="width: 50%">
-											<span>조리시간 총 </span><input type="number" placeholder="조리 시간"
-												style="float: none !important; width: 80px !important;"
-												name="RCP_CT" /><span> 분 소요 (숫자로만 입력해주세요)</span>
+											<span>조리시간 총 </span><input id="cocktime" type="text"
+												placeholder="조리 시간"
+												style="float: none !important; width: 80px !important;" /><span>
+												분 소요 (숫자로만 입력해주세요)</span>
 										</div>
 										<div class="third" style="float: right !important;">
-											<select name="RCP_VEGE" required>
+											<select naem="vege" required>
 												<option disabled selected style="display: none;">알맞는
 													채식의 유형을 선택해주세요</option>
-												<option value="프루테리언">프루테리언</option>
-												<option value="비건">비건</option>
-												<option value="락토 베지테리언">락토 베지테리언</option>
-												<option value="오보 베지테리언">오보 베지테리언</option>
-												<option value="락토 오보 베지테리언">락토 오보 베지테리언</option>
-												<option value="페스코 베지테리언">페스코 베지테리언</option>
-												<option value="폴로 베지테리언">폴로 베지테리언</option>
+												<option>프루테리언</option>
+												<option>비건</option>
+												<option>락토 베지테리언</option>
+												<option>오보 베지테리언</option>
+												<option>락토 오보 베지테리언</option>
+												<option>폴로 베지테리언</option>
 											</select>
 										</div>
 										<div class="third" style="width: 50%">
-											<span>조리분량 총 </span><input type="number" placeholder="조리 분량"
-												style="float: none !important; width: 80px !important;"
-												name="RCP_COUNT" /><span> 인분 (숫자로만 입력해주세요)</span>
+											<span>조리분량 총 </span><input id="cocktime" type="text"
+												placeholder="조리 분량"
+												style="float: none !important; width: 80px !important;" /><span>
+												인분 (숫자로만 입력해주세요)</span>
 										</div>
 									</div>
 								</section>
@@ -146,19 +174,17 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<span style="font-size: x-large; font-weight: 600;">재료
 											입력하기</span>
 									</div>
-									<div class="f-row ingredient"> <!-- 재료 입력 -->
+									<div class="f-row ingredient">
 										<div class="large">
-											<input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)"
-												name="RCPRS_TITLE" />
+											<input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)" />
 										</div>
 										<div class="small">
-											<input type="text" placeholder="수량 (예. 1포기)"
-												name="RCPRS_AMOUNT" />
+											<input type="text" placeholder="수량 (예. 1포기)" />
 										</div>
-										<button class="remove ingredientremove">-</button>
-									</div> <!-- 재료 입력 //-->
+										<button class="remove">-</button>
+									</div>
 									<div class="f-row full">
-										<button class="add" id="materialadd">재료 추가하기</button>
+										<button class="add">재료 추가하기</button>
 									</div>
 								</section>
 								<section>
@@ -166,15 +192,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<span style="font-size: x-large; font-weight: 600;">조리과정
 											입력하기</span>
 									</div>
-									<div class="f-row procedure"> <!-- 과정 입력 -->
+									<div class="f-row ingredient">
 										<div class="large" style="width: 80%;">
-											<input type="text" placeholder="(한 번에 각 단계에 조리과정 입력)"
-												name="RCPCT_CONTENT" />
+											<input type="text" placeholder="(한 번에 각 단계에 조리과정 입력)" />
 										</div>
 										<button class="remove">-</button>
-									</div> <!-- 과정 입력 // -->
+									</div>
 									<div class="f-row full">
-										<button class="add" id="procedureadd">조리과정 단계 추가하기</button>
+										<button class="add">조리과정 단계 추가하기</button>
 									</div>
 								</section>
 
@@ -183,7 +208,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<span style="font-size: x-large; font-weight: 600;">사진</span>(대표사진
 										1장만 등록해주세요)
 										<div class="f-row full">
-											<input type="file" name="" />
+											<input type="file" />
 										</div>
 									</div>
 								</section>
@@ -220,8 +245,13 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 	</form>
 	<!--footer-->
-	<%@ include file="../../../Footer.jsp"%>
+	<%@ include file="/resources/Footer.jsp"%>
 	<!--//footer-->
+
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 </body>
 </html>
 

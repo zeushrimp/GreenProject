@@ -207,8 +207,10 @@
 								<div class="f-row">
 									<!-- 게시글 번호 받음 -->
 									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmupagevo.USR_ID}"/>">
-									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
+									<!-- <input type="hidden" id="CCM_PK" name="CCM_PK"> -->
+									<!-- 임시 작성자 받음 -->
+        							작성자: <input id="USR_ID1" type="text" name="USR_ID" size="20" maxlength="20"> <br/>
+									<textarea id="CCM_CONTENT1" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								
 								<div class="f-row">
