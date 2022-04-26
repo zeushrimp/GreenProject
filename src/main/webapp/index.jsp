@@ -55,7 +55,7 @@ width: 100%;
 	<!--//preloader-->
 	<%@ include file="../../../Header.jsp" %>
 	<div style="padding-top: 200px"></div>
-
+	<a href="/home/VgMain.do">테스트</a>
 	<!--main-->
 	<main class="main" role="main" style="margin-top: 200px;">
 		<!--intro-->
@@ -336,11 +336,7 @@ width: 100%;
 											</div>
 										</div>
 									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-											elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-											amet . . .</p>
-									</div>
+								
 								</div>
 							</div>
 							<!--item-->
