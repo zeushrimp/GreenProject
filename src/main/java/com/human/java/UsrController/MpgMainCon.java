@@ -2,14 +2,16 @@ package com.human.java.UsrController;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.human.java.UsrService.MpgMainSer;
-import com.human.java.UsrService.UsrRegSer;
 import com.human.java.UsrVO.UsrVO;
 
 @Controller
@@ -18,8 +20,9 @@ public class MpgMainCon {
 
 	@Autowired
 	private MpgMainSer MpgMainSer;
-	@Autowired
-	private UsrRegSer UsrRegSer;
+	
+//	@Autowired
+//	private UsrRegSer UsrRegSer;
 
 	@RequestMapping("/{url}.do")
 	public String userJoin(@PathVariable String url) {
@@ -136,5 +139,26 @@ public class MpgMainCon {
 		return "redirect:/mpg/VgMpgMain.do";
 
 	}
+	
+	
+    @RequestMapping("uploadprofilephoto.do")
+    public ModelAndView boardInsert(MultipartFile file, HttpSession session, UsrVO mpgvo) {
+        ModelAndView mav = new ModelAndView("redirect:/mpg/VgMpgMain.do");
+        session.setAttribute("usr_Id", "test01");
+        mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+        //boardService.insertBoard(commandMap);
+
+        	System.out.println("================== file start ==================");
+        	System.out.println("파일 이름: "+file.getName());
+        	System.out.println("파일 실제 이름: "+file.getOriginalFilename());
+        	System.out.println("파일 크기: "+file.getSize());
+        	System.out.println("content type: "+file.getContentType());
+        	System.out.println("================== file   END ==================");
+
+        
+        return mav;
+    }
+
+
 
 }

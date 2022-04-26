@@ -204,6 +204,15 @@ function Mf_addrsubmit() {
 
 }
 
+//주소변경-submit
+function Mf_pfpicsubmit() {
+	$('.VgMpg_modify_pfpicclose').click(function() {
+
+		$('#Mf_pfpic').submit();
+	})
+	alert("사진이 변경되었습니다.")
+
+}
 
 
 

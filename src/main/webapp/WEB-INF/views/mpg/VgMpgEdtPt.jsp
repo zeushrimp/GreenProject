@@ -30,18 +30,24 @@
 							<div>
 								<h1 style="text-align: center;">${mpgdata.USR_NAME}님사진
 									변경하시게용 ?</h1>
-								<div class="inputArea">
-									<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-										name="file" />
-									<div class="select_img">
-										<img src="" />
-									</div>
-								</div>
+								<form id="Mf_pfpic" action="uploadprofilephoto.do" method="post"
+									enctype="multipart/form-data">
+									<!-- 생략 -->
+									<div class="form-group" id="file-list">
 
-								<input type="button" class="close VgMpgRsnMrclose"
-									data-dismiss="modal" value="확인" onclick="RsnMrshow()">
+
+
+										<div class="file-group">
+											<input type="file" name="file">
+										</div>
+									</div>
+
+									<input type="button"
+										class="close btn btn-default VgMpg_modify_pfpicclose"
+										data-dismiss="modal" value="확인" onclick="Mf_pfpicsubmit()">
+								</form>
+
 							</div>
-							<%=request.getRealPath("/") %>
 						</div>
 
 					</div>
@@ -50,19 +56,15 @@
 		</div>
 	</div>
 </body>
-<script>
-	$("#gdsImg").change(
-			function() {
-				if (this.files && this.files[0]) {
-					var reader = new FileReader;
-					reader.onload = function(data) {
-						$(".select_img img").attr("src", data.target.result)
-								.width(500);
-					}
-					reader.readAsDataURL(this.files[0]);
-				}
-			});
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[name='file-delete']").on("click", function(e) {
+			e.preventDefault();
+			deleteFile($(this));
+		});
+	})
 </script>
+
 
 </div>
 </html>
