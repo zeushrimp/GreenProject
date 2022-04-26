@@ -17,10 +17,9 @@ public class MainCon {
 	@RequestMapping("/VgMain.do")
 	public void showMain(Model model) {
 		
-		
 		model.addAttribute("MainCmu",MainSer.showMainCmu());
-		
-		
+		model.addAttribute("MNR",MainSer.MshowNewRcp());
+		model.addAttribute("MPR",MainSer.MshowPopRcp());
 		
 	}
 }

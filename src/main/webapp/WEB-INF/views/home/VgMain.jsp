@@ -85,103 +85,37 @@ width: 100%;
 
 						<!--entries-->
 						<div class="entries row">
+						<c:forEach items="${MNR }" var="vo1">
 							<!--item-->
 							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="../../resources/images/img.jpg" alt="" />
 									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }"><i
+											class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
 									</figcaption>
 								</figure>
 								<div class="container">
 									<h2>
-										<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
-											vegetables</a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }">${vo1.RCP_TITLE }</a>
 									</h2>
 									<div class="actions">
 										<div>
-											<div class="difficulty">
-												
-											</div>
+											
 											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
+												<i class="fa fa-heart"></i>${vo1.RCP_LIKE }
 											</div>
 											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
+												<i class="fa fa-comment"></i>${vo1.RCP_COM }
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							</c:forEach>
 							<!--item-->
 
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="../../resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
-											cherry tomatoes</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="difficulty">
-												
-											</div>
-											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="../../resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="difficulty">
-												
-											</div>
-											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
+							
 
 
 
@@ -198,103 +132,36 @@ width: 100%;
 
 						<!--entries-->
 						<div class="entries row">
+						<c:forEach items="${MPR }" var="vo2">
 							<!--item-->
 							<div class="entry one-third" style="width:33.3%">
 								<figure>
 									<img src="../../resources/images/img.jpg" alt="" />
 									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }"><i
+											class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
 									</figcaption>
 								</figure>
 								<div class="container">
 									<h2>
-										<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
-											vegetables</a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }">${vo2.RCP_TITLE }</a>
 									</h2>
 									<div class="actions">
 										<div>
-											<div class="difficulty">
-												
-											</div>
+											
 											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
+												<i class="fa fa-heart"></i>${vo2.RCP_LIKE }
 											</div>
 											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
+												<i class="fa fa-comment"></i>${vo2.RCP_COM }
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							</c:forEach>
 							<!--item-->
-
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="../../resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
-											cherry tomatoes</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="difficulty">
-												
-											</div>
-											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-
-							<!--item-->
-							<div class="entry one-third" style="width:33.3%">
-								<figure>
-									<img src="../../resources/images/img.jpg" alt="" />
-									<figcaption>
-										<a href="VgRcpDtail.jsp"><i
-											class="icon icon-themeenergy_eye2"></i> <span>View
-												recipe</span></a>
-									</figcaption>
-								</figure>
-								<div class="container">
-									<h2>
-										<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
-									</h2>
-									<div class="actions">
-										<div>
-											<div class="difficulty">
-												
-											</div>
-											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">10</a>
-											</div>
-											<div class="comments">
-												<i class="fa fa-comment"></i><a
-													href="VgRcpDtail.jsp#comments">27</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
+							
 
 
 

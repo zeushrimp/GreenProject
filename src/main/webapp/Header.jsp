@@ -57,42 +57,19 @@ width: 100%;
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="../../index.jsp" title="SocialChef" class="logo"><img src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+			<a href="../../test.jsp" title="SocialChef" class="logo"><img src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 			
 			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li class="current-menu-item"><a href="index.html" title="Home"><span>메인</span></a></li>
-					<li><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a>
+				<ul style="width:400px">
+					<li class="current-menu-item"  style="width:33%"><a href="index.html" title="Home"><span>메인</span></a></li>
+					<li style="width:33%"><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a></li>
+					<li style="width:33%"><a href="/cmu/VgCmuList.do" title="Blog"><span>커뮤니티</span></a></li>
+					<!-- <li><a href="#" title="Pages"><span>냉장고</span></a>
 						<ul>
-							<li><a href="/rcp/VgRcpList.do" title="Recipes 2">Recipes 2</a></li>
-							<li><a href="/rcp/VgRcpList.do" title="Recipe">Recipe</a></li>
+							<li><a href="left_sidebar.html" title="Left sidebar page">드롭다운 예시 코드</a></li>
+							
 						</ul>
-					</li>
-					<li><a href="/cmu/VgCmuList.do" title="Blog"><span>커뮤니티</span></a>
-						<ul>
-							<li><a href="blog_single.html" title="Blog post">Blog post</a></li>
-						</ul>
-					</li>
-					<li><a href="#" title="Pages"><span>냉장고</span></a>
-						<ul>
-							<li><a href="left_sidebar.html" title="Left sidebar page">Left sidebar page</a></li>
-							<li><a href="right_sidebar.html" title="Right sidebar page">Right sidebar page</a></li>
-							<li><a href="two_sidebars.html" title="Both sidebars page">Both sidebars page</a></li>
-							<li><a href="full_width.html" title="Full width page">Full width page</a></li>
-							<li><a href="login.html" title="Login page">Login page</a></li><li><a href="register.html" title="Register page">Register page</a></li>
-							<li><a href="error404.html" title="Error page">Error page</a></li>
-						</ul>
-					</li>
-					<li><a href="#" title="Features"><span>Features</span></a>
-						<ul>
-							<li><a href="icons.html" title="Icons">Icons</a></li>
-							<li><a href="grid.html" title="Grid">Grid</a></li>
-							<li><a href="shortcodes.html" title="Shortcodes">Shortcodes</a></li>
-							<li><a href="pricing.html" title="Pricing tables">Pricing tables</a></li>
-						</ul>
-					</li>
-					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>
-					<li><a href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy" title="Buy now"><span>Buy now</span></a></li>
+					</li> -->
 				</ul>
 			</nav>
 			
@@ -106,12 +83,15 @@ width: 100%;
 						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>관리자페이지</span></a>	
 						</f:when>
 						<f:otherwise>
-							<a href="/mpg/VgMpgMain.do"
-						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>마이페이지</span></a>
+							<a href="/mpg/VgMpgMain.do" onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>마이페이지</span></a>
 						</f:otherwise>	
 					</f:choose></li>
-					<li class="dark"><a href="/rcp/VgRcpRegst.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
-					
+					<%-- <f:when test="${usr_id != null}"> --%>
+						<li class="dark"><a href="/rcp/VgRcpRegst.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
+					<%-- </f:when>
+					<f:otherwise>
+						<li class="dark"><a href="" title="Submit a recipe" onclick="needL"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
+					</f:otherwise> --%>
 					<li class="dark"><f:choose>
 						<f:when test="${usr_id != null}">
 							<a href='/usr/VgUsrLogout.do'

@@ -12,7 +12,7 @@ public class RcpVO {
 	String RCP_CONTENT;
 	Date RCP_REG;
 	int RCP_HIT;
-	int RCP_like;
+	int RCP_LIKE;
 	int RCP_COM;
 	String RCP_VEGE;
 	String RCP_CT;
