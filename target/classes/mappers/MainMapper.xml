@@ -9,11 +9,25 @@
   	FROM (
   	SELECT *
   	FROM CMU
-  	ORDER BY CMU_REG
+  	ORDER BY CMU_REG DESC
   	)WHERE ROWNUM<![CDATA[<]]>4
-  	
-  	
   	</select>
-  
-  
+  	
+  	<select id="MshowNewRcp" resultType="RCP">
+ 	SELECT *
+  	FROM (
+  	SELECT *
+  	FROM RCP
+  	ORDER BY RCP_REG DESC
+  	)WHERE ROWNUM<![CDATA[<]]>4
+  	</select>
+  	
+  	<select id="MshowPopRcp" resultType="RCP">
+  	SELECT *
+  	FROM (
+  	SELECT *
+  	FROM RCP
+  	ORDER BY RCP_LIKE DESC
+  	)WHERE ROWNUM<![CDATA[<]]>4
+  	</select>
   </mapper>
