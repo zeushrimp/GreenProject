@@ -13,7 +13,7 @@ public class CmuVO{
 	private  String CMU_CONTENT;
 	private  Date CMU_REG;
 	private  int CMU_HIT; // 조회수
-	private  int CMU_Like; // 좋아요수
+	private  int CMU_LIKE; // 좋아요수
 	private  int CMU_COM; // 댓글수
 	private  String USR_ID; // 게시글&댓글 작성자
 	

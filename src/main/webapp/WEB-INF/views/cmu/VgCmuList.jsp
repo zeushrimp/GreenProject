@@ -86,7 +86,7 @@
 									<div>
 										<div class="difficulty" style="width: 200px;border-right: none !important;"><i class="ico i-medium"></i><a href="#">${cmuvo.USR_ID}</a></div>
 										<div class="comments"><i class="fa fa-comment"></i><a href="#">${cmuvo.CMU_COM}</a></div>
-										<div class="likes"><i class="fa fa-heart"></i><a href="#">${cmuvo.CMU_Like}</a></div>								
+										<div class="likes"><i class="fa fa-heart"></i><a href="#">${cmuvo.CMU_LIKE}</a></div>								
 									</div>
 								</div>
 							</div>

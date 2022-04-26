@@ -20,10 +20,9 @@ public class CmuDaoImpl implements CmuDao{
 		mybatis.insert("Cmu.insert_cmu",cmuvo);
 	}
 	
-	// 총 갯수 카운트 
+	// 게시글 총 갯수 카운트 
 	@Override
 	public int cmu_listcnt() {
-		// TODO Auto-generated method stub
 		return mybatis.selectOne("Cmu.count_list");
 	}
 	
@@ -41,18 +40,24 @@ public class CmuDaoImpl implements CmuDao{
 	
 	// 댓글 저장
 	@Override
-	public void cmu_comentsave(CmuVO cmuvo) {		
+	public void cmu_commentsave(CmuVO cmuvo) {		
         if (cmuvo.getCCM_PK() == 0) {
-        	mybatis.insert("Cmu.imsert_coment", cmuvo);
+        	mybatis.insert("Cmu.insert_comment", cmuvo);
         } else {
-        	mybatis.insert("Cmu.update_coment", cmuvo);
+        	mybatis.insert("Cmu.update_comment", cmuvo);
         }
 	}
 	
 	// 댓글 리스트
 	@Override
-	public List<?> cmu_comentlist(CmuVO cmuvo) {
-		return mybatis.selectList("Cmu.get_comentlist",cmuvo);
+	public List<?> cmu_commentlist(CmuVO cmuvo) {
+		return mybatis.selectList("Cmu.get_commentlist",cmuvo);
+	}
+	
+	// 댓글 삭제
+	@Override
+	public int cmu_commentdelete(CmuVO cmuvo) {
+		return mybatis.update("Cmu.delete_comment", cmuvo);
 	}	
 	
 	

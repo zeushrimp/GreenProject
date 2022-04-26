@@ -38,20 +38,19 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmu_detailread(cmuvo);
 	}
 
-	// 댓글 저장
-	public void cmu_comentsave(CmuVO cmuvo) {
-		cmudao.cmu_comentsave(cmuvo);
+	// 댓글 저장 (작성)
+	public void cmu_commentsave(CmuVO cmuvo) {
+		cmudao.cmu_commentsave(cmuvo);
 	}
 	
-	// 댓글 리스트
-	public List<?> cmu_comentlist(CmuVO cmuvo) {
-		return cmudao.cmu_comentlist(cmuvo);
+	// 댓글 리스트 (댓글 불러오기)
+	public List<?> cmu_commentlist(CmuVO cmuvo) {
+		return cmudao.cmu_commentlist(cmuvo);
 }
-
-	@Override
-	public String cmu_replydelete(CmuVO cmuvo) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	// 댓글 삭제
+	public int cmu_commentdelete(CmuVO cmuvo) {
+		return cmudao.cmu_commentdelete(cmuvo);
 	}
 
 		

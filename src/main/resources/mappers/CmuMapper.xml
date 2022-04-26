@@ -36,31 +36,37 @@
 	</select>
 	
 	<!-- 댓글 작성 -->
- 	<insert id="imsert_coment" parameterType="CMU">
+ 	<insert id="insert_comment" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
         SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
     </selectKey>       
 	    INSERT INTO CMU_COM (CMU_PK, CCM_PK, USR_ID, CCM_DEL, CCM_CONTENT, CCM_REG, CCM_REF_LEVEL, CCM_REF, CCM_REF_LEVEL)
 	    VALUES (#{CMU_PK}, #{CCM_PK}, #{USR_ID}, 0, #{CCM_CONTENT}, SYSDATE, #{CCM_REF_LEVEL},
 		<choose>
-        	<when test="reparent==null">#{CCM_PK}, 0</when>
+        	<when test="CCM_REF==null">#{CCM_PK}, 0</when>
             <otherwise>#{CCM_REF}, #{CCM_REF_LEVEL}</otherwise>
         </choose>
   		)	
 	</insert>
 	
-	<update id="update_coment" parameterType="CMU">
-    UPDATE CMU_COM
-       SET CCM_CONTENT = #{CCM_CONTENT}
+	<update id="update_comment" parameterType="CMU">
+     UPDATE CMU_COM
+     SET CCM_CONTENT = #{CCM_CONTENT}
      WHERE CCM_PK = #{CCM_PK}
 	</update>
 	
-	
-	<select id="get_comentlist"  parameterType="CMU" resultType="CMU">
-	SELECT *
-	FROM CMU_COM
-	WHERE CMU_PK = #{CMU_PK}
+	<!-- 댓글 불러오기 -->
+	<select id="get_commentlist"  parameterType="CMU" resultType="CMU">
+	 SELECT *
+	 FROM CMU_COM
+	 WHERE CMU_PK = #{CMU_PK} AND CCM_DEL = 1
 	</select>
 	
-
+	<!-- 댓글 삭제 -->
+	<update id="delete_comment" parameterType="CMU">
+     UPDATE CMU_COM
+     SET CCM_DEL = 0     
+     WHERE CCM_PK = #{CCM_PK} AND CCM_DEL = 1
+	</update>
+	
   </mapper>

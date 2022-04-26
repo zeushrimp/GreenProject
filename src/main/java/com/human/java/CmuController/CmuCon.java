@@ -82,7 +82,7 @@ public class CmuCon {
 	@RequestMapping("/VgCmuDtail.do")
 	public String cmu_detailread(CmuVO cmuvo,Model model){
 		
-		List<?> replylist =  CmuSer.cmu_comentlist(cmuvo);
+		List<?> replylist =  CmuSer.cmu_commentlist(cmuvo);
 		
 		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
 		model.addAttribute("replylist", replylist);
@@ -92,17 +92,20 @@ public class CmuCon {
 
 
 	// 댓글 작성
-	@RequestMapping("/cmu_comentsave.do")
-	public String cmu_comentsave(CmuVO cmuvo) {
+	@RequestMapping("/cmu_commentsave.do")
+	public String cmu_commentsave(CmuVO cmuvo) {
 
-		CmuSer.cmu_comentsave(cmuvo);
+		CmuSer.cmu_commentsave(cmuvo);
 
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
 
 	// 댓글 삭제
-	@RequestMapping()
-	public String cmu_replydelete(HttpServletRequest request, CmuVO cmuvo) {
-		return "/cmu/VgCmuDtail";
+	@RequestMapping("/cmu_replydelete.do")
+	public String cmu_commentdelete(HttpServletRequest request, CmuVO cmuvo) {
+		
+		CmuSer.cmu_commentdelete(cmuvo);
+		
+		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
 }

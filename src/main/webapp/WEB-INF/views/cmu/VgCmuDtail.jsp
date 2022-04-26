@@ -115,15 +115,15 @@
 					        <strong><c:out value="${replylist.USR_ID}"/></strong>
 					        <c:out value="${replylist.CCM_REG}"/>
 					        </div>
-					        <a class="comment-reply-link" href="#" onclick="fn_replyDelete('<c:out value="${replylist.CCM_PK}"/>')">삭제</a>
-					        <a class="comment-reply-link" href="#" onclick="fn_replyUpdate('<c:out value="${replylist.CCM_PK}"/>')">수정</a>
-					        <a class="comment-reply-link" href="#" onclick="fn_replyReply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
+					        <a class="comment-reply-link" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')">삭제</a>
+					        <a class="comment-reply-link" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">수정</a>
+					        <a class="comment-reply-link" href="#" onclick="fn_commentreply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
 					        <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>
 					    </div>
 					</li>
 					</c:forEach>
 					<!--comments-->
-							
+	
 							<!--comment-->
 							<li class="comment depth-1">
 								<!-- 작성자 마이페이지 링크 -->
@@ -179,7 +179,7 @@
 						<h2>댓글창</h2>
 						<div class="container">
 							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다.<span class="req">*</span></p>
-							<form name="comentform" action="cmu_comentsave.do" method="post">
+							<form name="commentform" action="cmu_commentsave.do" method="post">
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
 								<div class="f-row">
 									<!-- 게시글 번호 받음 -->
@@ -190,7 +190,7 @@
 								
 								<div class="f-row">
 									<div class="third bwrap">
-										<input type="submit" onclick="cmu_submit()" value="댓글 작성" />
+										<input type="submit" onclick="fn_commentsubmit()" value="댓글 작성" />
 									</div>
 								</div>
 							</form>
