@@ -20,5 +20,6 @@ public class UsrVO {
 	int USR_OUT;
 	String USR_EMAIL1;
 	String USR_EMAIL2;
+	String USR_PHOTO;
 	
 }

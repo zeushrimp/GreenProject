@@ -129,11 +129,11 @@
 							<img src="/resources/images/Mr.hong.png" alt="" />
 						</figure>
 						<div class="container">
-							<h2 align="center">홍길동</h2>
+							<h2 align="center">${mpgdata.USR_NAME}</</h2>
 						</div>
 						<div align="right">
 							<a class="btn btn-default" data-target="#modal7"
-								data-toggle="modal">등급표 보기</a>
+								data-toggle="modal">사진바꾸기</a>
 						</div>
 					</div>
 					<!--//profile left part-->
@@ -216,7 +216,8 @@
 										}
 										%>
 										<span class="btnArea"><button class="btn"
-												disabled="disabled" onclick='location.href="VgMpgMainRsn.do";' type="button">탈퇴하기</button></span>
+												disabled="disabled"
+												onclick='location.href="VgMpgMainRsn.do";' type="button">탈퇴하기</button></span>
 									</div>
 								</dl>
 
@@ -695,6 +696,7 @@
 	<%@ include file="VgMpgEdtMp.jsp"%>
 	<%@ include file="VgMpgRsnMr.jsp"%>
 	<%@ include file="VgMpgShwMp.jsp"%>
+	<%@ include file="VgMpgEdtPt.jsp"%>
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
