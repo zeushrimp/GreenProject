@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
-import com.human.java.CmuVO.CmureplVO;
 
 @Repository("CmuDao")
 public class CmuDaoImpl implements CmuDao{
@@ -23,14 +22,14 @@ public class CmuDaoImpl implements CmuDao{
 	
 	// 총 갯수 카운트 
 	@Override
-	public int cmulistcnt() {
+	public int cmu_listcnt() {
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("Cmu.count_list");
 	}
 	
 	// 글 목록 리스트 불러오기
 	@Override
-	public List<CmuVO> cmugetlist(CmupageVO cmupagevo) {
+	public List<CmuVO> cmu_getlist(CmupageVO cmupagevo) {
 		return mybatis.selectList("Cmu.get_cmulist",cmupagevo);
 	}
 
@@ -39,10 +38,21 @@ public class CmuDaoImpl implements CmuDao{
 	public CmuVO cmu_detailread(CmuVO cmuvo) {
 		return mybatis.selectOne("Cmu.get_detailread",cmuvo);
 	}
-
+	
+	// 댓글 저장
 	@Override
-	public void cmu_comentsave(CmureplVO cmureplvo) {
-		mybatis.insert("Cmu.cmu_comentsave", cmureplvo);
+	public void cmu_comentsave(CmuVO cmuvo) {		
+        if (cmuvo.getCCM_PK() == 0) {
+        	mybatis.insert("Cmu.imsert_coment", cmuvo);
+        } else {
+        	mybatis.insert("Cmu.update_coment", cmuvo);
+        }
+	}
+	
+	// 댓글 리스트
+	@Override
+	public List<?> cmu_comentlist(CmuVO cmuvo) {
+		return mybatis.selectList("Cmu.get_comentlist",cmuvo);
 	}	
 	
 	

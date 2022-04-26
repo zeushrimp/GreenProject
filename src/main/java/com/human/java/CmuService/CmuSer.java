@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
-import com.human.java.CmuVO.CmureplVO;
 
 public interface CmuSer {
 	
@@ -12,15 +11,20 @@ public interface CmuSer {
 	void cmu_write(CmuVO cmuvo);
 	
 	// 총 갯수 카운트 
-	public int cmulistcnt();
+	public int cmu_listcnt();
 	
 	// 글 리스트 불러오기
-	public List<CmuVO> cmugetlist(CmupageVO cmupagevo);
+	public List<CmuVO> cmu_getlist(CmupageVO cmupagevo);
 	
 	// 커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
 	
 	// 댓글 저장
-    public void cmu_comentsave(CmureplVO cmureplvo);
-
+    public void cmu_comentsave(CmuVO cmuvo);
+    
+    // 댓글 리스트
+    public List<?> cmu_comentlist(CmuVO cmuvo);
+    
+    // 댓글 삭제
+    public String cmu_replydelete(CmuVO cmuvo);
 }

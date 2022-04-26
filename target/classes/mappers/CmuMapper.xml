@@ -36,7 +36,7 @@
 	</select>
 	
 	<!-- 댓글 작성 -->
- 	<insert id="cmu_comentsave" parameterType="CMU">
+ 	<insert id="imsert_coment" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
         SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
     </selectKey>       
@@ -48,6 +48,19 @@
         </choose>
   		)	
 	</insert>
+	
+	<update id="update_coment" parameterType="CMU">
+    UPDATE CMU_COM
+       SET CCM_CONTENT = #{CCM_CONTENT}
+     WHERE CCM_PK = #{CCM_PK}
+	</update>
+	
+	
+	<select id="get_comentlist"  parameterType="CMU" resultType="CMU">
+	SELECT *
+	FROM CMU_COM
+	WHERE CMU_PK = #{CMU_PK}
+	</select>
 	
 
   </mapper>
