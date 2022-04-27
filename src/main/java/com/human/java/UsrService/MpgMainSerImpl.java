@@ -1,11 +1,14 @@
 package com.human.java.UsrService;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.human.java.CmuVO.CmuVO;
 import com.human.java.UsrDAO.MpgMainDao;
 import com.human.java.UsrVO.UsrVO;
 
@@ -42,6 +45,12 @@ public class MpgMainSerImpl implements MpgMainSer {
 	public void modifyvg(UsrVO mpgvo) {
 		mpgmaindao.modifyvg(mpgvo);
 		
+	}
+
+	@Override
+	public List<CmuVO> mpg_myposts(UsrVO mpgvo) {
+
+		return mpgmaindao.mpg_myposts(mpgvo);
 	}
 
 

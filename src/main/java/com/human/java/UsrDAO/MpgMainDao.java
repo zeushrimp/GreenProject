@@ -1,5 +1,9 @@
 package com.human.java.UsrDAO;
 
+import java.util.List;
+
+import com.human.java.CmuVO.CmuVO;
+import com.human.java.CmuVO.CmupageVO;
 import com.human.java.UsrVO.UsrVO;
 
 public interface MpgMainDao {
@@ -13,4 +17,6 @@ public interface MpgMainDao {
 	public void modifyfnk(UsrVO mpgvo);
 	
 	public void modifyvg(UsrVO mpgvo);
+
+	public List<CmuVO> mpg_myposts(UsrVO mpgvo);
 }

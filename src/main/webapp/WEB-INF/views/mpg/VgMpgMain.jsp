@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -449,168 +450,35 @@
 						<div class="tab-content" id="posts">
 							<!--entries-->
 							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
 
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Barbeque party</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
 
 								<!--item-->
-								<div class="entry one-third">
+								<c:forEach items="${myposts}" var="cmuvo">
+									<div class="entry one-third">
 
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">How to make sushi</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
+										<div class="container">
+											<h2>
+												<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">${cmuvo.CMU_TITLE}</a>
+											</h2>
+											<div class="actions">
+												<div>
+													<div class="date">
+														<i class="fa fa-calendar"></i><a href="#">${cmuvo.CCM_REG}</a>
+													</div>
+													<div class="comments">
+														<i class="fa fa-comment"></i><a
+															href="VgCmuDtail.jsp#comments">${cmuvo.CMU_COM}</a>
+													</div>
 												</div>
 											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
+											<div class="excerpt">
+												<p>${cmuvo.CMU_CONTENT}...</p>
 											</div>
 										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
 									</div>
-								</div>
-
+								</c:forEach>
 								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
 
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
 							</div>
 							<!--//entries-->
 							<div class="pager">

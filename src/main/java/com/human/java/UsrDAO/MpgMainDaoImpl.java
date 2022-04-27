@@ -1,10 +1,13 @@
 package com.human.java.UsrDAO;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.human.java.CmuVO.CmuVO;
 import com.human.java.UsrVO.UsrVO;
 
 @Repository("MpgMainDao")
@@ -41,6 +44,12 @@ public class MpgMainDaoImpl implements MpgMainDao {
 	public void modifyvg(UsrVO mpgvo) {
 		sqlSession.update("Mpg.Mpg_vg_modify", mpgvo);
 		
+	}
+
+	@Override
+	public List<CmuVO> mpg_myposts(UsrVO mpgvo) {
+		return sqlSession.selectList("Mpg.Mpg_Myposts",mpgvo);
+
 	}
 
 }
