@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</div>
-	<a href="VgMpgMain.jsp">VgMpgMain로 이동</a>
+
 
 </body>
 </html>

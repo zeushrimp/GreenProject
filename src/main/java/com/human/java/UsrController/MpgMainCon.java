@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.RcpVO.RcpVO;
 import com.human.java.UsrService.MpgMainSer;
 import com.human.java.UsrVO.UsrVO;
 
@@ -50,9 +51,12 @@ public class MpgMainCon {
 		model.addAttribute("pwhide", pwhide);
 
 		List<CmuVO> post = MpgMainSer.mpg_myposts(mpgvo);
-		System.out.println(post.size());
 
 		model.addAttribute("myposts",post);	
+		
+		List<RcpVO> recipe = MpgMainSer.mpg_myrecipes(mpgvo);
+
+		model.addAttribute("myrecipes",recipe);	
 
 		// service > 내가 작성한 글을 가져오는 서비스
 

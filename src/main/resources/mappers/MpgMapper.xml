@@ -10,10 +10,15 @@
 		select * from USR where usr_id=#{USR_ID}
 	</select>
 
-	<select id="Mpg_Myposts" parameterType="String"
-		resultType="CMU">
+	<select id="Mpg_Myposts" parameterType="String" resultType="CMU">
 		select * from CMU where usr_id=#{USR_ID}
 	</select>
+
+
+	<select id="Mpg_Myrecipes" parameterType="String" resultType="RCP">
+		select * from RCP where usr_id=#{USR_ID}
+	</select>
+
 
 	<update id="Mpg_resign_user" parameterType="String">
 		UPDATE USR
@@ -29,7 +34,8 @@
 	<update id="Mpg_pw_modify" parameterType="USR">
 		UPDATE USR
 		SET
-		USR_PW = #{USR_PW}
+		USR_PW =
+		#{USR_PW}
 		WHERE
 		usr_id =#{USR_ID}
 	</update>
@@ -38,7 +44,8 @@
 	<update id="Mpg_nk_modify" parameterType="USR">
 		UPDATE USR
 		SET
-		USR_NICK = #{USR_NICK}
+		USR_NICK =
+		#{USR_NICK}
 		WHERE
 		usr_id =#{USR_ID}
 	</update>
@@ -46,7 +53,8 @@
 	<update id="Mpg_vg_modify" parameterType="USR">
 		UPDATE USR
 		SET
-		USR_VEGE = #{USR_VEGE}
+		USR_VEGE =
+		#{USR_VEGE}
 		WHERE
 		usr_id =#{USR_ID}
 	</update>

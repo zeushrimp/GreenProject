@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.human.java.CmuVO.CmuVO;
 import com.human.java.CmuVO.CmupageVO;
+import com.human.java.RcpVO.RcpVO;
 import com.human.java.UsrVO.UsrVO;
 
 public interface MpgMainDao {
@@ -19,4 +20,6 @@ public interface MpgMainDao {
 	public void modifyvg(UsrVO mpgvo);
 
 	public List<CmuVO> mpg_myposts(UsrVO mpgvo);
+
+	public List<RcpVO> mpg_myrecipes(UsrVO mpgvo);
 }

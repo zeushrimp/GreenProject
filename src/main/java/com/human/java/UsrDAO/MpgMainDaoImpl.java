@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.RcpVO.RcpVO;
 import com.human.java.UsrVO.UsrVO;
 
 @Repository("MpgMainDao")
@@ -50,6 +51,11 @@ public class MpgMainDaoImpl implements MpgMainDao {
 	public List<CmuVO> mpg_myposts(UsrVO mpgvo) {
 		return sqlSession.selectList("Mpg.Mpg_Myposts",mpgvo);
 
+	}
+
+	@Override
+	public List<RcpVO> mpg_myrecipes(UsrVO mpgvo) {
+		return sqlSession.selectList("Mpg.Mpg_Myrecipes",mpgvo);
 	}
 
 }

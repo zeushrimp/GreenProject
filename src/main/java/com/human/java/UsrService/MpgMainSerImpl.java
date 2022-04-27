@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.human.java.CmuVO.CmuVO;
+import com.human.java.RcpVO.RcpVO;
 import com.human.java.UsrDAO.MpgMainDao;
 import com.human.java.UsrVO.UsrVO;
 
@@ -51,6 +52,12 @@ public class MpgMainSerImpl implements MpgMainSer {
 	public List<CmuVO> mpg_myposts(UsrVO mpgvo) {
 
 		return mpgmaindao.mpg_myposts(mpgvo);
+	}
+
+	@Override
+	public List<RcpVO> mpg_myrecipes(UsrVO mpgvo) {
+		// TODO Auto-generated method stub
+		return mpgmaindao.mpg_myrecipes(mpgvo);
 	}
 
 
