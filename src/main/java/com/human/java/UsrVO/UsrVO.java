@@ -2,6 +2,8 @@ package com.human.java.UsrVO;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -22,8 +24,6 @@ public class UsrVO {
 	int USR_OUT;
 	String USR_EMAIL1;
 	String USR_EMAIL2;
-	String USR_PHOTO;
-	String USR_PHOTOREAL;
 	Date USR_DATE;
-	
+	MultipartFile imgFile;
 }
