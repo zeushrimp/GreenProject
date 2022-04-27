@@ -39,15 +39,17 @@ public class UsrRegCon {
 	
 		return "/usr/VgUsrLogin";
 	}
-	
-	
-	
-	
-	
 	@RequestMapping("/checkId.do")
 	@ResponseBody
 	public String checkId(UsrVO usrvo) {
 		int result = UsrRegSer.checkId(usrvo);
+		return result+"";
+	}
+	
+	@RequestMapping("/checkNick.do")
+	@ResponseBody
+	public String checkNick(UsrVO usrvo){
+		int result = UsrRegSer.checkNick(usrvo);
 		return result+"";
 	}
 	
@@ -64,9 +66,9 @@ public class UsrRegCon {
 			return "redirect:/usr/VgUsrLogin_cant.do";
 		} else {
 			
-			session.setAttribute("usr_id", result.getUSR_ID());
-			session.setAttribute("usr_admin", result.getUSR_ADMIN());
-
+			session.setAttribute("usr_Id", result.getUSR_ID());
+			session.setAttribute("usr_Admin", result.getUSR_ADMIN());
+			session.setAttribute("usr_Nick", result.getUSR_NICK());
 			return "redirect:/usr/VgUsrLogin_ok.do";
 			
 		}
@@ -82,7 +84,7 @@ public class UsrRegCon {
 		UsrRegSer.insertUsr(usrvo);
 		
 		
-		return "redirect:/usr/VgUsrRegstLogin.do";
+		return "redirect:/usr/VgUsrLogin.do";
 	}
 
 
