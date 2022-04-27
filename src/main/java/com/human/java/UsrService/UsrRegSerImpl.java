@@ -41,6 +41,13 @@ public class UsrRegSerImpl implements UsrRegSer{
 		public String FindPw(UsrVO usrvo) {
 			// TODO Auto-generated method stub
 			return usrregdao.FindPw(usrvo);
+		}
+
+		@Override
+		public int checkNick(UsrVO usrvo) {
+			// TODO Auto-generated method stub
+			return usrregdao.checkNick(usrvo);
 		};
+		
 		
 }

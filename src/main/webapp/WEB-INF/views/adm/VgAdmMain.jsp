@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +13,13 @@
 
 <title>SocialChef</title>
 
-<link rel="stylesheet" href="resources/css/style.css" />
-<link rel="stylesheet" href="resources/css/icons.css" />
+<link rel="stylesheet" href="../../resources/css/style.css" />
+<link rel="stylesheet" href="../../resources/css/icons.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="../../resources/images/favicon.ico" />
 <style type="text/css">
 .tab-content .basic dt {
 	width: 25%;
@@ -55,6 +56,14 @@
 .tabs li {	
 	width: 33.3%;
 }
+
+td {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+
+
 </style>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -71,74 +80,8 @@
 	</div>
 	<!--//preloader-->
 
-	<!--header-->
-	<header class="head" role="banner">
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<a href="index.jsp" title="SocialChef" class="logo"><img
-				src="resources/images/ico/logo.png" alt="SocialChef logo" /></a>
-
-			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li><a href="index.jsp" title="Home"><span>Home</span></a></li>
-					<li><a href="recipes.jsp" title="Recipes"><span>Recipes</span></a>
-						<ul>
-							<li><a href="recipes2.jsp" title="Recipes 2">Recipes 2</a></li>
-							<li><a href="VgRcpDtail.jsp" title="Recipe">Recipe</a></li>
-						</ul></li>
-					<li><a href="blog.jsp" title="Blog"><span>Blog</span></a>
-						<ul>
-							<li><a href="VgCmuDtail.jsp" title="Blog post">Blog post</a></li>
-						</ul></li>
-					<li><a href="#" title="Pages"><span>Pages</span></a>
-						<ul>
-							<li><a href="left_sidebar.jsp" title="Left sidebar page">Left
-									sidebar page</a></li>
-							<li><a href="right_sidebar.jsp" title="Right sidebar page">Right
-									sidebar page</a></li>
-							<li><a href="two_sidebars.jsp" title="Both sidebars page">Both
-									sidebars page</a></li>
-							<li><a href="full_width.jsp" title="Full width page">Full
-									width page</a></li>
-							<li><a href="login.jsp" title="Login page">Login page</a></li>
-							<li><a href="register.jsp" title="Register page">Register
-									page</a></li>
-							<li><a href="error404.jsp" title="Error page">Error page</a></li>
-						</ul></li>
-					<li><a href="#" title="Features"><span>Features</span></a>
-						<ul>
-							<li><a href="icons.jsp" title="Icons">Icons</a></li>
-							<li><a href="grid.jsp" title="Grid">Grid</a></li>
-							<li><a href="shortcodes.jsp" title="Shortcodes">Shortcodes</a></li>
-							<li><a href="pricing.jsp" title="Pricing tables">Pricing
-									tables</a></li>
-						</ul></li>
-					<li><a href="contact.jsp" title="Contact"><span>Contact</span></a></li>
-					<li><a
-						href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy"
-						title="Buy now"><span>Buy now</span></a></li>
-				</ul>
-			</nav>
-
-			<nav class="user-nav" role="navigation">
-				<ul>
-					<li class="light"><a href="find_recipe.jsp"
-						title="Search for recipes"><i
-							class="icon icon-themeenergy_search"></i> <span>Search for
-								recipes</span></a></li>
-					<li class="medium current-menu-item"><a href="my_profile.jsp"
-						title="My account"><i class="icon icon-themeenergy_chef-hat"></i>
-							<span>My account</span></a></li>
-					<li class="dark"><a href="submit_recipe.jsp"
-						title="Submit a recipe"><i
-							class="icon icon-themeenergy_fork-spoon"></i> <span>Submit
-								a recipe</span></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!--//header-->
-
+	<%@ include file="../../../Header.jsp" %>
+	<div style="padding-top: 200px"></div>
 	<!--main-->
 	<main class="main" role="main">
 		<!--wrap-->
@@ -157,18 +100,7 @@
 			<section class="content">
 				<!--row-->
 				<div class="row">
-					<!--profile left part-->
-					<div class="my_account one-fourth">
-						<figure>
-							<img src="resources/images/admin.png" alt="" />
-						</figure>
-						<div class="container" style="background-color: transparent;">
-							<h2 align="center">관리자</h2>
-						</div>
-					</div>
-					<!--//profile left part-->
-
-					<div class="three-fourth">
+					<div class="three-fourth" >
 						<nav class="tabs">
 							<ul>
 								<li class="active"><a href="#about" title="About me">회원관리</a></li>
@@ -180,47 +112,47 @@
 
 						<!--about-->
 						<div class="tab-content" id="about">
-							<div class="row">
-								<dl class="basic two-third">
-									<dt>이름</dt>
-									<dd>홍길동(변수)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a class="btn btn-default" data-target="#modal" data-toggle="modal">모달테스트</a>
-									</dd>
-									<dt>채식종류</dt>
-									<dd>락토-오보 베지테리언(변수,드롭다운)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMc.jsp" target='_blank'>채식 종류 변경</a>
-									</dd>
-									<dt>닉네임</dt>
-									<dd>호부호형못함(변수)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMn.jsp" target='_blank'>닉네임 변경</a>
-									</dd>
-									<dt>비밀번호</dt>
-									<dd>*************(변수,안보여줌)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMp.jsp" target='_blank'>비밀번호 변경</a>
-									</dd>
-									<dt>주소</dt>
-									<dd>경기도 수원시 팔달구 중부대로 101번지 3층(변수)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgEdtMa.jsp" target='_blank'>주소 변경</a>
-									</dd>
-									<dt>내 등급</dt>
-									<dd>실버(변수)</dd>
-									<dd
-										style="text-align: right; background-color: transparent; width: 30%;">
-										<a href="VgMpgShwMp.jsp" target='_blank'>내역 보기</a>
-									</dd>
-								</dl>
-
-
+								<div style="width: 1170px">
+								<table style="width:90%; margin: auto;">
+									<th>이름</th>
+									<th>이메일</th>
+									<th>비밀번호</th>
+									<th>주소</th>
+									<th>전화번호</th>
+									<th>가입일자</th>
+									<th>레시피</th>
+									<th>글수</th>
+									<th>신고</th>
+						<c:forEach items="${AUSR }" var="vo" varStatus="status">		
+							<form action="ChangeUsrInfo.do" method="post">
+							<tr>
+							
+								<td style="width:95px"><input type="textarea" name="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;"><input type="hidden" name="USR_ID" value="${vo.USR_ID}"></td>
+								<td style="width:150px"><input type="textarea" name="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0; word-break:break-all;"></td>
+								<td style="width:100px"><input type="textarea" name="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+								<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
+								<input type="button"  id="${status.index}" onclick="sample6_execDaumPostcode(this.id)" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
+								<input type="hidden" name="USR_ADDR1" class="sample6_postcode" value=""/>
+								<input type="hidden" name="USR_ADDR2" class="sample6_address" value="">
+								<input type="text" name="USR_ADDR3" class="sample6_detailAddress" placeholder="상세주소" value="${vo.USR_ADDR3 }">
+								<input type="hidden" class="sample6_extraAddress" placeholder="참고항목">
+								</td>
+								<td style="width:140px"><input type="textarea" name="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+								<td style="width:95px">${vo.USR_DATE }</td>
+								<td style="width:100px">100</td>
+								<td style="width:75px">10</td>
+								<td style="width:90px">10</td>								
+								<td style="width:90px; background: none !important; border:none !important;"><input type="submit" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
+							</tr>
+							
+							</form>	
+						</c:forEach>	
+								
+								</table>
+								<div class="pager">
+								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
+								<a href="#">4</a> <a href="#">5</a>
+							</div>
 							</div>
 						</div>
 
@@ -228,111 +160,29 @@
 
 						<!--my recipes-->
 						<div class="tab-content" id="recipes">
-							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
-												vegetables</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-medium"></i><a href="#">medium</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
-												cherry tomatoes</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-hard"></i><a href="#">hard</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-easy"></i><a href="#">easy</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-							</div>
+							<div style="width: 1170px">
+							<table style="width:90%; margin: auto;" >
+									<th style="text-align: center">아이디</th>
+									<th style="text-align: center">제목</th>
+									<th style="text-align: center">신고 횟수</th>
+									
+									
+							<tr>
+								<td style="width:20%">deucal</td>
+								<td style="width:60%">레시피 제목</td>
+								<td style="width:20%">123456789</td>
+								
+							</tr>	
+								
+								
+								</table>
+								
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
 								<a href="#">4</a> <a href="#">5</a>
 							</div>
 						</div>
-
+						</div>
 						<!--//my recipes-->
 
 
@@ -343,175 +193,31 @@
 						<!--my posts-->
 						<div class="tab-content" id="posts">
 							<!--entries-->
-							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Barbeque party</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">How to make sushi</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-								<!--item-->
-								<div class="entry one-third">
-
-									<div class="container">
-										<h2>
-											<a href="VgCmuDtail.jsp">Make your own bread</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="date">
-													<i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgCmuDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-												elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit
-												amet . . .</p>
-										</div>
-									</div>
-								</div>
-
-								<!--item-->
-							</div>
-							<!--//entries-->
+							<div style="width: 1170px">
+							<table style="width:90%; margin: auto;" >
+									<th style="text-align: center">아이디</th>
+									<th style="text-align: center">제목</th>
+									<th style="text-align: center">신고 횟수</th>
+									
+									
+							<tr>
+								<td style="width:20%">deucal</td>
+								<td style="width:60%">커뮤니티 제목</td>
+								<td style="width:20%">123456789</td>
+								
+							</tr>	
+								
+								
+								</table>
+								
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
 								<a href="#">4</a> <a href="#">5</a>
 							</div>
+						</div>
+							</div>
+							<!--//entries-->
+							
 						</div>
 						<!--//my posts-->
 					</div>
@@ -525,70 +231,70 @@
 	<!--//main-->
 
 
-	<!--footer-->
-	<footer class="foot" role="contentinfo">
-		<div class="wrap clearfix">
-			<div class="row">
-				<article class="one-half">
-					<h5>About SocialChef Community</h5>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-						aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
-						exerci.</p>
-				</article>
-				<article class="one-fourth">
-					<h5>Need help?</h5>
-					<p>Contact us via phone or email</p>
-					<p>
-						<em>T:</em> +1 555 555 555<br /> <em>E:</em> <a href="#">socialchef@email.com</a>
-					</p>
-				</article>
-				<article class="one-fourth">
-					<h5>Follow us</h5>
-					<ul class="social">
-						<li><a href="#" title="facebook"><i
-								class="fa fa-fw fa-facebook"></i></a></li>
-						<li><a href="#" title="youtube"><i
-								class="fa  fa-fw fa-youtube"></i></a></li>
-						<li><a href="#" title="rss"><i class="fa  fa-fw fa-rss"></i></a></li>
-						<li><a href="#" title="gplus"><i
-								class="fa fa-fw fa-google-plus"></i></a></li>
-						<li><a href="#" title="linkedin"><i
-								class="fa fa-fw fa-linkedin"></i></a></li>
-						<li><a href="#" title="twitter"><i
-								class="fa fa-fw fa-twitter"></i></a></li>
-						<li><a href="#" title="pinterest"><i
-								class="fa fa-fw fa-pinterest-p"></i></a></li>
-						<li><a href="#" title="vimeo"><i
-								class="fa fa-fw fa-vimeo"></i></a></li>
-					</ul>
-				</article>
+	<%@ include file="../../../Footer.jsp" %>
 
-				<div class="bottom">
-					<p class="copy">Copyright 2016 SocialChef. All rights reserved</p>
+	<script src="../../resources/js/jquery-3.1.0.min.js"></script>
+	<script src="../../resources/js/jquery.uniform.min.js"></script>
+	<script src="../../resources/js/jquery.slicknav.min.js"></script>
+	<script src="../../resources/js/scripts.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+    function sample6_execDaumPostcode( targetindex ) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-					<nav class="foot-nav">
-						<ul>
-							<li><a href="index.jsp" title="Home">Home</a></li>
-							<li><a href="recipes.jsp" title="Recipes">Recipes</a></li>
-							<li><a href="blog.jsp" title="Blog">Blog</a></li>
-							<li><a href="contact.jsp" title="Contact">Contact</a></li>
-							<li><a href="find_recipe.jsp" title="Search for recipes">Search
-									for recipes</a></li>
-							<li><a href="login.jsp" title="Login">Login</a></li>
-							<li><a href="register.jsp" title="Register">Register</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--//footer-->
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
 
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    var extra=document.getElementsByClassName("sample6_extraAddress");
+                    extra[targetindex].value = extraAddr;
+                
+                } else {
+                	var extra=document.getElementsByClassName("sample6_extraAddress");
+                    extra[targetindex].value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                var postcode = document.getElementsByClassName('sample6_postcode');
+                postcode[targetindex].value = data.zonecode;
+                
+                var address = document.getElementsByClassName("sample6_address");
+                address[targetindex].value = addr;
+                
+                var showcontent =document.getElementsByClassName("text1");
+                showcontent[targetindex].innerText = addr;
+                // 커서를 상세주소 필드로 이동한다.
+               
+            }
+        }).open();
+    }
+</script>
 </body>
 </html>
 

@@ -78,8 +78,8 @@ width: 100%;
 					<li class="dark"><a href="/rcp/VgRcpList.do" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>레시피 검색</span></a></li>
 					<li class="dark">
 					<f:choose>
-						<f:when test="${usr_admin == 1}">
-							<a href='../../VgAdmMain.do'
+						<f:when test="${usr_Admin == 1}">
+							<a href='/adm/VgAdmMain.do'
 						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>관리자페이지</span></a>	
 						</f:when>
 						<f:otherwise>
@@ -93,7 +93,7 @@ width: 100%;
 						<li class="dark"><a href="" title="Submit a recipe" onclick="needL"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
 					</f:otherwise> --%>
 					<li class="dark"><f:choose>
-						<f:when test="${usr_id != null}">
+						<f:when test="${usr_Id != null}">
 							<a href='/usr/VgUsrLogout.do'
 						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_fork-spoon"></i><span>로그아웃</span></a>	
 						</f:when>

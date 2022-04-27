@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+  <mapper namespace="Adm">
+  	<select id="showAllus" resultType="USR">
+  	SELECT *
+  	FROM USR
+  	</select>
+ 	<update id="changeUsrInfo" parameterType="USR">
+ 	UPDATE USR SET
+ 	USR_NAME= #{USR_NAME},
+ 	USR_EMAIL=#{USR_EMAIL},
+ 	USR_PW=#{USR_PW},
+ 	USR_ADDR1=#{USR_ADDR1},
+ 	USR_ADDR2=#{USR_ADDR2},
+ 	USR_ADDR3=#{USR_ADDR3},
+ 	USR_TEL=#{USR_TEL}
+ 	WHERE USR_ID=#{USR_ID}
+ 	
+ 	</update>
+  	
+  	
+  </mapper>

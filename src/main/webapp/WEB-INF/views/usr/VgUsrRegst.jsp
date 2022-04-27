@@ -88,36 +88,36 @@ select option[value=""][disabled] {
 								<input type="text" placeholder="아이디" name="USR_ID" id="USR_ID"
 									class="int" onkeydown="inputIdChk()" title="4~12자의 영문 대소문자와 숫자로만 입력."
 									style="width:200px !important;"
-									required />
+									/>
 								<input type="button" onclick="idcheck()" value="중복확인" class="recheck"><br>
 								<input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck" >
 								</div>
 							<div class="f-row">
 
 
-								<input type="text" placeholder="이름" id = "USR_NAME" name="USR_NAME" size="30" required/>
+								<input type="text" placeholder="이름" id = "USR_NAME" name="USR_NAME" size="30" />
 
 
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="USR_PW" name="USR_PW" required/>
+								<input type="password" placeholder="패스워드" id="USR_PW" name="USR_PW" />
 
 
 
 							</div>
 							<div class="f-row">
 
-								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1" required/>
+								<input type="password" placeholder="패스워드" id="USR_PW1" name="USR_PW1" />
 	
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
 
-								<input type="text" name="USR_ADDR1" id="sample6_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;" required>
+								<input type="text" name="USR_ADDR1" id="sample6_postcode" placeholder="우편번호" style= "width:100px !important; padding:10px;" >
 								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 							</div>
 							<div class="f-row" style="padding-bottom: 5px !important;">
-								<input type="text" name="USR_ADDR2" id="sample6_address" placeholder="주소" style= "width:500px !important; padding:10px;" required>
+								<input type="text" name="USR_ADDR2" id="sample6_address" placeholder="주소" style= "width:500px !important; padding:10px;" >
 							</div>
 							<div class="f-row">	
 								<span id="guide" style="color:#999;display:none"></span>
@@ -126,20 +126,22 @@ select option[value=""][disabled] {
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_TEL" id="USR_TEL" placeholder="전화번호" required />
+								<input type="text" name="USR_TEL" id="USR_TEL" placeholder="전화번호" />
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_NICK" id="USR_NICK" placeholder="닉네임" required />
+								<input type="text" name="USR_NICK" id="USR_NICK" placeholder="닉네임" style="width:200px !important;" />
+								<input type="button" onclick="nickcheck()" value="중복확인" class="recheck"><br>
+								<input type="hidden" name="nickDuplication" id="nickDuplication" value="nickUncheck" >
 							</div>
 							<div class="f-row">
 
-								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" style="width:180px !important;" required /> &nbsp;@&nbsp;
-								<input type="text" name="USR_EMAIL1" id="USR_EMAIL1" style="width:250px !important;" required />
+								<input type="text" name="USR_EMAIL" id="USR_EMAIL" placeholder="이메일" style="width:180px !important;" /> &nbsp;@&nbsp;
+								<input type="text" name="USR_EMAIL1" id="USR_EMAIL1" style="width:250px !important;" />
 							</div>
 								<div class="f-row">
 								<div class="mail_check_input_box" id="mail_check_input_box_false">
-									<input type="text" clsass="mail_check_input" id="USR_CHK" style="width:250px !important;" disabled="disabled" onkeyup="EmailCheck()" required />
+									<input type="text" clsass="mail_check_input" id="USR_CHK" style="width:250px !important;" disabled="disabled" onkeyup="EmailCheck()"  />
 									<input type="button" id="mail_check_button" value="인증번호 받기" onclick="sendEmail()">
 								</div>	
 									
@@ -148,7 +150,7 @@ select option[value=""][disabled] {
 							</div>
 							<div class="f-row">
 
-								<select name="USR_VEGE" required>
+								<select name="USR_VEGE" >
 								<option value="" disabled selected>채식 타입</option>
 								<option value="프루테라">프루테라</option>
 								<option value="비건">비건</option>
@@ -192,7 +194,8 @@ select option[value=""][disabled] {
 								
 							</div>
 							<div class="f-row">
-							<input type="submit" class="join" value="회원가입" id="join" disabled="disabled">
+							<input type="submit" class="join" value="회원가입" id="join" >
+							<!--disabled="disabled"  -->
 							</div>
 						</form>
 					</div>
@@ -213,7 +216,7 @@ select option[value=""][disabled] {
 	<script src="../../../resources/js/jquery.uniform.min.js"></script>
 	<script src="../../../resources/js/jquery.slicknav.min.js"></script>
 	<script src="../../../resources/js/scripts.js"></script>
-	
+	<script src="../../../resources/js/Join.js"></script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -290,6 +293,29 @@ function idcheck(){
 		}
 	}) 
 };
+function nickcheck(){
+	if(form.USR_NICK.value==""){
+    	
+        alert("닉네임를 입력해주세요");
+        form.USR_NICK.focus();
+        return false;
+    }
+
+    $.ajax({
+		url : "/usr/checkNick.do",
+		type : "post",
+		dataType : "text",
+		data : {"USR_NICK" : $("#USR_NICK").val()},
+		success : function(result){
+			if(result == 1){
+				alert("중복된 아이디입니다.");
+			}else if(result == 0){
+				$("#nickDuplication").attr("value", $("#USR_NICK").val());
+				alert("사용가능한 닉네임입니다.");
+			}
+		}
+	}) 
+};
 /*인증번호 이메일 전송*/
 
 function sendEmail(){
@@ -316,14 +342,14 @@ function sendEmail(){
 }
 
 
-function EmailCheck(){
+/* function EmailCheck(){
 	var num1=$("#USR_CHK").val()
 	var submit=document.getElementById("join");
 	if(num1==num){
 		alert("인증성공")
 	submit.removeAttribute("disabled");
 	}
-}
+} */
 </script>
 </body>
 </html>

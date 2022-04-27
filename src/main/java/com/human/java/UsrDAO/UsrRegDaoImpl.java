@@ -45,6 +45,12 @@ public class UsrRegDaoImpl implements UsrRegDao{
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("Usr.FindPw",usrvo);
 	}
+
+	@Override
+	public int checkNick(UsrVO usrvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Usr.checkNick",usrvo);
+	}
 	
 
 }
