@@ -270,12 +270,23 @@ function addr_not_null_check() {
 	var $woopyeon = $('#sample6_postcode1');
 	var $sangsae = $('#sample6_detailAddress1');
 	var $text = $('#s_result3');
-	
-	
+
+
 
 
 }
 
+function textLengthOverCut(txt) {
+	alert(txt);
+		var len = 20;
+
+		var lastTxt = "...";
+
+	if (txt.length > len) {
+		txt = txt.substr(0, len) + lastTxt;
+	}
+	return txt;
+}
 
 
 
