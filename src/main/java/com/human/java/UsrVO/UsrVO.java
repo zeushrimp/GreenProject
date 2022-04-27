@@ -1,5 +1,7 @@
 package com.human.java.UsrVO;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -22,5 +24,6 @@ public class UsrVO {
 	String USR_EMAIL2;
 	String USR_PHOTO;
 	String USR_PHOTOREAL;
+	Date USR_DATE;
 	
 }
