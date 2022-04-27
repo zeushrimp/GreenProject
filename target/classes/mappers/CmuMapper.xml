@@ -16,25 +16,64 @@
    <!-- 글 목록 리스트 (cntPerPage개) -->
    <select id="get_cmulist" parameterType="CMU" resultType="CMU">	
 	SELECT *
-	FROM cmu
-	ORDER BY cmu_pk DESC
-	OFFSET #{start} ROWS FETCH NEXT #{cntPerPage} ROWS ONLY
+	FROM CMU
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="searchtype=='CMU_TITLE' and keyword != null and keyword != '' ">
+				AND CMU_TITLE like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchtype=='CMU_CONTENT' and keyword != null and keyword != '' ">
+				AND CMU_CONTENT like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchtype==' USR_ID' and keyword != null and keyword != '' ">
+				AND USR_ID like CONCAT('%', #{keyword}, '%')
+			</if>
+		</trim>
+	ORDER BY CMU_PK DESC
+	OFFSET #{startlist} ROWS FETCH NEXT #{listsize} ROWS ONLY
+	
    </select>
    
    <!-- 글 갯수 세기 -->
    <select id="count_list" parameterType="CMU" resultType="Integer">
-	SELECT COUNT(*)
+	SELECT COUNT(*) as listcnt
 	FROM CMU
-	ORDER BY CMU_PK DESC 
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="keyword != null and keyword != '' ">
+				<if test="searchType=='CMU_TITLE'">
+					AND CMU_TITLE like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='CMU_CONTENT'">
+					AND CMU_CONTENT like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType=='USR_ID'">
+					AND USR_ID like CONCAT('%', #{keyword}, '%')
+				</if>
+			</if>
+		</trim>	
    </select>
  
     <!-- 커뮤니티 상세보기 -->
 	<select id="get_detailread" parameterType="CMU" resultType="CMU">
 	SELECT *
-	FROM cmu
+	FROM CMU
 	WHERE CMU_PK = #{CMU_PK}
 	</select>
 	
+	<!-- 커뮤니티 수정(업데이트) -->
+	<update id="update_cmu" parameterType="CMU">
+	 UPDATE CMU 
+	 SET
+	 CMU_TITLE = #{CMU_TITLE},
+	 CMU_CONTENT = #{CMU_CONTENT}
+	 WHERE USR_ID = #{USR_ID}
+	</update>
+
+	<!--게시글 삭제  -->
+	<delete id="delete_cmu" parameterType="CMU">
+	 DELETE FROM CMU
+	 WHERE USR_ID = #{USR_ID}
+	</delete>
+		
 	<!-- 댓글 작성 -->
  	<insert id="insert_comment" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
@@ -68,5 +107,6 @@
      SET CCM_DEL = 0     
      WHERE CCM_PK = #{CCM_PK} AND CCM_DEL = 1
 	</update>
+
 	
   </mapper>

@@ -50,7 +50,8 @@
 	<!--//preloader-->
 	
 	<!--header-->
-		<%@ include file="/resources/Header.jsp" %>
+		<%@ include file="../../../Header.jsp" %>
+		<div style="padding-top: 200px"></div>		
 	<!--//header-->
 		
 	<!--main-->
@@ -61,8 +62,8 @@
 			<nav class="breadcrumbs">
 				<ul>
 				<!-- 메인, 커뮤니티 링크 -->
-					<li><a href="VgMain" title="Home">메인</a></li>
-					<li><a href="VgCmuList" title="Blog">커뮤니티</a></li>
+					<li><a href="VgMain.do" title="Home">메인</a></li>
+					<li><a href="VgCmuList.do" title="Blog">커뮤니티</a></li>
 					<li>커뮤니티 등록</li>
 				</ul>
 			</nav>
@@ -82,12 +83,12 @@
 					<div class="cmucate cumtitle">
 						<select name="cmucategory" required>
 						<option disabled selected style="display: none;">카테고리</option>
-						<option>공지</option>
-						<option>채식 소식</option>
-						<option>동네 맛집</option>
-						<option>일상 소식</option>
+						<option>공지</option> <!-- 유저가 관리자일 때 -->
+						<option>채식소식</option>
+						<option>동네맛집</option>
+						<option>일상소식</option>
 						<option>운동/건강</option>
-						<option>취미 생활</option>
+						<option>취미생활</option>
 						</select>
 					</div>
 					<div class="cmucon cumtitle">
@@ -188,7 +189,7 @@
 	<!--//main-->
 	
     <!--footer-->
-    <%@ include file="/resources/Footer.jsp" %>
+    <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
 	
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>

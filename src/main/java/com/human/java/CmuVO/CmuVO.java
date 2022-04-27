@@ -5,7 +5,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class CmuVO{
+public class CmuVO extends Pagination {
 
 	private  int CMU_PK; // 게시글 번호
 	private  String CMU_CATE;
@@ -25,5 +25,7 @@ public class CmuVO{
 	private  int  CCM_REF_LEVEL; // 댓글 깊이
 	private  int  CCM_DEL; // 댓글 삭제 여부
 	
+	private String searchtype;
+	private String keyword;	
 }
 

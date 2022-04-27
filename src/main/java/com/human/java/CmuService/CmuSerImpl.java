@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.human.java.CmuDAO.CmuDao;
 import com.human.java.CmuVO.CmuVO;
-import com.human.java.CmuVO.CmupageVO;
 
 @Service("CmuSer")
 public class CmuSerImpl implements CmuSer{
@@ -23,14 +22,14 @@ public class CmuSerImpl implements CmuSer{
 	
 	// 총 갯수 카운트 
 	@Override
-	public int cmu_listcnt() {
-		return cmudao.cmu_listcnt();
+	public int cmu_listcnt(CmuVO search) {
+		return cmudao.cmu_listcnt(search);
 	}
 	
 	// 글 목록 리스트 불러오기
 	@Override
-	public List<CmuVO> cmu_getlist(CmupageVO cmupagevo) {
-		return cmudao.cmu_getlist(cmupagevo);
+	public List<CmuVO> cmu_getlist(CmuVO search) {
+		return cmudao.cmu_getlist(search);
 	}
 
 	// 커뮤니티 상세보기
@@ -51,6 +50,17 @@ public class CmuSerImpl implements CmuSer{
 	// 댓글 삭제
 	public int cmu_commentdelete(CmuVO cmuvo) {
 		return cmudao.cmu_commentdelete(cmuvo);
+	}
+
+	//
+	@Override
+	public void updatewrite(CmuVO cmuvo) throws Exception {
+		cmudao.updatewrite(cmuvo);
+	}
+
+	@Override
+	public void deletewrite(CmuVO cmuvo) throws Exception {
+		cmudao.deletewrite(cmuvo);
 	}
 
 		

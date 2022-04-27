@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<script src="/resources/js/cmu_comment.js"></script>	
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
 		.three-fourth {width: 100%;}
@@ -40,7 +41,8 @@
 	<!--//preloader-->
 	
 	<!--header-->
-		<%@ include file="/resources/Header.jsp" %>
+		<%@ include file="../../../Header.jsp" %>
+		<div style="padding-top: 200px"></div>
 	<!--//header-->
 		
 	<!--main-->
@@ -60,12 +62,34 @@
 			<!--row-->
 			<div class="row">
 				<header class="s-title">
-					<h1>커뮤니티 게시판</h1>
+					<h1 style="padding: 0px 15px 60px;">커뮤니티 게시판</h1>
 				</header>
-				<div class="box bg-2">
-	          <button class="button" data-text="카테고리">
-	          <span>카테고리</span>
-	          </button>
+				<div class="box bg-2" style="padding: 0px 15px 20px;">
+	          		<!-- <button class="button" value="전체" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>전체</span></button>
+	          		<button class="button" value="공지" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>공지</span></button>
+	          		<button class="button" value="채식소식" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>채식소식</span></button>
+	          		<button class="button" value="동네맛집" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>동네맛집</span></button>
+	          		<button class="button" value="일상소식" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>일상소식</span></button>
+	          		<button class="button" value="운동/건강" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>운동/건강</span></button>
+	          		<button class="button" value="취미생활" onclick="fn_catesubmit(this.value)" style="margin-right: 10px;"><span>취미생활</span></button>
+ -->				
+ 					<div class="cmucate cumtitle">
+						<select name="cmucategory" required>
+						<option disabled selected style="display: none;">전체</option>
+						<option value="공지">공지</option> <!-- 유저가 관리자일 때 -->
+						<option value="채식소식">채식소식</option>
+						<option value="동네맛집">동네맛집</option>
+						<option value="일상소식">일상소식</option>
+						<option value="운동/건강">운동/건강</option>
+						<option value="취미생활">취미생활</option>
+						</select>
+					</div>
+ 					<div style="padding-right: 10px">
+						<input type="text" value="${cmupagevo.searchKeyword}" name="keyword" id="keyword" placeholder="검색어를 입력해주세요.">
+					</div>			
+					<div>
+						<button name="btnSearch" id="btnSearch">검색</button>
+					</div>
           		</div>
 				<!--content-->
 				<section class="content three-fourth">
@@ -94,29 +118,34 @@
 					</c:forEach>
 
 					<!-- 페이징 -->
-					<div class="pager">
-						<c:if test="${paging.startPage != 1 }">
-							<a
-								href="VgCmuList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-						</c:if>
-						<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
-							var="pagenum">
-							<c:choose>
-								<c:when test="${pagenum == paging.nowPage }">
-									<a class="current">${pagenum }</a>
-								</c:when>
-								<c:when test="${pagenum != paging.nowPage }">
-									<a
-										href="VgCmuList.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}" class="paging_num">${pagenum }</a>
-								</c:when>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${paging.endPage != paging.lastPage}">
-							<a
-								href="VgCmuList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-						</c:if>
-					</div>
-					
+
+	<div id="paginationBox" class="pagination1">
+		<div class="pager">
+			<c:if test="${pagination.prev}">
+				<a class="page-link" href="#"
+					onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
+					,'${search.searchtype}', '${search.keyword}')">&lt;</a>
+			</c:if>
+						
+			<c:forEach begin="${pagination.startpage}"
+				end="${pagination.endpage}" var="CMU_PK">
+
+				<li
+					class="page-item <c:out value="${pagination.page == CMU_PK ? 'active' : ''}"/> "><a
+					class="page-link" href="#"
+					onClick="fn_pagination('${CMU_PK}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
+					 ,'${search.searchtype}', '${search.keyword}')">
+						${CMU_PK} </a></li>
+			</c:forEach>
+
+			<c:if test="${pagination.next}">
+				<a class="page-link" href="#"
+					onClick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
+					,'${search.searchtype}', '${search.keyword}')">&gt;</a>
+			</c:if>
+		</div>
+	</div>
+
 					</form>
 				</section>
 				<div class ="cmurlink">
@@ -133,7 +162,7 @@
 	<!--//main-->
 		
     <!--footer-->
-    <%@ include file="/resources/Footer.jsp" %>
+    <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
 	
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>

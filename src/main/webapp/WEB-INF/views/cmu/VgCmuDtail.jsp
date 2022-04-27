@@ -21,19 +21,19 @@
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
 		.three-fourth {width: 100%;}
-		.comments .depth-4 	{padding-left:180px;margin-left:0;}
+		.comments .depth-4 {padding-left:180px;margin-left:0;}
 		.depth-4 .avatar {left:90px;}
 		
-		.comments .depth-5 	{padding-left:270px; margin-left:0;}
+		.comments .depth-5 {padding-left:270px; margin-left:0;}
 		.depth-5 .avatar {left:180px;}
 		
 		.cumtitle {border: 1px; float:left; width:100%; margin-bottom:10px; background: #fff; border-radius: 3px;}
 		.cumtitle .lead{font-size:30px; font-weight:500;  padding: 0px;}
 
-		.cmurlink{display: block; align: center;}
+		.cmurlink {display: block; align: center;}
 		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius:3px;}
 		.post .entry-content {float: left; padding: 17px 20px 0; min-height: 600px;}
-		.post .container 		{float:left;width: 1079px !important; padding:0; border-radius: 3px;}
+		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +49,8 @@
 	</div>
 	<!--//preloader-->
 	<!--header-->
-		<%@ include file="/resources/Header.jsp" %>
+		<%@ include file="../../../Header.jsp" %>
+		<div style="padding-top: 200px"></div>		
 	<!--//header-->
 		
 	<!--main-->
@@ -196,6 +197,26 @@
 							</form>
 						</div>
 					</div>
+					
+						<div id="replydiv" class="comment-respond">
+							<form name="updateform" action="cmu_commentsave.do" method="post">
+							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
+								<div class="f-row">
+									<!-- 게시글 번호 받음 -->
+									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
+									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmupagevo.USR_ID}"/>">
+									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
+								</div>
+								
+								<div class="f-row">
+									<div class="third bwrap">
+									<!-- 수정, 취소 정리 -->
+									        <a href="#" onclick="fn_replyUpdateSave()">저장</a>
+        									<a href="#" onclick="fn_replyUpdateCancel()">취소</a>
+									</div>
+								</div>
+							</form>
+						</div>
 
 					<!--//respond-->
 				</section>
@@ -211,7 +232,7 @@
 	<!--//main-->
 		
     <!--footer-->
-    <%@ include file="/resources/Footer.jsp" %>
+    <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
 	
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
