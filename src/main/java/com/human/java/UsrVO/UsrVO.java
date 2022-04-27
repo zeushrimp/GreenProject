@@ -25,5 +25,5 @@ public class UsrVO {
 	String USR_EMAIL1;
 	String USR_EMAIL2;
 	Date USR_DATE;
-	MultipartFile USR_PHOTO;
+	byte[] USR_PHOTO;
 }
