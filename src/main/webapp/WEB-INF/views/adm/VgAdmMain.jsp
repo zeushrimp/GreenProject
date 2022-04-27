@@ -124,30 +124,40 @@ td {
 									<th>글수</th>
 									<th>신고</th>
 						<c:forEach items="${AUSR }" var="vo" varStatus="status">		
-							<form action="ChangeUsrInfo.do" method="post">
+							
 							<tr>
 							
-								<td style="width:95px"><input type="textarea" name="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;"><input type="hidden" name="USR_ID" value="${vo.USR_ID}"></td>
-								<td style="width:150px"><input type="textarea" name="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0; word-break:break-all;"></td>
-								<td style="width:100px"><input type="textarea" name="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+								<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
+								<input type="hidden" class="USR_ID" value="${vo.USR_ID}"></td>
+								<td style="width:150px"><input type="textarea" class="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+								<td style="width:100px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
 								<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
-								<input type="button"  id="${status.index}" onclick="sample6_execDaumPostcode(this.id)" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
-								<input type="hidden" name="USR_ADDR1" class="sample6_postcode" value=""/>
-								<input type="hidden" name="USR_ADDR2" class="sample6_address" value="">
-								<input type="text" name="USR_ADDR3" class="sample6_detailAddress" placeholder="상세주소" value="${vo.USR_ADDR3 }">
+								<input type="button" onclick="sample6_execDaumPostcode('${status.index}')" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
+								<input type="hidden"  class="sample6_postcode USR_ADDR1" value="${vo.USR_ADDR1 }"/>
+								<input type="hidden" class="sample6_address USR_ADDR2" value="${vo.USR_ADDR2 }">
+								<input type="text"  class="sample6_detailAddress USR_ADDR3" placeholder="상세주소" value="${vo.USR_ADDR3 }">
 								<input type="hidden" class="sample6_extraAddress" placeholder="참고항목">
 								</td>
-								<td style="width:140px"><input type="textarea" name="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+								<td style="width:140px"><input type="textarea" class="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
 								<td style="width:95px">${vo.USR_DATE }</td>
 								<td style="width:100px">100</td>
 								<td style="width:75px">10</td>
 								<td style="width:90px">10</td>								
-								<td style="width:90px; background: none !important; border:none !important;"><input type="submit" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
+								<td style="width:90px; background: none !important; border:none !important;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
 							</tr>
 							
-							</form>	
+						
 						</c:forEach>	
-								
+								<form method="post" action="/adm/ChangeUsrInfo.do" name=form>
+									<input type="hidden" id="FS_USR_ID" name="USR_ID">
+									<input type="hidden" id="FS_USR_EMAIL" name="USR_EMAIL">
+									<input type="hidden" id="FS_USR_NAME" name="USR_NAME">
+									<input type="hidden" id="FS_USR_PW" name="USR_PW">
+									<input type="hidden" id="FS_USR_ADDR1" name="USR_ADDR1">
+									<input type="hidden" id="FS_USR_ADDR2" name="USR_ADDR2">
+									<input type="hidden" id="FS_USR_ADDR3" name="USR_ADDR3">
+									<input type="hidden" id="FS_USR_TEL" name="USR_TEL">
+								</form>	
 								</table>
 								<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
@@ -226,10 +236,10 @@ td {
 			</section>
 			<!--//content-->
 		</div>
+
 		<!--//wrap-->
 	</main>
 	<!--//main-->
-
 
 	<%@ include file="../../../Footer.jsp" %>
 
@@ -239,6 +249,38 @@ td {
 	<script src="../../resources/js/scripts.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+function submit_item(index) {
+		alert("r")
+		var USR_ID=document.getElementsByClassName("USR_ID");
+		
+		var USR_NAME=document.getElementsByClassName("USR_NAME");
+		
+		var USR_EMAIL=document.getElementsByClassName("USR_EMAIL");
+		
+		var USR_PW=document.getElementsByClassName("USR_PW");
+		
+		var USR_ADDR1=document.getElementsByClassName("USR_ADDR1");
+		
+		var USR_ADDR2=document.getElementsByClassName("USR_ADDR2");
+		
+		var USR_ADDR3=document.getElementsByClassName("USR_ADDR3");
+		
+		var USR_TEL=document.getElementsByClassName("USR_TEL");
+		
+		document.getElementById("FS_USR_ID").value=USR_ID[index].value
+		document.getElementById("FS_USR_NAME").value=USR_NAME[index].value
+		document.getElementById("FS_USR_EMAIL").value=USR_EMAIL[index].value
+		document.getElementById("FS_USR_PW").value=USR_PW[index].value
+		document.getElementById("FS_USR_ADDR1").value=USR_ADDR1[index].value
+		document.getElementById("FS_USR_ADDR2").value=USR_ADDR2[index].value
+		document.getElementById("FS_USR_ADDR3").value=USR_ADDR3[index].value
+		document.getElementById("FS_USR_TEL").value=USR_TEL[index].value
+		alert("r2")
+		document.form.submit();
+	}
+	
+	
+	
     function sample6_execDaumPostcode( targetindex ) {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -294,6 +336,10 @@ td {
             }
         }).open();
     }
+    
+    
+    
+    
 </script>
 </body>
 </html>

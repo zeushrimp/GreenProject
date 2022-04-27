@@ -87,7 +87,7 @@ width: 100%;
 						</f:otherwise>	
 					</f:choose></li>
 					<%-- <f:when test="${usr_id != null}"> --%>
-						<li class="dark"><a href="/rcp/VgRcpRegst.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
+						<li class="dark"><a href="/rcp/VgRcpRegst_ck.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
 					<%-- </f:when>
 					<f:otherwise>
 						<li class="dark"><a href="" title="Submit a recipe" onclick="needL"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
