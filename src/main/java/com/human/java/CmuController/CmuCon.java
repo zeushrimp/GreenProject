@@ -120,18 +120,14 @@ public class CmuCon {
 	// 댓글 작성
 	@RequestMapping("/cmu_commentsave.do")
 	public String cmu_commentsave(CmuVO cmuvo) {
-
 		CmuSer.cmu_commentsave(cmuvo);
-
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
 
 	// 댓글 삭제
 	@RequestMapping("/cmu_replydelete.do")
-	public String cmu_commentdelete(HttpServletRequest request, CmuVO cmuvo) {
-		
-		CmuSer.cmu_commentdelete(cmuvo);
-		
+	public String cmu_commentdelete(HttpServletRequest request, CmuVO cmuvo) {		
+		CmuSer.cmu_commentdelete(cmuvo);		
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
 	
@@ -155,7 +151,7 @@ public class CmuCon {
     		byte[] bytes = upload.getBytes();
     		
     		//이미지 경로 생성
-    		String path = "C:\\Users\\wowo1\\Pictures\\Saved Pictures" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
+    		String path = "C:\\Users\\img" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
     		String ckUploadPath = path + uid + "_" + fileName;
     		File folder = new File(path);
     		System.out.println("path:"+path);	// 이미지 저장경로 console에 확인
@@ -199,7 +195,7 @@ public class CmuCon {
     throws ServletException, IOException{
     	
     	//서버에 저장된 이미지 경로
-    	String path = "C:\\Users\\wowo1\\Pictures\\Saved Pictures" + "ckImage/";	// 저장된 이미지 경로
+    	String path = "C:\\Users\\img" + "ckImage/";	// 저장된 이미지 경로
     	System.out.println("path:"+path);
     	String sDirPath = path + uid + "_" + fileName;
     	

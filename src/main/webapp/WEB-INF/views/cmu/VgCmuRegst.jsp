@@ -78,7 +78,7 @@
 					<!--blog entry-->
 					<article class="post single">
 					<form name="cmuregstform" method="post" action="cmu_write.do">
-					<div class="cmucate cumtitle">
+					<div class="cmucate cumtitle" style="padding-bottom: 5px;">
 						<select id="CMU_CATE" name="CMU_CATE" required>
 						<option disabled selected style="display: none;">카테고리</option>
 						<option value="공지">공지</option> <!-- 유저가 관리자일 때 -->
@@ -100,6 +100,10 @@
 						<div class="third bwrap">
 							<input type="submit" value="글 작성" />
 						</div>
+						<div class ="cmurlink" style="padding: 10px 0px 20px;">
+						<!-- 목록가는 링크 -->
+						<a class="R-rlink" href="VgCmuList.do"> 게시글 목록 가기 </a>
+						</div>
 					</div>
 					</form>
 					</article>
@@ -107,11 +111,6 @@
 
 					<!--//respond-->
 				</section>
-
-				<div class ="cmurlink" style="padding: 0px 100px 20px;">
-					<!-- 목록가는 링크 -->
-					<a class="R-rlink" href="VgCmuList.do"> 게시글 목록 가기 </a>
-				</div>
 				<!--//content-->			
 			</div>
 			<!--//row-->

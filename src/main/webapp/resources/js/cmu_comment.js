@@ -63,7 +63,7 @@ function fn_catesubmit(CATE){
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
 			url = url + "&listsize=" + listsize;
-			url = url + "&searchType=" + searchtype;
+			url = url + "&searchtype=" + searchtype;
 			url = url + "&keyword=" + keyword;
 			location.href = url;
 		}
@@ -72,10 +72,10 @@ function fn_catesubmit(CATE){
 $(document).on('click', '#btnSearch', function(e){
 	e.preventDefault();
 	var url = "/cmu/VgCmuList.do";
+	url = url + "?category=" + $('#CMU_CATE').val();
 	url = url + "?searchtype=" + $('#searchtype').val();
 	url = url + "&keyword=" + $('#keyword').val();
 	url = url + "&listsize=" + $('#listsize').val();
 	location.href = url;
 	console.log(url);
-
 });
