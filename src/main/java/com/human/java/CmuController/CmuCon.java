@@ -11,15 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.google.gson.JsonObject;
 import com.human.java.CmuService.CmuSer;
@@ -160,4 +162,14 @@ public class CmuCon {
 		return jsonObject;
 	}	
 	
+	// 외부 리소스 경로(톰캣) 매핑
+	@Configuration
+	public class WebMvcConfig implements WebMvcConfigurer {
+	    @Override
+	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	        registry.addResourceHandler("/summernoteImage/**")
+	        		//로 접속하면 C:/summernote_image/1234.jpg 파일을 불러온다.
+	                .addResourceLocations("file:///C:/summernote_image/");
+	    }
+	}
 }

@@ -16,7 +16,8 @@
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
-
+	<script src="/resources/js/cmu_comment.js"></script>
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -35,6 +36,69 @@
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 		.three-fourth {padding-bottom: 0px;}
 	</style>
+	
+	<script>						
+								$('.summernote').summernote({
+									minHeight: 600,
+									maxHeight: null,
+									lang: "ko-KR",
+									focus : true,
+									toolbar: [
+										  // 글꼴 설정
+										  ['fontname', ['fontname']],
+										  // 글자 크기 설정
+										  ['fontsize', ['fontsize']],
+										  // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+										  ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+										  // 글자색
+										  ['color', ['forecolor','color']],
+										  // 표만들기
+										  ['table', ['table']],
+										  // 글머리 기호, 번호매기기, 문단정렬
+										  ['para', ['ul', 'ol', 'paragraph']],
+										  // 줄간격
+										  ['height', ['height']],
+										  // 그림첨부, 링크만들기, 동영상첨부
+										  ['insert',['picture','link','video']],
+										  // 코드보기, 확대해서보기, 도움말
+										  ['view', ['codeview','fullscreen', 'help']] ],
+									// 폰트 글꼴, 사이즈
+									fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+									fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],									  
+									
+									//이미지를 첨부하는 부분
+									callbacks : {
+							            onImageUpload : function(files, editor, welEditable) {
+							            for (var i = files.length - 1; i >= 0; i--) {
+							            uploadImageFile(files[i],this); }
+							              }
+							          }
+									$("div.note-editable").on('drop',function(e){
+								         for(i=0; i< e.originalEvent.dataTransfer.files.length; i++){
+								         	uploadSummernoteImageFile(e.originalEvent.dataTransfer.files[i],$("#summernote")[0]);
+								         }
+								        e.preventDefault();
+								   })
+								});
+						        function uploadImageFile(file, el) {
+									data = new FormData();
+									data.append("file", file);
+									$.ajax({
+										data : data,
+										type : "POST",
+										url : "uploadSummernoteImageFile",
+										contentType : false,
+										enctype : 'multipart/form-data',
+										processData : false,
+										success : function(data) {
+											$(el).summernote('editor.insertImage', data.url);
+										},
+										error: function(data) {
+								            console.log(data);
+								        }
+									});
+								}
+	</script>
   <!--  -->
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,7 +144,7 @@
 				<section class="content three-fourth">
 					<!--blog entry-->
 					<article class="post single">
-					<form>
+					<form name="cmuregstform" method="post" action="cmu_write.do">
 					<div class="cmucate cumtitle">
 						<select name="cmucategory" required>
 						<option disabled selected style="display: none;">카테고리</option>
@@ -109,62 +173,7 @@
 						<div class="container-cmu">
 								<div class="container">
 								  <textarea class="summernote" name="editordata"></textarea>    
-								</div>
-								<script>						
-								$('.summernote').summernote({
-									minHeight: 600,
-									maxHeight: null,
-									lang: "ko-KR",
-									// 에디터에 커서 이동 (input창의 autofocus라고 생각하시면 됩니다.)
-									focus : true,
-									toolbar: [
-										  // 글꼴 설정
-										  ['fontname', ['fontname']],
-										  // 글자 크기 설정
-										  ['fontsize', ['fontsize']],
-										  // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
-										  ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-										  // 글자색
-										  ['color', ['forecolor','color']],
-										  // 표만들기
-										  ['table', ['table']],
-										  // 글머리 기호, 번호매기기, 문단정렬
-										  ['para', ['ul', 'ol', 'paragraph']],
-										  // 줄간격
-										  ['height', ['height']],
-										  // 그림첨부, 링크만들기, 동영상첨부
-										  ['insert',['picture','link','video']],
-										  // 코드보기, 확대해서보기, 도움말
-										    ['view', ['codeview','fullscreen', 'help']]],
-									// 폰트 글꼴, 사이즈
-									fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
-									fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],									  
-									callbacks : { //이미지를 첨부하는 부분
-							            onImageUpload : function(files, editor, welEditable) {
-							            for (var i = files.length - 1; i >= 0; i--) {
-							            uploadImageFile(files[i],this); }
-							              }
-							          }	
-								});
-						        function uploadImageFile(file, el) {
-									data = new FormData();
-									data.append("file", file);
-									$.ajax({
-										data : data,
-										type : "POST",
-										url : "uploadSummernoteImageFile",
-										contentType : false,
-										enctype : 'multipart/form-data',
-										processData : false,
-										success : function(data) {
-											$(el).summernote('editor.insertImage', data.url);
-										},
-										error: function(data) {
-								            console.log(data);
-								        }
-									});
-								}
-						</script>							
+								</div>							
 								<div class="f-row" style="padding-top: 20px;">
 									<div class="third bwrap">
 										<input type="submit" value="글 작성" />
@@ -179,8 +188,8 @@
 				</section>
 
 				<div class ="cmurlink" style="padding: 0px 15px 20px;">
-					<!-- 글 작성가는 링크 -->
-					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
+					<!-- 목록가는 링크 -->
+					<a class="R-rlink" href="VgCmuList.do"> 게시글 목록 가기 </a>
 				</div>
 				<!--//content-->			
 			</div>
