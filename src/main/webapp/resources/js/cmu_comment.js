@@ -78,4 +78,24 @@ $(document).on('click', '#btnSearch', function(e){
 	location.href = url;
 	console.log(url);
 
-});	
+});
+
+/* 이미지 업로드 */
+function uploadImageFile(file, el) {
+	data = new FormData();
+	data.append("file", file);
+	$.ajax({
+		data : data,
+		type : "POST",
+		url : "uploadSummernoteImageFile",
+		contentType : false,
+		enctype : 'multipart/form-data',
+		processData : false,
+		success : function(data) {
+			$(el).summernote('editor.insertImage', data.url);
+		},
+		error: function(data) {
+            console.log(data);
+        }
+	});
+}
