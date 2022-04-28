@@ -127,10 +127,10 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="/resources/images/Mr.hong.png" alt="" />
+							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}"alt="" />
 						</figure>
 						<div class="container">
-							<h2 align="center">${mpgdata.USR_NAME}</</h2>
+							<h2 align="center">${mpgdata.USR_NAME}</h2>
 						</div>
 						<div align="right">
 							<a class="btn btn-default" data-target="#modal7"
@@ -233,39 +233,39 @@
 							<div class="entries row">
 								<!--item-->
 								<c:forEach items="${myrecipes}" var="rcpvo">
-								<div class="entry one-third">
-									<figure>
-										<img src="/resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">${rcpvo.RCP_TITLE}</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-medium"></i><a href="#">medium</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">${rcpvo.RCP_LIKE}</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">${rcpvo.RCP_COM}</a>
+									<div class="entry one-third">
+										<figure>
+											<img src="/resources/images/img.jpg" alt="" />
+											<figcaption>
+												<a href="VgRcpDtail.jsp"><i
+													class="icon icon-themeenergy_eye2"></i> <span>View
+														recipe</span></a>
+											</figcaption>
+										</figure>
+										<div class="container">
+											<h2>
+												<a href="VgRcpDtail.jsp">${rcpvo.RCP_TITLE}</a>
+											</h2>
+											<div class="actions">
+												<div>
+													<div class="difficulty">
+														<i class="ico i-medium"></i><a href="#">medium</a>
+													</div>
+													<div class="likes">
+														<i class="fa fa-heart"></i><a href="#">${rcpvo.RCP_LIKE}</a>
+													</div>
+													<div class="comments">
+														<i class="fa fa-comment"></i><a
+															href="VgRcpDtail.jsp#comments">${rcpvo.RCP_COM}</a>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
 								</c:forEach>
 								<!--item-->
 
-								
+
 							</div>
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>

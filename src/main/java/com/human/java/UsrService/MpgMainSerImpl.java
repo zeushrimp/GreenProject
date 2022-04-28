@@ -60,6 +60,14 @@ public class MpgMainSerImpl implements MpgMainSer {
 		return mpgmaindao.mpg_myrecipes(mpgvo);
 	}
 
+	@Override
+	public void mpg_saveimg(UsrVO mpgvo) {
+		mpgmaindao.mpg_saveimg(mpgvo);
+		
+	}
+
+
+
 
 
 }

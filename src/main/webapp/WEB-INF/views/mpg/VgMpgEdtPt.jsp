@@ -15,6 +15,7 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<div class="row">
@@ -30,19 +31,19 @@
 							<div>
 								<h1 style="text-align: center;">${mpgdata.USR_NAME}님사진
 									변경하시게용 ?</h1>
-								<form id="Mf_pfpic" action="uploadprofilephoto.do" method="post"
+								<form id="Mf_pfpic" action="mpg_saveimg.do" method="post"
 									enctype="multipart/form-data">
 									<!-- 생략 -->
 									<div class="inputArea">
 										<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-											name="file" />
+											name="file"/>
 										<div class="select_img">
 											<img src="" />
 										</div>
 
 										<input type="button"
 											class="close btn btn-default VgMpg_modify_pfpicclose"
-											data-dismiss="modal" value="확인" onclick="Mf_pfpicsubmit()">
+											data-dismiss="modal" value="확인" onclick="Mf_pfpicsubmit()" >
 								</form>
 
 							</div>
@@ -55,16 +56,22 @@
 	</div>
 </body>
 <script>
-  $("#gdsImg").change(function(){
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $(".select_img img").attr("src", data.target.result).width(300);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
-  });
- </script>
+	$("#gdsImg").change(
+			function() {
+				if (this.files && this.files[0]) {
+					var reader = new FileReader;
+					reader.onload = function(data) {
+						$(".select_img img").attr("src", data.target.result)
+								.width(300);
+					}
+					reader.readAsDataURL(this.files[0]);
+				}
+			});
+	
+
+</script>
+
+
 
 
 </div>

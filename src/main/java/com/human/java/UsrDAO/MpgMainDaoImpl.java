@@ -58,4 +58,12 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		return sqlSession.selectList("Mpg.Mpg_Myrecipes",mpgvo);
 	}
 
+	@Override
+	public void mpg_saveimg(UsrVO mpgvo) {
+		sqlSession.update("Mpg.Mpg_saveimg",mpgvo);
+		
+	}
+
+
+
 }

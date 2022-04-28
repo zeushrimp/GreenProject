@@ -1,6 +1,7 @@
 package com.human.java.UsrService;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,5 +26,6 @@ public interface MpgMainSer {
 	
 	public List<RcpVO> mpg_myrecipes(UsrVO mpgvo);
 	
-	
+	public void mpg_saveimg( UsrVO mpgvo);
+
 }

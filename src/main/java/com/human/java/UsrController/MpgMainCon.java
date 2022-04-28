@@ -1,7 +1,14 @@
 package com.human.java.UsrController;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,11 +59,12 @@ public class MpgMainCon {
 
 		List<CmuVO> post = MpgMainSer.mpg_myposts(mpgvo);
 
-		model.addAttribute("myposts",post);	
-		
+		model.addAttribute("myposts", post);
+
 		List<RcpVO> recipe = MpgMainSer.mpg_myrecipes(mpgvo);
 
-		model.addAttribute("myrecipes",recipe);	
+		model.addAttribute("myrecipes", recipe);
+	
 
 		// service > 내가 작성한 글을 가져오는 서비스
 
@@ -81,7 +89,7 @@ public class MpgMainCon {
 
 	@RequestMapping("VgMpgMainRsn.do")
 	public String resignuser(UsrVO mpgvo, HttpSession session) {
-		
+
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		MpgMainSer.resignuser(mpgvo);
 		System.out.println("탈퇴 ");
@@ -104,7 +112,7 @@ public class MpgMainCon {
 	@RequestMapping("modifypw.do")
 	public String modifypw(UsrVO mpgvo, HttpSession session) {
 		System.out.println("test");
-		
+
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		MpgMainSer.modifyfpw(mpgvo);
 
@@ -126,7 +134,7 @@ public class MpgMainCon {
 	@RequestMapping("modifynk.do")
 	public String modifynk(UsrVO mpgvo, HttpSession session) {
 		System.out.println("test");
-		
+
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		MpgMainSer.modifynk(mpgvo);
 
@@ -148,7 +156,7 @@ public class MpgMainCon {
 	@RequestMapping("modifyvg.do")
 	public String modifyvg(UsrVO mpgvo, HttpSession session) {
 		System.out.println("test");
-		
+
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		MpgMainSer.modifyvg(mpgvo);
 
@@ -156,21 +164,49 @@ public class MpgMainCon {
 
 	}
 
-	@RequestMapping("uploadprofilephoto.do")
-	public ModelAndView boardInsert(MultipartFile file, HttpSession session, UsrVO mpgvo) {
+	@RequestMapping("mpg_saveimg.do")
+	public ModelAndView mpg_saveimg(MultipartFile file, HttpSession session, UsrVO mpgvo) throws IOException {
 		ModelAndView mav = new ModelAndView("redirect:/mpg/VgMpgMain.do");
-		
-		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
-		// boardService.insertBoard(commandMap);
 
+		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+
+        String photoImg = null;
+        if (file != null) {
+            Base64.Encoder encoder = Base64.getEncoder();
+            byte[] photoEncode = encoder.encode(file.getBytes());
+            photoImg = new String(photoEncode, "UTF8");
+        }
+        System.out.println(photoImg);
+        
+		mpgvo.setUSR_PHOTO(photoImg);
+		MpgMainSer.mpg_saveimg(mpgvo);
+		
+		
+//        byte[] imageInByte;
+//        
+//        BufferedImage originalImage = ImageIO.read(file.getInputStream());
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ImageIO.write(originalImage, "png", baos);
+//        baos.flush();
+//         
+//        imageInByte = baos.toByteArray();
+//        System.out.println(Arrays.toString(imageInByte));
+//         
+//        baos.close();
+
+		
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
 		System.out.println("파일 실제 이름: " + file.getOriginalFilename());
 		System.out.println("파일 크기: " + file.getSize());
 		System.out.println("content type: " + file.getContentType());
 		System.out.println("================== file   END ==================");
+		
+		System.out.println(photoImg.length());
+		
 
 		return mav;
 	}
+	
 
 }

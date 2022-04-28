@@ -287,6 +287,3 @@ function textLengthOverCut(txt) {
 	}
 	return txt;
 }
-
-
-
