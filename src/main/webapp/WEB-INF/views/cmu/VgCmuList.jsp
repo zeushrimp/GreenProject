@@ -22,9 +22,10 @@
 	<style type="text/css">
 		.three-fourth {width: 100%;}
 		.cmurlink{display: block; align: center;}
-		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}
-		
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}		
 		.one-third {width: 25%}
+		
+
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,13 +85,29 @@
 						<option value="취미생활">취미생활</option>
 						</select>
 					</div>
- 					<div style="padding-right: 10px">
-						<input type="text" value="${cmupagevo.searchKeyword}" name="keyword" id="keyword" placeholder="검색어를 입력해주세요.">
-					</div>			
-					<div>
-						<button name="btnSearch" id="btnSearch">검색</button>
-					</div>
+	<div class="form-group row justify-content-center">
+
+		<div class="w100" style="padding-right: 10px">
+			<select class="form-control form-control-sm" name="searchtype"
+				id="searchtype">
+				<option value="CMU_TITLE">제목</option>
+				<option value="CMU_CONTENT">본문</option>
+				<option value="USR_ID">작성자</option>
+			</select>
+		</div>
+		<div class="w300" style="padding-right: 10px">
+			<input type="text"
+				<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
+				name="keyword" id="keyword">
+		</div>
+		<div>
+			<button class="btn btn-sm btn-primary" name="btnSearch"
+				id="btnSearch">검색</button>
+		</div>
+
+	</div>
           		</div>
+          		
 				<!--content-->
 				<section class="content three-fourth">
 				<form method="get" id="listForm" action="/cmu/VgCmuList">
@@ -116,11 +133,15 @@
 							</div>
 						</div>	
 					</c:forEach>
-
+					
+				<div class ="cmurlink" style="padding: 0px 15px 20px;">
+					<!-- 글 작성가는 링크 -->
+					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
+				</div>
 					<!-- 페이징 -->
 
 	<div id="paginationBox" class="pagination1">
-		<div class="pager">
+		<ul class="pager">
 			<c:if test="${pagination.prev}">
 				<a class="page-link" href="#"
 					onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
@@ -140,18 +161,14 @@
 
 			<c:if test="${pagination.next}">
 				<a class="page-link" href="#"
-					onClick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
+					onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
 					,'${search.searchtype}', '${search.keyword}')">&gt;</a>
 			</c:if>
-		</div>
+		</ul>
 	</div>
 
 					</form>
 				</section>
-				<div class ="cmurlink">
-					<!-- 글 작성가는 링크 -->
-					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
-				</div>
 				<!--//content-->
 				
 			</div>

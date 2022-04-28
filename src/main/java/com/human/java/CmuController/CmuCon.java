@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.human.java.CmuService.CmuSer;
 import com.human.java.CmuVO.CmuVO;
-import com.human.java.CmuVO.SearchVO;
 @Controller
 @RequestMapping("/cmu")
 public class CmuCon {
@@ -59,6 +58,7 @@ public class CmuCon {
 			,@RequestParam(required = false, defaultValue = "CMU_TITLE") String searchtype
 			,@RequestParam(required = false) String keyword,
 			@ModelAttribute("search") CmuVO search) throws Exception {
+		
 		//검색
 		model.addAttribute("search", search);
 		search.setSearchtype(searchtype);

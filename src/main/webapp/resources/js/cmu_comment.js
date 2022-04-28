@@ -44,7 +44,7 @@ function fn_catesubmit(CATE){
 
 	function fn_pagination(page, range, rangesize, listsize, searchtype, keyword) {
 
-		var url = "/VgCmuList.do";
+		var url = "/cmu/VgCmuList.do";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
 			url = url + "&listsize=" + listsize;
@@ -59,7 +59,7 @@ function fn_catesubmit(CATE){
 	function fn_next(page, range, rangesize, listsize, searchtype, keyword) {
 		var page = parseInt((range * rangesize)) + 1;
 		var range = parseInt(range) + 1;			
-		var url = "/VgCmuList.do";
+		var url = "/cmu/VgCmuList.do";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
 			url = url + "&listsize=" + listsize;
@@ -71,7 +71,7 @@ function fn_catesubmit(CATE){
 /* 검색 */
 $(document).on('click', '#btnSearch', function(e){
 	e.preventDefault();
-	var url = "/VgCmuList.do";
+	var url = "/cmu/VgCmuList.do";
 	url = url + "?searchtype=" + $('#searchtype').val();
 	url = url + "&keyword=" + $('#keyword').val();
 	url = url + "&listsize=" + $('#listsize').val();
