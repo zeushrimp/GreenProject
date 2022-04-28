@@ -17,6 +17,9 @@
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	
+	<script src="/resources/js/cmu_comment.js"></script>
+	<script src="/resources/js/ckeditor/ckeditor.js"></script>
+	
 	<style type="text/css">
 		.post .container-cmu {width:100%;}
 		.three-fourth {width: 100%;}
@@ -27,14 +30,7 @@
 		.three-fourth {padding-bottom: 0px;}
 		.note-toolbar-wrapper { height: auto !important; }
 	</style>
-	<script type="text/javascript" src ="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>	
-	  <script type="text/javascript">
-	  $(function() {
-		  CKEDITOR.replace('bo_content',{
-			  filebrowerUploadUrl:'${pageContext.request.contextPath}/adm/fileupload.do'
-		  });									
-		});
-	  </script>
+
   <!--  -->
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,7 +92,8 @@
 						<p><input  type="text" name="cmuregtitle" id="cmuregtitle" value="" placeholder="제목을 적어주세요." /></p>
 					</div>					
 					<div>
-					  <textarea></textarea>  
+						<textarea id = "editor4" name = "editor4"></textarea>
+						<script>CKEDITOR.replace('editor4',{filebrowserUploadUrl:'/mine/imageUpload.do'});</script>
 					</div>							
 					<div class="f-row" style="padding-top: 20px;">
 						<div class="third bwrap">
@@ -130,8 +127,6 @@
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
 	<script src="/resources/js/scripts.js"></script>
-	<script src="/resources/js/cmu_comment.js"></script>
-
 
 </body>
 </html>
