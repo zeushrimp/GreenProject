@@ -57,6 +57,8 @@ document.addEventListener('keydown', function(event) {
 
 var compare_result = false;
 
+
+//새비밀번호 체크
 function fn_compare_pwd() {
 
 

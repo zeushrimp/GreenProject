@@ -127,7 +127,7 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}"alt="" />
+							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}"alt="" style="width: 500px; height: 250px;"/>
 						</figure>
 						<div class="container">
 							<h2 align="center">${mpgdata.USR_NAME}</h2>
