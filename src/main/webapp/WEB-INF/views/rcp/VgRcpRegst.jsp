@@ -101,18 +101,18 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 				<!--row-->
 				<div class="row">
 					<header class="s-title"> </header>
-				<form name="form" action="VgRcpRegDone.do" method="post"  accept-charset="UTF-8" onsubmit="return Rcpcheck()">
+				<form name="form" action="VgRcpRegDone.do" method="post"  accept-charset="UTF-8" >
 					<!--content-->
 					<section class="content full-width">
 						<div class="submit_recipe container">
-						
+						<input type="hidden" name="USR_ID" value="${sessionScope.usr_id }">
 								<section>
 									<div class="f-row">
 										<div class="full">
 											<span style="font-size: x-large; font-weight: 600;">제목
 												입력하기</span> <input type="text" placeholder="레시피의 제목을 입력해주세요"
 												style="width: 75% !important; float: right !important;"
-												name="RCP_TITLE" id="RCP_TITLE" value=""/>
+												name="RCP_TITLE" id="RCP_TITLE"/>
 										</div>
 									</div>
 									<div class="f-row">
@@ -121,14 +121,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 												입력하기</span> <input type="text"
 												placeholder="레시피를 소개할 수 있는 한줄설명을 입력해주세요"
 												style="width: 75% !important; float: right !important;"
-												name="RCP_CONTENT" id="RCP_CONTENT" value=""/>
+												name="RCP_CONTENT" id="RCP_CONTENT"/>
 										</div>
 									</div>
 									<div class="f-row">
 										<div class="third" style="width: 50%">
 											<span>조리시간 총 </span><input type="number" placeholder="조리 시간"
 												style="float: none !important; width: 80px !important;"
-												name="RCP_CT" id="RCP_CT" value=""/><span> 분 소요 (숫자로만 입력해주세요)</span>
+												name="RCP_CT" id="RCP_CT" /><span> 분 소요 (숫자로만 입력해주세요)</span>
 										</div>
 										<div class="third" style="float: right !important;">
 											<select name="RCP_VEGE" id="RCP_VEGE" required>
@@ -146,7 +146,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<div class="third" style="width: 50%">
 											<span>조리분량 총 </span><input type="number" placeholder="조리 분량"
 												style="float: none !important; width: 80px !important;"
-												name="RCP_COUNT" id="RCP_COUNT" value=""/><span> 인분 (숫자로만 입력해주세요)</span>
+												name="RCP_COUNT" id="RCP_COUNT" /><span> 인분 (숫자로만 입력해주세요)</span>
 										</div>
 									</div>
 								</section>
@@ -158,11 +158,11 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 									<div class="f-row ingredient"> <!-- 재료 입력 -->
 										<div class="large">
 											<input type="text" placeholder="재료를 하나씩 입력해주세요 (예. 묵은 김치)"
-												name="RCPRS_TITLE" id="RCPRS_TITLE"  value=""/>
+												name="RCPRS_TITLE" id="RCPRS_TITLE" />
 										</div>
 										<div class="small">
 											<input type="text" placeholder="수량 (예. 1포기)"
-												name="RCPRS_AMOUNT" id="RCPRS_AMOUNT"  value=""/>
+												name="RCPRS_AMOUNT" id="RCPRS_AMOUNT" />
 										</div>
 										<br>
 										<br>
@@ -179,13 +179,13 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 									<div class="f-row procedure"> <!-- 과정 입력 -->
 										<div class="large" style="width: 80%;">
 											<input type="text" placeholder="(한 번에 각 단계에 조리과정 입력)"
-												name="RCPCT_CONTENT" id="RCPCT_CONTENT" value=""/>
+												name="RCPCT_CONTENT" id="RCPCT_CONTENT"/>
 										</div>
 										<br><br>
 <!-- 										<input type="button" value="-" class="remove procedureremove"></input> -->
 									</div> <!-- 과정 입력 // -->
 									<div class="f-row full">
-										<input type="button" value="조리과정 단계 추가하기" class="add" id="procedureadd" value="" />
+										<input type="button" value="조리과정 단계 추가하기" class="add" id="procedureadd" />
 									</div>
 								</section>
 
@@ -194,7 +194,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 										<span style="font-size: x-large; font-weight: 600;">사진</span>(대표사진
 										1장만 등록해주세요)
 										<div class="f-row full">
-											<input type="file" name=""  value=""/> <!-- * 잠시 킵 * -->
+											<input type="file" name=""  /> <!-- * 잠시 킵 * -->
 										</div>
 									</div>
 								</section>
@@ -215,7 +215,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 								<div class="f-row full">
 									<input type="submit" class="button" id="submitRecipe"
-										value="레시피 게시"/>
+										value="레시피 게시" onsubmit="return Rcpcheck()"/>
 								</div>
 							</form>
 						</div>
@@ -230,28 +230,15 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 	<!--footer-->
 	<%@ include file="../../../Footer.jsp"%>
-	<!--//footer-->
-	
-	<script>
+	<!--//footer-->	
+    <script>
 	function Rcpcheck() {
-
-		  if(form.RCP_TITLE.value == "" && 
-				form.RCP_CONTENT.value == "" &&
-				form.RCP_CT.value == "" &&
-				form.RCP_VEGE.value == "" &&
-				form.RCP_COUNT.value == "" &&
-				form.RCPRS_TITLE.value == "" &&
-				form.RCPRS_AMOUNT.value == "" &&
-				form.RCPCT_CONTENT.value == "" &&) {
+		  if() {
 
 		    alert("공백입니다.");
-
 		    return false;
-
 		  }
-
-		  else return true;
-
+		 
 		}
 
 	</script>

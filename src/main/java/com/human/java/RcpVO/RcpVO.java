@@ -7,32 +7,32 @@ import lombok.Data;
 @Data
 public class RcpVO {
 	
-	int RCP_PK;
-	String RCP_TITLE;
-	String RCP_CONTENT;
-	Date RCP_REG;
-	int RCP_HIT;
-	int RCP_LIKE;
-	int RCP_COM;
-	String RCP_VEGE;
-	String RCP_CT;
-	String RCP_COUNT;
-	String USR_ID;
-	int RCPRS_PK;
-	String RCPRS_TITLE;
-	String RCPRS_AMOUNT;
-	int RCPCT_PK;
-	int RCPCT_NUM;
-	String RCPCT_CONTENT;
-	int RCM_PK;
-	String RCM_CONTENT;
-	Date RCM_REG;
-	int RCM_REF;
-	int RCM_REF_STEP;
-	int RCM__REF_LEVEL;
-	int RCM_DEL;
-	int RCPPC_PK;
-	int RCPPC_NO;	
+	private int RCP_PK;
+	private String RCP_TITLE;
+	private String RCP_CONTENT;
+	private Date RCP_REG;
+	private int RCP_HIT;
+	private int RCP_LIKE;
+	private int RCP_COM;
+	private String RCP_VEGE;
+	private String RCP_CT;
+	private String RCP_COUNT;
+	private String USR_ID;
+	private int RCPRS_PK;
+	private String RCPRS_TITLE;
+	private String RCPRS_AMOUNT;
+	private int RCPCT_PK;
+	private int RCPCT_NUM;
+	private String RCPCT_CONTENT;
+	private int RCM_PK;
+	private String RCM_CONTENT;
+	private Date RCM_REG;
+	private int RCM_REF;
+	private int RCM_REF_STEP;
+	private int RCM__REF_LEVEL;
+	private int RCM_DEL;
+	private int RCPPC_PK;
+	private int RCPPC_NO;	
 	
 	
 	

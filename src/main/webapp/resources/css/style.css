@@ -371,8 +371,8 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .recipe dd,
 .basic dd 	{float:left;margin:0 0 8px;padding:0 15px;height:35px;font-size:14px;line-height:37px;font-weight:600;background:#FF7B74;color:#fff;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.15);-moz-box-shadow:0 1px 0 rgba(0,0,0,.15);box-shadow:0 1px 0 rgba(0,0,0,.15);}	
 
-.basic dt 		{width:65%;}
-.basic dd 		{width:35%;background:#FF8E88;}
+.basic dt 		{width:50%;}
+.basic dd 		{width:50%;background:#FF8E88;}
 .user dt 			{width:50%;font-size:13px;}
 .user dd 		{width:50%;background:#DBBC94;}
 .user dd a 		{color:#fff;}

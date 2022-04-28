@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 	left: 180px;
 }
 
-.cumtitle {
+.cmutitle {
 	border: 1px;
 	float: left;
 	width: 100%;
@@ -58,7 +59,7 @@
 	border-radius: 3px;
 }
 
-.cumtitle .lead {
+.cmutitle .lead {
 	font-size: 30px;
 	font-weight: 500;
 	padding: 0px;
@@ -186,11 +187,12 @@ html, body {
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
-
+			
 			<!--row-->
 			<div class="row">
+				<input name="RCP_PK" type="hidden" value="${RcpDtail.RCP_PK}"/>
 				<header class="s-title">
-					<h1>비건 렌틸 타코</h1>
+					<h1>${RcpDtail.RCP_TITLE }</h1>
 				</header>
 				<!--content-->
 				<section class="content three-fourth">
@@ -204,7 +206,7 @@ html, body {
 								</div>
 								<div class="intro">
 									<p>
-										<strong>레시피 한줄 소개</strong>
+										<strong>${RcpDtail.RCP_CONTENT }</strong>
 									</p>
 									<p></p>
 								</div>
@@ -223,17 +225,17 @@ html, body {
 							<article class="one-third">
 								<dl class="basic" id="time">
 									<dt>조리시간</dt>
-									<dd>10 분</dd>
+									<dd>${RcpDtail.RCP_CT }분</dd>
 									<dt>조리분량</dt>
-									<dd>3 인분</dd>
+									<dd>${RcpDtail.RCP_COUNT }인분</dd>
 								</dl>
 
 								<dl class="user" id="type">
 									<dt>채식유형</dt>
-									<dd>비건</dd>
+									<dd>${RcpDtail.RCP_VEGE }</dd>
 									<dt>작성자</dt>
-									<dd>(닉네임)Jennifer W.</dd>
-									<dt>좋아요수</dt>
+									<dd>${RcpDtail.USR_ID }</dd>
+									<dt>좋아요 수 ( ${RcpDtail.RCP_LIKE } )</dt>
 									<dd id="likes" style="padding: 0 0px">
 										<button style="padding: 9px; width: 100%">좋아요</button>
 									</dd>
@@ -252,7 +254,7 @@ html, body {
 									<dd>잘게 자른 토마토</dd>
 									<dt>2</dt>
 									<dd>큐민</dd>
-									<dt>1 tbsp</dt>
+									<dt>1 tnsp</dt>
 									<dd>마늘</dd>
 									<dt>200 g</dt>
 									<dd>오레가노</dd>

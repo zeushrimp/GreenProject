@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,12 +79,13 @@
 								<li><a href="#"><span>락토 오보 베지테리언</span></a></li>
 								<li><a href="#"><span>페스코 베지테리언</span></a></li>
 								<li><a href="#"><span>폴로 베지테리언</span></a></li>
-								<li><a href="#"><span>전체</span></a></li>
+								<li><a href="VgRcpList.do"><span>전체</span></a></li>
 							</ul>
 						</div>
 						<div class="RcpSearch">
 							<input type="text" placeholder="검색어 입력">
-							<button onclick="">검색</button> <!-- 온클릭 으로 검색 기능 VgUsrRegst.jsp 참고 -->
+							<button onclick="">검색</button>
+							<!-- 온클릭 으로 검색 기능 VgUsrRegst.jsp 참고 -->
 
 
 						</div>
@@ -95,508 +97,70 @@
 				<section class="content full-width">
 					<!--entries-->
 					<div class="entries row">
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
+						<!--레시피 상세 조회-->
+<!-- 						<form method="get" name="formlist" action="/rcp/VgRcpList"> -->
+							<c:forEach items="${RcpViewAll }" var="rcplist">
+							
+								<div class="entry one-fourth">
+									<figure>
+										<img src="/resources/images/img.jpg" alt="" />
+										<figcaption>
+											<a href="VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }"><i
+												class="icon icon-themeenergy_eye2"></i> <span>레시피
+													보러가기</span></a>
+										</figcaption>
+									</figure>
+									
+									<div class="container">
+										<h2>
+											<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }">${rcplist.RCP_TITLE}</a>
+										</h2>
+										
+										<div class="actions">
+											<div>
+												<div class="writer"
+													style="width: 200px; border-right: none !important;">
+													<span>아이디</span><a href="#">${rcplist.USR_ID}</a>
+												</div> 
+												<div class="likes">
+													<span>좋아요 </span><a href="#">${rcplist.RCP_LIKE}</a>
+												</div>
+												<div class="comments">
+													<span>댓글수 </span><a href="VgRcpDtail.do#comments">${rcplist.RCP_COM}</a>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<!--item-->
+								
+							</c:forEach>
+							<!-- /레시피 상세 조회 -->
 
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
+							<!-- 레시피 리스트 버튼 링크 -->
+							<div class="pager">
+								<c:if test="${paging.startPage != 1 }">
+									<a
+										href="VgRcpList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+								</c:if>
+								<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+									var="pagenum">
+									<c:choose>
+										<c:when test="${pagenum == paging.nowPage }">
+											<a class="current">${pagenum }</a>
+										</c:when>
+										<c:when test="${pagenum != paging.nowPage }">
+											<a
+												href="VgRcpList.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}"
+												class="paging_num">${pagenum }</a>
+										</c:when>
+									</c:choose>
+								</c:forEach>
+								<c:if test="${paging.endPage != paging.lastPage}">
+									<a
+										href="VgRcpList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+								</c:if>
 							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!--item-->
-						<div class="entry one-fourth">
-							<figure>
-								<img src="/resources/images/img.jpg" alt="" />
-								<figcaption>
-									<a href="VgRcpDtail.do"><i
-										class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
-								</figcaption>
-							</figure>
-							<div class="container">
-								<h2>
-									<a href="VgRcpDtail.do">음식이름</a>
-								</h2>
-								<div class="actions">
-									<div>
-										<div class="writer"
-											style="width: 200px; border-right: none !important;">
-											<span>닉네임 </span><a href="#">a</a>
-										</div>
-										<div class="likes">
-											<span>좋아요 </span><a href="#">10</a>
-										</div>
-										<div class="comments">
-											<span>댓글수 </span><a href="VgRcpDtail.do#comments">27</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-
-						<!-- 레시피 리스트 버튼 링크 -->
-						<div class="pager">
-							<a href="VgRcpList.jsp">1</a> <a href="VgRcpList.jsp"
-								class="current">2</a> <a href="VgRcpList.jsp">3</a> <a
-								href="VgRcpList.jsp">4</a> <a href="VgRcpList.jsp">5</a>
-						</div>
+<!-- 						</form> -->
 					</div>
 					<!--//entries-->
 				</section>
@@ -611,7 +175,6 @@
 	<!--footer-->
 	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
-
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
