@@ -46,9 +46,37 @@ public class RcpSerImpl implements RcpSer{
 
 	@Override
 	public RcpVO detailRcp(RcpVO rcpvo) {
-		System.out.println("안녕 Ser2");
-		System.out.println(rcpdao.detailRcp(rcpvo));
+//		System.out.println("안녕 Ser2");
+//		System.out.println(rcpdao.detailRcp(rcpvo));
 		return rcpdao.detailRcp(rcpvo);
+		
 	}
+
+	@Override
+	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
+		System.out.println("안녕 Ser2");
+		
+		return rcpdao.detailRcp_reso(rcpvo);
+	}
+
+	@Override
+	public List<RcpVO> detailRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return rcpdao.detailRcp_cont(rcpvo);
+	}
+
+	@Override
+	public void insertRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.insertRcp_cont(rcpvo);
+	}
+
+	@Override
+	public void insertRcp_reso(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.insertRcp_reso(rcpvo);
+	}
+	
+	
 	
 }

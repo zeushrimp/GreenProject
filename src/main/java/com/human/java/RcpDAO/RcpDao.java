@@ -16,5 +16,13 @@ public interface RcpDao {
 	public int getPK();
 	
 	public RcpVO detailRcp(RcpVO rcpvo);
+	
+	public List<RcpVO> detailRcp_reso(RcpVO rcpvo);
+	
+	public List<RcpVO> detailRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_reso(RcpVO rcpvo);
 }
 	

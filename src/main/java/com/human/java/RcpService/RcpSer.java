@@ -19,6 +19,14 @@ public interface RcpSer {
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo);
 	
 	public RcpVO detailRcp(RcpVO rcpvo);
+	
+	public List<RcpVO> detailRcp_reso(RcpVO rcpvo);
+	
+	public List<RcpVO> detailRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_reso(RcpVO rcpvo);
 }
 
 

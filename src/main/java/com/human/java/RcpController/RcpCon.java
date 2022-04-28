@@ -26,7 +26,7 @@ public class RcpCon {
 	
 	@RequestMapping("VgRcpRegst_ck.do")
 	public String regstRcp(HttpSession session) {
-		if (session.getAttribute("usr_id") == null) { // 합칠때 usr_Id 로 변경
+		if (session.getAttribute("usr_Id") == null) { // 합칠때 usr_Id 로 변경
 			return "redirect:/usr/VgUsrLogin.do";
 		}else {
 		return "redirect:/rcp/VgRcpRegst.do";
@@ -42,7 +42,23 @@ public class RcpCon {
 		int i=RcpSer.getPK();
 		rcpvo.setRCP_PK(i);
 		RcpSer.insertRcp(rcpvo);
-	
+		String[] Rcp_content  = rcpvo.getRCPCT_CONTENT().split(",");
+		for(int j=0;j<Rcp_content.length; j++) {
+			RcpVO vo1 = new RcpVO();
+			vo1.setRCP_PK(i);
+			vo1.setRCPCT_CONTENT(Rcp_content[j]);
+			RcpSer.insertRcp_cont(vo1);
+		}
+		
+		String[] Rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
+		String[] Rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
+		for(int r=0; r<Rcp_resours.length; r++) {
+			RcpVO vo2 = new RcpVO();
+			vo2.setRCP_PK(i);
+			vo2.setRCPRS_TITLE(Rcp_resours[r]);
+			vo2.setRCPRS_AMOUNT(Rcp_nyan[r]);
+			RcpSer.insertRcp_reso(vo2);
+		}
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
@@ -73,9 +89,10 @@ public class RcpCon {
 	@RequestMapping("/VgRcpDtail.do")
 	public String detailRcp(RcpVO rcpvo, Model model) {
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
-
-		return "/rcp/VgRcpDtail";
+		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
+		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));		return "/rcp/VgRcpDtail";
 	}
+	
 	
 
 

@@ -16,15 +16,27 @@
   		VALUES(RCPRS_PK.NEXTVAL, #{RCPRS_TITLE}, #{RCPRS_AMOUNT}, #{RCP_PK})
   </insert>
   
+  <insert id="insertCont" parameterType="RCP">
+  		insert into RCP_CONT
+  		(RCPCT_PK,RCPCT_NUM, RCPCT_CONTENT, RCP_PK)
+  		VALUES(RCPCT_PK.NEXTVAL,#{RCPCT_NUM}, #{RCPCT_CONTENT}, #{RCP_PK})
+  </insert>
+  
   <select id="detailRcp" parameterType="RCP" resultType="RCP">
  	SELECT *
  	FROM RCP
  	WHERE RCP_PK = ${RCP_PK}
   </select>
-<!--   <select id="detailRcpTITLE" parameterType="RCP" resultType="RCP"> -->
-<!--   	SELECT * -->
-<!--   	FROM RCP_RESO -->
-<!--   </select> -->
+  <select id="detailRcpTitle" parameterType="RCP" resultType="RCP">
+  	SELECT *
+  	FROM RCP_RESO
+  	WHERE RCP_PK = ${RCP_PK}
+  </select>
+  <select id="detailRcpCont" parameterType="RCP" resultType="RCP">
+  	SELECT *
+  	FROM RCP_CONT
+  	WHERE RCP_PK = ${RCP_PK}
+  </select>
   
   <select id="getPK" resultType="int">
   select RCP_PK.nextval from dual

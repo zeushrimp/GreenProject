@@ -120,7 +120,7 @@
 											<div>
 												<div class="writer"
 													style="width: 200px; border-right: none !important;">
-													<span>아이디</span><a href="#">${rcplist.USR_ID}</a>
+													<span>아이디 </span><a href="#">${rcplist.USR_ID}</a>
 												</div> 
 												<div class="likes">
 													<span>좋아요 </span><a href="#">${rcplist.RCP_LIKE}</a>

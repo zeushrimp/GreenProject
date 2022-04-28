@@ -105,7 +105,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 					<!--content-->
 					<section class="content full-width">
 						<div class="submit_recipe container">
-						<input type="hidden" name="USR_ID" value="${sessionScope.usr_id }">
+						<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
 								<section>
 									<div class="f-row">
 										<div class="full">

@@ -20,7 +20,7 @@ public class RcpDaoImpl implements RcpDao{
 //		System.out.println("안녕 DAO");
 //		System.out.println(rcpvo);
 		mybatis.insert("Rcp.insertRcp",rcpvo);
-		mybatis.insert("Rcp.insertResor",rcpvo);
+		
 	}
 
 	@Override
@@ -46,6 +46,30 @@ public class RcpDaoImpl implements RcpDao{
 	public RcpVO detailRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("Rcp.detailRcp", rcpvo);
+	}
+
+	@Override
+	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("Rcp.detailRcpTitle", rcpvo);
+	}
+
+	@Override
+	public List<RcpVO> detailRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("Rcp.detailRcpCont", rcpvo);
+	}
+
+	@Override
+	public void insertRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.insert("Rcp.insertCont", rcpvo);
+	}
+
+	@Override
+	public void insertRcp_reso(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.insert("Rcp.insertResor",rcpvo);
 	}
 
 	

@@ -212,10 +212,9 @@ html, body {
 								</div>
 								<div class="instructions">
 									<ol>
-										<li>물 2컵에 렌틸콩 2컵을 넣고 20분간 잘 저으면서 끓여준다.</li>
-										<li>올리브 오일을 두른 후라이팬에 양파, 마늘을 넣고 2~3분간 볶는다.</li>
-										<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
-										<li>나머지 재료들을 넣고 볶아준 후 접시에 담는다.</li>
+										<c:forEach items="${detailRcp_cont }" var="detailRcp_cont">
+										<li>${detailRcp_cont.RCPCT_CONTENT }</li>
+										</c:forEach>
 									</ol>
 								</div>
 							</article>
@@ -246,26 +245,10 @@ html, body {
 								</dl>
 
 								<dl class="ingredients">
-									<dt>300g</dt>
-									<dd>삶은 올가니카 렌틸콩</dd>
-									<dt>200g</dt>
-									<dd>잘게 자른 양파</dd>
-									<dt>200g</dt>
-									<dd>잘게 자른 토마토</dd>
-									<dt>2</dt>
-									<dd>큐민</dd>
-									<dt>1 tnsp</dt>
-									<dd>마늘</dd>
-									<dt>200 g</dt>
-									<dd>오레가노</dd>
-									<dt>100 ml</dt>
-									<dd>올리브오일</dd>
-									<dt>handful</dt>
-									<dd>라임</dd>
-									<dt>handful</dt>
-									<dd>소금</dd>
-									<dt>handful</dt>
-									<dd>카옌페퍼</dd>
+									<c:forEach items="${detailRcp_reso }" var="detailRcp_reso">
+									<dt>${detailRcp_reso.RCPRS_AMOUNT }</dt>
+									<dd>${detailRcp_reso.RCPRS_TITLE }</dd>
+									</c:forEach>
 								</dl>
 							</article>
 							<!--//레시피 재료 및 요건-->

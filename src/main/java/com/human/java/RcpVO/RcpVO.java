@@ -21,8 +21,8 @@ public class RcpVO {
 	private int RCPRS_PK;
 	private String RCPRS_TITLE;
 	private String RCPRS_AMOUNT;
-	private int RCPCT_PK;
 	private int RCPCT_NUM;
+	private int RCPCT_PK;
 	private String RCPCT_CONTENT;
 	private int RCM_PK;
 	private String RCM_CONTENT;
