@@ -32,7 +32,8 @@
 		
 		.cmurlink{display: block; align: center;}
 		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}
-		.post .container {float:left;width: 1079px !important; padding:0; border-radius: 3px;}
+		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
+		.three-fourth {padding-bottom: 0px;}
 	</style>
   <!--  -->
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -176,9 +177,10 @@
 
 					<!--//respond-->
 				</section>
-				<div class ="cmurlink">
-					<!-- 글 목록가는 링크 -->
-					<a class="R-rlink" href="VgCmuList.do"> 글 목록 가기</a>
+
+				<div class ="cmurlink" style="padding: 0px 15px 20px;">
+					<!-- 글 작성가는 링크 -->
+					<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
 				</div>
 				<!--//content-->			
 			</div>
