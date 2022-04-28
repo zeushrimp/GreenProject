@@ -19,7 +19,7 @@
 	
 	<script src="/resources/js/cmu_comment.js"></script>
 	<script src="/resources/js/ckeditor/ckeditor.js"></script>
-	
+
 	<style type="text/css">
 		.post .container-cmu {width:100%;}
 		.three-fourth {width: 100%;}
@@ -29,6 +29,7 @@
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 		.three-fourth {padding-bottom: 0px;}
 		.note-toolbar-wrapper { height: auto !important; }
+		.cke_reset{ min-height:600px; } 
 	</style>
 
   <!--  -->
@@ -78,22 +79,22 @@
 					<article class="post single">
 					<form name="cmuregstform" method="post" action="cmu_write.do">
 					<div class="cmucate cumtitle">
-						<select name="cmucategory" required>
+						<select id="CMU_CATE" name="CMU_CATE" required>
 						<option disabled selected style="display: none;">카테고리</option>
-						<option>공지</option> <!-- 유저가 관리자일 때 -->
-						<option>채식소식</option>
-						<option>동네맛집</option>
-						<option>일상소식</option>
-						<option>운동/건강</option>
-						<option>취미생활</option>
+						<option value="공지">공지</option> <!-- 유저가 관리자일 때 -->
+						<option value="채식소식">채식소식</option>
+						<option value="동네맛집">동네맛집</option>
+						<option value="일상소식">일상소식</option>
+						<option value="운동/건강">운동/건강</option>
+						<option value="취미생활">취미생활</option>
 						</select>
 					</div>
 					<div class="cmucon cumtitle">
-						<p><input  type="text" name="cmuregtitle" id="cmuregtitle" value="" placeholder="제목을 적어주세요." /></p>
+						<p><input  type="text" id="CMU_TITLE" name="CMU_TITLE" placeholder="제목을 적어주세요." /></p>
 					</div>					
 					<div>
-						<textarea id = "editor4" name = "editor4"></textarea>
-						<script>CKEDITOR.replace('editor4',{filebrowserUploadUrl:'/mine/imageUpload.do'});</script>
+						<textarea id = "CMU_CONTENT" name = "CMU_CONTENT"></textarea>
+						<script>CKEDITOR.replace('CMU_CONTENT',{filebrowserUploadUrl:'/imageupload.do'});</script>
 					</div>							
 					<div class="f-row" style="padding-top: 20px;">
 						<div class="third bwrap">
@@ -107,7 +108,7 @@
 					<!--//respond-->
 				</section>
 
-				<div class ="cmurlink" style="padding: 0px 15px 20px;">
+				<div class ="cmurlink" style="padding: 0px 100px 20px;">
 					<!-- 목록가는 링크 -->
 					<a class="R-rlink" href="VgCmuList.do"> 게시글 목록 가기 </a>
 				</div>
