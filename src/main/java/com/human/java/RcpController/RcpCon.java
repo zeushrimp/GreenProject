@@ -93,7 +93,18 @@ public class RcpCon {
 		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));		return "/rcp/VgRcpDtail";
 	}
 	
+	@RequestMapping("/VgRcpDel.do")
+	public String delcheck(RcpVO rcpvo, Model model) {
+		System.out.println("안녕 깐쮸롤");
+		model.addAttribute("delcheck", RcpSer.delcheck(rcpvo));
+		return "redirect:/rcp/VgRcpList.do";
+	}
 	
-
+	@RequestMapping("/VgRcpRewrite.do")
+	public String rewcheck(RcpVO rcpvo, Model model) {
+		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
+		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
+		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));		return "/rcp/VgRcpDtail";
+	}
 
 }

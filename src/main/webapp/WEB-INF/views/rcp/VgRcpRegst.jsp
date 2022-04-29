@@ -215,7 +215,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 								<div class="f-row full">
 									<input type="submit" class="button" id="submitRecipe"
-										value="레시피 게시" onsubmit="return Rcpcheck()"/>
+										value="레시피 게시"/>
 								</div>
 							</form>
 						</div>

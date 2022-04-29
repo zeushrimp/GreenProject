@@ -264,19 +264,15 @@ html, body {
 							<c:set var="writer_ID" value="${RcpDtail.USR_ID }" />
 							<c:if test="${USR_ADMIN == 1 || USR_ID eq writer_ID}">
 								<div class="R-div">
-									<a class="RCPdelete"
-										href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
-										name="RCP_PK" type="hidden" value="${RcpDtail.RCP_PK}" /> <input
-										type="button" name="deleteRcp" id="deleteRcp"
-										style="width: 130px;" value="삭제하기" />
+									<a class="RCPdelete" href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}" onclick="deleteRcp()">
+										<input name="RCP_PK" type="hidden" value="${RcpDtail.RCP_PK}" />
+										<input type="button" name="deleteRcp" id="deleteRcp" style="width: 130px;" value="삭제하기" />
 									</a>
 								</div>
 								<!-- 레시피 수정하기 (비밀번호 일치할때) -->
 								<div class="R-div">
-									<a class="RCPrewrite" 
-										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
-										type="button" name="rewriteRcp" id="rewriteRcp" style="width: 130px;"
-										value="수정하기" />
+									<a class="RCPrewrite" href="/rcp/VgRcpReWrite.do">
+										<input type="button"  id="rewriteRcp" style="width: 130px;" value="수정하기" />
 									</a>
 								</div>
 							</c:if>
@@ -416,18 +412,45 @@ html, body {
 
 		</div>
 		<!--//wrap-->
-		
+
+		<!-- 		<!-- 모달 -->
+		<!-- 		<div class="modal" id="rewrite-modal"> -->
+		<%-- 		<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }"> --%>
+		<!-- 			<div class="modal_body"> -->
+		<!-- 			<h3>수정을 원하시면 비밀번호를 입력해주세요</h3> -->
+		<!-- 			<br><br> -->
+		<!-- 			<input type="password" id="rewriteRcpCk" name="USR_PW" class="input_txt" style="border-width:2px;border-color: black;ime-mode:disabled;"/>			 -->
+		<!-- 			<br><br> -->
+		<!-- 			<input type="button" value="수정하기" onclick="rewriteRcpCk()"/> -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+
+		<!-- 		<div class="modal" id="delete-modal"> -->
+		<%-- 		<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }"> --%>
+		<!-- 			<div class="modal_body"> -->
+		<!-- 			<h3>삭제를 원하시면 비밀번호를 입력해주세요</h3> -->
+		<!-- 			<br><br> -->
+		<!-- 			<input type="password" id="deleteRcpCk" name="USR_PW" class="input_txt" style="border-width:2px;border-color: black;ime-mode:disabled;"/> -->
+		<!-- 			<br><br> -->
+		<!-- 			<input type="button" value="삭제하기" onclick="deleteRcpCk()"/>			 -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+		<!-- 		<!--//모달 -->
+
+
 	</main>
 	<!--//main-->
 
 	<!--footer-->
 	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
-
+	
 	<script type="text/javascript">
-		function deleteRcp() {
-			alert("레시피가 삭제되었습니다.");
-		}
+	function deleteRcp() {
+		alert("레시피가 삭제되었습니다.");
+		
+	}
+		
 	</script>
 
 

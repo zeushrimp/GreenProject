@@ -54,7 +54,7 @@ public class RcpSerImpl implements RcpSer{
 
 	@Override
 	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
-		System.out.println("안녕 Ser2");
+//		System.out.println("안녕 Ser2");
 		
 		return rcpdao.detailRcp_reso(rcpvo);
 	}
@@ -75,6 +75,19 @@ public class RcpSerImpl implements RcpSer{
 	public void insertRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
 		rcpdao.insertRcp_reso(rcpvo);
+	}
+
+	@Override
+	public String delcheck(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		System.out.println("안녕 Ser2");
+		return rcpdao.delcheck(rcpvo);
+	}
+
+	@Override
+	public RcpVO rewcheck(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return rcpdao.rewcheck(rcpvo);
 	}
 	
 	

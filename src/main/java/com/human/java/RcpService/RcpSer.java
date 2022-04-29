@@ -27,6 +27,11 @@ public interface RcpSer {
 	public void insertRcp_cont(RcpVO rcpvo);
 	
 	public void insertRcp_reso(RcpVO rcpvo);
+	
+	public String delcheck(RcpVO rcpvo);
+	
+	public RcpVO rewcheck(RcpVO rcpvo);
+	
 }
 
 

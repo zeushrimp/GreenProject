@@ -57,4 +57,13 @@ SELECT COUNT(*) FROM RCP
 	SELECT * FROM RCP ORDER BY RCP_PK DESC OFFSET #{start} ROWS FETCH NEXT #{cntPerPage} ROWS ONLY
 </select>
 
+<delete id="delcheck">
+	DELETE FROM RCP
+	WHERE RCP_PK = ${RCP_PK}
+</delete>
+	
+<update id="rewcheck">
+	
+</update>
+
   </mapper>
