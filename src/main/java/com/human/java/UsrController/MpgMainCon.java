@@ -169,29 +169,29 @@ public class MpgMainCon {
 
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 
-//        String photoImg = null;
-//        if (file != null) {
-//            Base64.Encoder encoder = Base64.getEncoder();
-//            byte[] photoEncode = encoder.encode(file.getBytes());
-//            photoImg = new String(photoEncode, "UTF8");
-//        }
-//        System.out.println(photoImg);
-//        
-//		mpgvo.setUSR_PHOTO(photoImg);
-//		MpgMainSer.mpg_saveimg(mpgvo);
-
-		byte[] imageInByte;
-
-		BufferedImage originalImage = ImageIO.read(file.getInputStream());
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(originalImage, "png", baos);
-		baos.flush();
-
-		imageInByte = baos.toByteArray();
-		System.out.println(Arrays.toString(imageInByte));
-		mpgvo.setUSR_PHOTO(imageInByte);
+        String photoImg = null;
+        if (file != null) {
+            Base64.Encoder encoder = Base64.getEncoder();
+            byte[] photoEncode = encoder.encode(file.getBytes());
+            photoImg = new String(photoEncode, "UTF8");
+        }
+        System.out.println(photoImg);
+        
+		mpgvo.setUSR_PHOTO(photoImg);
 		MpgMainSer.mpg_saveimg(mpgvo);
-		baos.close();
+
+//		byte[] imageInByte;
+//
+//		BufferedImage originalImage = ImageIO.read(file.getInputStream());
+//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		ImageIO.write(originalImage, "png", baos);
+//		baos.flush();
+//
+//		imageInByte = baos.toByteArray();
+//		System.out.println(Arrays.toString(imageInByte));
+//		mpgvo.setUSR_PHOTO(imageInByte);
+//		MpgMainSer.mpg_saveimg(mpgvo);
+//		baos.close();
 
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
