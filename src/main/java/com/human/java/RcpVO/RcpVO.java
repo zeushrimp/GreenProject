@@ -18,6 +18,7 @@ public class RcpVO {
 	private String RCP_CT;
 	private String RCP_COUNT;
 	private String USR_ID;
+	private String USR_PW;
 	private int RCPRS_PK;
 	private String RCPRS_TITLE;
 	private String RCPRS_AMOUNT;
@@ -32,7 +33,7 @@ public class RcpVO {
 	private int RCM__REF_LEVEL;
 	private int RCM_DEL;
 	private int RCPPC_PK;
-	private int RCPPC_NO;	
+	private int RCPPC_NO;
 	
 	
 	

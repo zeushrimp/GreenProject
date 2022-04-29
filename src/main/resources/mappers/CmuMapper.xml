@@ -19,13 +19,13 @@
 	FROM CMU
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 			<if test="searchtype=='CMU_TITLE' and keyword != null and keyword != '' ">
-				AND CMU_TITLE like CONCAT('%', #{keyword}, '%')
+				AND CMU_TITLE like '%'||#{keyword}||'%'
 			</if>
 			<if test="searchtype=='CMU_CONTENT' and keyword != null and keyword != '' ">
-				AND CMU_CONTENT like CONCAT('%', #{keyword}, '%')
+				AND CMU_CONTENT like '%'||#{keyword}||'%'
 			</if>
 			<if test="searchtype==' USR_ID' and keyword != null and keyword != '' ">
-				AND USR_ID like CONCAT('%', #{keyword}, '%')
+				AND USR_ID like '%'||#{keyword}||'%'
 			</if>
 		</trim>
 	ORDER BY CMU_PK DESC
@@ -38,15 +38,15 @@
 	SELECT COUNT(*) as listcnt
 	FROM CMU
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
-			<if test="keyword != null and keyword != '' ">
-				<if test="searchType=='CMU_TITLE'">
-					AND CMU_TITLE like CONCAT('%', #{keyword}, '%')
+			<if test="keyword != null and keyword != '' ">				
+				<if test="searchtype=='CMU_TITLE'">
+					AND CMU_TITLE like '%'||#{keyword}||'%'
 				</if>
-				<if test="searchType=='CMU_CONTENT'">
-					AND CMU_CONTENT like CONCAT('%', #{keyword}, '%')
+				<if test="searchtype=='CMU_CONTENT'">
+					AND CMU_CONTENT like '%'||#{keyword}||'%'
 				</if>
-				<if test="searchType=='USR_ID'">
-					AND USR_ID like CONCAT('%', #{keyword}, '%')
+				<if test="searchtype=='USR_ID'">
+					AND USR_ID like '%'||#{keyword}||'%'
 				</if>
 			</if>
 		</trim>	

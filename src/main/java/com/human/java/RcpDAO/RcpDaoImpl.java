@@ -72,6 +72,19 @@ public class RcpDaoImpl implements RcpDao{
 		mybatis.insert("Rcp.insertResor",rcpvo);
 	}
 
+	@Override
+	public String delcheck(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		System.out.println("안녕 Dao1");
+		return mybatis.selectOne("Rcp.delcheck",rcpvo);
+	}
+
+	@Override
+	public RcpVO rewcheck(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Rcp.rewcheck", rcpvo);
+	}
+
 	
 
 }
