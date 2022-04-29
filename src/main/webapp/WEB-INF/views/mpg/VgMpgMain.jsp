@@ -133,7 +133,7 @@
 							<h2 align="center">${mpgdata.USR_NAME}</h2>
 						</div>
 						<div align="right">
-							<a class="btn btn-default" data-target="#modal7"
+							<a class="btn btn-default" data-target="#modal7"R
 								data-toggle="modal">사진바꾸기</a>
 						</div>
 					</div>

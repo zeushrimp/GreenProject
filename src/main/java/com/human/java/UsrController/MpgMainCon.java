@@ -64,7 +64,6 @@ public class MpgMainCon {
 		List<RcpVO> recipe = MpgMainSer.mpg_myrecipes(mpgvo);
 
 		model.addAttribute("myrecipes", recipe);
-	
 
 		// service > 내가 작성한 글을 가져오는 서비스
 
@@ -170,43 +169,38 @@ public class MpgMainCon {
 
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 
-        String photoImg = null;
-        if (file != null) {
-            Base64.Encoder encoder = Base64.getEncoder();
-            byte[] photoEncode = encoder.encode(file.getBytes());
-            photoImg = new String(photoEncode, "UTF8");
-        }
-        System.out.println(photoImg);
-        
-		mpgvo.setUSR_PHOTO(photoImg);
-		MpgMainSer.mpg_saveimg(mpgvo);
-		
-		
-//        byte[] imageInByte;
+//        String photoImg = null;
+//        if (file != null) {
+//            Base64.Encoder encoder = Base64.getEncoder();
+//            byte[] photoEncode = encoder.encode(file.getBytes());
+//            photoImg = new String(photoEncode, "UTF8");
+//        }
+//        System.out.println(photoImg);
 //        
-//        BufferedImage originalImage = ImageIO.read(file.getInputStream());
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        ImageIO.write(originalImage, "png", baos);
-//        baos.flush();
-//         
-//        imageInByte = baos.toByteArray();
-//        System.out.println(Arrays.toString(imageInByte));
-//         
-//        baos.close();
+//		mpgvo.setUSR_PHOTO(photoImg);
+//		MpgMainSer.mpg_saveimg(mpgvo);
 
-		
+		byte[] imageInByte;
+
+		BufferedImage originalImage = ImageIO.read(file.getInputStream());
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(originalImage, "png", baos);
+		baos.flush();
+
+		imageInByte = baos.toByteArray();
+		System.out.println(Arrays.toString(imageInByte));
+		mpgvo.setUSR_PHOTO(imageInByte);
+		MpgMainSer.mpg_saveimg(mpgvo);
+		baos.close();
+
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
 		System.out.println("파일 실제 이름: " + file.getOriginalFilename());
 		System.out.println("파일 크기: " + file.getSize());
 		System.out.println("content type: " + file.getContentType());
 		System.out.println("================== file   END ==================");
-		
-		System.out.println(photoImg.length());
-		
 
 		return mav;
 	}
-	
 
 }
