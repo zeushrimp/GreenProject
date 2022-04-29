@@ -61,16 +61,6 @@
             form.USR_ADDR3.focus();
             return false;
         }
-       else if(form.first.value==null){
-            alert("동의하지 않으셨습니다.");
-            form.first.focus();
-            return false;
-        }
-        else if(form.sec.value==null){
-            alert("동의하지 않으셨습니다.");
-            form.sec.focus();
-            return false;
-        }
         else if(form.idDuplication.value=="idUncheck" || form.USR_ID.value != form.idDuplication.value){
             alert("아이디 중복확인을 하지 않으셨습니다.");
             return false;
