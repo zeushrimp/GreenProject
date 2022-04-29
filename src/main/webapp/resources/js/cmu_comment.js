@@ -80,7 +80,7 @@
 	        var kind = $(this).val();       //버튼이 클릭 되었을 시, 개별 버튼의 값이 kind 변수에 담겨집니다.
 	        $.ajax({
 	            
-	            url : path+"/cmu/VgCmuList.do",
+	            url : path+"/VgCmuList.do",
 	            type : "post",
 	            cache : false,
 	            headers : {"cache-control":"no-cache","pragma":"no-cache"},

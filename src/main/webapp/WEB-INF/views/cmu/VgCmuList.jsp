@@ -65,16 +65,16 @@
 				<header class="s-title">
 					<h1 style="padding: 0px 15px 60px;">커뮤니티 게시판</h1>
 				</header>
-				<div style="padding-bottom: 5px; float:left;">
-					<button class="button" name="category" value="전체" style="margin-right:10px;"><span>전체</span></button>
-	          		<button class="button" value="공지" style="margin-right:10px;"><span>공지</span></button>
-	          		<button class="button" value="채식소식" style="margin-right:10px;"><span>채식소식</span></button>
-	          		<button class="button" value="동네맛집" style="margin-right:10px;"><span>동네맛집</span></button>
-	          		<button class="button" value="일상소식" style="margin-right:10px;"><span>일상소식</span></button>
-	          		<button class="button" value="운동/건강" style="margin-right:10px;"><span>운동/건강</span></button>
-	          		<button class="button" value="취미생활" style="margin-right:10px;"><span>취미생활</span></button>
-						</div>
 				<form>
+					<div style="padding-bottom: 5px; float:left;">
+						<button class="button" name="category" value="전체" style="margin-right:10px;"><span>전체</span></button>
+		          		<button class="button" value="공지" style="margin-right:10px;"><span>공지</span></button>
+		          		<button class="button" value="채식소식" style="margin-right:10px;"><span>채식소식</span></button>
+		          		<button class="button" value="동네맛집" style="margin-right:10px;"><span>동네맛집</span></button>
+		          		<button class="button" value="일상소식" style="margin-right:10px;"><span>일상소식</span></button>
+		          		<button class="button" value="운동/건강" style="margin-right:10px;"><span>운동/건강</span></button>
+		          		<button class="button" value="취미생활" style="margin-right:10px;"><span>취미생활</span></button>
+					</div>
 					<div class="form-group row justify-content-center" style="width:490px; padding: 0px 15px 20px; float:right;">			
 						<div style="width:100px; padding:0px 3px 20px 0px; float:left;">
 							<select class="form-control form-control-sm" name="searchtype"
