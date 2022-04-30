@@ -181,7 +181,7 @@ public class MpgMainCon {
 		MpgMainSer.mpg_saveimg(mpgvo);
 
 //		byte[] imageInByte;
-//
+//s
 //		BufferedImage originalImage = ImageIO.read(file.getInputStream());
 //		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //		ImageIO.write(originalImage, "png", baos);
