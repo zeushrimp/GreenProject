@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +98,15 @@ width: 100%;
 								</figure>
 								<div class="container">
 									<h2>
-										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }">${vo1.RCP_TITLE }</a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }"><c:choose>
+												<c:when test="${fn:length(vo1.RCP_TITLE) > 19}">
+													<c:out value="${fn:substring(vo1.RCP_TITLE,0,18)}" />.... </c:when>
+												<c:otherwise>
+													<c:out value="${vo1.RCP_TITLE}" />
+												</c:otherwise>
+											</c:choose>
+										
+										</a>
 									</h2>
 									<div class="actions">
 										<div>
@@ -144,7 +153,14 @@ width: 100%;
 								</figure>
 								<div class="container">
 									<h2>
-										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }">${vo2.RCP_TITLE }</a>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }"><c:choose>
+												<c:when test="${fn:length(vo2.RCP_TITLE) > 19}">
+													<c:out value="${fn:substring(vo2.RCP_TITLE,0,18)}" />.... </c:when>
+												<c:otherwise>
+													<c:out value="${vo2.RCP_TITLE}" />
+												</c:otherwise>
+											</c:choose>
+										</a>
 									</h2>
 									<div class="actions">
 										<div>
@@ -191,7 +207,15 @@ width: 100%;
 								</figure>
 								<div class="container">
 									<h2>
-										<a href="/cmu/VgCmuDtail.do?CMU_PK=${vo3.CMU_PK}">${vo3.CMU_TITLE }</a>
+										<a href="/cmu/VgCmuDtail.do?CMU_PK=${vo3.CMU_PK}"><c:choose>
+												<c:when test="${fn:length(vo3.CMU_TITLE) > 19}">
+													<c:out value="${fn:substring(vo3.CMU_TITLE,0,18)}" />.... </c:when>
+												<c:otherwise>
+													<c:out value="${vo3.CMU_TITLE}" />
+												</c:otherwise>
+											</c:choose>
+										
+										</a>
 									</h2>
 									<div class="actions">
 										<div>
