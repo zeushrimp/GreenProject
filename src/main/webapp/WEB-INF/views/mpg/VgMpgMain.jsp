@@ -234,6 +234,8 @@
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
 								<!--item-->
+
+
 								<c:forEach items="${myrecipes}" var="rcpvo">
 									<div class="entry one-third">
 										<figure>
@@ -272,6 +274,18 @@
 										</div>
 									</div>
 								</c:forEach>
+								<!-- css 변경안되게 눈속임 -->
+								<div class="entry one-third" style="visibility: hidden;">
+									<figure>
+										<img src="/resources/images/img.jpg" alt="" />
+										<figcaption></figcaption>
+									</figure>
+									<div class="container">
+										<h2></h2>
+										<div class="actions"></div>
+									</div>
+								</div>
+								<!-- css 변경안되게 눈속임 -->
 								<!--item-->
 
 
@@ -319,6 +333,8 @@
 										</div>
 									</div>
 								</div>
+
+
 								<!--item-->
 
 								<!--item-->
@@ -384,6 +400,18 @@
 										</div>
 									</div>
 								</div>
+								<!-- css 변경안되게 눈속임 -->
+								<div class="entry one-third" style="visibility: hidden;">
+									<figure>
+										<img src="/resources/images/img.jpg" alt="" />
+										<figcaption></figcaption>
+									</figure>
+									<div class="container">
+										<h2></h2>
+										<div class="actions"></div>
+									</div>
+								</div>
+								<!-- css 변경안되게 눈속임 -->
 								<!--item-->
 							</div>
 							<div class="pager">
@@ -442,6 +470,18 @@
 										</div>
 									</div>
 								</c:forEach>
+								<!-- css 변경안되게 눈속임 -->
+								<div class="entry one-third" style="visibility: hidden;">
+									<figure>
+										<img src="/resources/images/img.jpg" alt="" />
+										<figcaption></figcaption>
+									</figure>
+									<div class="container">
+										<h2></h2>
+										<div class="actions"></div>
+									</div>
+								</div>
+								<!-- css 변경안되게 눈속임 -->
 								<!--item-->
 
 							</div>
