@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,13 +128,14 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}"alt="" style="width: 500px; height: 250px;"/>
+							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}" alt=""
+								style="width: 500px; height: 250px;" />
 						</figure>
 						<div class="container">
 							<h2 align="center">${mpgdata.USR_NAME}</h2>
 						</div>
 						<div align="right">
-							<a class="btn btn-default" data-target="#modal7"R
+							<a class="btn btn-default" data-target="#modal7" R
 								data-toggle="modal">사진바꾸기</a>
 						</div>
 					</div>
@@ -244,7 +246,14 @@
 										</figure>
 										<div class="container">
 											<h2>
-												<a href="VgRcpDtail.jsp">${rcpvo.RCP_TITLE}</a>
+												<a href="VgRcpDtail.jsp"> <c:choose>
+														<c:when test="${fn:length(rcpvo.RCP_TITLE) > 12}">
+															<c:out value="${fn:substring(rcpvo.RCP_TITLE,0,11)}" />.... </c:when>
+														<c:otherwise>
+															<c:out value="${rcpvo.RCP_TITLE}" />
+														</c:otherwise>
+													</c:choose>
+												</a>
 											</h2>
 											<div class="actions">
 												<div>
@@ -396,7 +405,15 @@
 
 										<div class="container">
 											<h2>
-												<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">${cmuvo.CMU_TITLE}</a>
+												<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"> <c:choose>
+														<c:when test="${fn:length(cmuvo.CMU_TITLE) > 13}">
+															<c:out value="${fn:substring(cmuvo.CMU_TITLE,0,12)}" />.... </c:when>
+														<c:otherwise>
+															<c:out value="${cmuvo.CMU_TITLE}" />
+														</c:otherwise>
+													</c:choose>
+
+												</a>
 											</h2>
 											<div class="actions">
 												<div>
@@ -410,7 +427,17 @@
 												</div>
 											</div>
 											<div class="excerpt">
-												<p>${cmuvo.CMU_CONTENT}...</p>
+												<p>
+													<c:choose>
+														<c:when test="${fn:length(cmuvo.CMU_CONTENT) > 16}">
+															<c:out value="${fn:substring(cmuvo.CMU_CONTENT,0,15)}" />.... </c:when>
+														<c:otherwise>
+															<c:out value="${cmuvo.CMU_CONTENT}" />
+														</c:otherwise>
+													</c:choose>
+
+
+												</p>
 											</div>
 										</div>
 									</div>

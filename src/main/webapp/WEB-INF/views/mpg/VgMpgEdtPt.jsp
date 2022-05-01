@@ -36,7 +36,7 @@
 									<!-- 생략 -->
 									<div class="inputArea">
 										<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-											name="file"/>
+											name="file" accept="image/gif, image/jpeg, image/png"/>
 										<div class="select_img">
 											<img src="" />
 										</div>
