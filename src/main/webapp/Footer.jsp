@@ -28,25 +28,25 @@
 		<div class="wrap clearfix">
 			<div class="row">
 				<article class="one-half">
-					<h5>About vegcipe Community </h5>
+					<h5>About Vegcipe Community </h5>
 					<p>Our site consists of Kang Seok-woo, Kim Su-ji, Kim Na-mi, Shin Jae-woo and Jang Su-wan, and is an AI recipe introduction site for vegetarians. When users take a photo and upload it, it recommends a recipe that suits the ingredients. Users can communicate with each other through the community tab. thank you.</p>
 				</article>
 				<article class="one-fourth">
 					<h5>Need help?</h5>
-					<p>Contact us via phone or email</p>
+					<p>Contact us jaewoo's phone or email</p>
 					<p><em>T:</em>  +82 010 2926 1387<br /><em>E:</em>  <a href="#">vegcipe@gmail.com</a></p>
 				</article>
 				<article class="one-fourth">
 					<h5>Follow us</h5>
 					<ul class="social">
-						<li><a href="#" title="facebook"><i class="fa fa-fw fa-facebook"></i></a></li>
-						<li><a href="#" title="youtube"><i class="fa  fa-fw fa-youtube"></i></a></li>
-						<li><a href="#" title="rss"><i class="fa  fa-fw fa-rss"></i></a></li>
-						<li><a href="#" title="gplus"><i class="fa fa-fw fa-google-plus"></i></a></li>
-						<li><a href="#" title="linkedin"><i class="fa fa-fw fa-linkedin"></i></a></li>
-						<li><a href="#" title="twitter"><i class="fa fa-fw fa-twitter"></i></a></li>
-						<li><a href="#" title="pinterest"><i class="fa fa-fw fa-pinterest-p"></i></a></li>
-						<li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
+						<li><a href="#" title="facebook" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+						<li><a href="https://www.instagram.com/jaeu_sss/" title="instagram" target="_blank"><i class="fa  fa-fw fa-instagram"></i></a></li>
+						<li><a href="#" title="rss" target="_blank"><i class="fa  fa-fw fa-rss"></i></a></li>
+						<li><a href="#" title="gplus" target="_blank"><i class="fa fa-fw fa-google-plus"></i></a></li>
+						<li><a href="#" title="linkedin" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+						<li><a href="#" title="twitter" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+						<li><a href="#" title="pinterest" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i></a></li>
+						<li><a href="#" title="vimeo" target="_blank"><i class="fa fa-fw fa-vimeo"></i></a></li>
 					</ul>
 				</article>
 				
