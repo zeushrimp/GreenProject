@@ -70,34 +70,3 @@
 		console.log(url);
 	});
 
-	/*카테고리 선택 */
-	var path = "${pageContext.request.contextPath }";
-	var qustr = "${CmuVO.CMU_CATE}";
-	 
-	$(function(){
-	    
-	    $("input:button[name='category']").on('click',function(){
-	        var kind = $(this).val();       //버튼이 클릭 되었을 시, 개별 버튼의 값이 kind 변수에 담겨집니다.
-	        $.ajax({
-	            
-	            url : path+"/VgCmuList.do",
-	            type : "post",
-	            cache : false,
-	            headers : {"cache-control":"no-cache","pragma":"no-cache"},
-	            data : {
-	                 id : $(this).val(),
-	                "kind":kind    // 버튼의 value값에 따라 작동합니다.
-	                
-	            },
-	            success : function(data){
-	                console.log(data);
-	                $('body').html(data); // 성공 시, body부분에 data라는 html 문장들을 다 적용시킵니다.
-	            },
-	            error : function(data){
-	                alert('error');
-	            }//error
-	        })//ajax
-	    });//button click
-	    
-	}); 
-
