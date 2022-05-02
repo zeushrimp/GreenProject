@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="resources/css/icons.css" />
 <link rel="stylesheet" href="resources/css/style.css" />
-		
+
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
@@ -34,17 +34,39 @@
 
 <!-- 해당 페이지의 헤더 탭에 색깔이 들어오도록 해주는 js. 헤더의 li에 준 id를 addClass앞의 괄호에만 넣어주세요 -->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$('#Home').addClass('current-menu-item');
-	});
-</script>
-<style type="text/css">
-.three-fourth{
-width: 100%;
 
+<style type="text/css">
+.user-nav li {
+	float: right;
+	width: 25%;
+	height: 90px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	overflow: hidden;
+}
+
+.user-nav {
+	float: right;
+	width: 270px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.user-nav .verydark.current-menu-item a, .user-nav .verydark:hover a {
+	color: #00704a;
+}
+
+.user-nav .verydark a {
+	background: #00704a;
 }
 </style>
+
+
+</style>
+
 </head>
 <body class="home">
 
@@ -53,56 +75,59 @@ width: 100%;
 		<div class="spinner"></div>
 	</div>
 	<!--//preloader-->
-<!--header-->
+	<!--header-->
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="../../test.jsp" title="SocialChef" class="logo"><img src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
-			
+			<a href="../../test.jsp" title="SocialChef" class="logo" style="margin-right: 0"><img
+				src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
+
 			<nav class="main-nav" role="navigation" id="menu">
-				<ul style="width:400px">
-					<li class="current-menu-item"  style="width:33%"><a href="index.html" title="Home"><span>메인</span></a></li>
-					<li style="width:33%"><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a></li>
-					<li style="width:33%"><a href="/cmu/VgCmuList.do" title="Blog"><span>커뮤니티</span></a></li>
-					<!-- <li><a href="#" title="Pages"><span>냉장고</span></a>
+				<ul style="width:600px; display:flex;justify-content: space-evenly;">
+					<li><a href="../../test.jsp" title="Home"><span>메인</span></a></li>
+					<li><a href="recipes.html" title="Recipes"><span>레시피</span></a>
 						<ul>
-							<li><a href="left_sidebar.html" title="Left sidebar page">드롭다운 예시 코드</a></li>
-							
-						</ul>
-					</li> -->
-				</ul>
+							<li><a href="/rcp/VgRcpRegst_ck.do" title="Recipes 2">레시피 등록 </a></li>
+							<li><a href="/rcp/VgRcpList.do" title="Recipe">레시피 목록</a></li>
+						</ul></li>
+					<li class="current-menu-item"><a href="/cmu/VgCmuList.do" title="Blog"><span>커뮤니티</span></a>
+						<ul>
+							<li><a href="/cmu/VgCmuRegst.do" title="Blog post">게시글 등록</a></li>
+							<li><a href="/cmu/VgCmuList.do" title="Blog post">게시글 목록</a></li>
+						</ul></li>
+					<li><a href="#" title="Pages"><span>냉장고 레시피</span></a></li>
+					<li><a href="#" title="Pages"><span>실시간 채팅</span></a></li>
 			</nav>
-			
-			<nav class="user-nav" role="navigation" style="width: 360px">
+
+			<nav class="user-nav" role="navigation">
 				<ul>
-					<li class="dark"><a href="/rcp/VgRcpList.do" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>레시피 검색</span></a></li>
-					<li class="dark">
-					<f:choose>
-						<f:when test="${usr_Admin == 1}">
-							<a href='/adm/VgAdmMain.do'
-						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>관리자페이지</span></a>	
-						</f:when>
-						<f:otherwise>
-							<a href="/mpg/VgMpgMain.do" onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_chef-hat"></i><span>마이페이지</span></a>
-						</f:otherwise>	
-					</f:choose></li>
-					<%-- <f:when test="${usr_id != null}"> --%>
-						<li class="dark"><a href="/rcp/VgRcpRegst_ck.do" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
-					<%-- </f:when>
-					<f:otherwise>
-						<li class="dark"><a href="" title="Submit a recipe" onclick="needL"><i class="icon icon-themeenergy_fork-spoon"></i> <span>레시피 등록</span></a></li>
-					</f:otherwise> --%>
+					<li class="light"><a href="/rcp/VgRcpList.do"
+						title="Search for recipes"><i
+							class="icon icon-themeenergy_search"></i> <span>레시피<br>검색</span></a></li>
+					<li class="medium"><a href="/rcp/VgRcpRegst_ck.do"
+						title="Submit a recipe"><i
+							class="icon icon-themeenergy_fork-spoon"></i> <span>레시피<br>등록</span></a></li>
 					<li class="dark"><f:choose>
-						<f:when test="${usr_Id != null}">
-							<a href='/usr/VgUsrLogout.do'
-						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_fork-spoon"></i><span>로그아웃</span></a>	
-						</f:when>
-						<f:otherwise>
-							<a href="/usr/VgUsrLogin.do"
-						onfocus="this.blur()" class="mar"><i class="icon icon-themeenergy_fork-spoon"></i><span>로그인</span></a>
-						</f:otherwise>	
-					</f:choose>
-					</li>
+							<f:when test="${usr_Admin == 1}">
+								<a href='/adm/VgAdmMain.do' onfocus="this.blur()" class="mar"><i
+									class="icon icon-themeenergy_ufo-face"></i><span>관리자<br>페이지</span></a>
+							</f:when>
+							<f:otherwise>
+								<a href="/mpg/VgMpgMain.do" onfocus="this.blur()" class="mar"><i
+									class="icon icon-themeenergy_chef-hat"></i><span>마이<br>페이지</span></a>
+							</f:otherwise>
+						</f:choose></li>
+					<li class="verydark"><f:choose>
+							<f:when test="${usr_Id != null}">
+								<a href='/usr/VgUsrLogout.do' onfocus="this.blur()" class="mar"><i
+									class="icon icon-themeenergy_cry"></i><span>로그아웃</span></a>
+							</f:when>
+							<f:otherwise>
+								<a href="/usr/VgUsrLogin.do" onfocus="this.blur()" class="mar"><i
+									class="icon icon-themeenergy_smile"></i><span>로그인</span></a>
+							</f:otherwise>
+						</f:choose></li>
+
 				</ul>
 			</nav>
 		</div>
