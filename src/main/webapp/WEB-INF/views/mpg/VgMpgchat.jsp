@@ -216,11 +216,13 @@
 													</div>
 													<div class="row">
 														<div class="col-lg-12">
-														<div class="media">
-														<a class="pull-left" href="#">
-															<img class="media-object img-circle" alt="" src="/resources/images/model.png" style="width: 80%; height:80%;">
-														</a>
-														</div>
+															<div class="media">
+																<a class="pull-left" href="#"> <img
+																	class="media-object img-circle" alt=""
+																	src="/resources/images/model.png"
+																	style="width: 80%; height: 80%;">
+																</a>
+															</div>
 														</div>
 													</div>
 

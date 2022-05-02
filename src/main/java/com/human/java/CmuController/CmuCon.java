@@ -136,7 +136,8 @@ public class CmuCon {
 		
 	// 댓글 작성
 	@RequestMapping("/cmu_commentsave.do")
-	public String cmu_commentsave(CmuVO cmuvo) {
+	public String cmu_commentsave(CmuVO cmuvo, HttpSession session) {
+		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		CmuSer.cmu_commentsave(cmuvo);
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
