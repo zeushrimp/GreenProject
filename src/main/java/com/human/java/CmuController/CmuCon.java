@@ -100,7 +100,9 @@ public class CmuCon {
 		
 		List<?> replylist = CmuSer.cmu_commentlist(cmuvo);
 		
+		
 		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
+		model.addAttribute("replycount", CmuSer.cmu_replycount(cmuvo));
 		model.addAttribute("replylist", replylist);
 	
 	return "/cmu/VgCmuDtail";

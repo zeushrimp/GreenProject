@@ -73,14 +73,21 @@
 	 DELETE FROM CMU
 	 WHERE CMU_PK = #{CMU_PK}
 	</delete>
+	
+	<!-- 댓글 수 세기 -->
+    <select id="count_reply" parameterType="CMU" resultType="Integer">
+	SELECT COUNT(*)
+	FROM CMU_COM
+	WHERE CMU_PK = #{CMU_PK}
+	</select>
 		
 	<!-- 댓글 작성 -->
  	<insert id="insert_comment" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
         SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
     </selectKey>       
-	    INSERT INTO CMU_COM (CMU_PK, CCM_PK, USR_ID, CCM_DEL, CCM_CONTENT, CCM_REG, CCM_REF_LEVEL, CCM_REF, CCM_REF_LEVEL)
-	    VALUES (#{CMU_PK}, #{CCM_PK}, #{USR_ID}, 0, #{CCM_CONTENT}, SYSDATE, #{CCM_REF_LEVEL},
+	    INSERT INTO CMU_COM (CMU_PK, CCM_PK, USR_ID, CCM_DEL, CCM_CONTENT, CCM_REG, CCM_REF, CCM_REF_LEVEL)
+	    VALUES (#{CMU_PK}, #{CCM_PK}, #{USR_ID}, 1, #{CCM_CONTENT}, SYSDATE,
 		<choose>
         	<when test="CCM_REF==null">#{CCM_PK}, 0</when>
             <otherwise>#{CCM_REF}, #{CCM_REF_LEVEL}</otherwise>

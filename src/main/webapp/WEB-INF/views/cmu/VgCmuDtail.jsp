@@ -11,7 +11,7 @@
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
 	
-	<title>SocialChef</title>
+	<title>베지피 커뮤니티</title>
 	
 	<link rel="stylesheet" href="/resources/css/style.css" />
 	<link rel="stylesheet" href="/resources/css/icons.css" />
@@ -31,12 +31,12 @@
 		.cumtitle .lead{font-size:30px; font-weight:500;  padding: 0px;}
 
 		.cmurlink {display: block; align: center;}
-		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius:3px;}
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #49A54C; border-radius:3px;}
 		.post .entry-content {float: left; padding: 17px 20px 0; min-height: 600px;}
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
-		.h_button a{cursor: pointer; background: #fff; color: #FF7B74; border-radius: 3px;}
+		.h_button a{cursor: pointer; background: #fff; color: #49A54C; border-radius: 3px;}
 		.h_button{	float: center; padding-bottom: 15px; padding-right: 15px;}
-	
+			
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -132,7 +132,7 @@
 										
 					<!--comments-->
 					<div class="comments" id="comments">
-						<h2>${cmuvo.CMU_COM} comments </h2>
+						<h2>${replycount} comments </h2>
 						<ol class="comment-list">
 						
 					<!--comments-->
@@ -141,8 +141,7 @@
 						<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
 					    <div class="comment-box">   <!-- style="margin-left: <c:out value="${30*replylist.CCM_REF_LEVEL}"/>px;" -->
 					        <div class="comment-author meta"> 
-					        <strong><c:out value="${replylist.USR_ID}"/></strong>
-					        <c:out value="${replylist.CCM_REG}"/>
+					        <strong><c:out value="${replylist.USR_ID}"/></strong><c:out value="${replylist.CCM_REG}"/>
 					        </div>
 					        <a class="comment-reply-link" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')">삭제</a>
 					        <a class="comment-reply-link" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">수정</a>
@@ -215,7 +214,7 @@
 								<div class="f-row">
 									<!-- 게시글 번호 받음 -->
 									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmupagevo.USR_ID}"/>">
+									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
 									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								

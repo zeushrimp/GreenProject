@@ -9,7 +9,7 @@
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
 	
-	<title>SocialChef</title>
+	<title>베지피 커뮤니티</title>
 	
 	<link rel="stylesheet" href="/resources/css/style.css" />
 	<link rel="stylesheet" href="/resources/css/icons.css" />
@@ -25,7 +25,7 @@
 		.three-fourth {width: 100%;}
 		
 		.cmurlink{display: block; align: center;}
-		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius: 3px;}
+		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #49A54C; border-radius: 3px;}
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 		.three-fourth {padding-bottom: 0px;}
 		.note-toolbar-wrapper { height: auto !important; }
@@ -48,8 +48,8 @@
 	<!--//preloader-->
 	
 	<!--header-->
-		<%@ include file="../../../Header.jsp" %>
-		<div style="padding-top: 200px"></div>		
+	<%@ include file="../../../Header.jsp" %>
+	<div style="padding-top: 200px"></div>   
 	<!--//header-->
 		
 	<!--main-->
@@ -120,9 +120,9 @@
 	</main>
 	<!--//main-->
 	
-    <!--footer-->
-    <%@ include file="../../../Footer.jsp" %>
-    <!--//footer-->
+	<!--footer-->
+	<%@ include file="../../../Footer.jsp" %>
+	<!--//footer-->
 	
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/jquery.uniform.min.js"></script>

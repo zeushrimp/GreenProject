@@ -38,6 +38,12 @@ public class CmuDaoImpl implements CmuDao{
 		return mybatis.selectOne("Cmu.get_detailread",cmuvo);
 	}
 	
+	// 게시글 총 갯수 카운트 
+	@Override
+	public int cmu_replycount(CmuVO cmuvo) {
+		return mybatis.selectOne("Cmu.count_reply",cmuvo);
+	}
+	
 	// 댓글 저장
 	@Override
 	public void cmu_commentsave(CmuVO cmuvo) {		

@@ -14,11 +14,14 @@ public interface CmuDao {
 	// 글 목록 리스트 불러오기 (페이징)
 	public List<CmuVO> cmu_getlist(CmuVO search);
 	
-	// 개시물 총 갯수
+	// 개시물 총 수
 	public int cmu_listcnt(CmuVO search);
 	
 	//  커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
+	
+	// 개시물 총 갯수
+	public int cmu_replycount(CmuVO cmuvo);
 	
 	// 댓글 저장
 	public void cmu_commentsave(CmuVO cmuvo);

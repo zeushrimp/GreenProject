@@ -21,7 +21,7 @@ public class CmuSerImpl implements CmuSer{
 		cmudao.cmu_write(cmuvo);
 	}
 	
-	// 총 갯수 카운트 
+	// 총 게시글 수 카운트 
 	@Override
 	public int cmu_listcnt(CmuVO search) {
 		return cmudao.cmu_listcnt(search);
@@ -38,6 +38,12 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmu_detailread(cmuvo);
 	}
 
+	// 총 댓글 카운트 
+	@Override
+	public int cmu_replycount(CmuVO cmuvo) {
+		return cmudao.cmu_replycount(cmuvo);
+	}
+	
 	// 댓글 저장 (작성)
 	public void cmu_commentsave(CmuVO cmuvo) {
 		cmudao.cmu_commentsave(cmuvo);
