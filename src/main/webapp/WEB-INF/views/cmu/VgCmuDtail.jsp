@@ -233,7 +233,7 @@
 								<div class="f-row">
 									<!-- 게시글 번호 받음 -->
 									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${sessionScope.usr_Id}"/>">
+									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
 									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								
