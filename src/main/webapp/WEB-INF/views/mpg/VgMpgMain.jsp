@@ -51,7 +51,7 @@
 			<!--breadcrumbs-->
 			<nav class="breadcrumbs">
 				<ul>
-					<li><a href="VgMain.jsp" title="Home">메인</a></li>
+					<li><a href="../../test.jsp" title="Home">메인</a></li>
 					<li>마이페이지</li>
 				</ul>
 			</nav>
