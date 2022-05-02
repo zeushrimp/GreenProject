@@ -56,11 +56,11 @@
 }
 
 .user-nav .verydark.current-menu-item a, .user-nav .verydark:hover a {
-	color: #00704a;
+	color: #185E2A;
 }
 
 .user-nav .verydark a {
-	background: #00704a;
+	background: #185E2A;
 }
 </style>
 

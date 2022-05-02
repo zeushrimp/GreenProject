@@ -40,71 +40,7 @@
 	<!--//preloader-->
 
 	<!--header-->
-	<header class="head" role="banner">
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<a href="index.jsp" title="SocialChef" class="logo"><img
-				src="/resources/images/ico/logo.png" alt="SocialChef logo" /></a>
-
-			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li><a href="index.jsp" title="Home"><span>Home</span></a></li>
-					<li><a href="recipes.jsp" title="Recipes"><span>Recipes</span></a>
-						<ul>
-							<li><a href="recipes2.jsp" title="Recipes 2">Recipes 2</a></li>
-							<li><a href="VgRcpDtail.jsp" title="Recipe">Recipe</a></li>
-						</ul></li>
-					<li><a href="blog.jsp" title="Blog"><span>Blog</span></a>
-						<ul>
-							<li><a href="VgCmuDtail.jsp" title="Blog post">Blog post</a></li>
-						</ul></li>
-					<li><a href="#" title="Pages"><span>Pages</span></a>
-						<ul>
-							<li><a href="left_sidebar.jsp" title="Left sidebar page">Left
-									sidebar page</a></li>
-							<li><a href="right_sidebar.jsp" title="Right sidebar page">Right
-									sidebar page</a></li>
-							<li><a href="two_sidebars.jsp" title="Both sidebars page">Both
-									sidebars page</a></li>
-							<li><a href="full_width.jsp" title="Full width page">Full
-									width page</a></li>
-							<li><a href="login.jsp" title="Login page">Login page</a></li>
-							<li><a href="register.jsp" title="Register page">Register
-									page</a></li>
-							<li><a href="error404.jsp" title="Error page">Error page</a></li>
-						</ul></li>
-					<li><a href="#" title="Features"><span>Features</span></a>
-						<ul>
-							<li><a href="icons.jsp" title="Icons">Icons</a></li>
-							<li><a href="grid.jsp" title="Grid">Grid</a></li>
-							<li><a href="shortcodes.jsp" title="Shortcodes">Shortcodes</a></li>
-							<li><a href="pricing.jsp" title="Pricing tables">Pricing
-									tables</a></li>
-						</ul></li>
-					<li><a href="contact.jsp" title="Contact"><span>Contact</span></a></li>
-					<li><a
-						href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy"
-						title="Buy now"><span>Buy now</span></a></li>
-				</ul>
-			</nav>
-
-			<nav class="user-nav" role="navigation">
-				<ul>
-					<li class="light"><a href="find_recipe.jsp"
-						title="Search for recipes"><i
-							class="icon icon-themeenergy_search"></i> <span>Search for
-								recipes</span></a></li>
-					<li class="medium current-menu-item"><a href="my_profile.jsp"
-						title="My account"><i class="icon icon-themeenergy_chef-hat"></i>
-							<span>My account</span></a></li>
-					<li class="dark"><a href="submit_recipe.jsp"
-						title="Submit a recipe"><i
-							class="icon icon-themeenergy_fork-spoon"></i> <span>Submit
-								a recipe</span></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<%@ include file="../../../Header.jsp" %>
 	<!--//header-->
 
 	<!--main-->
@@ -237,6 +173,11 @@
 
 
 								<c:forEach items="${myrecipes}" var="rcpvo">
+									<c:if test="${empty myrecipes}">
+										<script>
+											jaewoo_css_hidetest1();
+										</script>
+									</c:if>
 									<div class="entry one-third">
 										<figure>
 											<img src="/resources/images/img.jpg" alt="" />
@@ -275,7 +216,8 @@
 									</div>
 								</c:forEach>
 								<!-- css 변경안되게 눈속임 -->
-								<div class="entry one-third" style="visibility: hidden;">
+								<div class="entry one-third jaewoocheck1"
+									style="visibility: hidden;">
 									<figure>
 										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption></figcaption>
@@ -429,6 +371,9 @@
 
 								<!--item-->
 								<c:forEach items="${myposts}" var="cmuvo">
+									<c:if test="${myposts==null}">
+										<c:out value="jaewoo_css_hidetest3();" />
+									</c:if>
 									<div class="entry one-third">
 
 										<div class="container">
@@ -471,7 +416,8 @@
 									</div>
 								</c:forEach>
 								<!-- css 변경안되게 눈속임 -->
-								<div class="entry one-third" style="visibility: hidden;">
+								<div class="entry one-third jaewoocheck3"
+									style="visibility: hidden;">
 									<figure>
 										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption></figcaption>
@@ -492,9 +438,10 @@
 							</div>
 						</div>
 						<!--//my posts-->
+
+
 					</div>
-				</div>
-				<!--//row-->
+					<!--//row-->
 			</section>
 			<!--//content-->
 		</div>
@@ -560,6 +507,10 @@
 				</div>
 			</div>
 		</div>
+		<a class="btn btn-default" data-target="#modal8" data-toggle="modal">채팅</a>
+
+
+
 
 	</footer>
 	<!--//footer-->
@@ -570,6 +521,7 @@
 	<%@ include file="VgMpgRsnMr.jsp"%>
 	<%@ include file="VgMpgShwMp.jsp"%>
 	<%@ include file="VgMpgEdtPt.jsp"%>
+	<%@ include file="VgMpgchat.jsp"%>
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
