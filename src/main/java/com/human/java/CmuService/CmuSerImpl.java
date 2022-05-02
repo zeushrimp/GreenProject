@@ -1,6 +1,7 @@
 package com.human.java.CmuService;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,16 +53,16 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmu_commentdelete(cmuvo);
 	}
 
-	//
+	// 게시글 수정
 	@Override
 	public void updatewrite(CmuVO cmuvo) throws Exception {
 		cmudao.updatewrite(cmuvo);
 	}
-
+	
+	// 게시글 삭제
 	@Override
 	public void deletewrite(CmuVO cmuvo) throws Exception {
 		cmudao.deletewrite(cmuvo);
 	}
-
 		
 }

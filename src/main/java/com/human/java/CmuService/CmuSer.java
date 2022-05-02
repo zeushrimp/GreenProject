@@ -1,6 +1,7 @@
 package com.human.java.CmuService;
 
 import java.util.List;
+import java.util.Map;
 
 import com.human.java.CmuVO.CmuVO;
 
@@ -32,4 +33,5 @@ public interface CmuSer {
 
 	// 게시글 삭제
 	public void deletewrite(CmuVO cmuvo) throws Exception;
+
 }

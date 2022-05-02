@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,27 +86,28 @@
 					<h1 style="padding: 0px 15px 60px;">커뮤니티 게시판</h1>
 				</header>
 				<form>
+					
 					<div style="padding-bottom: 5px; float: left;">
 						<button class="button" name="category" value="전체"
 							style="margin-right: 10px;">
 							<span>전체</span>
 						</button>
-						<button class="button" value="공지" style="margin-right: 10px;">
+						<button class="button" name="category" value="공지" style="margin-right: 10px;">
 							<span>공지</span>
 						</button>
-						<button class="button" value="채식소식" style="margin-right: 10px;">
+						<button class="button" name="category" value="채식소식" style="margin-right: 10px;">
 							<span>채식소식</span>
 						</button>
-						<button class="button" value="동네맛집" style="margin-right: 10px;">
+						<button class="button" name="category" value="동네맛집" style="margin-right: 10px;">
 							<span>동네맛집</span>
 						</button>
-						<button class="button" value="일상소식" style="margin-right: 10px;">
+						<button class="button" name="category" value="일상소식" style="margin-right: 10px;">
 							<span>일상소식</span>
 						</button>
-						<button class="button" value="운동/건강" style="margin-right: 10px;">
+						<button class="button" name="category" value="운동/건강" style="margin-right: 10px;">
 							<span>운동/건강</span>
 						</button>
-						<button class="button" value="취미생활" style="margin-right: 10px;">
+						<button class="button" name="category" value="취미생활" style="margin-right: 10px;">
 							<span>취미생활</span>
 						</button>
 					</div>
@@ -174,12 +177,8 @@
 						</c:forEach>
 						<!-- 페이징 -->
 					</form>
-					<div class="cmurlink" style="padding: 0px 15px 20px;">
-						<!-- 글 작성가는 링크 -->
-						<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
-					</div>
 					<div id="paginationBox" class="pagination1">
-						<div class="pager">
+						<div class="pager"  style="margin-bottom: 0px !important;">
 							<c:if test="${pagination.prev}">
 								<a class="page-link" href="#"
 									onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
@@ -203,7 +202,12 @@
 									,'${search.searchtype}', '${search.keyword}')">&gt;</a>
 							</c:if>
 						</div>
+					<div class="cmurlink" style="padding: 0px 15px 20px; float: left;" >
+						<!-- 글 작성가는 링크 -->
+						<a class="R-rlink" href="VgCmuRegst.do"> 게시글 작성 </a>
 					</div>
+					</div>
+					
 				</section>
 				<!--//content-->
 			</div>

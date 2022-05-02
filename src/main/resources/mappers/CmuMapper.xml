@@ -60,14 +60,16 @@
 	</select>
 	
 	<!-- 커뮤니티 수정(업데이트) -->
-	<update id="update_cmu" parameterType="CMU">
+	<update id="update_write" parameterType="CMU">
 	 UPDATE CMU SET
-	 (CMU_TITLE, CMU_CONTENT) = (#{CMU_TITLE}, #{CMU_CONTENT})
+	 CMU_CATE = #{CMU_CATE},
+	 CMU_TITLE = #{CMU_TITLE}, 
+	 CMU_CONTENT = #{CMU_CONTENT}
 	 WHERE CMU_PK = #{CMU_PK}
 	</update>
 
 	<!--게시글 삭제  -->
-	<delete id="delete_cmu" parameterType="CMU">
+	<delete id="delete_write" parameterType="CMU">
 	 DELETE FROM CMU
 	 WHERE CMU_PK = #{CMU_PK}
 	</delete>
@@ -106,6 +108,5 @@
      SET CCM_DEL = 0     
      WHERE CCM_PK = #{CCM_PK} AND CCM_DEL = 1
 	</update>
-
 	
   </mapper>

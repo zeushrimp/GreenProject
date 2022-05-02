@@ -1,6 +1,7 @@
 package com.human.java.CmuDAO;
 
 import java.util.List;
+import java.util.Map;
 
 import com.human.java.CmuVO.CmuVO;
 
@@ -33,4 +34,5 @@ public interface CmuDao {
 
 	// 게시글 삭제
 	void deletewrite(CmuVO cmuvo) throws Exception;
+
 }

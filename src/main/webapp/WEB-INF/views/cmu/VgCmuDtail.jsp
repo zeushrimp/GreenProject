@@ -34,6 +34,9 @@
 		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #FF7B74; border-radius:3px;}
 		.post .entry-content {float: left; padding: 17px 20px 0; min-height: 600px;}
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
+		.h_button a{cursor: pointer; background: #fff; color: #FF7B74; border-radius: 3px;}
+		.h_button{	float: center; padding-bottom: 15px; padding-right: 15px;}
+	
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -101,10 +104,35 @@
 						</div>
 					</article>
 					<!--//blog entry-->
-					
+					<!-- 세션아이디 -->
+					<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
+					<div>
+						<c:set var="USR_ADMIN" value="${sessionScope.usr_Admin }" />
+						<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
+						<c:set var="writer_ID" value="${cmuvo.USR_ID }" />
+						<c:if test="${USR_ADMIN == 1 || USR_ID eq writer_ID}">
+							<!-- 레시피 삭제하기 -->
+							<div class="h_button">
+								<a  href="/cmu/deletecmu.do?CMU_PK=${cmuvo.CMU_PK}"><input
+									name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" /><input
+									type="button" name="deletecmu" id="deletecmu"
+									style="width: 130px;" value="삭제하기" />
+								</a>
+							</div>
+							<!-- 레시피 수정하기 -->
+							<div class="h_button">
+								<a  href="/cmu/updatecmuform.do?CMU_PK=${cmuvo.CMU_PK}"><input
+									name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" /><input
+									type="button" name="updatecmu" id="updatecmu"
+									style="width: 130px;" value="수정하기" />
+								</a>
+							</div>
+						</c:if>
+					</div>
+										
 					<!--comments-->
 					<div class="comments" id="comments">
-						<h2>5 comments </h2>
+						<h2>${cmuvo.CMU_COM} comments </h2>
 						<ol class="comment-list">
 						
 					<!--comments-->
@@ -123,6 +151,8 @@
 					    </div>
 					</li>
 					</c:forEach>
+					
+					
 					<!--comments-->
 	
 							<!--comment-->

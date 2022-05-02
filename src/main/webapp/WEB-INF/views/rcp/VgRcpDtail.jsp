@@ -258,7 +258,7 @@ html, body {
 						<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
 
 						<div class="Rcprd">
-							<!-- 레시피 삭제하기 (비밀번호 일치할때) -->
+							<!-- 레시피 삭제하기 -->
 							<c:set var="USR_ADMIN" value="${sessionScope.usr_Admin }" />
 							<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
 							<c:set var="writer_ID" value="${RcpDtail.USR_ID }" />
@@ -271,12 +271,12 @@ html, body {
 										style="width: 130px;" value="삭제하기" />
 									</a>
 								</div>
-								<!-- 레시피 수정하기 (비밀번호 일치할때) -->
+								<!-- 레시피 수정하기 -->
 								<div class="R-div">
 									<a class="RCPrewrite" 
 										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
-										type="button" name="rewriteRcp" id="rewriteRcp" style="width: 130px;"
-										value="수정하기" />
+										type="button" name="rewriteRcp" id="rewriteRcp"
+										style="width: 130px;" value="수정하기" />
 									</a>
 								</div>
 							</c:if>

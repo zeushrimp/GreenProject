@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,7 +24,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -77,6 +74,7 @@ public class CmuCon {
 			,@RequestParam(required = false) String keyword
 			,@ModelAttribute("search") CmuVO search) throws Exception {
 		
+		
 		//검색
 		model.addAttribute("search", search);
 		search.setCMU_CATE(CMU_CATE);
@@ -92,7 +90,7 @@ public class CmuCon {
 		model.addAttribute("pagination", search);
 		//게시글 화면 출력
 		model.addAttribute("cmupagelist", CmuSer.cmu_getlist(search));
-
+		
 		return "/cmu/VgCmuList";
 	}
 
@@ -107,16 +105,28 @@ public class CmuCon {
 	
 	return "/cmu/VgCmuDtail";
 	}
-
+	
+	// 수정 폼으로 가기
+	@RequestMapping(value = "/updatecmuform.do")
+	public String cmuupdateform(CmuVO cmuvo,Model model){
+		
+		List<?> replylist = CmuSer.cmu_commentlist(cmuvo);
+		
+		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
+		model.addAttribute("replylist", replylist);
+		
+		return "/cmu/VgCmuModi";
+	}
+		
 	// 게시글 수정하기
-	@RequestMapping(value = "/updateTest.do")
+	@RequestMapping(value = "/updatecmu.do")
 	public String updatewrite(@ModelAttribute("CmuVO") CmuVO cmuvo, HttpServletRequest request) throws Exception {
 		CmuSer.updatewrite(cmuvo);
-		return "redirect:/cmu/VgCmuList.do";
+		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
 
 	// 게시글 삭제하기
-	@RequestMapping(value = "/deleteTest.do")
+	@RequestMapping(value = "/deletecmu.do")
 	public String deletewrite(@ModelAttribute("CmuVO") CmuVO cmuvo) throws Exception {
 		CmuSer.deletewrite(cmuvo);
 		return "redirect:/cmu/VgCmuList.do";
@@ -240,7 +250,6 @@ public class CmuCon {
     			}
     		}
     } 
-    
 
 }
 	

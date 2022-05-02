@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Pagination {
 
-	private int listsize = 8; // 초기값으로 목록개수를 10으로 셋팅 한 페이지당 보여질 리스트의 개수
+	private int listsize = 8; // 초기값으로 목록개수를 8으로 셋팅 한 페이지당 보여질 리스트의 개수
 	private int rangesize = 5; // 초기값으로 페이지범위를 5로 셋팅 한 페이지 범위에 보여질 페이지의 개수
 	private int page; // 현재목록의 페이지 번호
 	private int range; // 각 페이지 범위 시작 번호
