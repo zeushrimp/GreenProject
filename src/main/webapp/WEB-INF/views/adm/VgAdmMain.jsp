@@ -144,6 +144,8 @@ td {
 								<td style="width:75px">10</td>
 								<td style="width:90px">10</td>								
 								<td style="width:90px; background: none !important; border:none !important;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
+							  	<td style="width:90px; background: none !important; border:none !important;"><a type="button" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;"
+							  	href="delete_usr_info.do?USR_ID=${vo.USR_ID}&USR_PW=${vo.USR_PW}">삭제</a></td>
 							</tr>
 							
 						

@@ -25,5 +25,12 @@ public class AdmSerImpl implements AdmSer{
 		admdao.changeUsrInfo(usrvo);
 		
 	}
+
+	// 회원 정보 삭제
+	@Override
+	public void delete_usr_info(UsrVO usrvo) {
+		admdao.delete_usr_info(usrvo);
+		
+	}
 	
 }
