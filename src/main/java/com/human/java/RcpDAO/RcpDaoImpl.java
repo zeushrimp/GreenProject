@@ -22,6 +22,18 @@ public class RcpDaoImpl implements RcpDao{
 		mybatis.insert("Rcp.insertRcp",rcpvo);
 		
 	}
+	
+	@Override
+	public void insertRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.insert("Rcp.insertCont",rcpvo);
+	}
+
+	@Override
+	public void insertRcp_reso(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.insert("Rcp.insertResor",rcpvo);
+	}
 
 	@Override
 	public int countRcp() {
@@ -51,38 +63,61 @@ public class RcpDaoImpl implements RcpDao{
 	@Override
 	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("Rcp.detailRcpTitle", rcpvo);
+//		System.out.println("detailRcp_reso : "+ rcpvo);
+		return mybatis.selectList("Rcp.detailRcp_reso", rcpvo);
 	}
 
 	@Override
 	public List<RcpVO> detailRcp_cont(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("Rcp.detailRcpCont", rcpvo);
+//		System.out.println("detailRcp_cont : "+ rcpvo);
+		return mybatis.selectList("Rcp.detailRcp_cont", rcpvo);
 	}
 
 	@Override
-	public void insertRcp_cont(RcpVO rcpvo) {
+	public void delcheck(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		mybatis.insert("Rcp.insertCont", rcpvo);
+//		System.out.println("안녕 Dao1");
+		mybatis.delete("Rcp.delcheck",rcpvo);	
+	}
+	
+	@Override
+	public void delcheck_CONT(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.delete("Rcp.delcheck_CONT",rcpvo);
+	}
+	
+	@Override
+	public void delcheck_RESO(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.delete("Rcp.delcheck_RESO",rcpvo);
 	}
 
 	@Override
-	public void insertRcp_reso(RcpVO rcpvo) {
+	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		mybatis.insert("Rcp.insertResor",rcpvo);
+//		System.out.println("rewriteRcp : "+rcpvo);
+		mybatis.update("Rcp.rewriteRcp", rcpvo);
 	}
 
 	@Override
-	public String delcheck(RcpVO rcpvo) {
+	public void rewriteRcp_cont(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		System.out.println("안녕 Dao1");
-		return mybatis.selectOne("Rcp.delcheck",rcpvo);
+		
+		mybatis.update("Rcp.rewriteRcp_cont", rcpvo);
 	}
 
 	@Override
-	public RcpVO rewcheck(RcpVO rcpvo) {
+	public void rewriteRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("Rcp.rewcheck", rcpvo);
+		
+		mybatis.update("Rcp.rewriteRcp_reso", rcpvo);
+	}
+
+	@Override
+	public void viewsCountRcp(int RCP_HIT) {
+		// TODO Auto-generated method stub
+		mybatis.update("Rcp.viewsCountRcp",RCP_HIT);
 	}
 
 	

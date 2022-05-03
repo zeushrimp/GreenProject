@@ -7,7 +7,7 @@ import com.human.java.RcpVO.RcpVO;
 
 public interface RcpDao {
 
-	void insertRcp(RcpVO rcpvo);
+	public void insertRcp(RcpVO rcpvo);
 
 	public int countRcp();
 
@@ -25,8 +25,19 @@ public interface RcpDao {
 	
 	public void insertRcp_reso(RcpVO rcpvo);
 	
-	public String delcheck(RcpVO rcpvo);
+	public void delcheck(RcpVO rcpvo);
 	
-	public RcpVO rewcheck(RcpVO rcpvo);
+	public void delcheck_CONT(RcpVO rcpvo);
+	
+	public void delcheck_RESO(RcpVO rcpvo);
+	
+	public void rewriteRcp(RcpVO rcpvo);
+	
+	public void rewriteRcp_cont(RcpVO rcpvo);
+	
+	public void rewriteRcp_reso(RcpVO rcpvo);
+	
+	public void viewsCountRcp(int RCP_HIT);
+	
 }
 	

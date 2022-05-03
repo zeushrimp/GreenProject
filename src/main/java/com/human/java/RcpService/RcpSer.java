@@ -10,6 +10,10 @@ public interface RcpSer {
 
 	public void insertRcp(RcpVO rcpvo);
 	
+	public void insertRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_reso(RcpVO rcpvo);
+	
 	public int getPK();
 	
 	// 게시물 총 갯수
@@ -24,14 +28,19 @@ public interface RcpSer {
 	
 	public List<RcpVO> detailRcp_cont(RcpVO rcpvo);
 	
-	public void insertRcp_cont(RcpVO rcpvo);
+	public void delcheck(RcpVO rcpvo);
 	
-	public void insertRcp_reso(RcpVO rcpvo);
+	public void delcheck_CONT(RcpVO rcpvo);
 	
-	public String delcheck(RcpVO rcpvo);
+	public void delcheck_RESO(RcpVO rcpvo);
 	
-	public RcpVO rewcheck(RcpVO rcpvo);
+	public void rewriteRcp(RcpVO rcpvo);
 	
+	public void rewriteRcp_cont(RcpVO rcpvo);
+	
+	public void rewriteRcp_reso(RcpVO rcpvo);
+	
+	public void viewsCountRcp(int RCP_HIT);
 }
 
 

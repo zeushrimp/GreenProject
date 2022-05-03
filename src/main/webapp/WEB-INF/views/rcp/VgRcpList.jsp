@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +105,7 @@
 									<figure>
 										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
-											<a href="VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }"><i
+											<a href="VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK}"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피
 													보러가기</span></a>
 										</figcaption>
@@ -114,13 +113,7 @@
 									
 									<div class="container">
 										<h2>
-											<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }"><c:choose>
-												<c:when test="${fn:length(rcplist.RCP_TITLE) > 13}">
-													<c:out value="${fn:substring(rcplist.RCP_TITLE,0,12)}" />.... </c:when>
-												<c:otherwise>
-													<c:out value="${rcplist.RCP_TITLE}" />
-												</c:otherwise>
-											</c:choose></a>
+											<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }">${rcplist.RCP_TITLE}</a>
 										</h2>
 										
 										<div class="actions">
@@ -133,7 +126,7 @@
 													<span>좋아요 </span><a href="#">${rcplist.RCP_LIKE}</a>
 												</div>
 												<div class="comments">
-													<span>댓글수 </span><a href="VgRcpDtail.do#comments">${rcplist.RCP_COM}</a>
+													<span>조회수 </span><a href="VgRcpDtail.do#comments">${rcplist.RCP_HIT}</a>
 												</div>
 											</div>
 										</div>

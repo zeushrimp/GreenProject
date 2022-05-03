@@ -23,6 +23,18 @@ public class RcpSerImpl implements RcpSer{
 	}
 
 	@Override
+	public void insertRcp_cont(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.insertRcp_cont(rcpvo);
+	}
+
+	@Override
+	public void insertRcp_reso(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.insertRcp_reso(rcpvo);
+	}
+	
+	@Override
 	public int countRcp() {
 //		System.out.println("안녕 Ser1");
 //		System.out.println(rcpdao.countRcp());
@@ -35,7 +47,6 @@ public class RcpSerImpl implements RcpSer{
 //		System.out.println("안녕 Ser2");
 //		System.out.println(rcpdao.selectRcp(rcplistvo));
 		return rcpdao.selectRcp(rcplistvo);
-		
 	}
 
 	@Override
@@ -49,13 +60,11 @@ public class RcpSerImpl implements RcpSer{
 //		System.out.println("안녕 Ser2");
 //		System.out.println(rcpdao.detailRcp(rcpvo));
 		return rcpdao.detailRcp(rcpvo);
-		
 	}
 
 	@Override
 	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
 //		System.out.println("안녕 Ser2");
-		
 		return rcpdao.detailRcp_reso(rcpvo);
 	}
 
@@ -66,28 +75,49 @@ public class RcpSerImpl implements RcpSer{
 	}
 
 	@Override
-	public void insertRcp_cont(RcpVO rcpvo) {
+	public void delcheck(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		rcpdao.insertRcp_cont(rcpvo);
+//		System.out.println("안녕 Ser2");
+		rcpdao.delcheck(rcpvo);
+	}
+	
+	@Override
+	public void delcheck_CONT(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.delcheck_CONT(rcpvo);
+	}
+	
+	@Override
+	public void delcheck_RESO(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.delcheck_RESO(rcpvo);
 	}
 
 	@Override
-	public void insertRcp_reso(RcpVO rcpvo) {
+	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		rcpdao.insertRcp_reso(rcpvo);
+		System.out.println(rcpvo);
+		rcpdao.rewriteRcp(rcpvo);
 	}
 
 	@Override
-	public String delcheck(RcpVO rcpvo) {
+	public void rewriteRcp_cont(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		System.out.println("안녕 Ser2");
-		return rcpdao.delcheck(rcpvo);
+		System.out.println(rcpvo);
+		rcpdao.rewriteRcp_cont(rcpvo);
 	}
 
 	@Override
-	public RcpVO rewcheck(RcpVO rcpvo) {
+	public void rewriteRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		return rcpdao.rewcheck(rcpvo);
+		System.out.println(rcpvo);
+		rcpdao.rewriteRcp_reso(rcpvo);
+	}
+
+	@Override
+	public void viewsCountRcp(int RCP_HIT) {
+		// TODO Auto-generated method stub
+		rcpdao.viewsCountRcp(RCP_HIT);
 	}
 	
 	

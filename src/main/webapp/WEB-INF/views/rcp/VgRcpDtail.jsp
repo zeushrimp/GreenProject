@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -225,9 +226,9 @@ html, body {
 							<article class="one-third">
 								<dl class="basic" id="time">
 									<dt>조리시간</dt>
-									<dd>${RcpDtail.RCP_CT }분</dd>
+									<dd>${RcpDtail.RCP_CT }</dd>
 									<dt>조리분량</dt>
-									<dd>${RcpDtail.RCP_COUNT }인분</dd>
+									<dd>${RcpDtail.RCP_COUNT }</dd>
 								</dl>
 
 								<dl class="user" id="type">
@@ -235,14 +236,30 @@ html, body {
 									<dd>${RcpDtail.RCP_VEGE }</dd>
 									<dt>작성자</dt>
 									<dd>${RcpDtail.USR_ID }</dd>
+									
+									<f:choose>
+									<f:when test="${usr_Id != null }">
 									<dt>좋아요 수 ( ${RcpDtail.RCP_LIKE } )</dt>
 									<dd id="likes" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%">좋아요</button>
+										<button style="padding: 9px; width: 100%">로그인좋아요</button>
 									</dd>
 									<dt>스크랩 하기</dt>
 									<dd id="scrap" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%">스크랩</button>
+										<button style="padding: 9px; width: 100%">로그인스크랩</button>
 									</dd>
+									</f:when>
+									
+									<f:otherwise>
+									<dt>좋아요 수 ( ${RcpDtail.RCP_LIKE } )</dt>
+									<dd id="likes" style="padding: 0 0px">
+										<button style="padding: 9px; width: 100%" onclick="non_log_like()" >좋아요</button>
+									</dd>
+									<dt>스크랩 하기</dt>
+									<dd id="scrap" style="padding: 0 0px">
+										<button style="padding: 9px; width: 100%" onclick="non_log_scrap()" >스크랩</button>
+									</dd>
+									</f:otherwise>
+									</f:choose>
 								</dl>
 
 								<dl class="ingredients">
@@ -263,22 +280,25 @@ html, body {
 							<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
 							<c:set var="writer_ID" value="${RcpDtail.USR_ID }" />
 							<c:if test="${USR_ADMIN == 1 || USR_ID eq writer_ID}">
+
 								<div class="R-div">
 									<a class="RCPdelete"
-										href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
-										name="RCP_PK" type="hidden" value="${RcpDtail.RCP_PK}" /> <input
+										href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}"> 
+									<input
 										type="button" name="deleteRcp" id="deleteRcp"
 										style="width: 130px;" value="삭제하기" />
 									</a>
 								</div>
 								<!-- 레시피 수정하기 -->
 								<div class="R-div">
-									<a class="RCPrewrite" 
-										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
+									<a class="RCPrewrite"
+										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}">
+									<input
 										type="button" name="rewriteRcp" id="rewriteRcp"
 										style="width: 130px;" value="수정하기" />
 									</a>
 								</div>
+
 							</c:if>
 						</div>
 					</div>
@@ -416,7 +436,7 @@ html, body {
 
 		</div>
 		<!--//wrap-->
-		
+
 	</main>
 	<!--//main-->
 

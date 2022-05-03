@@ -26,7 +26,7 @@ public class RcpCon {
 	
 	@RequestMapping("VgRcpRegst_ck.do")
 	public String regstRcp(HttpSession session) {
-		if (session.getAttribute("usr_Id") == null) { // 합칠때 usr_Id 로 변경
+		if (session.getAttribute("usr_Id") == null) { 
 			return "redirect:/usr/VgUsrLogin.do";
 		}else {
 		return "redirect:/rcp/VgRcpRegst.do";
@@ -36,9 +36,6 @@ public class RcpCon {
 	
 	@RequestMapping("VgRcpRegDone.do")
 	public String insertRcp(RcpVO rcpvo, HttpSession session) {
-//		System.out.println("안녕");
-//		System.out.println(rcpvo.getRCP_PK());
-		System.out.println(rcpvo);
 		int i=RcpSer.getPK();
 		rcpvo.setRCP_PK(i);
 		RcpSer.insertRcp(rcpvo);
@@ -88,23 +85,54 @@ public class RcpCon {
 	
 	@RequestMapping("/VgRcpDtail.do")
 	public String detailRcp(RcpVO rcpvo, Model model) {
+		RcpSer.viewsCountRcp(rcpvo.getRCP_PK());
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
 		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
-		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));		return "/rcp/VgRcpDtail";
+		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));
+		return "/rcp/VgRcpDtail";
 	}
 	
 	@RequestMapping("/VgRcpDel.do")
-	public String delcheck(RcpVO rcpvo, Model model) {
-		System.out.println("안녕 깐쮸롤");
-		model.addAttribute("delcheck", RcpSer.delcheck(rcpvo));
+	public String delcheck(RcpVO rcpvo) {
+		RcpSer.delcheck(rcpvo);
+		RcpSer.delcheck_CONT(rcpvo);
+		RcpSer.delcheck_RESO(rcpvo);
+		
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
-	@RequestMapping("/VgRcpRewrite.do")
-	public String rewcheck(RcpVO rcpvo, Model model) {
+	@RequestMapping("/VgRcpRew.do")
+	public String startRewriteRcp(RcpVO rcpvo, Model model) {
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
 		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
-		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));		return "/rcp/VgRcpDtail";
+		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));
+		return "/rcp/VgRcpRew";
+	}
+	
+	@RequestMapping("/VgRcpRewDone.do")
+	public String rewcheck(RcpVO rcpvo, Model model) {
+		int pk = rcpvo.getRCP_PK();
+		RcpSer.rewriteRcp(rcpvo);
+		RcpSer.delcheck_CONT(rcpvo);
+		RcpSer.delcheck_RESO(rcpvo);
+		String[] Rcp_content  = rcpvo.getRCPCT_CONTENT().split(",");
+		for(int j=0;j<Rcp_content.length; j++) {
+			RcpVO vo1 = new RcpVO();
+			vo1.setRCP_PK(pk);
+			vo1.setRCPCT_CONTENT(Rcp_content[j]);
+			RcpSer.insertRcp_cont(vo1);
+		}
+		System.out.println(rcpvo);
+		String[] Rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
+		String[] Rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
+		for(int r=0; r<Rcp_resours.length; r++) {
+			RcpVO vo2 = new RcpVO();
+			vo2.setRCP_PK(pk);
+			vo2.setRCPRS_TITLE(Rcp_resours[r]);
+			vo2.setRCPRS_AMOUNT(Rcp_nyan[r]);
+			RcpSer.insertRcp_reso(vo2);
+		}
+		return "redirect:/rcp/VgRcpList.do";
 	}
 
 }
