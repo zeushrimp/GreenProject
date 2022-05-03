@@ -25,4 +25,8 @@ public interface MpgMainDao {
 	public void mpg_saveimg(UsrVO mpgvo);
 
 	public List<RcpVO> scrapnum(UsrVO mpgvo);
+	
+	public List<RcpVO> get_mpgscrcp(List<RcpVO> scrapnum);
+
+
 }

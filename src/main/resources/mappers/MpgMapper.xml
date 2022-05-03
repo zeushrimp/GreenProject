@@ -19,7 +19,7 @@
 		select * from RCP where usr_id=#{USR_ID}
 	</select>
 	
-	<select id="scrapnum" parameterType="String" resultType="int">
+	<select id="scrapnum" parameterType="String" resultType="RCP">
 		select RCP_PK from RCP_SCRAP where usr_id=#{USR_ID}
 	</select>
 
@@ -71,5 +71,12 @@
 		WHERE
 		usr_id =#{USR_ID}
 	</update>
-
+	<select id="get_mpgscrcp" resultType="RCP">
+		select *
+		from RCP
+		where RCP_PK in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item.RCP_PK}
+		</foreach>
+	</select>
 </mapper>

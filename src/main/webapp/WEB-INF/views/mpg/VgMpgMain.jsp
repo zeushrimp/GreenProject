@@ -240,28 +240,30 @@
 						<!--my favorites-->
 						<div class="tab-content" id="favorites">
 							<div class="entries row">
-
+								
 								<!--item-->
+							<c:forEach items="${myscraprcp}" var="scrpvo">
 								<div class="entry one-third">
+									
 									<figure>
 										<img src="/resources/images/img.jpg" alt="" />
 										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
+											<a href="VgRcpDtail.do?RCP_PK=${scrpvo.RCP_PK}"><i
 												class="icon icon-themeenergy_eye2"></i> <span>View
 													recipe</span></a>
 										</figcaption>
 									</figure>
 									<div class="container">
 										<h2>
-											<a href="VgRcpDtail.jsp">Super easy blueberry cheesecake</a>
+											<a href="VgRcpDtail.do?RCP_PK=${scrpvo.RCP_PK}">${scrpvo.RCP_TITLE}</a>
 										</h2>
 										<div class="actions">
 											<div>
 												<div class="difficulty">
-													<i class="ico i-easy"></i><a href="#">easy</a>
+													<i class="ico i-easy"></i><a href="#">${scrpvo.RCP_HIT}</a>
 												</div>
 												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
+													<i class="fa fa-heart"></i><a href="#">${scrpvo.RCP_LIKE}</a>
 												</div>
 												<div class="comments">
 													<i class="fa fa-comment"></i><a
@@ -284,6 +286,7 @@
 								</div>
 								<!-- css 변경안되게 눈속임 -->
 								<!--item-->
+								</c:forEach>
 							</div>
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>

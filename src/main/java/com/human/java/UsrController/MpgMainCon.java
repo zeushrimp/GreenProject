@@ -65,8 +65,11 @@ public class MpgMainCon {
 
 		model.addAttribute("myrecipes", recipe);
 		
-		List<RcpVO>scrapnum = MpgMainSer.scrapnum(mpgvo);
-		System.out.println(scrapnum);
+		List<RcpVO> scrapnum = MpgMainSer.scrapnum(mpgvo);
+		
+		System.out.println("scrapnum : " + scrapnum.size() );
+		
+		model.addAttribute("myscraprcp",MpgMainSer.get_mpgscrcp(scrapnum));
 		
 		
 		for(int i = 0; i<scrapnum.size();i++) {

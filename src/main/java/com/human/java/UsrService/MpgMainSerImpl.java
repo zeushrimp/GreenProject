@@ -71,8 +71,16 @@ public class MpgMainSerImpl implements MpgMainSer {
 		return mpgmaindao.scrapnum(mpgvo);		
 	}
 
+	@Override
+	public List<RcpVO> get_mpgscrcp(List<RcpVO> scrapnum) {
+		// TODO Auto-generated method stub
+		return mpgmaindao.get_mpgscrcp(scrapnum);
+	}
+
+	
 
 
+	
 
 
 }
