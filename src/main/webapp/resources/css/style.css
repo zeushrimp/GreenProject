@@ -61,7 +61,7 @@ em 			{font-weight:700;font-style:normal;color:#239961;}
 
 ul 				{margin:0 0 20px;}
 ul > li	  		{list-style:none;position:relative;padding:0 0 10px 15px;}
-ul > li:before 	{content:"\2022";font-size:30px;color:#DBBC94;position:absolute;top:-10px;left:0;}
+ul > li:before 	{content:"\2022";font-size:30px;color:#FF7F00;position:absolute;top:-10px;left:0;}
 ul ul 				{margin:10px 0 -10px 2px;}
 ul ul li:before		{content:"\00af";font-size:25px;top:0;left:-2px;} 			
 ol			{margin:0 0 20px 25px;}
@@ -193,7 +193,7 @@ tr:nth-child(2n+1) td{background:#f6f6f6;}
 .white:hover,
 .white:focus 	{color:#fff !important;background:#239961 !important;}
 
-.gold	 		{background:#DBBC94 !important;font-size:14px;font-weight:600;padding:7px 10px;}
+.gold	 		{background:#FF7F00 !important;font-size:14px;font-weight:600;padding:7px 10px;}
 .gold:hover,
 .gold:focus 		{background:#D0B28C !important;}
 
@@ -261,7 +261,7 @@ blockquote span 		{font-style:italic;}
 .featured.two-third .more 		{padding:10px 0 0 20px !important;}
 .featured.one-third .button		{width:100%;margin:0 0 17px;}
 
-.actions i  {font-size:15px !important;color:#DBBC94;margin-right:8px;}
+.actions i  {font-size:15px !important;color:#FF7F00;margin-right:8px;}
 .actions .difficulty			{border-right:0;width:47%;}
 .actions .difficulty .ico 	{margin-bottom:-1px;}
 
@@ -374,7 +374,7 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .basic dt 		{width:50%;}
 .basic dd 		{width:50%;background:#73C86C;}
 .user dt 			{width:50%;font-size:13px;}
-.user dd 		{width:50%;background:#DBBC94;}
+.user dd 		{width:50%;background:#FF7F00;}
 .user dd a 		{color:#fff;}
 .ingredients dt 	{width:35%;font-size:13px;}
 .ingredients dd 	{width:65%;}	
@@ -417,10 +417,10 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .ingredients .button 		{text-transform:none;}
 .recipefinder .search 					{position:relative;}
 .recipefinder .search input[type="submit"] {background:none;width:36px;height:36px;position:absolute;top:0;right:15px;padding:0 !important;font-size:0px;z-index:10;}
-.recipefinder .search:after			{content: "\f002";font-family: FontAwesome;position:absolute;top:8px;right:25px;color:#DBBC94;}
+.recipefinder .search:after			{content: "\f002";font-family: FontAwesome;position:absolute;top:8px;right:25px;color:#FF7F00;}
 
 .recipefinder .dropdown 			{position:relative;float:left;width:270px;border:1px solid #ddd;font-size:13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;padding:9px 10px;color:#999;}
-.recipefinder .dropdown:before 	{content: "\f078";font-family: FontAwesome;color:#DBBC94;position:absolute;top:13px;right:13px;}
+.recipefinder .dropdown:before 	{content: "\f078";font-family: FontAwesome;color:#FF7F00;position:absolute;top:13px;right:13px;}
 .recipefinder .dropdown dt 		{cursor:pointer;}
 .recipefinder .dropdown dd		{display:none;padding:9px 0 0;}
 .recipefinder .dropdown dd a 			{color:#999;}
@@ -484,7 +484,7 @@ dl 			{display:inline-block;width:100%;margin:0 0 22px;}
 .boxed .medium a 		{background:#239961;}
 .boxed .dark a 		{background:#239961;}
 .boxed.gold 			{background:none !important;padding:0;}
-.gold .light a 		{background:#DBBC94;}
+.gold .light a 		{background:#FF7F00;}
 .gold .medium a 		{background:#D0B28C;}
 .gold .dark a 		{background:#C5A985;}
 .boxed .icon 			{-webkit-transition: all .2s ease-in;-moz-transition: all .2s ease-in;-o-transition: all .2s ease-in;-ms-transition: all .2s ease-in;transition: all .2s ease-in;}
@@ -576,7 +576,7 @@ input[type="search"]:active 			{-moz-appearance: none;-webkit-appearance: none; 
 /* Select */
 div.selector		 				{font-size:13px;border:1px solid #ddd;line-height:37px;height:37px;position: relative;overflow: hidden;width:100% !important;padding-left:10px;background:#fff;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 div.selector span 				{color:#999;position:relative;text-overflow: ellipsis;display: block;overflow: hidden;white-space: nowrap;height:37px;line-height:37px;background:#fff;cursor: pointer;width: 100% !important;display: block;}
-div.selector span:before		{content: "\f078";font-family: FontAwesome;color:#DBBC94;position:absolute;top:0;right:13px;}
+div.selector span:before		{content: "\f078";font-family: FontAwesome;color:#FF7F00;position:absolute;top:0;right:13px;}
 div.selector select 				{opacity: 0;filter: alpha(opacity=0);-moz-opacity: 0;border: none;background: none;position: absolute;height:37px;top:0;left:0;width: 100%;}
 div.selector.active,
 div.selector.focus 				{border-color:#aaa;}
@@ -668,7 +668,7 @@ div.uploader.disabled.active span.action 		{}
 .icon								{display:inline-block;}
 .boxed .icon 					{font-size:35px;margin:16px 0 6px;text-shadow:1px 1px 1px rgba(0,0,0,.15);}
 .user-nav .icon 				{font-size:30px;margin:10px 0 0;}
-.dynamic-numbers .icon {font-size:90px;color:#DBBC94;}
+.dynamic-numbers .icon {font-size:90px;color:#FF7F00;}
 
 .ico 		{display:inline-block;overflow:hidden;background-image:url(../images/ico/icons.png);background-repeat:no-repeat}
 .i-easy				{background-position:0 0;width:14px;height:13px;}
@@ -743,12 +743,12 @@ section.cta h2 {line-height:1.4;}
 .main-nav				{display:none;}
 .slicknav_menu 			{display:block;position:absolute;width:100%;min-height:90%;}
 .slicknav_btn			{width:90px;height:90px;float:left;text-align:center;position:absolute;z-index:99999;top:0;right:270px;}
-.slicknav_open						{background:#dbbc94;}
+.slicknav_open						{background:#FF7F00;}
 .slicknav_open .slicknav_icon-bar 	{background:#fff;}
 .slicknav_icon			{margin:38px auto 0;display:inline-block;}
-.slicknav_icon-bar 		{background:#dbbc94;margin:0 0 6px;display: block; width:40px; height:3px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.slicknav_icon-bar 		{background:#FF7F00;margin:0 0 6px;display: block; width:40px; height:3px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
 .slicknav_menutxt		{display:none;}
-.slicknav_nav			{position:absolute;z-index:99999;top:90px;left:0;width:100%;background:#dbbc94; clear: both;font-weight:600;font-size:15px;text-transform:uppercase;padding:10px 0;}
+.slicknav_nav			{position:absolute;z-index:99999;top:90px;left:0;width:100%;background:#FF7F00; clear: both;font-weight:600;font-size:15px;text-transform:uppercase;padding:10px 0;}
 .slicknav_nav ul,
 .slicknav_nav li 			{display: block;text-align:left;}
 .slicknav_nav li ul  		{text-transform:none;}

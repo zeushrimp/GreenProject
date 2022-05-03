@@ -87,16 +87,16 @@
 					<li><a href="../../test.jsp" title="Home"><span>메인</span></a></li>
 					<li><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a>
 						<ul>
-							<li><a href="/rcp/VgRcpRegst_ck.do" title="Recipes 2">레시피 등록 </a></li>
+							<li><a href="/rcp/VgRcpRegst_ck.do" title="RegRecipes">레시피 등록 </a></li>
 							<li><a href="/rcp/VgRcpList.do" title="Recipe">레시피 목록</a></li>
 						</ul></li>
-					<li class="current-menu-item"><a href="/cmu/VgCmuList.do" title="Blog"><span>커뮤니티</span></a>
+					<li><a href="/cmu/VgCmuList.do" title="Community"><span>커뮤니티</span></a>
 						<ul>
-							<li><a href="/cmu/VgCmuRegst.do" title="Blog post">게시글 등록</a></li>
-							<li><a href="/cmu/VgCmuList.do" title="Blog post">게시글 목록</a></li>
+							<li><a href="/cmu/VgCmuRegst.do" title="Community post">게시글 등록</a></li>
+							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글 목록</a></li>
 						</ul></li>
-					<li><a href="#" title="Pages"><span>냉장고 레시피</span></a></li>
-					<li><a href="#" title="Pages"><span>실시간 채팅</span></a></li>
+					<li><a href="#" title="Vegcipe"><span>냉장고 레시피</span></a></li>
+					<li><a href="#" title="chat"><span>실시간 채팅</span></a></li>
 			</nav>
 
 			<nav class="user-nav" role="navigation">
