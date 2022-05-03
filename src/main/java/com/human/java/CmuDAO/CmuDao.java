@@ -20,7 +20,13 @@ public interface CmuDao {
 	//  커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
 	
-	// 개시물 총 갯수
+	// 게시글 수정(업데이트)
+	void updatewrite(CmuVO cmuvo) throws Exception;
+
+	// 게시글 삭제
+	void deletewrite(CmuVO cmuvo) throws Exception;
+
+	// 댓글 총 갯수
 	public int cmu_replycount(CmuVO cmuvo);
 	
 	// 댓글 저장
@@ -32,10 +38,5 @@ public interface CmuDao {
 	// 댓글 삭제
 	public int cmu_commentdelete(CmuVO cmuvo);
 	
-	// 게시글 수정(업데이트)
-	void updatewrite(CmuVO cmuvo) throws Exception;
-
-	// 게시글 삭제
-	void deletewrite(CmuVO cmuvo) throws Exception;
 
 }

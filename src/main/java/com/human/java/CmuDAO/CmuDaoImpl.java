@@ -20,7 +20,7 @@ public class CmuDaoImpl implements CmuDao{
 		mybatis.insert("Cmu.insert_cmu",cmuvo);
 	}
 	
-	// 게시글 총 갯수 카운트 
+	// 총 게시글 수 카운트 
 	@Override
 	public int cmu_listcnt(CmuVO search) {
 		return mybatis.selectOne("Cmu.count_list",search);
@@ -38,7 +38,19 @@ public class CmuDaoImpl implements CmuDao{
 		return mybatis.selectOne("Cmu.get_detailread",cmuvo);
 	}
 	
-	// 게시글 총 갯수 카운트 
+	// 게시글 수정(업데이트)
+	@Override
+	public void updatewrite(CmuVO cmuvo) throws Exception {
+		 mybatis.update("Cmu.update_write", cmuvo);		
+	}
+	
+	// 게시글 삭제
+	@Override
+	public void deletewrite(CmuVO cmuvo) throws Exception {
+		mybatis.delete("Cmu.delete_write", cmuvo);		
+	}
+	
+	// 총 댓글 수 카운트 
 	@Override
 	public int cmu_replycount(CmuVO cmuvo) {
 		return mybatis.selectOne("Cmu.count_reply",cmuvo);
@@ -63,19 +75,7 @@ public class CmuDaoImpl implements CmuDao{
 	// 댓글 삭제
 	@Override
 	public int cmu_commentdelete(CmuVO cmuvo) {
-		return mybatis.update("Cmu.delete_comment", cmuvo);
-	}
-
-	// 게시글 수정(업데이트)
-	@Override
-	public void updatewrite(CmuVO cmuvo) throws Exception {
-		 mybatis.update("Cmu.update_write", cmuvo);		
-	}
-	
-	// 게시글 삭제
-	@Override
-	public void deletewrite(CmuVO cmuvo) throws Exception {
-		mybatis.delete("Cmu.delete_write", cmuvo);		
+		return mybatis.update("delete_comment", cmuvo);
 	}
 
 }

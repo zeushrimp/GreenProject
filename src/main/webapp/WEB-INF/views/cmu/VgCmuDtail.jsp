@@ -27,15 +27,17 @@
 		.comments .depth-5 {padding-left:270px; margin-left:0;}
 		.depth-5 .avatar {left:180px;}
 		
-		.cumtitle {border: 1px; float:left; width:100%; margin-bottom:10px; background: #fff; border-radius: 3px;}
-		.cumtitle .lead{font-size:30px; font-weight:500;  padding: 0px;}
+		.cumtitle {border: 1px; float:left; width:92.2%; margin:0px 0px 10px 90px; background: #fff; border-radius: 3px;}
+		.cumtitle .lead{font-size:30px; font-weight:500;}
 
 		.cmurlink {display: block; align: center;}
 		.cmurlink .R-rlink {cursor: pointer;  padding: 11px 14px; background: #fff; color: #49A54C; border-radius:3px;}
 		.post .entry-content {float: left; padding: 17px 20px 0; min-height: 600px;}
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 		.h_button a{cursor: pointer; background: #fff; color: #49A54C; border-radius: 3px;}
-		.h_button{	float: center; padding-bottom: 15px; padding-right: 15px;}
+		.h_button{float: right; padding-bottom: 15px; padding-right: 15px;}
+		.comment-cmulink {float:right;margin-right:3px;top:3px;background:#239961;color:#fff !important;font-size:12px;font-weight:600;text-align:center;padding:6px 13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+		.comment-cmulink:focus, .comment-cmulink:hover	{background:#239961;}
 			
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
@@ -80,17 +82,17 @@
 				<!--content-->
 				<section class="content three-fourth">
 					<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}"/>
-					<div class="cmucate cumtitle">
-						<p class="lead">${cmuvo.CMU_CATE}</p>
-					</div>
+
+						<a class="lead" style="font-size: 25px; font-style: bold; margin:0px 0px 10px 90px; float:left;">${cmuvo.CMU_CATE}</a>
+
 					<div class="cmucon cumtitle">
-						<p class="lead">${cmuvo.CMU_TITLE}</p>
+						<p class="lead" style="padding: 0px !important;">${cmuvo.CMU_TITLE}</p>
 					</div>	
 					<article class="post single">					
 						<div class="entry-meta">
 							<div class="date">
 								<span class="day"><fmt:formatDate pattern="dd" value="${cmuvo.CMU_REG}"/></span> 
-								<span class="my"><fmt:formatDate pattern="MM-yyyy" value="${cmuvo.CMU_REG}"/></span>
+								<span class="my"><fmt:formatDate pattern="yyyy-MM" value="${cmuvo.CMU_REG}"/></span>
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
@@ -133,74 +135,27 @@
 					<!--comments-->
 					<div class="comments" id="comments">
 						<h2>${replycount} comments </h2>
-						<ol class="comment-list">
-						
-					<!--comments-->
-					<c:forEach var="replylist" items="${replylist}" varStatus="status">
-					<li class="comment depth-1">
-						<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
-					    <div class="comment-box">   <!-- style="margin-left: <c:out value="${30*replylist.CCM_REF_LEVEL}"/>px;" -->
-					        <div class="comment-author meta"> 
-					        <strong><c:out value="${replylist.USR_ID}"/></strong><c:out value="${replylist.CCM_REG}"/>
-					        </div>
-					        <a class="comment-reply-link" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')">삭제</a>
-					        <a class="comment-reply-link" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">수정</a>
-					        <a class="comment-reply-link" href="#" onclick="fn_commentreply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
-					        <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>
-					    </div>
-					</li>
-					</c:forEach>
-					
-					
-					<!--comments-->
-	
-							<!--comment-->
+						<ol class="comment-list">						
+							<c:forEach var="replylist" items="${replylist}" varStatus="status">
 							<li class="comment depth-1">
-								<!-- 작성자 마이페이지 링크 -->
 								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
-								<div class="comment-box">
-									<div class="comment-author meta"> 
-										<strong>Alex J.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p> 댓글 2</p>
-									</div>
-								</div> 
+							    <div class="comment-box" style="width:100%; margin-left:<c:out value="${30*replylist.CCM_REF_LEVEL}"/>px;">
+							        <div class="comment-author meta" style="display:inline-block;"> 
+							        <strong><c:out value="${replylist.USR_ID}"/></strong><c:out value="${replylist.CCM_REG}"/>
+							        </div>
+							        <c:set var="comment_ID" value="${replylist.USR_ID }" />
+							        <c:if test="${USR_ADMIN == 1 || USR_ID eq comment_ID}">
+								        <a class="comment-cmulink" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')">
+								        	<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" />삭제</a>
+								        <a class="comment-cmulink" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">
+								        	<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
+								    </c:if>
+								    <a class="comment-cmulink" href="#" onclick="fn_commentreply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
+								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
+							    </div>
 							</li>
-							<!--//comment-->
-							
-							<!--comment-->
-							<li class="comment depth-4">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
-								<div class="comment-box">
-									<div class="comment-author meta"> 
-										<strong>Kimberly C.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글 2-1</p>
-									</div>
-								</div> 
-							</li>
-							<!--//comment-->
-							
-							<!--comment-->
-							<li class="comment depth-5">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
-								<div class="comment-box">
-									<div class="comment-author meta"> 
-										<strong>Alex J.</strong> said 1 month ago <a href="#" class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글2-2</p>
-									</div>
-								</div> 
-							</li>
-							<!--//comment-->
-							
-						</ol>
-											
+							</c:forEach>					
+						</ol>											
 					</div>
 					<!--//comments-->
 					
@@ -227,6 +182,9 @@
 						</div>
 					</div>
 					
+					<div class="comment-respond" id="respond">
+						<h2>댓글창</h2>
+						<div class="container">
 						<div id="replydiv" class="comment-respond">
 							<form name="updateform" action="cmu_commentsave.do" method="post">
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
@@ -239,14 +197,15 @@
 								
 								<div class="f-row">
 									<div class="third bwrap">
-									<!-- 수정, 취소 정리 -->
+									<!-- 수정, 취소 -->
 									        <a href="#" onclick="fn_replyUpdateSave()">저장</a>
         									<a href="#" onclick="fn_replyUpdateCancel()">취소</a>
 									</div>
 								</div>
 							</form>
 						</div>
-
+						</div>
+					</div>
 					<!--//respond-->
 				</section>
 			</div>

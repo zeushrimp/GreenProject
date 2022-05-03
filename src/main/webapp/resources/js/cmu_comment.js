@@ -13,7 +13,7 @@
 	    }
 	    var form = document.updateform;
 	
-	    form.action="cmu_commentdelete";
+	    form.action="/cmu_replydelete.do";
 	    form.CCM_PK.value=CCM_PK;
 	    form.submit();   
 	}

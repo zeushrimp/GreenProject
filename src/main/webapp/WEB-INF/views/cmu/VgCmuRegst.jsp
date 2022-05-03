@@ -29,7 +29,8 @@
 		.post .container {float:left; width: 1079px !important; padding:0; border-radius: 3px;}
 		.three-fourth {padding-bottom: 0px;}
 		.note-toolbar-wrapper { height: auto !important; }
-		.cke_reset{ min-height:600px; } 
+		.cke_reset{ min-height:600px; }
+		element.style {width: none !important;}
 	</style>
 
   <!--  -->

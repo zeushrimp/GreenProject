@@ -19,6 +19,12 @@ public interface CmuSer {
 	// 커뮤니티 상세보기
 	public CmuVO cmu_detailread(CmuVO cmuvo);
 	
+    // 게시글 수정(업데이트)
+	public void updatewrite(CmuVO cmuvo) throws Exception;
+
+	// 게시글 삭제
+	public void deletewrite(CmuVO cmuvo) throws Exception;
+	
 	// 댓글 수 카운트 
 	public int cmu_replycount(CmuVO cmuvo);
 	
@@ -30,11 +36,6 @@ public interface CmuSer {
     
     // 댓글 삭제
     public int cmu_commentdelete(CmuVO cmuvo);
-    
-    // 게시글 수정(업데이트)
-	public void updatewrite(CmuVO cmuvo) throws Exception;
 
-	// 게시글 삭제
-	public void deletewrite(CmuVO cmuvo) throws Exception;
 
 }

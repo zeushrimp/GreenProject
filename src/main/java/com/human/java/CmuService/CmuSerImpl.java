@@ -38,6 +38,18 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmu_detailread(cmuvo);
 	}
 
+	// 게시글 수정
+	@Override
+	public void updatewrite(CmuVO cmuvo) throws Exception {
+		cmudao.updatewrite(cmuvo);
+	}
+	
+	// 게시글 삭제
+	@Override
+	public void deletewrite(CmuVO cmuvo) throws Exception {
+		cmudao.deletewrite(cmuvo);
+	}
+	
 	// 총 댓글 카운트 
 	@Override
 	public int cmu_replycount(CmuVO cmuvo) {
@@ -52,23 +64,12 @@ public class CmuSerImpl implements CmuSer{
 	// 댓글 리스트 (댓글 불러오기)
 	public List<?> cmu_commentlist(CmuVO cmuvo) {
 		return cmudao.cmu_commentlist(cmuvo);
-}
+	}
 	
 	// 댓글 삭제
 	public int cmu_commentdelete(CmuVO cmuvo) {
 		return cmudao.cmu_commentdelete(cmuvo);
 	}
 
-	// 게시글 수정
-	@Override
-	public void updatewrite(CmuVO cmuvo) throws Exception {
-		cmudao.updatewrite(cmuvo);
-	}
-	
-	// 게시글 삭제
-	@Override
-	public void deletewrite(CmuVO cmuvo) throws Exception {
-		cmudao.deletewrite(cmuvo);
-	}
 		
 }

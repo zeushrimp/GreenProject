@@ -147,9 +147,13 @@ public class CmuCon {
 	// 댓글 삭제
 	@RequestMapping("/cmu_replydelete.do")
 	public String cmu_commentdelete(HttpServletRequest request, CmuVO cmuvo) {		
+		cmuvo.getCCM_PK();
 		CmuSer.cmu_commentdelete(cmuvo);		
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
+	
+	// 댓글 수정
+	
 	
     // 이미지 업로드
     @RequestMapping(value="/imageupload.do", method = RequestMethod.POST)
