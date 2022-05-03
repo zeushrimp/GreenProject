@@ -149,9 +149,28 @@
 								        <a class="comment-cmulink" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">
 								        	<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
 								    </c:if>
-								    <a class="comment-cmulink" href="#" onclick="fn_commentreply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
+								    <a class="comment-cmulink" href="#" onclick="fn_replyReply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
 							    </div>
+								<div class="container" id="replyDialog" style="display:none; margin-top:10px; padding-bottom: 10px;">
+								<p><span class="req">*</span><strong>주의 :</strong> 댓글로 인해 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
+									<form name="recommnetform" action="cmu_commentsave.do" method="post">
+									<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
+										<div class="f-row">
+											<!-- 게시글 번호 받음 -->
+											<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
+											<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
+											<input type="hidden" id="USR_ID" name="CCM_REF">
+											<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
+										</div>
+										
+										<div>
+											<!-- 수정, 취소 -->
+									        <a class="reply-cmulink" href="#" onclick="fn_replyReplySave()">댓글 작성</a>
+		    								<a class="reply-cmulink" href="#" onclick="fn_replyReplyCancel()">취소</a>
+										</div>
+									</form>
+								</div>
 							</li>
 							</c:forEach>					
 						</ol>											
@@ -162,7 +181,7 @@
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
-							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
+							<p><span class="req">*</span><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
 							<form name="commentform" action="cmu_commentsave.do" method="post">
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
 								<div class="f-row">
@@ -178,30 +197,6 @@
 									</div>
 								</div>
 							</form>
-						</div>
-					</div>
-					
-					<div class="comment-respond" id="respond">
-						<h2>댓글창</h2>
-						<div class="container">
-						<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
-						<div id="replyDiv" class="comment-respond">
-							<form name="updateform" action="cmu_commentsave.do" method="post">
-							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
-								<div class="f-row">
-									<!-- 게시글 번호 받음 -->
-									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
-									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
-								</div>
-								
-								<div>
-									<!-- 수정, 취소 -->
-							        <a class="reply-cmulink" href="#" onclick="fn_replyUpdateSave()">저장</a>
-    								<a class="reply-cmulink" href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">취소</a>
-								</div>
-							</form>
-						</div>
 						</div>
 					</div>
 					<!--//respond-->

@@ -6,7 +6,7 @@
 	    }
 	    $("#cmu_commentsave").submit();   
 	}
-	
+
 	// 댓글 삭제
 	function fn_commentdelete(CCM_PK){
 	    if (!confirm("삭제하시겠습니까?")) {
@@ -14,7 +14,7 @@
 	    }
 	    var form = document.updateform;
 	
-	    form.action="/cmu_replydelete.do";
+	    form.action="cmu_replydelete.do";
 	    form.CCM_PK.value=CCM_PK;
 	    form.submit();   
 	}
@@ -71,60 +71,43 @@
 		location.href = url;
 		console.log(url);
 	});
-	// 댓글 수정
-	function fn_commentupdate(CCM_PK){
-	    if (!confirm("수정하시겠습니까?")) {
-	        return;
-	    }
-	    var form = document.updateform;
+
+
 	
-	    form.action="/cmu_replyupdate.do";
-	    form.CCM_PK.value=CCM_PK;
-	    form.submit();   
-	}
-	
-var updateReno = null;
-var updateRememo = null;
-function fn_commentupdate(reno){
-    var form = document.updateform;
-    var reply = document.getElementById("reply"+reno);
-    var replyDiv = document.getElementById("replyDiv");
-    replyDiv.style.display = "";
-   
-    if (updateReno) {
-        document.body.appendChild(replyDiv);
-        var oldReno = document.getElementById("reply"+updateReno);
-        oldReno.innerText = updateRememo;
-    }
-   
-    form.reno.value=reno;
-    form.rememo.value = reply.innerText;
-    reply.innerText ="";
-    reply.appendChild(replyDiv);
-    updateReno   = reno;
-    updateRememo = form.rememo.value;
-    form.rememo.focus();
+function hideDiv(id){
+    var div = document.getElementById(id);
+    div.style.display = "none";
+    document.body.appendChild(div);
 }
 
-function fn_replyUpdateSave(){
-    var form = document.updateform;
-    if (form.rememo.value=="") {
+function fn_replyReply(CCM_PK){
+    var form = document.recommnetform;
+    var reply = document.getElementById("reply"+CCM_PK);
+    var replyDia = document.getElementById("replyDialog");
+    replyDia.style.display = "";
+   
+    if (updateReno) {
+        fn_replyUpdateCancel();
+    }
+   
+    form.CCM_CONTENT.value = "";
+    form.CCM_REF.value=CCM_PK;
+    reply.appendChild(replyDia);
+    form.rewriter.focus();
+}
+function fn_replyReplyCancel(){
+    hideDiv("replyDialog");
+}
+
+function fn_replyReplySave(){
+    var form = document.recommnetform;
+
+    if (form.CCM_CONTENT.value=="") {
         alert("글 내용을 입력해주세요.");
-        form.rememo.focus();
+        form.CCM_CONTENT.focus();
         return;
     }
    
-    form.action="/updatecmu.do";
+    form.action="cmu_commentsave.do";
     form.submit();   
-}
-
-function fn_replyUpdateCancel(){
-    var form = document.updateform;
-    var replyDiv = document.getElementById("replyDiv");
-    document.body.appendChild(replyDiv);
-    replyDiv.style.display = "none";
-   
-    var oldReno = document.getElementById("reply"+updateReno);
-    oldReno.innerText = updateRememo;
-    updateReno = updateRememo = null;
 }

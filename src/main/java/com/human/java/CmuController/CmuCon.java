@@ -91,8 +91,7 @@ public class CmuCon {
 		model.addAttribute("pagination", search);
 		//게시글 화면 출력
 		model.addAttribute("cmupagelist", CmuSer.cmu_getlist(search));
-		
-		
+				
 		return "/cmu/VgCmuList";
 	}
 
@@ -101,8 +100,7 @@ public class CmuCon {
 	public String cmu_detailread(CmuVO cmuvo,Model model){
 		
 		List<?> replylist = CmuSer.cmu_commentlist(cmuvo);
-		
-		
+				
 		model.addAttribute("cmuvo", CmuSer.cmu_detailread(cmuvo));
 		model.addAttribute("replycount", CmuSer.cmu_replycount(cmuvo));
 		model.addAttribute("replylist", replylist);
