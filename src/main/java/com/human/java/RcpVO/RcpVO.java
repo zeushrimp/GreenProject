@@ -34,6 +34,9 @@ public class RcpVO {
 	private int RCM_DEL;
 	private int RCPPC_PK;
 	private int RCPPC_NO;
+	private int RCPSP_PK; 
+		
+	
 	
 	
 	

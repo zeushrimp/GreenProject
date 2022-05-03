@@ -241,22 +241,32 @@ html, body {
 									<f:when test="${usr_Id != null }">
 									<dt>좋아요 수 ( ${RcpDtail.RCP_LIKE } )</dt>
 									<dd id="likes" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%">로그인좋아요</button>
+										<button style="padding: 9px; width: 100%">좋아요</button>
 									</dd>
-									<dt>스크랩 하기</dt>
+									<f:choose>
+									<f:when test="${rcp_sp_ck.RCPSP_PK != null}">
+									<dt>스크랩</dt>
 									<dd id="scrap" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%">로그인스크랩</button>
+										<button onclick="cancel_rcp_sp()" name="cancelSP" id="cancelSP" style="padding: 9px; width: 100%">취소</button>
 									</dd>
+									</f:when>
+									<f:otherwise>
+									<dt>스크랩</dt>
+									<dd id="scrap" style="padding: 0 0px">
+										<button onclick="input_rcp_sp()" name="inputSP" id="inputSP" style="padding: 9px; width: 100%">스크랩하기</button>
+									</dd>
+									</f:otherwise>
+									</f:choose>
 									</f:when>
 									
 									<f:otherwise>
 									<dt>좋아요 수 ( ${RcpDtail.RCP_LIKE } )</dt>
 									<dd id="likes" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%" onclick="non_log_like()" >좋아요</button>
+										<button style="padding: 9px; width: 100%" onclick="non_log()" >좋아요</button>
 									</dd>
 									<dt>스크랩 하기</dt>
 									<dd id="scrap" style="padding: 0 0px">
-										<button style="padding: 9px; width: 100%" onclick="non_log_scrap()" >스크랩</button>
+										<button style="padding: 9px; width: 100%" onclick="non_log()" >스크랩</button>
 									</dd>
 									</f:otherwise>
 									</f:choose>
@@ -436,7 +446,15 @@ html, body {
 
 		</div>
 		<!--//wrap-->
-
+	<form method="post" action="/rcp/input_scrap.do" name=ip_scrap>
+            <input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
+            <input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
+         </form>
+         
+    <form method="post" action="/rcp/cancel_scrap.do" name=cc_scrap>
+            <input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
+            <input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
+         </form>
 	</main>
 	<!--//main-->
 
@@ -448,6 +466,17 @@ html, body {
 		function deleteRcp() {
 			alert("레시피가 삭제되었습니다.");
 		}
+		function input_rcp_sp(){
+	         alert("버튼 들어옴")   
+	         document.ip_scrap.submit();
+	      }
+	    function non_log() {
+	         alert("로그인이 필요한 서비스입니다.");
+	      }
+	    function cancel_rcp_sp(){
+	         alert("캔슬 버튼 들어옴")   
+	         document.cc_scrap.submit();
+	      }
 	</script>
 
 

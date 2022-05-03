@@ -41,6 +41,12 @@ public interface RcpSer {
 	public void rewriteRcp_reso(RcpVO rcpvo);
 	
 	public void viewsCountRcp(int RCP_HIT);
+	
+	public void input_scrap(RcpVO rcpvo);
+	
+	public RcpVO ch_scrap_detail(RcpVO rcpvo);
+	
+	public void cancel_scrap(RcpVO rcpvo);
 }
 
 

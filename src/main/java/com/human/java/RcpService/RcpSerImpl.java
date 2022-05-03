@@ -119,6 +119,25 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.viewsCountRcp(RCP_HIT);
 	}
+
+	@Override
+	public void input_scrap(RcpVO rcpvo) {
+		rcpdao.input_scrap(rcpvo);
+		
+	}
+
+	@Override
+	public RcpVO ch_scrap_detail(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return rcpdao.ch_scrap_detail(rcpvo);
+	}
+
+	@Override
+	public void cancel_scrap(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.cancel_scrap(rcpvo);
+	}
+	
 	
 	
 	

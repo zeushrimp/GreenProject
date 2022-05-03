@@ -39,5 +39,11 @@ public interface RcpDao {
 	
 	public void viewsCountRcp(int RCP_HIT);
 	
+	public void input_scrap(RcpVO rcpvo);
+	
+	public RcpVO ch_scrap_detail(RcpVO rcpvo);
+	
+	public void cancel_scrap(RcpVO rcpvo);
+	
 }
 	

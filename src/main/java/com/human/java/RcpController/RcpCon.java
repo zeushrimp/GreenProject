@@ -84,8 +84,14 @@ public class RcpCon {
 	}
 	
 	@RequestMapping("/VgRcpDtail.do")
-	public String detailRcp(RcpVO rcpvo, Model model) {
+	public String detailRcp(RcpVO rcpvo, Model model, HttpSession session) {
 		RcpSer.viewsCountRcp(rcpvo.getRCP_PK());
+		RcpVO vo1 = new RcpVO();
+		vo1.setRCP_PK(rcpvo.getRCP_PK());
+		vo1.setUSR_ID(session.getAttribute("usr_Id")+"");
+		System.out.println(vo1.getUSR_ID());
+		System.out.println(vo1.getRCP_PK());
+		model.addAttribute("rcp_sp_ck",RcpSer.ch_scrap_detail(vo1));
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
 		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
 		model.addAttribute("detailRcp_cont", RcpSer.detailRcp_cont(rcpvo));
@@ -134,5 +140,31 @@ public class RcpCon {
 		}
 		return "redirect:/rcp/VgRcpList.do";
 	}
+	
+	@RequestMapping("input_scrap.do")
+	public String input_scrap(RcpVO rcpvo, HttpSession session) {
+		System.out.println(rcpvo);
+	    String a=rcpvo.getRCP_PK()+"";
+	    System.out.println(a);
+	    RcpVO vo1 = new RcpVO();
+		vo1.setRCP_PK(rcpvo.getRCP_PK());
+		vo1.setUSR_ID(session.getAttribute("usr_Id")+"");
+	    RcpSer.input_scrap(vo1);
+	    
+	    return "redirect:/rcp/VgRcpDtail.do?RCP_PK="+a;
+	   }
+	
+	
+	@RequestMapping("cancel_scrap.do")
+	public String cancel_scrap(RcpVO rcpvo, HttpSession session) {
+		RcpVO vo1 = new RcpVO();
+		String a=rcpvo.getRCP_PK()+"";
+		vo1.setRCP_PK(rcpvo.getRCP_PK());
+		vo1.setUSR_ID(session.getAttribute("usr_Id")+"");
+		RcpSer.cancel_scrap(vo1);
+		
+		return "redirect:/rcp/VgRcpDtail.do?RCP_PK="+a;
+	}
+
 
 }

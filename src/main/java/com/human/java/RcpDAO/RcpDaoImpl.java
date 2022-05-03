@@ -120,6 +120,25 @@ public class RcpDaoImpl implements RcpDao{
 		mybatis.update("Rcp.viewsCountRcp",RCP_HIT);
 	}
 
+	@Override
+	public void input_scrap(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		
+		mybatis.insert("Rcp.input_scrap",rcpvo);
+	}
+
+	@Override
+	public RcpVO ch_scrap_detail(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Rcp.ch_scrap_detail",rcpvo);
+	}
+
+	@Override
+	public void cancel_scrap(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.delete("Rcp.cancel_scrap",rcpvo);
+	}
+	
 	
 
 }
