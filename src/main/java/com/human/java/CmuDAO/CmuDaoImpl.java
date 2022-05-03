@@ -77,5 +77,10 @@ public class CmuDaoImpl implements CmuDao{
 	public int cmu_commentdelete(CmuVO cmuvo) {
 		return mybatis.update("delete_comment", cmuvo);
 	}
-
+	
+	// 댓글 수정
+	@Override
+	public int cmu_commentupdate(CmuVO cmuvo) {
+		return mybatis.update("update_comment", cmuvo);
+	}
 }

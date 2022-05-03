@@ -153,7 +153,12 @@ public class CmuCon {
 	}
 	
 	// 댓글 수정
-	
+	@RequestMapping("/cmu_replyupdate.do")
+	public String cmu_commentupdate(HttpServletRequest request, CmuVO cmuvo) {		
+		cmuvo.getCCM_PK();
+		CmuSer.cmu_commentupdate(cmuvo);		
+		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+	}	
 	
     // 이미지 업로드
     @RequestMapping(value="/imageupload.do", method = RequestMethod.POST)

@@ -71,5 +71,8 @@ public class CmuSerImpl implements CmuSer{
 		return cmudao.cmu_commentdelete(cmuvo);
 	}
 
-		
+	// 댓글 수정
+	public int cmu_commentupdate(CmuVO cmuvo) {
+		return cmudao.cmu_commentupdate(cmuvo);
+	}	
 }

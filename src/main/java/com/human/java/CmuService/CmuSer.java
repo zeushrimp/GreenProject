@@ -37,5 +37,6 @@ public interface CmuSer {
     // 댓글 삭제
     public int cmu_commentdelete(CmuVO cmuvo);
 
-
+    // 댓글 수정
+    public int cmu_commentupdate(CmuVO cmuvo);
 }

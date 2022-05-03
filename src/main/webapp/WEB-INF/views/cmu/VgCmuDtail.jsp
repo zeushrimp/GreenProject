@@ -37,8 +37,7 @@
 		.h_button a{cursor: pointer; background: #fff; color: #49A54C; border-radius: 3px;}
 		.h_button{float: right; padding-bottom: 15px; padding-right: 15px;}
 		.comment-cmulink {float:right;margin-right:3px;top:3px;background:#239961;color:#fff !important;font-size:12px;font-weight:600;text-align:center;padding:6px 13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
-		.comment-cmulink:focus, .comment-cmulink:hover	{background:#239961;}
-			
+		.reply-cmulink {float:right; width:100px; margin-right:5px;top:3px;background:#239961;color:#fff !important;font-size:13px;font-weight:600;text-align:center;padding:6px 13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -113,7 +112,7 @@
 						<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
 						<c:set var="writer_ID" value="${cmuvo.USR_ID }" />
 						<c:if test="${USR_ADMIN == 1 || USR_ID eq writer_ID}">
-							<!-- 레시피 삭제하기 -->
+							<!-- 게시글 삭제 -->
 							<div class="h_button">
 								<a  href="/cmu/deletecmu.do?CMU_PK=${cmuvo.CMU_PK}"><input
 									name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" /><input
@@ -121,7 +120,7 @@
 									style="width: 130px;" value="삭제하기" />
 								</a>
 							</div>
-							<!-- 레시피 수정하기 -->
+							<!-- 게시글 수정 -->
 							<div class="h_button">
 								<a  href="/cmu/updatecmuform.do?CMU_PK=${cmuvo.CMU_PK}"><input
 									name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" /><input
@@ -163,7 +162,7 @@
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
-							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다.<span class="req">*</span></p>
+							<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
 							<form name="commentform" action="cmu_commentsave.do" method="post">
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
 								<div class="f-row">
@@ -185,7 +184,8 @@
 					<div class="comment-respond" id="respond">
 						<h2>댓글창</h2>
 						<div class="container">
-						<div id="replydiv" class="comment-respond">
+						<p><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
+						<div id="replyDiv" class="comment-respond">
 							<form name="updateform" action="cmu_commentsave.do" method="post">
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
 								<div class="f-row">
@@ -195,12 +195,10 @@
 									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								
-								<div class="f-row">
-									<div class="third bwrap">
+								<div>
 									<!-- 수정, 취소 -->
-									        <a href="#" onclick="fn_replyUpdateSave()">저장</a>
-        									<a href="#" onclick="fn_replyUpdateCancel()">취소</a>
-									</div>
+							        <a class="reply-cmulink" href="#" onclick="fn_replyUpdateSave()">저장</a>
+    								<a class="reply-cmulink" href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">취소</a>
 								</div>
 							</form>
 						</div>
