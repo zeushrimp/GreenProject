@@ -70,8 +70,7 @@
 				<form>
 					
 					<div style="padding-bottom: 5px; float: left;">
-						<button class="button" name="category" value="전체"
-							style="margin-right: 10px;">
+						<button class="button" name="category" value="전체" style="margin-right: 10px;">
 							<span>전체</span>
 						</button>
 						<button class="button" name="category" value="공지" style="margin-right: 10px;">
@@ -160,24 +159,22 @@
 						<!-- 페이징 -->
 					</form>
 					<div id="paginationBox" class="pagination1">
-						<div class="pager"  style="margin-bottom: 0px !important;">
+						<div class="pager"  style="margin-bottom: 0px !important; display:inline-block;">
 							<c:if test="${pagination.prev}">
-								<a class="page-link" href="#"
+								<a class="page-link" style="display:inline-block;" href="#"
 									onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
 									,'${search.searchtype}', '${search.keyword}')">&lt;</a>
 							</c:if>
 
 							<c:forEach begin="${pagination.startpage}"
 								end="${pagination.endpage}" var="CMU_PK">
-								<div
-									class="<c:out value="${pagination.page == CMU_PK ? 'active' : ''}"/>">
+								<div style="display:inline-block;" class="<c:out value="${pagination.page == CMU_PK ? 'active' : ''}"/>">
 									<a class="page-link" href="#"
 										onClick="fn_pagination('${CMU_PK}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}',
 								'${search.searchtype}', '${search.keyword}')">
 										${CMU_PK} </a>
 								</div>
 							</c:forEach>
-
 							<c:if test="${pagination.next}">
 								<a class="page-link" href="#"
 									onClick="fn_next('${pagination.page}', '${pagination.range}', '${pagination.rangesize}', '${pagination.listsize}'
