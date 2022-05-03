@@ -27,5 +27,7 @@ public interface MpgMainSer {
 	public List<RcpVO> mpg_myrecipes(UsrVO mpgvo);
 	
 	public void mpg_saveimg( UsrVO mpgvo);
+	
+	public List<RcpVO> scrapnum(UsrVO mpgvo);
 
 }

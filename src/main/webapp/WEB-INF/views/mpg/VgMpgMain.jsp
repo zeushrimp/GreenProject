@@ -40,8 +40,8 @@
 	<!--//preloader-->
 
 	<!--header-->
-	<%@ include file="../../../Header.jsp" %>
-	<div style="padding-top: 200px"></div>   
+	<%@ include file="../../../Header.jsp"%>
+	<div style="padding-top: 200px"></div>
 	<!--//header-->
 
 	<!--main-->
@@ -174,11 +174,6 @@
 
 
 								<c:forEach items="${myrecipes}" var="rcpvo">
-									<c:if test="${empty myrecipes}">
-										<script>
-											jaewoo_css_hidetest1();
-										</script>
-									</c:if>
 									<div class="entry one-third">
 										<figure>
 											<img src="/resources/images/img.jpg" alt="" />
@@ -245,73 +240,6 @@
 						<!--my favorites-->
 						<div class="tab-content" id="favorites">
 							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="/resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">Thai fried rice with fruit and
-												vegetables</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-medium"></i><a href="#">medium</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								<!--item-->
-
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="/resources/images/img.jpg" alt="" />
-										<figcaption>
-											<a href="VgRcpDtail.jsp"><i
-												class="icon icon-themeenergy_eye2"></i> <span>View
-													recipe</span></a>
-										</figcaption>
-									</figure>
-									<div class="container">
-										<h2>
-											<a href="VgRcpDtail.jsp">Spicy Morroccan prawns with
-												cherry tomatoes</a>
-										</h2>
-										<div class="actions">
-											<div>
-												<div class="difficulty">
-													<i class="ico i-hard"></i><a href="#">hard</a>
-												</div>
-												<div class="likes">
-													<i class="fa fa-heart"></i><a href="#">10</a>
-												</div>
-												<div class="comments">
-													<i class="fa fa-comment"></i><a
-														href="VgRcpDtail.jsp#comments">27</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
 
 								<!--item-->
 								<div class="entry one-third">
@@ -452,7 +380,7 @@
 
 
 	<!--footer-->
-	<%@ include file="../../../Footer.jsp" %>
+	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
 	<%@ include file="VgMpgEdtMa.jsp"%>
 	<%@ include file="VgMpgEdtMc.jsp"%>

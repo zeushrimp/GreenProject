@@ -64,6 +64,12 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		
 	}
 
+	@Override
+	public List<RcpVO> scrapnum(UsrVO mpgvo) {
+		return sqlSession.selectList("Mpg.scrapnum",mpgvo);
+		
+	}
+
 
 
 }

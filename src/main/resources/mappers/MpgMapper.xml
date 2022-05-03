@@ -18,6 +18,10 @@
 	<select id="Mpg_Myrecipes" parameterType="String" resultType="RCP">
 		select * from RCP where usr_id=#{USR_ID}
 	</select>
+	
+	<select id="scrapnum" parameterType="String" resultType="int">
+		select RCP_PK from RCP_SCRAP where usr_id=#{USR_ID}
+	</select>
 
 
 	<update id="Mpg_resign_user" parameterType="String">

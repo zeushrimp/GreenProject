@@ -66,6 +66,11 @@ public class MpgMainSerImpl implements MpgMainSer {
 		
 	}
 
+	@Override
+	public List<RcpVO> scrapnum(UsrVO mpgvo) {
+		return mpgmaindao.scrapnum(mpgvo);		
+	}
+
 
 
 

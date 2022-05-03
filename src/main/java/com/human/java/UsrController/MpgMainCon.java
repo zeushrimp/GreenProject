@@ -64,7 +64,19 @@ public class MpgMainCon {
 		List<RcpVO> recipe = MpgMainSer.mpg_myrecipes(mpgvo);
 
 		model.addAttribute("myrecipes", recipe);
+		
+		List<RcpVO>scrapnum = MpgMainSer.scrapnum(mpgvo);
+		System.out.println(scrapnum);
+		
+		
+		for(int i = 0; i<scrapnum.size();i++) {
+			System.out.println(scrapnum.get(i));
+		}
 
+		
+		
+		
+		
 		// service > 내가 작성한 글을 가져오는 서비스
 
 		if (name != null) { // 로그인상태일경우
