@@ -16,9 +16,9 @@
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
-	
+
+	<script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
 	<script src="/resources/js/cmu_comment.js"></script>
-	<script src="/resources/js/ckeditor/ckeditor.js"></script>
 
 	<style type="text/css">
 		.post .container-cmu {width:100%;}
@@ -94,7 +94,7 @@
 					</div>					
 					<div>
 						<textarea id = "CMU_CONTENT" name = "CMU_CONTENT"></textarea>
-						<script>CKEDITOR.replace('CMU_CONTENT',{filebrowserUploadUrl:'/imageupload.do'});</script>
+						<script>CKEDITOR.replace('CMU_CONTENT',{filebrowserUploadUrl:'/cmu/imageupload.do', height: 500, width: 1000 });</script>
 					</div>							
 					<div class="f-row" style="padding-top: 20px;">
 						<div class="third bwrap">
@@ -127,7 +127,7 @@
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
 	<script src="/resources/js/scripts.js"></script>
-
+	
 </body>
 </html>
 

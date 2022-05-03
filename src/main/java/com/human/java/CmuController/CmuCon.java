@@ -72,7 +72,7 @@ public class CmuCon {
 			,@RequestParam(required = false, defaultValue = "testTitle") String searchtype
 			,@RequestParam(required = false, defaultValue = "CMU_CATE") String CMU_CATE
 			,@RequestParam(required = false) String keyword
-			,@ModelAttribute("search") CmuVO search) throws Exception {
+			,@ModelAttribute("search") CmuVO search, CmuVO cmuvo) throws Exception {
 		
 		
 		//검색
@@ -84,12 +84,14 @@ public class CmuCon {
 		// 전체 게시글 개수를 얻어와 listCnt에 저장
 		int listcnt = CmuSer.cmu_listcnt(search);
 
+		model.addAttribute("replycount", CmuSer.cmu_replycount(cmuvo));
 		//검색
 		search.pageInfo(page, range, listcnt);
 		//페이징
 		model.addAttribute("pagination", search);
 		//게시글 화면 출력
 		model.addAttribute("cmupagelist", CmuSer.cmu_getlist(search));
+		
 		
 		return "/cmu/VgCmuList";
 	}
@@ -151,7 +153,7 @@ public class CmuCon {
 	
     // 이미지 업로드
     @RequestMapping(value="/imageupload.do", method = RequestMethod.POST)
-    public void imageupload(HttpServletRequest request,
+    public void imageupload(HttpServletRequest request, HttpSession session,
     		HttpServletResponse response, MultipartHttpServletRequest multiFile
     		, @RequestParam MultipartFile upload) throws Exception{
     	// 랜덤 문자 생성
@@ -169,8 +171,9 @@ public class CmuCon {
     		byte[] bytes = upload.getBytes();
     		
     		//이미지 경로 생성
-    		String path = "C:\\Users\\img" + "ckImage/";	// 이미지 경로 설정(폴더 자동 생성)
-    		String ckUploadPath = path + uid + "_" + fileName;
+			/* String path = "C:\\Users\\img" + "ckImage/"; */	// 이미지 경로 설정(폴더 자동 생성)
+    		String path = session.getServletContext().getRealPath("/resources/cmuphoto");
+    		String ckUploadPath = path + "/" + uid + "_" + fileName;
     		File folder = new File(path);
     		System.out.println("path:"+path);	// 이미지 저장경로 console에 확인
     		//해당 디렉토리 확인
@@ -207,15 +210,15 @@ public class CmuCon {
 
     // 서버로 전송된 이미지 뿌리기
     @RequestMapping(value="imagesubmit.do")
-    public void ckSubmit(@RequestParam(value="uid") String uid
-    		, @RequestParam(value="fileName") String fileName
-    		, HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException{
+    public void ckSubmit(@RequestParam(value="uid") String uid, HttpSession session
+    		, @RequestParam(value="fileName") String fileName, HttpServletRequest request
+    		, HttpServletResponse response) throws ServletException, IOException{
     	
     	//서버에 저장된 이미지 경로
-    	String path = "C:\\Users\\img" + "ckImage/";	// 저장된 이미지 경로
+		/* String path = "C:\\Users\\img" + "ckImage/"; */	// 저장된 이미지 경로
+    	String path = session.getServletContext().getRealPath("/resources/cmuphoto");
     	System.out.println("path:"+path);
-    	String sDirPath = path + uid + "_" + fileName;
+    	String sDirPath = path + "/" + uid + "_" + fileName;
     	
     	File imgFile = new File(sDirPath);
     	
