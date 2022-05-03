@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
 	<script src="/resources/js/cmu_comment.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
@@ -30,10 +31,7 @@
 		.cmurlink {display: block; align: center;}
 		.cmurlink .R-rlink {cursor: pointer; padding: 11px 14px; background: #fff; color: #49A54C; border-radius: 3px;}
 		.one-third {width: 25%}
-		.three-fourth {
-    padding: 0 0px 30px;
-    max-width: 100%;
-}
+		.three-fourth {padding: 0 0px 30px; max-width: 100%;}
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -127,10 +125,10 @@
 						<c:forEach items="${cmupagelist}" var="cmuvo">
 							<div class="entry one-third">
 								<figure>
-									<img src="/resources/images/img.jpg" alt="" />
+									<img src="/resources/images/img.jpg" alt="" /> <!-- 이미지 가져오는 걸로 -->
 									<!-- 상세 페이지 가는 링크 -->
 									<figcaption>
-										<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"><i
+											<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"></a><i
 											class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a>
 									</figcaption>
 								</figure>
@@ -149,13 +147,13 @@
 										<div>
 											<div class="difficulty"
 												style="width: 200px; border-right: none !important;">
-												<i class="ico i-medium"></i><a href="#">${cmuvo.USR_ID}</a>
+												<i class="ico i-medium"></i><a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">${cmuvo.USR_ID}</a>
 											</div>
 											<div class="comments">
-												<i class="fa fa-comment"></i><a href="#">${replycount}</a>
+												<i class="fa fa-comment"></i><a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}">${replycount}</a>
 											</div>
 											<div class="likes">
-												<i class="fa fa-heart"></i><a href="#">${cmuvo.CMU_LIKE}</a>
+												<i class="fa fa-heart"></i><a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"><%-- ${cmuvo.CMU_LIKE} --%></a>
 											</div>
 										</div>
 									</div>

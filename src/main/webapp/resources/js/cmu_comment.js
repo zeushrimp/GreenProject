@@ -1,3 +1,4 @@
+
 	function fn_commentsubmit(){
 	    if ($.trim($("#CCM_CONTENT").val()) == "") {
 	        alert("글 내용을 입력해주세요.");

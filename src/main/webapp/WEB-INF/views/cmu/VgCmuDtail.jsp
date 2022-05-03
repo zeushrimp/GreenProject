@@ -81,9 +81,7 @@
 				<!--content-->
 				<section class="content three-fourth">
 					<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}"/>
-
 						<a class="lead" style="font-size: 25px; font-style: bold; margin:0px 0px 10px 90px; float:left;">${cmuvo.CMU_CATE}</a>
-
 					<div class="cmucon cumtitle">
 						<p class="lead" style="padding: 0px !important;">${cmuvo.CMU_TITLE}</p>
 					</div>	
@@ -95,14 +93,14 @@
 							</div>
 							<div class="avatar">
 								<!-- 작성자 마이페이지 링크 -->
-								<a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /><span>마이페이지..?</span></a>
+								<a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /><span>${cmuvo.USR_ID}</span></a>
 							</div>
 						</div>
 						<div class="container">
 							<div class="entry-content">
-								<p class="lead">${cmuvo.CMU_CONTENT}</p>
-							</div>
-						</div>
+								<p class="lead"><c:out value="${cmuvo.CMU_CONTENT}" escapeXml="false" /></p>
+							</div>							
+						</div>		
 					</article>
 					<!--//blog entry-->
 					<!-- 세션아이디 -->
@@ -152,6 +150,7 @@
 								    <a class="comment-cmulink" href="#" onclick="fn_replyReply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
 							    </div>
+							    <!-- 대댓글 히든 창 -->
 								<div class="container" id="replyDialog" style="display:none; margin-top:10px; padding-bottom: 10px;">
 								<p><span class="req">*</span><strong>주의 :</strong> 댓글로 인해 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
 									<form name="recommnetform" action="cmu_commentsave.do" method="post">
