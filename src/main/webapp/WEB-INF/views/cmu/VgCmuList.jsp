@@ -6,7 +6,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +30,10 @@
 		.cmurlink {display: block; align: center;}
 		.cmurlink .R-rlink {cursor: pointer; padding: 11px 14px; background: #fff; color: #49A54C; border-radius: 3px;}
 		.one-third {width: 25%}
+		.three-fourth {
+    padding: 0 0px 30px;
+    max-width: 100%;
+}
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,7 +75,7 @@
 				</header>
 				<form>
 					
-					<div style="padding-bottom: 5px; float: left;">
+					<div style="padding-bottom: 5px;margin-left: 20px; float: left;">
 						<button class="button" name="category" value="전체" style="margin-right: 10px;">
 							<span>전체</span>
 						</button>
@@ -93,7 +99,7 @@
 						</button>
 					</div>
 					<div class="form-group row justify-content-center"
-						style="width: 490px; padding: 0px 15px 20px; float: right;">
+						style="width: 490px; padding: 0px 15px 20px; float: right;margin-right: 0px;">
 						<div style="width: 100px; padding: 0px 3px 20px 0px; float: left;">
 							<select class="form-control form-control-sm" name="searchtype"
 								id="searchtype">
