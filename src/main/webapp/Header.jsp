@@ -13,10 +13,6 @@
 
 <title>SocialChef</title>
 
-
-<link rel="stylesheet" href="/resources/css/icons.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
-
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
@@ -133,10 +129,6 @@
 		</div>
 	</header>
 	<!--//header-->
-	<script src="/resources/js/jquery-3.1.0.min.js"></script>
-	<script src="/resources/js/jquery.uniform.min.js"></script>
-	<script src="/resources/js/jquery.slicknav.min.js"></script>
-	<script src="/resources/js/scripts.js"></script>
-	<script src="/resources/js/home.js"></script>
+
 </body>
 </html>
