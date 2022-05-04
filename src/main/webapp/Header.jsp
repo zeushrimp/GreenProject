@@ -14,14 +14,14 @@
 <title>SocialChef</title>
 
 
-<link rel="stylesheet" href="resources/css/icons.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/icons.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
 
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
-<link rel="shortcut icon" href="resources/images/favicon.ico" />
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,7 +96,7 @@
 							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글 목록</a></li>
 						</ul></li>
 					<li><a href="#" title="Vegcipe"><span>냉장고 레시피</span></a></li>
-					<li><a href="#" title="chat"><span>실시간 채팅</span></a></li>
+					<li><a href="/mpg/VgMpgChat1.do" title="chat"><span>실시간 채팅</span></a></li>
 			</nav>
 
 			<nav class="user-nav" role="navigation">
@@ -133,10 +133,10 @@
 		</div>
 	</header>
 	<!--//header-->
-	<script src="resources/js/jquery-3.1.0.min.js"></script>
-	<script src="resources/js/jquery.uniform.min.js"></script>
-	<script src="resources/js/jquery.slicknav.min.js"></script>
-	<script src="resources/js/scripts.js"></script>
-	<script src="resources/js/home.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
+	<script src="/resources/js/home.js"></script>
 </body>
 </html>
