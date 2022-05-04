@@ -32,13 +32,6 @@ public class UsrRegCon {
 
 		return "/usr/"+url;
 	}
-	
-	@RequestMapping("/VgUsrLogin_no.do")
-	public String LoginFail() {
-		
-	
-		return "/usr/VgUsrLogin";
-	}
 	@RequestMapping("/checkId.do")
 	@ResponseBody
 	public String checkId(UsrVO usrvo) {
