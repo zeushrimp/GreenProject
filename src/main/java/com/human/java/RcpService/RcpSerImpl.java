@@ -33,7 +33,7 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.insertRcp_reso(rcpvo);
 	}
-	
+
 	@Override
 	public int countRcp() {
 //		System.out.println("안녕 Ser1");
@@ -45,7 +45,6 @@ public class RcpSerImpl implements RcpSer{
 	@Override
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo) {
 //		System.out.println("안녕 Ser2");
-//		System.out.println(rcpdao.selectRcp(rcplistvo));
 		return rcpdao.selectRcp(rcplistvo);
 	}
 
@@ -73,6 +72,12 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		return rcpdao.detailRcp_cont(rcpvo);
 	}
+	
+	@Override
+	public RcpVO detail_rcp_img(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return rcpdao.detail_rcp_img(rcpvo);
+	}
 
 	@Override
 	public void delcheck(RcpVO rcpvo) {
@@ -94,9 +99,15 @@ public class RcpSerImpl implements RcpSer{
 	}
 
 	@Override
+	public void delcheck_img(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		rcpdao.delcheck_img(rcpvo);
+	}
+
+	@Override
 	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		System.out.println(rcpvo);
+//		System.out.println(rcpvo);
 		rcpdao.rewriteRcp(rcpvo);
 	}
 
@@ -112,6 +123,12 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		System.out.println(rcpvo);
 		rcpdao.rewriteRcp_reso(rcpvo);
+	}
+	
+	@Override
+	public void rewrite_rcp_img(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -137,8 +154,6 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.cancel_scrap(rcpvo);
 	}
-	
-	
 	
 	
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix='f' uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -204,7 +204,9 @@ html, body {
 							<!--레시피 상세-->
 							<article class="two-third">
 								<div class="image">
-									<a href="#"><img src="/resources/images/img.jpg" alt="" /></a>
+									<a href="#"><img
+										src="data:image/gif;base64,${RcpDtail.RCP_IMG }"
+										style="width: 770px !important; height: auto !important;" /></a>
 								</div>
 								<div class="intro">
 									<p>
@@ -293,8 +295,7 @@ html, body {
 
 								<div class="R-div">
 									<a class="RCPdelete"
-										href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}"> 
-									<input
+										href="/rcp/VgRcpDel.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
 										type="button" name="deleteRcp" id="deleteRcp"
 										style="width: 130px;" value="삭제하기" />
 									</a>
@@ -302,8 +303,7 @@ html, body {
 								<!-- 레시피 수정하기 -->
 								<div class="R-div">
 									<a class="RCPrewrite"
-										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}">
-									<input
+										href="/rcp/VgRcpRew.do?RCP_PK=${RcpDtail.RCP_PK}"> <input
 										type="button" name="rewriteRcp" id="rewriteRcp"
 										style="width: 130px;" value="수정하기" />
 									</a>
@@ -314,130 +314,7 @@ html, body {
 					</div>
 					<!--//recipe-->
 
-					<!--comments-->
-					<div class="comments" id="comments">
-						<h2>5 comments</h2>
-						<ol class="comment-list">
-							<!--comment-->
-							<li class="comment depth-1">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar">
-									<a href="VgMpgMain.jsp"><img
-										src="/resources/images/avatar.jpg" alt="" /></a>
-								</div>
-								<div class="comment-box">
-									<div class="comment-author meta">
-										<strong>Kimberly C.</strong> said 1 month ago <a href="#"
-											class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글 1</p>
-									</div>
-								</div>
-							</li>
-							<!--//comment-->
 
-							<!--comment-->
-							<li class="comment depth-1">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar">
-									<a href="VgMpgMain.jsp"><img
-										src="/resources/images/avatar.jpg" alt="" /></a>
-								</div>
-								<div class="comment-box">
-									<div class="comment-author meta">
-										<strong>Alex J.</strong> said 1 month ago <a href="#"
-											class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글 2</p>
-									</div>
-								</div>
-							</li>
-							<!--//comment-->
-
-							<!--comment-->
-							<li class="comment depth-4">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar">
-									<a href="VgMpgMain.jsp"><img
-										src="/resources/images/avatar.jpg" alt="" /></a>
-								</div>
-								<div class="comment-box">
-									<div class="comment-author meta">
-										<strong>Kimberly C.</strong> said 1 month ago <a href="#"
-											class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글 2-1</p>
-									</div>
-								</div>
-							</li>
-							<!--//comment-->
-
-							<!--comment-->
-							<li class="comment depth-5">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar">
-									<a href="VgMpgMain.jsp"><img
-										src="/resources/images/avatar.jpg" alt="" /></a>
-								</div>
-								<div class="comment-box">
-									<div class="comment-author meta">
-										<strong>Alex J.</strong> said 1 month ago <a href="#"
-											class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글2-2</p>
-									</div>
-								</div>
-							</li>
-							<!--//comment-->
-
-							<!--comment-->
-							<li class="comment depth-1">
-								<!-- 작성자 마이페이지 링크 -->
-								<div class="avatar">
-									<a href="VgMpgMain.jsp"><img
-										src="/resources/images/avatar.jpg" alt="" /></a>
-								</div>
-								<div class="comment-box">
-									<div class="comment-author meta">
-										<strong>Denise M.</strong> said 1 month ago <a href="#"
-											class="comment-reply-link"> Reply</a>
-									</div>
-									<div class="comment-text">
-										<p>댓글 3</p>
-									</div>
-								</div>
-							</li>
-							<!--//comment-->
-						</ol>
-					</div>
-					<!--//comments-->
-
-					<!--respond-->
-					<div class="comment-respond" id="respond">
-						<h2>댓글창</h2>
-						<div class="container">
-							<p>
-								<strong>주의 :</strong> 욕설은 작성이 불가합니다.<span class="req">*</span>
-							</p>
-							<form>
-								<div class="f-row">
-									<textarea></textarea>
-								</div>
-
-								<div class="f-row">
-									<div class="third bwrap">
-										<input type="submit" value="댓글 작성" />
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-
-					<!--//respond-->
 				</section>
 				<!--//content-->
 
@@ -446,15 +323,17 @@ html, body {
 
 		</div>
 		<!--//wrap-->
-	<form method="post" action="/rcp/input_scrap.do" name=ip_scrap>
-            <input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
-            <input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
-         </form>
-         
-    <form method="post" action="/rcp/cancel_scrap.do" name=cc_scrap>
-            <input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
-            <input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
-         </form>
+
+		<form method="post" action="/rcp/input_scrap.do" name=ip_scrap>
+			<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
+			<input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
+		</form>
+
+		<form method="post" action="/rcp/cancel_scrap.do" name=cc_scrap>
+			<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
+			<input type="hidden" name="RCP_PK" value="${RcpDtail.RCP_PK}">
+		</form>
+
 	</main>
 	<!--//main-->
 
@@ -466,24 +345,18 @@ html, body {
 		function deleteRcp() {
 			alert("레시피가 삭제되었습니다.");
 		}
-		function input_rcp_sp(){
-	         alert("버튼 들어옴")   
-	         document.ip_scrap.submit();
-	      }
-	    function non_log() {
-	         alert("로그인이 필요한 서비스입니다.");
-	      }
-	    function cancel_rcp_sp(){
-	         alert("캔슬 버튼 들어옴")   
-	         document.cc_scrap.submit();
-	      }
+		function input_rcp_sp() {
+			alert("버튼 들어옴")
+			document.ip_scrap.submit();
+		}
+		function non_log() {
+			alert("로그인이 필요한 서비스입니다.");
+		}
+		function cancel_rcp_sp() {
+			alert("캔슬 버튼 들어옴")
+			document.cc_scrap.submit();
+		}
 	</script>
-
-
-
-
-
-
 
 </body>
 </html>

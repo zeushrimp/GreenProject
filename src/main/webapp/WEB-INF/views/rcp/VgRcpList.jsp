@@ -103,7 +103,14 @@
 							
 								<div class="entry one-fourth">
 									<figure>
+									<f:choose>
+										<f:when test="${rcplist.RCP_IMG != null }">
+										<img src="data:image/gif;base64,${rcplist.RCP_IMG }" style="width: 270px !important; height: 203px !important;"/>
+										</f:when>
+										<f:otherwise>
 										<img src="/resources/images/img.jpg" alt="" />
+										</f:otherwise>
+										</f:choose>
 										<figcaption>
 											<a href="VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK}"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피

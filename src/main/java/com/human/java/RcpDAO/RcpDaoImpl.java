@@ -2,6 +2,9 @@ package com.human.java.RcpDAO;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,6 +14,9 @@ import com.human.java.RcpVO.RcpVO;
 
 @Repository("RcpDao")
 public class RcpDaoImpl implements RcpDao{
+	
+	@Inject
+	SqlSession sqlSession;
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -73,6 +79,12 @@ public class RcpDaoImpl implements RcpDao{
 //		System.out.println("detailRcp_cont : "+ rcpvo);
 		return mybatis.selectList("Rcp.detailRcp_cont", rcpvo);
 	}
+	
+	@Override
+	public RcpVO detail_rcp_img(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("Rcp.detail_rcp_img", rcpvo);
+	}
 
 	@Override
 	public void delcheck(RcpVO rcpvo) {
@@ -94,9 +106,14 @@ public class RcpDaoImpl implements RcpDao{
 	}
 
 	@Override
+	public void delcheck_img(RcpVO rcpvo) {
+		// TODO Auto-generated method stub
+		mybatis.delete("Rcp.delcheck_img",rcpvo);
+	}
+
+	@Override
 	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-//		System.out.println("rewriteRcp : "+rcpvo);
 		mybatis.update("Rcp.rewriteRcp", rcpvo);
 	}
 
@@ -114,6 +131,8 @@ public class RcpDaoImpl implements RcpDao{
 		mybatis.update("Rcp.rewriteRcp_reso", rcpvo);
 	}
 
+	
+	
 	@Override
 	public void viewsCountRcp(int RCP_HIT) {
 		// TODO Auto-generated method stub
@@ -138,7 +157,5 @@ public class RcpDaoImpl implements RcpDao{
 		// TODO Auto-generated method stub
 		mybatis.delete("Rcp.cancel_scrap",rcpvo);
 	}
-	
-	
 
 }

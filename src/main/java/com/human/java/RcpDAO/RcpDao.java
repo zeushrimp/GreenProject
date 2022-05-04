@@ -8,12 +8,16 @@ import com.human.java.RcpVO.RcpVO;
 public interface RcpDao {
 
 	public void insertRcp(RcpVO rcpvo);
+	
+	public void insertRcp_cont(RcpVO rcpvo);
+	
+	public void insertRcp_reso(RcpVO rcpvo);
 
+	public int getPK();
+	
 	public int countRcp();
 
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo);
-
-	public int getPK();
 	
 	public RcpVO detailRcp(RcpVO rcpvo);
 	
@@ -21,15 +25,15 @@ public interface RcpDao {
 	
 	public List<RcpVO> detailRcp_cont(RcpVO rcpvo);
 	
-	public void insertRcp_cont(RcpVO rcpvo);
-	
-	public void insertRcp_reso(RcpVO rcpvo);
+	public RcpVO detail_rcp_img(RcpVO rcpvo);
 	
 	public void delcheck(RcpVO rcpvo);
 	
 	public void delcheck_CONT(RcpVO rcpvo);
 	
 	public void delcheck_RESO(RcpVO rcpvo);
+	
+	public void delcheck_img(RcpVO rcpvo);
 	
 	public void rewriteRcp(RcpVO rcpvo);
 	
@@ -44,6 +48,5 @@ public interface RcpDao {
 	public RcpVO ch_scrap_detail(RcpVO rcpvo);
 	
 	public void cancel_scrap(RcpVO rcpvo);
-	
 }
 	

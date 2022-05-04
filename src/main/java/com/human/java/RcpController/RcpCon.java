@@ -1,6 +1,10 @@
 package com.human.java.RcpController;
 
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.human.java.RcpService.RcpSer;
 import com.human.java.RcpVO.RcpListVO;
@@ -35,10 +40,9 @@ public class RcpCon {
 	
 	
 	@RequestMapping("VgRcpRegDone.do")
-	public String insertRcp(RcpVO rcpvo, HttpSession session) {
+	public String insertRcp(RcpVO rcpvo, HttpSession session, MultipartFile file) throws IOException {
 		int i=RcpSer.getPK();
 		rcpvo.setRCP_PK(i);
-		RcpSer.insertRcp(rcpvo);
 		String[] Rcp_content  = rcpvo.getRCPCT_CONTENT().split(",");
 		for(int j=0;j<Rcp_content.length; j++) {
 			RcpVO vo1 = new RcpVO();
@@ -47,20 +51,30 @@ public class RcpCon {
 			RcpSer.insertRcp_cont(vo1);
 		}
 		
-		String[] Rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
-		String[] Rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
-		for(int r=0; r<Rcp_resours.length; r++) {
+		String[] rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
+		String[] rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
+		for(int r=0; r<rcp_resours.length; r++) {
 			RcpVO vo2 = new RcpVO();
 			vo2.setRCP_PK(i);
-			vo2.setRCPRS_TITLE(Rcp_resours[r]);
-			vo2.setRCPRS_AMOUNT(Rcp_nyan[r]);
+			vo2.setRCPRS_TITLE(rcp_resours[r]);
+			vo2.setRCPRS_AMOUNT(rcp_nyan[r]);
 			RcpSer.insertRcp_reso(vo2);
 		}
+		String rcp_img = null;
+        if (file != null) {
+            Base64.Encoder encoder = Base64.getEncoder();
+            byte[] photoEncode = encoder.encode(file.getBytes());
+            rcp_img = new String(photoEncode, "UTF8");
+        }
+        
+        rcpvo.setRCP_IMG(rcp_img);
+        RcpSer.insertRcp(rcpvo);
+
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
 	@RequestMapping("VgRcpList.do")
-	public String boardList(RcpListVO rcplistvo, Model model
+	public String boardList(RcpListVO rcplistvo, Model model, RcpVO rcpvo
 			, @RequestParam(value="nowPage", required=false)String nowPage
 			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		
@@ -76,10 +90,6 @@ public class RcpCon {
 		rcplistvo = new RcpListVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		model.addAttribute("paging", rcplistvo);
 		model.addAttribute("RcpViewAll", RcpSer.selectRcp(rcplistvo));
-//		System.out.println("안녕깐쮸롤 ");
-//		System.out.println(rcplistvo);
-//		System.out.println(RcpSer.selectRcp(rcplistvo));
-		
 		return "/rcp/VgRcpList";
 	}
 	
@@ -103,8 +113,7 @@ public class RcpCon {
 		RcpSer.delcheck(rcpvo);
 		RcpSer.delcheck_CONT(rcpvo);
 		RcpSer.delcheck_RESO(rcpvo);
-		
-		return "redirect:/rcp/VgRcpList.do";
+;		return "redirect:/rcp/VgRcpList.do";
 	}
 	
 	@RequestMapping("/VgRcpRew.do")
@@ -116,9 +125,9 @@ public class RcpCon {
 	}
 	
 	@RequestMapping("/VgRcpRewDone.do")
-	public String rewcheck(RcpVO rcpvo, Model model) {
+	public String rewcheck(RcpVO rcpvo, Model model, MultipartFile file) throws IOException  {
 		int pk = rcpvo.getRCP_PK();
-		RcpSer.rewriteRcp(rcpvo);
+		RcpSer.delcheck(rcpvo);
 		RcpSer.delcheck_CONT(rcpvo);
 		RcpSer.delcheck_RESO(rcpvo);
 		String[] Rcp_content  = rcpvo.getRCPCT_CONTENT().split(",");
@@ -128,7 +137,7 @@ public class RcpCon {
 			vo1.setRCPCT_CONTENT(Rcp_content[j]);
 			RcpSer.insertRcp_cont(vo1);
 		}
-		System.out.println(rcpvo);
+//		System.out.println(rcpvo);
 		String[] Rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
 		String[] Rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
 		for(int r=0; r<Rcp_resours.length; r++) {
@@ -138,6 +147,16 @@ public class RcpCon {
 			vo2.setRCPRS_AMOUNT(Rcp_nyan[r]);
 			RcpSer.insertRcp_reso(vo2);
 		}
+		
+		String rcp_img = null;
+        if (file != null) {
+            Base64.Encoder encoder = Base64.getEncoder();
+            byte[] photoEncode = encoder.encode(file.getBytes());
+            rcp_img = new String(photoEncode, "UTF8");
+        }
+        rcpvo.setRCP_IMG(rcp_img);
+        RcpSer.insertRcp(rcpvo);
+        
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
@@ -165,6 +184,5 @@ public class RcpCon {
 		
 		return "redirect:/rcp/VgRcpDtail.do?RCP_PK="+a;
 	}
-
 
 }
