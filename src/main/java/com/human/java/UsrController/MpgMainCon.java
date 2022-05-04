@@ -64,22 +64,17 @@ public class MpgMainCon {
 		List<RcpVO> recipe = MpgMainSer.mpg_myrecipes(mpgvo);
 
 		model.addAttribute("myrecipes", recipe);
-		
+
 		List<RcpVO> scrapnum = MpgMainSer.scrapnum(mpgvo);
-		
-		System.out.println("scrapnum : " + scrapnum.size() );
-		
-		model.addAttribute("myscraprcp",MpgMainSer.get_mpgscrcp(scrapnum));
-		
-		
-		for(int i = 0; i<scrapnum.size();i++) {
+
+		System.out.println("scrapnum : " + scrapnum.size());
+
+		model.addAttribute("myscraprcp", MpgMainSer.get_mpgscrcp(scrapnum));
+
+		for (int i = 0; i < scrapnum.size(); i++) {
 			System.out.println(scrapnum.get(i));
 		}
 
-		
-		
-		
-		
 		// service > 내가 작성한 글을 가져오는 서비스
 
 		if (name != null) { // 로그인상태일경우
@@ -184,14 +179,14 @@ public class MpgMainCon {
 
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 
-        String photoImg = null;
-        if (file != null) {
-            Base64.Encoder encoder = Base64.getEncoder();
-            byte[] photoEncode = encoder.encode(file.getBytes());
-            photoImg = new String(photoEncode, "UTF8");
-        }
-        System.out.println(photoImg);
-        
+		String photoImg = null;
+		if (file != null) {
+			Base64.Encoder encoder = Base64.getEncoder();
+			byte[] photoEncode = encoder.encode(file.getBytes());
+			photoImg = new String(photoEncode, "UTF8");
+		}
+		System.out.println(photoImg);
+
 		mpgvo.setUSR_PHOTO(photoImg);
 		MpgMainSer.mpg_saveimg(mpgvo);
 
@@ -216,6 +211,39 @@ public class MpgMainCon {
 		System.out.println("================== file   END ==================");
 
 		return mav;
+	}
+
+	@RequestMapping("VgMpgChat.do")
+	public String VgMpgChat(UsrVO mpgvo, HttpSession session, Model model) {
+		System.out.println("VgMpgChat +   호출 ");
+		if (session.getAttribute("usr_Id") == null) {
+			return "redirect:/usr/VgUsrLogin.do";
+		}
+
+		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		// session은 오브젝트로 받아오기 때문에 적절한 타입에 담아주는 과정 필요.
+		UsrVO alldata = MpgMainSer.mpglogincheck(mpgvo);
+		String name = alldata.getUSR_NAME();
+		int adm = alldata.getUSR_ADMIN();
+
+		model.addAttribute("mpgdata", alldata);
+
+		// service > 내가 작성한 글을 가져오는 서비스
+
+		if (name != null && adm == 0) { // 로그인상태일경우
+
+			System.out.println("일반회원 채팅");
+			return "/mpg/VgMpgChat1";
+
+		} else if (name != null && adm == 1) {
+			
+			System.out.println("관리자 채팅");
+			return "/mpg/VgMpgChat2";
+		}
+		else {
+
+			return "redirect:/usr/VgUsrLogin.do";
+		}
 	}
 
 }
