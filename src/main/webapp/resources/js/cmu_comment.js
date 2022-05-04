@@ -112,3 +112,89 @@ function fn_replyReplySave(){
     form.action="cmu_commentsave.do";
     form.submit();   
 }
+
+
+$(function(){
+	$('.button').click(function(e){
+		
+		var menuSelector = e.target.value;
+		
+		if( menuSelector == '전체'){
+//			alert('전체');
+		}else{
+//			alert(menuSelector)
+			cate_ajax(menuSelector);	
+		}
+	})
+})
+
+
+
+function cate_ajax(menuSelector){
+	
+	$.ajax({
+		type: 'post', 
+		url: '/cmu/VgCmuList_ajax.do',
+		data: {"CMU_CATE" : menuSelector}, // input 태그내의 값
+		success: function(data){
+//			alert("성공했습니다.");	
+			var tag_String = create_cate_list(data);
+			
+			
+//			alert(tag_String);
+			$('#listForm').html(tag_String) 
+		},
+		error: function(request,status,error){
+			alert("에러났음"+request.status + " \n error" + error);	
+		}		
+	})
+	
+	
+	
+}
+
+function create_cate_list(data){
+	
+	var str = "";
+//	console.log(typeof data);                                           
+//	console.log(data);
+	for ( cmuvo in data ){
+//		console.log(typeof data[cmuvo]);
+//		console.log(data[cmuvo].CMU_PK);
+		
+		str += '<div class="entry one-third">';
+		str += '<figure>'
+		str += '<img src="/resources/images/img.jpg" alt="" /> <!-- 이미지 가져오는 걸로 -->'
+		str += '<!-- 상세 페이지 가는 링크 -->'
+		str += '<figcaption>'
+		str += '<a href="/cmu/VgCmuDtail.do?CMU_PK='+data[cmuvo].CMU_PK+'"></a>'
+		str += '<i class="icon icon-themeenergy_eye2"></i> <span>글보기</span></a>'
+		str += '</figcaption>'
+		str += '</figure>'
+		str += '<div class="container">'
+		str += '<!-- 상세 페이지 가는 링크 -->'
+		str += '<h2>'
+		str += '<a href="/cmu/VgCmuDtail.do?CMU_PK='+data[cmuvo].CMU_PK+'">'+data[cmuvo].CMU_TITLE+'</a>'
+		str += '</h2>'
+		str += '<div class="actions">'
+		str += '<div>'
+		str += '<div class="difficulty" style="width: 200px; border-right: none !important;">'
+		str += '<i class="ico i-medium"></i><a href="/cmu/VgCmuDtail.do?CMU_PK='+data[cmuvo].CMU_PK+'">'+data[cmuvo].USR_ID+'</a>'
+		str += '</div>'
+		str += '<div class="comments">'
+		str += '<i class="fa fa-comment"></i><a href="/cmu/VgCmuDtail.do?CMU_PK='+data[cmuvo].CMU_PK+'">${replycount}</a>'
+		str += '</div>'
+		str += '<div class="likes">'
+		str += '<i class="fa fa-heart"></i><a href="/cmu/VgCmuDtail.do?CMU_PK='+data[cmuvo].CMU_PK+'">0</a>'
+		str += '</div>'
+		str += '</div>'
+		str += '</div>'
+		str += '</div>'
+		str += '</div>';
+		
+	}
+	
+	return str;
+}
+
+

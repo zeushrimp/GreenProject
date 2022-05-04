@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Rcp">
+	<insert id="insertRcp" parameterType="RCP">
+		insert into RCP
+		(RCP_PK,
+		RCP_TITLE, RCP_CONTENT, RCP_CT, RCP_VEGE, RCP_COUNT, RCP_REG,
+		RCP_HIT,
+		RCP_LIKE, RCP_COM, USR_ID)
+		VALUES(#{RCP_PK},#{RCP_TITLE},
+		#{RCP_CONTENT}, #{RCP_CT}, #{RCP_VEGE}, #{RCP_COUNT}, sysdate, 0, 0,
+		0, #{USR_ID})
+	</insert>
+
+	<insert id="insertResor" parameterType="RCP">
+		insert into RCP_RESO
+		(RCPRS_PK, RCPRS_TITLE, RCPRS_AMOUNT, RCP_PK)
+		VALUES(RCPRS_PK.NEXTVAL,
+		#{RCPRS_TITLE}, #{RCPRS_AMOUNT}, #{RCP_PK})
+	</insert>
+
+	<insert id="insertCont" parameterType="RCP">
+		insert into RCP_CONT
+		(RCPCT_PK,RCPCT_NUM, RCPCT_CONTENT, RCP_PK)
+		VALUES(RCPCT_PK.NEXTVAL,#{RCPCT_NUM}, #{RCPCT_CONTENT}, #{RCP_PK})
+	</insert>
+
+	<select id="detailRcp" parameterType="RCP" resultType="RCP">
+		SELECT *
+		FROM RCP
+		WHERE RCP_PK = ${RCP_PK}
+	</select>
+	<select id="detailRcp_reso" parameterType="RCP" resultType="RCP">
+		SELECT *
+		FROM RCP_RESO
+		WHERE RCP_PK = ${RCP_PK}
+	</select>
+	<select id="detailRcp_cont" parameterType="RCP" resultType="RCP">
+		SELECT *
+		FROM RCP_CONT
+		WHERE RCP_PK = ${RCP_PK}
+	</select>
+
+	<select id="getPK" resultType="int">
+		select RCP_PK.nextval from dual
+	</select>
+
+	<select id="countRcp" parameterType="RCP" resultType="int">
+		SELECT
+		COUNT(*) FROM RCP
+	</select>
+	<select id="selectRcp" parameterType="RCP" resultType="RCP">
+		SELECT *
+		FROM RCP ORDER BY RCP_PK DESC OFFSET #{start} ROWS FETCH NEXT
+		#{cntPerPage} ROWS ONLY
+	</select>
+
+	<delete id="delcheck" parameterType="RCP">
+		DELETE FROM RCP
+		WHERE RCP_PK
+		= ${RCP_PK}
+	</delete>
+	
+	<delete id="delcheck_CONT" parameterType="RCP">
+		DELETE FROM RCP_CONT
+		WHERE RCP_PK
+		= ${RCP_PK}
+	</delete>
+	
+	<delete id="delcheck_RESO" parameterType="RCP">
+		DELETE FROM RCP_RESO
+		WHERE RCP_PK
+		= ${RCP_PK}
+	</delete>
+
+	<update id="rewriteRcp" parameterType="RCP">
+		UPDATE RCP SET
+		RCP_TITLE = #{RCP_TITLE},
+		RCP_CONTENT = #{RCP_CONTENT},
+		RCP_VEGE = #{RCP_VEGE},
+		RCP_CT = #{RCP_CT},
+		RCP_COUNT = #{RCP_COUNT}
+		WHERE RCP_PK = ${RCP_PK}
+	</update>
+
+	<update id="rewriteRcp_cont" parameterType="RCP">
+		UPDATE RCP_CONT SET
+		RCPCT_CONTENT = #{RCPCT_CONTENT}
+		WHERE RCP_PK = ${RCP_PK}
+	</update>
+	
+	<update id="rewriteRcp_reso" parameterType="RCP">
+		UPDATE RCP_RESO SET
+		RCPRS_TITLE = #{RCPRS_TITLE},
+		RCPRS_AMOUNT = #{RCPRS_AMOUNT}
+		WHERE RCP_PK = ${RCP_PK}
+	</update>
+	
+	<!-- 조회수 올리기 -->
+	<update id="viewsCountRcp">
+		UPDATE RCP SET
+		RCP_HIT = RCP_HIT + 1 
+		WHERE RCP_PK = #{RCP_PK}
+	</update>
+	
+	<insert id="input_scrap" parameterType="RCP">
+        insert into RCP_SCRAP
+        (RCPSP_PK,RCP_PK,USR_ID)
+        VALUES(RCPSP_PK.NEXTVAL,#{RCP_PK},#{USR_ID})
+     
+     </insert>
+	<select id="ch_scrap_detail" parameterType="RCP" resultType="RCP">
+		select RCPSP_PK
+		from RCP_SCRAP
+		WHERE RCP_PK=#{RCP_PK} and USR_ID=#{USR_ID}
+	</select>
+	<delete id="cancel_scrap" parameterType="RCP">
+		delete from RCP_SCRAP
+		where RCP_PK=#{RCP_PK} and USR_ID=#{USR_ID}	
+	</delete>
+	
+</mapper>

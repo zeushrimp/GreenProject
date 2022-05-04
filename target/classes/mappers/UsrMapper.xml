@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Usr">
+  	<select id="checkId" parameterType="USR" resultType="int">
+  		SELECT count(USR_ID) FROM USR where USR_ID = #{USR_ID}
+  	</select>
+  	
+  	<select id="UsrLogin" parameterType="USR" resultType="USR">
+  		SELECT * 
+  		FROM USR
+  		 where USR_ID = #{USR_ID} AND USR_PW = #{USR_PW}
+  	</select>
+  	
+  	<insert id="insertUsr" parameterType="USR">
+  		insert into USR
+  		(USR_ID, USR_PW, USR_NAME, USR_NICK, USR_TEL, USR_EMAIL, USR_ADDR1, USR_ADDR2, USR_ADDR3, USR_VEGE, USR_GRADE, USR_POINT, USR_ADMIN, USR_OUT,USR_DATE)
+  		VALUES(#{USR_ID},#{USR_PW},#{USR_NAME},#{USR_NICK},#{USR_TEL},#{USR_EMAIL2},#{USR_ADDR1},#{USR_ADDR2},#{USR_ADDR3},#{USR_VEGE},'브론즈',0,0,1,sysdate)
+  	</insert>
+  	
+  	<select id="FindId" parameterType="USR" resultType="String">
+  		SELECT USR_ID
+  		FROM USR
+  		WHERE USR_NAME=#{USR_NAME} and USR_TEL=#{USR_TEL}	
+  	</select>
+  	
+  	<select id="FindPw" parameterType="USR" resultType="String">
+  		SELECT USR_PW
+  		FROM USR
+  		WHERE USR_NAME=#{USR_NAME} and USR_TEL=#{USR_TEL} and USR_ID = #{USR_ID}	
+  	</select>
+  	
+  	<select id="checkNick" parameterType="USR" resultType="int">
+  	SELECT count(USR_NICK) FROM USR where USR_NICK = #{USR_NICK}
+  	</select>
+  	
+  </mapper>
+
+ 

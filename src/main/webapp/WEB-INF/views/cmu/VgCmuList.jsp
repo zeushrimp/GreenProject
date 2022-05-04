@@ -24,6 +24,7 @@
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	<script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/cmu_comment.js"></script>
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<style type="text/css">
@@ -71,31 +72,16 @@
 				<header class="s-title">
 					<h1 style="padding: 0px 15px 60px;">커뮤니티 게시판</h1>
 				</header>
-				<form>
-					
 					<div style="padding-bottom: 5px;margin-left: 20px; float: left;">
-						<button class="button" name="category" value="전체" style="margin-right: 10px;">
-							<span>전체</span>
-						</button>
-						<button class="button" name="category" value="공지" style="margin-right: 10px;">
-							<span>공지</span>
-						</button>
-						<button class="button" name="category" value="채식소식" style="margin-right: 10px;">
-							<span>채식소식</span>
-						</button>
-						<button class="button" name="category" value="동네맛집" style="margin-right: 10px;">
-							<span>동네맛집</span>
-						</button>
-						<button class="button" name="category" value="일상소식" style="margin-right: 10px;">
-							<span>일상소식</span>
-						</button>
-						<button class="button" name="category" value="운동/건강" style="margin-right: 10px;">
-							<span>운동/건강</span>
-						</button>
-						<button class="button" name="category" value="취미생활" style="margin-right: 10px;">
-							<span>취미생활</span>
-						</button>
+						<button class="button" name="category"style="margin-right: 10px;" value="전체" >전체</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="공지">공지</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="채식소식">채식소식</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="동네맛집">동네맛집</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="일상소식">일상소식</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="운동/건강">운동/건강</button>
+						<button class="button" name="category" style="margin-right: 10px;" value="취미생활">취미생활</button>
 					</div>
+				<form>
 					<div class="form-group row justify-content-center"
 						style="width: 490px; padding: 0px 15px 20px; float: right;margin-right: 0px;">
 						<div style="width: 100px; padding: 0px 3px 20px 0px; float: left;">
@@ -204,7 +190,7 @@
 	<%@ include file="../../../Footer.jsp" %>
 	<!--//footer-->
 
-	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
 	<script src="/resources/js/scripts.js"></script>

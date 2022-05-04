@@ -1,7 +1,6 @@
 package com.human.java.CmuDAO;
 
 import java.util.List;
-import java.util.Map;
 
 import com.human.java.CmuVO.CmuVO;
 
@@ -40,5 +39,7 @@ public interface CmuDao {
 	
 	// 댓글 수정
 	public int cmu_commentupdate(CmuVO cmuvo);
-
+	
+	// ajax_category
+	public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo);
 }

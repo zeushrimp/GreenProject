@@ -74,5 +74,10 @@ public class CmuSerImpl implements CmuSer{
 	// 댓글 수정
 	public int cmu_commentupdate(CmuVO cmuvo) {
 		return cmudao.cmu_commentupdate(cmuvo);
+	}
+
+	// ajax_category
+	public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo) {
+		return cmudao.cmu_readlist_ajax(cmuvo);
 	}	
 }

@@ -1,7 +1,6 @@
 package com.human.java.CmuDAO;
 
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +81,11 @@ public class CmuDaoImpl implements CmuDao{
 	@Override
 	public int cmu_commentupdate(CmuVO cmuvo) {
 		return mybatis.update("update_comment", cmuvo);
+	}
+	
+	// ajax_category
+	@Override
+	public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo) {
+		return mybatis.selectList("Cmu.get_readlist_ajax",cmuvo);
 	}
 }

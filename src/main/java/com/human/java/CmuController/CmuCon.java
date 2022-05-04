@@ -7,9 +7,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -35,6 +40,9 @@ public class CmuCon {
 	@Autowired
 	private CmuSer CmuSer;
 
+	@Autowired
+	ResourceLoader resourceLoader;
+	
 	// 단순 페이지 이동
 	@RequestMapping("/{url}.do")
 	public String userJoin(@PathVariable String url) {
@@ -179,11 +187,33 @@ public class CmuCon {
     		
     		//이미지 경로 생성
 			/* String path = "C:\\Users\\img" + "ckImage/"; */	// 이미지 경로 설정(폴더 자동 생성)
+    		String pdfPath = request.getSession().getServletContext().getRealPath("../../../../");
+    		System.out.println("pdfPath" + pdfPath);	
+    		
+    		Path path2 = FileSystems.getDefault().getPath("");
+    		String directoryName2 = path2.toAbsolutePath().toString();
+    		System.out.println("Current Working Directory is = " +directoryName2);
+    		
+    		
+    		String root = request.getContextPath(); // return 프로젝트 Path
+    		String uri = request.getRequestURI(); // return 프로젝트+파일경로
+    		String servlet = request.getServletPath(); // return 파일명
+    		StringBuffer url = request.getRequestURL(); // return 전체 경로
+    		
+    		System.out.println("root" + root);
+    		System.out.println("uri" + uri);
+    		System.out.println("servlet" + servlet);
+    		System.out.println("url" + url);
+    		
+    		
+    		Resource resource = (Resource) resourceLoader.getResource("classpath:file/hello.html");
+    		
     		String path = session.getServletContext().getRealPath("/resources/cmupic");
     		
     		String ckUploadPath = path + "/" + uid + "_" + fileName;
     		File folder = new File(path);
     		System.out.println("path:"+path);	// 이미지 저장경로 console에 확인
+    		System.out.println("ckUploadPath:"+ckUploadPath);	// 이미지 저장경로 console에 확인
     		//해당 디렉토리 확인
     		if(!folder.exists()){
     			try{
@@ -263,6 +293,24 @@ public class CmuCon {
     			}
     		}
     } 
+    
+    
+    // ajax_category
+    @ResponseBody
+    @RequestMapping("/VgCmuList_ajax.do")
+    public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo ) {
+    	
+    	System.out.println("==============");
+    	System.out.println("ajax 진입 성공");
+    	System.out.println("Cate : " + cmuvo.getCMU_CATE());
+    	System.out.println("==============");
+    	List<CmuVO> cmulist = CmuSer.cmu_readlist_ajax(cmuvo);
+    	// sevice > dao > mapper > 조건에 따라서
+    	System.out.println(cmulist.size());
+    	// list >  htmlS
+
+    	return cmulist;
+    }
 }
 	
 

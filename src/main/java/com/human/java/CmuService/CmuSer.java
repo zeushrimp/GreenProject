@@ -1,7 +1,6 @@
 package com.human.java.CmuService;
 
 import java.util.List;
-import java.util.Map;
 
 import com.human.java.CmuVO.CmuVO;
 
@@ -39,4 +38,7 @@ public interface CmuSer {
 
     // 댓글 수정
     public int cmu_commentupdate(CmuVO cmuvo);
+    
+    // ajax_ category
+    public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo);
 }

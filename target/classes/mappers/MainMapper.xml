@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+  <mapper namespace="Main">
+  	<select id="showMainCmu" resultType="CMU">
+  	SELECT *
+  	FROM (
+  	SELECT *
+  	FROM CMU
+  	ORDER BY CMU_REG DESC
+  	)WHERE ROWNUM<![CDATA[<]]>4
+  	</select>
+  	
+  	<select id="MshowNewRcp" resultType="RCP">
+ 	SELECT *
+  	FROM (
+  	SELECT *
+  	FROM RCP
+  	ORDER BY RCP_REG DESC
+  	)WHERE ROWNUM<![CDATA[<]]>4
+  	</select>
+  	
+  	<select id="MshowPopRcp" resultType="RCP">
+  	SELECT *
+  	FROM (
+  	SELECT *
+  	FROM RCP
+  	ORDER BY RCP_LIKE DESC
+  	)WHERE ROWNUM<![CDATA[<]]>4
+  	</select>
+  </mapper>

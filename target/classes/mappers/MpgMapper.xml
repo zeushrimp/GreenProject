@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mpg">
+
+	<select id="Mpg_login_check" parameterType="String"
+		resultType="USR">
+		select * from USR where usr_id=#{USR_ID}
+	</select>
+
+	<select id="Mpg_Myposts" parameterType="String" resultType="CMU">
+		select * from CMU where usr_id=#{USR_ID}
+	</select>
+
+
+	<select id="Mpg_Myrecipes" parameterType="String" resultType="RCP">
+		select * from RCP where usr_id=#{USR_ID}
+	</select>
+	
+	<select id="scrapnum" parameterType="String" resultType="RCP">
+		select RCP_PK from RCP_SCRAP where usr_id=#{USR_ID}
+	</select>
+
+
+	<update id="Mpg_resign_user" parameterType="String">
+		UPDATE USR
+		SET
+		USR_OUT
+		= 0
+		WHERE
+		usr_id =#{USR_ID}
+
+	</update>
+
+
+	<update id="Mpg_pw_modify" parameterType="USR">
+		UPDATE USR
+		SET
+		USR_PW =
+		#{USR_PW}
+		WHERE
+		usr_id =#{USR_ID}
+	</update>
+
+
+	<update id="Mpg_nk_modify" parameterType="USR">
+		UPDATE USR
+		SET
+		USR_NICK =
+		#{USR_NICK}
+		WHERE
+		usr_id =#{USR_ID}
+	</update>
+
+	<update id="Mpg_vg_modify" parameterType="USR">
+		UPDATE USR
+		SET
+		USR_VEGE =
+		#{USR_VEGE}
+		WHERE
+		usr_id =#{USR_ID}
+	</update>
+
+	<update id="Mpg_saveimg" parameterType="USR">
+		UPDATE USR
+		SET
+		USR_PHOTO =
+		#{USR_PHOTO}
+		WHERE
+		usr_id =#{USR_ID}
+	</update>
+	<select id="get_mpgscrcp" resultType="RCP">
+		select *
+		from RCP
+		where RCP_PK in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item.RCP_PK}
+		</foreach>
+	</select>
+</mapper>
