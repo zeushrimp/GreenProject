@@ -73,7 +73,7 @@
 					<h1 style="padding: 0px 15px 60px;">커뮤니티 게시판</h1>
 				</header>
 					<div style="padding-bottom: 5px;margin-left: 20px; float: left;">
-						<button class="catebutton" name="category"style="margin-right: 10px;" value="전체" >전체</button>
+						<button class="catebutton" name="category" style="margin-right: 10px;" value="전체" >전체</button>
 						<button class="catebutton" name="category" style="margin-right: 10px;" value="공지">공지</button>
 						<button class="catebutton" name="category" style="margin-right: 10px;" value="채식소식">채식소식</button>
 						<button class="catebutton" name="category" style="margin-right: 10px;" value="동네맛집">동네맛집</button>

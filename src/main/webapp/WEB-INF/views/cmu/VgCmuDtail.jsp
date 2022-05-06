@@ -13,12 +13,14 @@
 	
 	<title>베지피 커뮤니티</title>
 	
+	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<link rel="stylesheet" href="/resources/css/style.css" />
 	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
-	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/cmu_comment.js"></script>
-	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
+	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	
 	<style type="text/css">
 		.three-fourth {width: 100%;}
 		.comments .depth-4 {padding-left:180px;margin-left:0;}
@@ -142,34 +144,16 @@
 							        </div>
 							        <c:set var="comment_ID" value="${replylist.USR_ID }" />
 							        <c:if test="${USR_ADMIN == 1 || USR_ID eq comment_ID}">
-								        <a class="comment-cmulink" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')">
-								        	<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" />삭제</a>
-								        <a class="comment-cmulink" href="#" onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')">
-								        	<input name="CMU_PK" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
+								        <a class="comment-cmulink" href="#" <%-- onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')" --%>>
+								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />삭제</a>
+								        <a class="comment-cmulink" href="#" <%-- onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')" --%>>
+								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
 								    </c:if>
-								    <a class="comment-cmulink" href="#" onclick="fn_replyReply('<c:out value="${replylist.CCM_PK}"/>')">댓글</a>
+								    	<button class="comment-cmulink" id="rereplybutton" name="rereplybutton" value="댓글">댓글</button>
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
 							    </div>
 							    <!-- 대댓글 히든 창 -->
-								<div class="container" id="replyDialog" style="display:none; margin-top:10px; padding-bottom: 10px;">
-								<p><span class="req">*</span><strong>주의 :</strong> 댓글로 인해 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
-									<form name="recommnetform" action="cmu_commentsave.do" method="post">
-									<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
-										<div class="f-row">
-											<!-- 게시글 번호 받음 -->
-											<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-											<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
-											<input type="hidden" id="USR_ID" name="CCM_REF">
-											<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
-										</div>
-										
-										<div>
-											<!-- 수정, 취소 -->
-									        <a class="reply-cmulink" href="#" onclick="fn_replyReplySave()">댓글 작성</a>
-		    								<a class="reply-cmulink" href="#" onclick="fn_replyReplyCancel()">취소</a>
-										</div>
-									</form>
-								</div>
+								<div class="rereply_ajax"></div>
 							</li>
 							</c:forEach>					
 						</ol>											
@@ -215,7 +199,6 @@
     <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
 	
-	<script src="/resources/js/jquery-3.1.0.min.js"></script>
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
 	<script src="/resources/js/scripts.js"></script>

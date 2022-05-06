@@ -114,7 +114,7 @@ public class CmuCon {
 	return "/cmu/VgCmuDtail";
 	}
 	
-	// 수정 폼으로 가기
+	// 게시글 수정 폼으로 가기
 	@RequestMapping(value = "/updatecmuform.do")
 	public String cmuupdateform(CmuVO cmuvo,Model model){
 		
@@ -292,10 +292,10 @@ public class CmuCon {
     		}
     } 
         
-    // ajax_category
+    // ajax_category(카테고리)
     @ResponseBody
     @RequestMapping("/VgCmuList_ajax.do")
-    public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo ) {
+    public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo) {
     	
     	System.out.println("==============");
     	System.out.println("ajax 진입 성공");
@@ -307,6 +307,20 @@ public class CmuCon {
     	// list >  htmlS
 
     	return cmulist;
+    }
+    
+    // ajax_rereply(대댓글)
+    @ResponseBody
+    @RequestMapping("/VgCmuRereply_ajax.do")
+    public List<CmuVO> cmu_Rereply_ajax(CmuVO cmuvo, HttpSession session) {
+    	
+    	cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+    	System.out.println("==============");
+    	System.out.println("ajax 진입 성공");
+    	System.out.println("usr : " + cmuvo.getUSR_ID());
+    	System.out.println("==============");
+    	
+    	return null;
     }
 }
 	
