@@ -23,6 +23,15 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/Mpg.css" />
+<link rel="stylesheet" href="/resources/css/icons.css" />
+<link
+	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
+	rel="stylesheet">
+<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 <style type="text/css">
 body {
 	margin-top: 20px;
@@ -388,12 +397,20 @@ ul {
 	margin-bottom: 2rem;
 	box-shadow: none;
 }
+
+ul>li:before {
+	content: none;
+}
 </style>
 <title>비시트 1:1 상담소(일반회원)</title>
 </head>
 <body>
+	<!--header-->
+	<%@ include file="../../../Header.jsp"%>
+	<div style="padding-top: 200px"></div>
+	<!--//header-->
 
-	<div class="container">
+	<div class="container" style="float: none; max-width:1170px; border: 5px #49A54C solid; ">
 		<!-- 채팅을위한 주석 -->
 		<span id="chatimg1" style="display: none;">${mpgdata.USR_PHOTO}</span>
 		<span id="chatid1" style="display: none;">${mpgdata.USR_ID}</span>
@@ -405,9 +422,10 @@ ul {
 					<h5 class="title">Chat App</h5>
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="">
-					<div id="receiver-id" style="font-weight: bold;" >ID:</div>
-					
-					
+					<div id="receiver-id" style="font-weight: bold; display: none;">ID:</div>
+					<divstyle="font-weight: bold;> 관리자를 호출중입니다...</div>
+
+
 					<form id="chatform" method="post" style="display: none;">
 						<input type="text" name="USR_CHAT_ID" id="receiver-id_input">
 						<button type="button" id="receiver-id_btn">보내기</button>
@@ -459,6 +477,10 @@ ul {
 		<!-- Content wrapper end -->
 
 	</div>
+	<!--footer-->
+	<div style="padding-top: 400px"></div>
+	<%@ include file="../../../Footer.jsp"%>
+	<!--//footer-->
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script>
 		let img = document.getElementById("chatimg1").innerHTML;
@@ -491,7 +513,7 @@ ul {
 				}
 
 				conn = con2;
-				$('#status').html("connected to: 관리자" );
+				$('#status').html("connected to: 관리자");
 				ready();
 			});
 			peer.on('disconnected', function() {
@@ -583,45 +605,47 @@ ul {
 				}
 			});
 		});
-		
-		
-// 		var queryString = $('#chatform').serialize();
-// 		$.ajax({
-// 	        url:"updatechatid.do",
-// 	        type:'post',
-// 	        data: 
-// 		    success: function (data) {
-// 		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-// 		        }
-// 		});
 
+		// 		var queryString = $('#chatform').serialize();
+		// 		$.ajax({
+		// 	        url:"updatechatid.do",
+		// 	        type:'post',
+		// 	        data: 
+		// 		    success: function (data) {
+		// 		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
+		// 		        }
+		// 		});
 
+		$(function() {
 
-	$(function(){
-		
-		
-		setTimeout(function(){
-			var peerid = $('#receiver-id_input').val();
-			$.ajax({
-	 	        url:"/mpg/updatechatid.do",
-	 	        type:'POST',
-	 	        data: { "USR_CHAT_ID" : peerid },
-	 	        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-	 		    success: function (data) {
-	 		            alert(data);	 		            
-	 		    },
-	 		    error : function(){
-	 		    	
-	 		    }
-	 		});
-		}, 3000);
+			setTimeout(
+					function() {
+						var peerid = $('#receiver-id_input').val();
+						$
+								.ajax({
+									url : "/mpg/updatechatid.do",
+									type : 'POST',
+									data : {
+										"USR_CHAT_ID" : peerid
+									},
+									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+									success : function(data) {
+										alert(data);
+									},
+									error : function() {
 
-		
-			
-	
-	})
+									}
+								});
+					}, 3000);
 
+		})
 	</script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
+	<script src="/resources/js/bootstrap.js"></script>
+	<script src="/resources/js/Mpg.js"></script>
 
 </body>
 </html>

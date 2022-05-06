@@ -24,10 +24,17 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/Mpg.css" />
+<link rel="stylesheet" href="/resources/css/icons.css" />
+<link
+	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
+	rel="stylesheet">
+<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 
-	
+
 <style type="text/css">
-
 body {
 	margin-top: 20px;
 }
@@ -45,26 +52,31 @@ body {
 	border-radius: 3px 0 0 0;
 	padding: .75rem 1rem;
 }
+
 .chat-search-box .input-group .form-control {
 	-webkit-border-radius: 2px 0 0 2px;
 	-moz-border-radius: 2px 0 0 2px;
 	border-radius: 2px 0 0 2px;
 	border-right: 0;
 }
+
 .chat-search-box .input-group .form-control:focus {
 	border-right: 0;
 }
+
 .chat-search-box .input-group .input-group-btn .btn {
 	-webkit-border-radius: 0 2px 2px 0;
 	-moz-border-radius: 0 2px 2px 0;
 	border-radius: 0 2px 2px 0;
 	margin: 0;
 }
+
 .chat-search-box .input-group .input-group-btn .btn i {
 	font-size: 1.2rem;
 	line-height: 100%;
 	vertical-align: middle;
 }
+
 @media ( max-width : 767px) {
 	.chat-search-box {
 		display: none;
@@ -93,6 +105,7 @@ body {
 .users {
 	padding: 0;
 }
+
 .users .person {
 	position: relative;
 	width: 100%;
@@ -100,6 +113,7 @@ body {
 	cursor: pointer;
 	border-bottom: 1px solid #f0f4f8;
 }
+
 .users .person:hover {
 	background-color: #ffffff;
 	/* Fallback Color */
@@ -116,6 +130,7 @@ body {
 	/* Opera 11.10+ */
 	background-image: linear-gradient(right, #e9eff5, #ffffff);
 }
+
 .users .person.active-user {
 	background-color: #ffffff;
 	/* Fallback Color */
@@ -132,14 +147,17 @@ body {
 	/* Opera 11.10+ */
 	background-image: linear-gradient(right, #f7f9fb, #ffffff);
 }
+
 .users .person:last-child {
 	border-bottom: 0;
 }
+
 .users .person .user {
 	display: inline-block;
 	position: relative;
 	margin-right: 10px;
 }
+
 .users .person .user img {
 	width: 48px;
 	height: 48px;
@@ -147,6 +165,7 @@ body {
 	-moz-border-radius: 50px;
 	border-radius: 50px;
 }
+
 .users .person .user .status {
 	width: 10px;
 	height: 10px;
@@ -158,29 +177,36 @@ body {
 	top: 0;
 	right: 0;
 }
+
 .users .person .user .status.online {
 	background: #9ec94a;
 }
+
 .users .person .user .status.offline {
 	background: #c4d2e2;
 }
+
 .users .person .user .status.away {
 	background: #f9be52;
 }
+
 .users .person .user .status.busy {
 	background: #fd7274;
 }
+
 .users .person p.name-time {
 	font-weight: 600;
 	font-size: .85rem;
 	display: inline-block;
 }
+
 .users .person p.name-time .time {
 	font-weight: 400;
 	font-size: .7rem;
 	text-align: right;
 	color: #8796af;
 }
+
 @media ( max-width : 767px) {
 	.users .person .user img {
 		width: 30px;
@@ -208,22 +234,27 @@ body {
 	-moz-border-radius: 0 3px 0 0;
 	border-radius: 0 3px 0 0;
 }
+
 .selected-user span {
 	line-height: 100%;
 }
+
 .selected-user span.name {
 	font-weight: 700;
 }
+
 .chat-container {
 	position: relative;
 	padding: 1rem;
 }
+
 .chat-container li.chat-left, .chat-container li.chat-right {
 	display: flex;
 	flex: 1;
 	flex-direction: row;
 	margin-bottom: 40px;
 }
+
 .chat-container li img {
 	width: 48px;
 	height: 48px;
@@ -231,21 +262,26 @@ body {
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 }
+
 .chat-container li .chat-avatar {
 	margin-right: 20px;
 }
+
 .chat-container li.chat-right {
 	justify-content: flex-end;
 }
+
 .chat-container li.chat-right>.chat-avatar {
 	margin-left: 20px;
 	margin-right: 0;
 }
+
 .chat-container li .chat-name {
 	font-size: .75rem;
 	color: #999999;
 	text-align: center;
 }
+
 .chat-container li .chat-text {
 	padding: .4rem 1rem;
 	-webkit-border-radius: 4px;
@@ -256,6 +292,7 @@ body {
 	line-height: 150%;
 	position: relative;
 }
+
 .chat-container li .chat-text:before {
 	content: '';
 	position: absolute;
@@ -266,14 +303,17 @@ body {
 	border: 10px solid;
 	border-color: transparent #ffffff transparent transparent;
 }
+
 .chat-container li.chat-right>.chat-text {
 	text-align: right;
 }
+
 .chat-container li.chat-right>.chat-text:before {
 	right: -20px;
 	border-color: transparent transparent transparent #ffffff;
 	left: inherit;
 }
+
 .chat-container li .chat-hour {
 	padding: 0;
 	margin-bottom: 10px;
@@ -284,13 +324,16 @@ body {
 	justify-content: center;
 	margin: 0 0 0 15px;
 }
+
 .chat-container li .chat-hour>span {
 	font-size: 16px;
 	color: #9ec94a;
 }
+
 .chat-container li.chat-right>.chat-hour {
 	margin: 0 15px 0 0;
 }
+
 @media ( max-width : 767px) {
 	.chat-container li.chat-left, .chat-container li.chat-right {
 		flex-direction: column;
@@ -330,6 +373,7 @@ body {
 		font-size: .8rem;
 	}
 }
+
 .chat-form {
 	padding: 15px;
 	width: 100%;
@@ -339,11 +383,13 @@ body {
 	background-color: #ffffff;
 	border-top: 1px solid white;
 }
+
 ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
+
 .card {
 	border: 0;
 	background: #f4f5fb;
@@ -353,16 +399,25 @@ ul {
 	margin-bottom: 2rem;
 	box-shadow: none;
 }
+
+ul>li:before {
+	content: none;
+}
 </style>
 <title>비시트 1:1 상담소(관리자)</title>
 </head>
 <body>
-<%String USR_CHAT_ID = request.getParameter("USR_CHAT_ID"); %>
+	<%
+	String USR_CHAT_ID = request.getParameter("USR_CHAT_ID");
+	%>
 
 
 
-
-	<div class="container">
+	<!--header-->
+	<%@ include file="../../../Header.jsp"%>
+	<div style="padding-top: 200px"></div>
+	<!--//header-->
+	<div class="container" style="float: none; max-width:1170px; border: 5px #49A54C solid; ">
 		<span id="chatimg" style="display: none;">${mpgdata.USR_PHOTO}</span>
 		<span id="chatid" style="display: none;">${mpgdata.USR_ID}</span>
 		<!-- Page header start -->
@@ -373,7 +428,7 @@ ul {
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<span>ID: </span> <input type="text" id="receiver-id"
-						placeholder="input the id" value="<%=USR_CHAT_ID %>" />
+						placeholder="input the id" value="<%=USR_CHAT_ID%>" />
 					<button type="button" class="btn btn-primary" id="connect-button">연결하기</button>
 				</div>
 			</div>
@@ -418,10 +473,14 @@ ul {
 		<!-- Content wrapper end -->
 
 	</div>
+	<!--footer-->
+	<div style="padding-top: 400px"></div>
+	<%@ include file="../../../Footer.jsp"%>
+	<!--//footer-->
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script>
-	let img = document.getElementById("chatimg").innerHTML;
-	let usrid = document.getElementById("chatid").innerHTML;
+		let img = document.getElementById("chatimg").innerHTML;
+		let usrid = document.getElementById("chatid").innerHTML;
 		let peer = null;
 		let lastPeerId = null;
 		let conn = null;
@@ -531,9 +590,13 @@ ul {
 				}
 			});
 		});
-		
-
 	</script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
+	<script src="/resources/js/bootstrap.js"></script>
+	<script src="/resources/js/Mpg.js"></script>
 
 </body>
 </html>
