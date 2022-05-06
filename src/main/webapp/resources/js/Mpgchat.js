@@ -1,6 +1,3 @@
-let img = document.getElementById("chatimg").innerHTML;
-let usrid = document.getElementById("chatid").innerHTML;
-
 let peer = null;
 let lastPeerId = null;
 let conn = null;
@@ -14,6 +11,7 @@ function init() {
 		} else {
 			lastPeerId = peer.id;
 		}
+	
 	});
 
 	peer.on('connection', function(con2) {
@@ -65,7 +63,7 @@ function addMessage(msg, side) {
 	var h = now.getHours();
 	var m = now.getMinutes();
 	var s = now.getSeconds();
-	
+
 
 	if (h < 10)
 		h = "0" + h;
@@ -81,10 +79,9 @@ function addMessage(msg, side) {
 		msgHtml.push('<li class="chat-left">');
 		msgHtml.push('<div class="chat-avatar">');
 		msgHtml.push('	<img');
-		msgHtml
-			.push('			src="data:image/gif;base64,' + img + '"');
-		msgHtml.push('			alt="Retail Admin">');
-		msgHtml.push('		<div class="chat-name">' + usrid+ '</div>');
+		msgHtml.push('		src="/resources/images/admin.png"');
+		msgHtml.push('		alt="Retail Admin">');
+		msgHtml.push('		<div class="chat-name">관리자</div>');
 		msgHtml.push('	</div>');
 		msgHtml.push('		<div class="chat-text">' + msg + '');
 		msgHtml.push('	</div>');
@@ -103,10 +100,9 @@ function addMessage(msg, side) {
 		msgHtml.push('	</div>');
 		msgHtml.push('	<div class="chat-avatar">');
 		msgHtml.push('		<img');
-		msgHtml
-			.push('		src="/resources/images/admin.png"');
-		msgHtml.push('		alt="Retail Admin">');
-		msgHtml.push('		<div class="chat-name">관리자</div>');
+		msgHtml.push('			src="data:image/gif;base64,' + img + '"');
+		msgHtml.push('			alt="Retail Admin">');
+		msgHtml.push('		<div class="chat-name">' + usrid + '</div>');
 		msgHtml.push('	</div>');
 		msgHtml.push('</li>');
 

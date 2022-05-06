@@ -6,10 +6,38 @@
   <mapper namespace="Adm">
   
     <!-- 회원 목록 보기 (관리자) -->
-  	<select id="showAllus" resultType="USR">
+  	<select id="select_userinfo_ad_ajax" resultType="USR">
   		SELECT *
   		FROM USR
   	</select>
+  	
+  	  	<!-- 레시피 목록 조회 (관리자) -->
+  	<select id="select_rcp_list_ad_ajax" resultType="RCP">
+		SELECT * FROM RCP
+		ORDER BY RCP_PK
+	</select>
+	
+  	<!-- 커뮤니티 게시글 목록 조회 (관리자) -->
+  	<select id="select_cmu_list_ad_ajax" resultType="CMU" parameterType="CMU">
+		SELECT * FROM CMU
+		ORDER BY CMU_PK
+<!-- 		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="searchtype=='CMU_TITLE' and keyword != null and keyword != '' ">
+				AND CMU_TITLE like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchtype=='CMU_CONTENT' and keyword != null and keyword != '' ">
+				AND CMU_CONTENT like '%'||#{keyword}||'%'
+			</if>
+			<if test="searchtype==' USR_ID' and keyword != null and keyword != '' ">
+				AND USR_ID like '%'||#{keyword}||'%'
+			</if>
+		</trim>
+			ORDER BY CMU_PK DESC
+			OFFSET #{startlist} ROWS FETCH NEXT #{listsize} ROWS ONLY -->
+	</select>
+  	
+
+  	
   	
   	 <!-- 회원 정보 수정 (관리자) -->
  	<update id="changeUsrInfo" parameterType="USR">
@@ -32,7 +60,7 @@
  		USR_PW=#{USR_PW}
  	</delete>
   	
-  	
-  	
+
+
   	
   </mapper>
