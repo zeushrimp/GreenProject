@@ -209,7 +209,14 @@ width
 								<!--item-->
 								<div class="entry one-third" style="width: 33.3%">
 									<figure>
-										<img src="../../resources/images/img.jpg" alt="" />
+									<f:choose>
+										<f:when test="${vo1.RCP_IMG != null }">
+										<img src="data:image/gif;base64,${vo1.RCP_IMG }" style="width: 369.59px !important; height: 277.19px !important;" />
+										</f:when>
+										<f:otherwise>
+										<img src="../../resources/images/img.jpg"  />
+										</f:otherwise>
+									</f:choose>
 										<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
@@ -262,7 +269,14 @@ width
 								<!--item-->
 								<div class="entry one-third" style="width: 33.3%">
 									<figure>
-										<img src="../../resources/images/img.jpg" alt="" />
+										<f:choose>
+											<f:when test="${vo2.RCP_IMG != null} ">
+												<img src="data:image/gif;base64,${vo2.RCP_IMG }" style="width: 369.59px !important; height: 277.19px !important;" />
+											</f:when>
+										<f:otherwise>
+											<img src="../../resources/images/img.jpg"  />
+										</f:otherwise>
+									</f:choose>
 										<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
