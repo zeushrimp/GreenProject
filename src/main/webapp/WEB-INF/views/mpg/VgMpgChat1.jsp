@@ -410,7 +410,8 @@ ul>li:before {
 	<div style="padding-top: 200px"></div>
 	<!--//header-->
 
-	<div class="container" style="float: none; max-width:1170px; border: 5px #49A54C solid; ">
+	<div class="container"
+		style="float: none; max-width: 1170px; border: 5px #49A54C solid;">
 		<!-- 채팅을위한 주석 -->
 		<span id="chatimg1" style="display: none;">${mpgdata.USR_PHOTO}</span>
 		<span id="chatid1" style="display: none;">${mpgdata.USR_ID}</span>
@@ -423,18 +424,18 @@ ul>li:before {
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="">
 					<div id="receiver-id" style="font-weight: bold; display: none;">ID:</div>
-					<divstyle="font-weight: bold;> 관리자를 호출중입니다...</div>
-
-
-					<form id="chatform" method="post" style="display: none;">
-						<input type="text" name="USR_CHAT_ID" id="receiver-id_input">
-						<button type="button" id="receiver-id_btn">보내기</button>
-					</form>
-
-
-
-
+					<divstyle ="font-weight:bold;> 관리자를 호출중입니다...
 				</div>
+
+
+				<form id="chatform" method="post" style="display: none;">
+					<input type="text" name="USR_CHAT_ID" id="receiver-id_input">
+					<button type="button" id="receiver-id_btn">보내기</button>
+				</form>
+
+
+
+
 			</div>
 			<div class="row status" id="status"></div>
 		</div>
