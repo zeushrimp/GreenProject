@@ -78,14 +78,12 @@ public class CmuCon {
 			,@RequestParam(required = false, defaultValue = "1") int page
 			,@RequestParam(required = false, defaultValue = "1") int range
 			,@RequestParam(required = false, defaultValue = "testTitle") String searchtype
-			,@RequestParam(required = false, defaultValue = "CMU_CATE") String CMU_CATE
 			,@RequestParam(required = false) String keyword
 			,@ModelAttribute("search") CmuVO search, CmuVO cmuvo) throws Exception {
 		
 		
 		//검색
 		model.addAttribute("search", search);
-		search.setCMU_CATE(CMU_CATE);
 		search.setSearchtype(searchtype);
 		search.setKeyword(keyword);
 		
@@ -293,8 +291,7 @@ public class CmuCon {
     			}
     		}
     } 
-    
-    
+        
     // ajax_category
     @ResponseBody
     @RequestMapping("/VgCmuList_ajax.do")

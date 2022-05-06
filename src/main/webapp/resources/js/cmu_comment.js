@@ -113,9 +113,9 @@ function fn_replyReplySave(){
     form.submit();   
 }
 
-
+// ajax 카테고리
 $(function(){
-	$('.button').click(function(e){
+	$('.catebutton').click(function(e){
 		
 		var menuSelector = e.target.value;
 		
@@ -128,10 +128,8 @@ $(function(){
 	})
 })
 
-
-
-function cate_ajax(menuSelector){
-	
+// ajax 카테고리
+function cate_ajax(menuSelector){	
 	$.ajax({
 		type: 'post', 
 		url: '/cmu/VgCmuList_ajax.do',
@@ -147,14 +145,11 @@ function cate_ajax(menuSelector){
 		error: function(request,status,error){
 			alert("에러났음"+request.status + " \n error" + error);	
 		}		
-	})
-	
-	
-	
+	})	
 }
 
-function create_cate_list(data){
-	
+// ajax 카테고리
+function create_cate_list(data){	
 	var str = "";
 //	console.log(typeof data);                                           
 //	console.log(data);
@@ -192,9 +187,6 @@ function create_cate_list(data){
 		str += '</div>'
 		str += '</div>';
 		
-	}
-	
+	}	
 	return str;
 }
-
-
