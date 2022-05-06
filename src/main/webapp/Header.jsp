@@ -92,7 +92,7 @@
 							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글 목록</a></li>
 						</ul></li>
 					<li><a href="#" title="Vegcipe"><span>냉장고 레시피</span></a></li>
-					<li><a href="/mpg/VgMpgChat1.do" title="chat"><span>실시간 채팅</span></a></li>
+					<li><a href="/mpg/VgMpgChat.do" title="chat"><span>실시간 채팅</span></a></li>
 			</nav>
 
 			<nav class="user-nav" role="navigation">

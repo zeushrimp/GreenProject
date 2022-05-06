@@ -538,7 +538,7 @@ ul {
 			msgHtml.push('<li class="chat-left">');
 			msgHtml.push('<div class="chat-avatar">');
 			msgHtml.push('	<img');
-			msgHtml.push('			src="https://www.bootdey.com/img/Content/avatar/avatar4.png"');
+			msgHtml.push('			src="/resources/images/admin.png"');
 			msgHtml.push('			alt="Retail Admin">');
 			msgHtml.push('		<div class="chat-name">관리자</div>');
 			msgHtml.push('	</div>');
