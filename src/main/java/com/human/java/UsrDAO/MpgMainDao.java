@@ -28,5 +28,7 @@ public interface MpgMainDao {
 	
 	public List<RcpVO> get_mpgscrcp(List<RcpVO> scrapnum);
 
+	public void updatechatid(UsrVO mpgvo);
+
 
 }

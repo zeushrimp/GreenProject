@@ -77,6 +77,12 @@ public class MpgMainSerImpl implements MpgMainSer {
 		return mpgmaindao.get_mpgscrcp(scrapnum);
 	}
 
+	@Override
+	public void updatechatid(UsrVO mpgvo) {
+		mpgmaindao.updatechatid(mpgvo);
+		
+	}
+
 	
 
 

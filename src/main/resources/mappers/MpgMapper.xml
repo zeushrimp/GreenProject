@@ -15,12 +15,14 @@
 	</select>
 
 
-	<select id="Mpg_Myrecipes" parameterType="String" resultType="RCP">
+	<select id="Mpg_Myrecipes" parameterType="String"
+		resultType="RCP">
 		select * from RCP where usr_id=#{USR_ID}
 	</select>
-	
+
 	<select id="scrapnum" parameterType="String" resultType="RCP">
-		select RCP_PK from RCP_SCRAP where usr_id=#{USR_ID}
+		select
+		RCP_PK from RCP_SCRAP where usr_id=#{USR_ID}
 	</select>
 
 
@@ -75,8 +77,23 @@
 		select *
 		from RCP
 		where RCP_PK in
-		<foreach collection="list" item="item" open="(" close=")" separator=",">
+		<foreach collection="list" item="item" open="(" close=")"
+			separator=",">
 			#{item.RCP_PK}
 		</foreach>
 	</select>
+
+	<update id="updatechatid" parameterType="USR">
+		MERGE
+		INTO CHT a
+		USING dual
+		ON (a.USR_ID =! NULL)
+		WHEN MATCHED THEN
+		UPDATE
+		SET a.USR_CHAT_ID= #{USR_CHAT_ID}
+		WHEN NOT MATCHED THEN
+		INSERT (a.USR_ID ,a.USR_CHAT_ID)
+		VALUES (#{USR_ID},#{USR_CHAT_ID});
+
+	</update>
 </mapper>

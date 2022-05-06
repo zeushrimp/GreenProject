@@ -77,6 +77,13 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		return sqlSession.selectList("Mpg.get_mpgscrcp",scrapnum);
 	}
 
+	@Override
+	public void updatechatid(UsrVO mpgvo) {
+		// TODO Auto-generated method stub
+		sqlSession.update("Mpg.updatechatid",mpgvo);
+		
+	}
+
 	
 	
 	

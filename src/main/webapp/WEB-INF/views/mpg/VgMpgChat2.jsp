@@ -28,11 +28,8 @@ body {
 	margin-top: 20px;
 }
 /*************** 1.Variables ***************/
-
 /* ------------------ Color Pallet ------------------ */
-
 /*************** 2.Mixins ***************/
-
 /************************************************
     ************************************************
 										Search Box
@@ -44,37 +41,31 @@ body {
 	border-radius: 3px 0 0 0;
 	padding: .75rem 1rem;
 }
-
 .chat-search-box .input-group .form-control {
 	-webkit-border-radius: 2px 0 0 2px;
 	-moz-border-radius: 2px 0 0 2px;
 	border-radius: 2px 0 0 2px;
 	border-right: 0;
 }
-
 .chat-search-box .input-group .form-control:focus {
 	border-right: 0;
 }
-
 .chat-search-box .input-group .input-group-btn .btn {
 	-webkit-border-radius: 0 2px 2px 0;
 	-moz-border-radius: 0 2px 2px 0;
 	border-radius: 0 2px 2px 0;
 	margin: 0;
 }
-
 .chat-search-box .input-group .input-group-btn .btn i {
 	font-size: 1.2rem;
 	line-height: 100%;
 	vertical-align: middle;
 }
-
 @media ( max-width : 767px) {
 	.chat-search-box {
 		display: none;
 	}
 }
-
 /************************************************
 	************************************************
 									Users Container
@@ -90,7 +81,6 @@ body {
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
-
 /************************************************
 	************************************************
 											Users
@@ -99,7 +89,6 @@ body {
 .users {
 	padding: 0;
 }
-
 .users .person {
 	position: relative;
 	width: 100%;
@@ -107,7 +96,6 @@ body {
 	cursor: pointer;
 	border-bottom: 1px solid #f0f4f8;
 }
-
 .users .person:hover {
 	background-color: #ffffff;
 	/* Fallback Color */
@@ -124,7 +112,6 @@ body {
 	/* Opera 11.10+ */
 	background-image: linear-gradient(right, #e9eff5, #ffffff);
 }
-
 .users .person.active-user {
 	background-color: #ffffff;
 	/* Fallback Color */
@@ -141,17 +128,14 @@ body {
 	/* Opera 11.10+ */
 	background-image: linear-gradient(right, #f7f9fb, #ffffff);
 }
-
 .users .person:last-child {
 	border-bottom: 0;
 }
-
 .users .person .user {
 	display: inline-block;
 	position: relative;
 	margin-right: 10px;
 }
-
 .users .person .user img {
 	width: 48px;
 	height: 48px;
@@ -159,7 +143,6 @@ body {
 	-moz-border-radius: 50px;
 	border-radius: 50px;
 }
-
 .users .person .user .status {
 	width: 10px;
 	height: 10px;
@@ -171,36 +154,29 @@ body {
 	top: 0;
 	right: 0;
 }
-
 .users .person .user .status.online {
 	background: #9ec94a;
 }
-
 .users .person .user .status.offline {
 	background: #c4d2e2;
 }
-
 .users .person .user .status.away {
 	background: #f9be52;
 }
-
 .users .person .user .status.busy {
 	background: #fd7274;
 }
-
 .users .person p.name-time {
 	font-weight: 600;
 	font-size: .85rem;
 	display: inline-block;
 }
-
 .users .person p.name-time .time {
 	font-weight: 400;
 	font-size: .7rem;
 	text-align: right;
 	color: #8796af;
 }
-
 @media ( max-width : 767px) {
 	.users .person .user img {
 		width: 30px;
@@ -213,7 +189,6 @@ body {
 		display: none;
 	}
 }
-
 /************************************************
 	************************************************
 									Chat right side
@@ -229,27 +204,22 @@ body {
 	-moz-border-radius: 0 3px 0 0;
 	border-radius: 0 3px 0 0;
 }
-
 .selected-user span {
 	line-height: 100%;
 }
-
 .selected-user span.name {
 	font-weight: 700;
 }
-
 .chat-container {
 	position: relative;
 	padding: 1rem;
 }
-
 .chat-container li.chat-left, .chat-container li.chat-right {
 	display: flex;
 	flex: 1;
 	flex-direction: row;
 	margin-bottom: 40px;
 }
-
 .chat-container li img {
 	width: 48px;
 	height: 48px;
@@ -257,26 +227,21 @@ body {
 	-moz-border-radius: 30px;
 	border-radius: 30px;
 }
-
 .chat-container li .chat-avatar {
 	margin-right: 20px;
 }
-
 .chat-container li.chat-right {
 	justify-content: flex-end;
 }
-
 .chat-container li.chat-right>.chat-avatar {
 	margin-left: 20px;
 	margin-right: 0;
 }
-
 .chat-container li .chat-name {
 	font-size: .75rem;
 	color: #999999;
 	text-align: center;
 }
-
 .chat-container li .chat-text {
 	padding: .4rem 1rem;
 	-webkit-border-radius: 4px;
@@ -287,7 +252,6 @@ body {
 	line-height: 150%;
 	position: relative;
 }
-
 .chat-container li .chat-text:before {
 	content: '';
 	position: absolute;
@@ -298,17 +262,14 @@ body {
 	border: 10px solid;
 	border-color: transparent #ffffff transparent transparent;
 }
-
 .chat-container li.chat-right>.chat-text {
 	text-align: right;
 }
-
 .chat-container li.chat-right>.chat-text:before {
 	right: -20px;
 	border-color: transparent transparent transparent #ffffff;
 	left: inherit;
 }
-
 .chat-container li .chat-hour {
 	padding: 0;
 	margin-bottom: 10px;
@@ -319,16 +280,13 @@ body {
 	justify-content: center;
 	margin: 0 0 0 15px;
 }
-
 .chat-container li .chat-hour>span {
 	font-size: 16px;
 	color: #9ec94a;
 }
-
 .chat-container li.chat-right>.chat-hour {
 	margin: 0 15px 0 0;
 }
-
 @media ( max-width : 767px) {
 	.chat-container li.chat-left, .chat-container li.chat-right {
 		flex-direction: column;
@@ -368,7 +326,6 @@ body {
 		font-size: .8rem;
 	}
 }
-
 .chat-form {
 	padding: 15px;
 	width: 100%;
@@ -378,13 +335,11 @@ body {
 	background-color: #ffffff;
 	border-top: 1px solid white;
 }
-
 ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
-
 .card {
 	border: 0;
 	background: #f4f5fb;
@@ -403,10 +358,6 @@ ul {
 
 		<!-- Page header start -->
 		<div class="page-title">
-			<!-- 채팅을위한 주석 -->
-			<span id="chatimg" style="display: none;">${mpgdata.USR_PHOTO}</span>
-			<span id="chatid" style="display: none;">${mpgdata.USR_ID}</span>
-
 			<div class="row gutters">
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<h5 class="title">Chat App</h5>
@@ -458,140 +409,120 @@ ul {
 	</div>
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script>
-		let img = document.getElementById("chatimg").innerHTML;
-		let usrid = document.getElementById("chatid").innerHTML;
-		let peer = null;
-		let lastPeerId = null;
-		let conn = null;
-
-		function init() {
-			peer = new Peer();
-
-			peer.on('open', function(id) {
-				if (peer.id === null) {
-					peer.id = lastPeerId;
-				} else {
-					lastPeerId = peer.id;
-				}
-
-				$('#receiver-id').html("ID: " + peer.id);
-				$('#status').html('Awaiting connection..');
-				console.log(peer.id);
-			});
-
-			peer.on('connection', function(con2) {
-				if (conn && conn.open) {
-					con2.on('open', function() {
-						con2.send('Already connected to another client');
-						setTimeout(function() {
-							con2.close();
-						}, 500);
-					});
-				}
-
-				conn = con2;
-				$('#status').html("connected to: " + conn.peer);
-				ready();
-			});
-
-			peer.on('disconnected', function() {
-				$('#status').html('Connection lost. Please reconnect. ');
+	let peer = null;
+	let lastPeerId = null;
+	let conn = null;
+	function init() {
+		peer = new Peer();
+		peer.on('open', function(id) {
+			if (peer.id === null) {
 				peer.id = lastPeerId;
-				peer._lastServerId = lastPeerId;
-				peer.reconnect();
-			});
-
-			peer.on('close', function() {
-				conn = null;
-				$('#status').html('connection destroyed')
-			});
-
-			peer.on('error', function(err) {
-				alert(err);
-			});
-		}
-
-		function ready() {
-			conn.on('data', function(data) {
-				addMessage(data, "right");
-
-			});
-
-			conn.on('close', function() {
-				$('#status').html('Connection reset. Awaiting connection... ');
-				conn = null;
-
-			})
-		};
-
-		function addMessage(msg, side) {
-			var now = new Date();
-			var h = now.getHours();
-			var m = now.getMinutes();
-			var s = now.getSeconds();
-
-			if (h < 10)
-				h = "0" + h;
-			if (m < 10)
-				m = "0" + m;
-			if (s < 10)
-				s = "0" + s;
-
-			var msgHtml = [];
-
-			if (side == 'left') {
-				msgHtml.push('<li class="chat-left">');
-				msgHtml.push('<div class="chat-avatar">');
-				msgHtml.push('	<img');
-				msgHtml.push('			src="data:image/gif;base64,' + img + '"');
-				msgHtml.push('			alt="Retail Admin">');
-				msgHtml.push('		<div class="chat-name">' + usrid + '</div>');
-				msgHtml.push('	</div>');
-				msgHtml.push('		<div class="chat-text">' + msg + '');
-				msgHtml.push('	</div>');
-				msgHtml.push('	<div class="chat-hour">');
-				msgHtml.push('' + h + ':' + m + ':' + s
-						+ '	<span class="fa fa-check-circle"></span>');
-				msgHtml.push('		</div>');
-				msgHtml.push('	</li>');
 			} else {
-				msgHtml.push('<li class="chat-right">');
-				msgHtml.push('<div class="chat-hour">');
-				msgHtml.push('	' + h + ':' + m + ':' + s
-						+ ' <span class="fa fa-check-circle"></span>');
-				msgHtml.push('	</div>');
-				msgHtml.push('		<div class="chat-text">' + msg + '');
-				msgHtml.push('	</div>');
-				msgHtml.push('	<div class="chat-avatar">');
-				msgHtml.push('		<img');
-				msgHtml.push('			src="/resources/images/admin.png"');
-				msgHtml.push('			alt="Retail Admin">');
-				msgHtml.push('		<div class="chat-name">관리자</div>');
-				msgHtml.push('	</div>');
-				msgHtml.push('</li>');
-
+				lastPeerId = peer.id;
 			}
-
-			$('#chat_box').append(msgHtml.join(""));
-
+			
+			$('#receiver-id').html("ID: "+ peer.id);
+			$('#status').html('Awaiting connection..');
+			console.log(peer.id);
+		});
+		peer.on('connection', function(con2) {
+			if(conn && conn.open){
+				con2.on('open',function(){					
+					con2.send('Already connected to another client');
+					setTimeout(function () {
+						con2.close();	
+					},500);
+				});
+			}
+			
+			conn = con2;
+			$('#status').html("connected to: " + conn.peer);
+			ready();			
+		});
+		peer.on('disconnected', function() {
+			$('#status').html('Connection lost. Please reconnect. ');
+			peer.id = lastPeerId;
+			peer._lastServerId = lastPeerId;
+			peer.reconnect();
+		});
+		peer.on('close', function() {
+			conn = null;
+			$('#status').html('connection destroyed')
+		});
+		
+		peer.on('error', function(err) {
+			alert(err);
+		});
+	}
+	
+	function ready() {
+		conn.on('data',function(data){
+			addMessage(data, "right");	
+			
+		});
+		
+		conn.on('close',function(){
+			$('#status').html('Connection reset. Awaiting connection... ');
+			conn = null;
+			
+		
+	})};
+	
+	function addMessage(msg, side) {
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		if (h < 10) h = "0" + h;
+		if (m < 10) m = "0" + m;
+		if (s < 10) s = "0" + s;
+		var msgHtml = [];
+		if (side == 'left') {
+			msgHtml.push('<li class="chat-left">');
+			msgHtml.push('<div class="chat-avatar">');
+			msgHtml.push('	<img');
+			msgHtml.push('			src="https://www.bootdey.com/img/Content/avatar/avatar4.png"');
+			msgHtml.push('			alt="Retail Admin">');
+			msgHtml.push('		<div class="chat-name">관리자</div>');
+			msgHtml.push('	</div>');
+			msgHtml.push('		<div class="chat-text">' + msg + '');
+			msgHtml.push('	</div>');
+			msgHtml.push('	<div class="chat-hour">');
+			msgHtml.push('' + h + ':' + m + ':' + s + '	<span class="fa fa-check-circle"></span>');
+			msgHtml.push('		</div>');
+			msgHtml.push('	</li>');
+		} else {
+			msgHtml.push('<li class="chat-right">');
+			msgHtml.push('<div class="chat-hour">');
+			msgHtml.push('	' + h + ':' + m + ':' + s + ' <span class="fa fa-check-circle"></span>');
+			msgHtml.push('	</div>');
+			msgHtml.push('		<div class="chat-text">' + msg + '');
+			msgHtml.push('	</div>');
+			msgHtml.push('	<div class="chat-avatar">');
+			msgHtml.push('		<img');
+			msgHtml.push('		src="https://www.bootdey.com/img/Content/avatar/avatar3.png"');
+			msgHtml.push('		alt="Retail Admin">');
+			msgHtml.push('		<div class="chat-name">Russell</div>');
+			msgHtml.push('	</div>');
+			msgHtml.push('</li>');
 		}
-
-		$(document).ready(function() {
-			init();
-
+		$('#chat_box').append(msgHtml.join(""));
+	}
+	$(document).ready(function() {
+		init();
 			$('#sendMessageBox').keydown(function(key) {
-				if (key.keyCode == 13) {
-					if (conn && conn.open) {
+				if(key.keyCode == 13 ){
+					if(conn && conn.open){
 						var msg = $('#sendMessageBox').val();
 						$('#sendMessageBox').val('');
 						conn.send(msg);
-						addMessage(msg, "left");
-					} else {
-						$('#status').html('Connection is closed')
-					}
-				}
-			});
+						addMessage(msg,"left");
+					} else{
+						$('#status').html('Connection is closed')					
+					}				
+				}	
 		});
+	});
 	</script>
 
 </body>

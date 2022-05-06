@@ -26,4 +26,5 @@ public class UsrVO {
 	String USR_EMAIL2;
 	Date USR_DATE;
 	String USR_PHOTO;
+	String USR_CHAT_ID;
 }

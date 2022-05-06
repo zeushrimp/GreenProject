@@ -232,12 +232,12 @@ public class MpgMainCon {
 
 		if (name != null && adm == 0) { // 로그인상태일경우
 
-			System.out.println("관리자 채팅");
-			return "/mpg/VgMpgChat2";
+			System.out.println("일반 채팅");
+			return "/mpg/VgMpgChat1";
 
 		} else if (name != null && adm == 1) {
 			
-			System.out.println("일반회원 채팅");
+			System.out.println("관리 채팅");
 			return "/mpg/VgMpgChat1";
 		}
 		else {
@@ -245,5 +245,16 @@ public class MpgMainCon {
 			return "redirect:/usr/VgUsrLogin.do";
 		}
 	}
+	
+	@RequestMapping("updatechatid.do")
+	public void updatechatid(UsrVO mpgvo, HttpSession session) {
+		System.out.println("test");
+
+		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		MpgMainSer.updatechatid(mpgvo);
+
+
+	}
+	
 
 }
