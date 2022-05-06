@@ -232,13 +232,13 @@ public class MpgMainCon {
 
 		if (name != null && adm == 0) { // 로그인상태일경우
 
-			System.out.println("일반회원 채팅");
-			return "/mpg/VgMpgChat1";
+			System.out.println("관리자 채팅");
+			return "/mpg/VgMpgChat2";
 
 		} else if (name != null && adm == 1) {
 			
-			System.out.println("관리자 채팅");
-			return "/mpg/VgMpgChat2";
+			System.out.println("일반회원 채팅");
+			return "/mpg/VgMpgChat1";
 		}
 		else {
 
