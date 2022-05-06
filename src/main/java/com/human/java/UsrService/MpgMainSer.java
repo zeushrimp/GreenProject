@@ -33,5 +33,7 @@ public interface MpgMainSer {
 	public List<RcpVO> get_mpgscrcp(List<RcpVO> scrapnum);
 	
 	public void updatechatid(UsrVO mpgvo);
+	
+	public List<UsrVO> getChatList();
 
 }

@@ -84,6 +84,11 @@ public class MpgMainDaoImpl implements MpgMainDao {
 		
 	}
 
+	@Override
+	public List<UsrVO> getChatList() {
+		return sqlSession.selectList("Mpg.getChatList");
+	}
+
 	
 	
 	

@@ -83,6 +83,12 @@ public class MpgMainSerImpl implements MpgMainSer {
 		
 	}
 
+	@Override
+	public List<UsrVO> getChatList() {
+		// TODO Auto-generated method stub
+		return mpgmaindao.getChatList();
+	}
+
 	
 
 

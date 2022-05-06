@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -238,7 +239,12 @@ public class MpgMainCon {
 		} else if (name != null && adm == 1) {
 			
 			System.out.println("관리 채팅");
-			return "/mpg/VgMpgChat1";
+			List<UsrVO> chatList = MpgMainSer.getChatList();
+			
+			model.addAttribute("chatList", chatList);
+			
+			return "/mpg/VgMpgChatList";
+			
 		}
 		else {
 
@@ -246,14 +252,18 @@ public class MpgMainCon {
 		}
 	}
 	
+	@ResponseBody
 	@RequestMapping("updatechatid.do")
-	public void updatechatid(UsrVO mpgvo, HttpSession session) {
+	public String updatechatid(UsrVO mpgvo, HttpSession session) {
 		System.out.println("test");
-
 		mpgvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		
+		System.out.println("id : " + mpgvo.getUSR_ID());
+		System.out.println("chatid : " + mpgvo.getUSR_CHAT_ID());
+		
 		MpgMainSer.updatechatid(mpgvo);
 
-
+		return "관리자를 호출하였습니다.";
 	}
 	
 

@@ -30,5 +30,7 @@ public interface MpgMainDao {
 
 	public void updatechatid(UsrVO mpgvo);
 
+	public List<UsrVO> getChatList();
+
 
 }
