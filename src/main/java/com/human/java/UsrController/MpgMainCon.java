@@ -266,5 +266,21 @@ public class MpgMainCon {
 		return "관리자를 호출하였습니다.";
 	}
 	
+	@RequestMapping("VgMpgChat2.do")
+	public String test(UsrVO mpgvo ,Model model) {
+		System.out.println("test");
+				
+		System.out.println("id : " + mpgvo.getUSR_ID());
+		System.out.println("chatid : " + mpgvo.getUSR_CHAT_ID());
+		
+		MpgMainSer.mpglogincheck(mpgvo);
+		System.out.println(MpgMainSer.mpglogincheck(mpgvo));
+		UsrVO vo = MpgMainSer.mpglogincheck(mpgvo);
+		
+		model.addAttribute("mpgdata",vo);
+
+		return "/mpg/VgMpgChat2";
+	}
+	
 
 }

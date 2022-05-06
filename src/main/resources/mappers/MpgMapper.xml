@@ -86,19 +86,20 @@
 	<update id="updatechatid" parameterType="USR">
 		MERGE
 		INTO CHT a
-		USING dual
-		ON (a.USR_ID IS NOT NULL)
+		USING
+		dual
+		ON (a.USR_ID = #{USR_ID})
 		WHEN MATCHED THEN
 		UPDATE
-		SET a.USR_CHAT_ID= #{USR_CHAT_ID}
+		SET a.USR_CHAT_ID=#{USR_CHAT_ID}
 		WHEN NOT MATCHED THEN
 		INSERT (a.USR_ID ,a.USR_CHAT_ID)
 		VALUES (#{USR_ID},#{USR_CHAT_ID})
 	</update>
-	
-		<select id="getChatList" resultType="USR">
-		select USR_ID , USR_CHAT_ID from CHT
+
+	<select id="getChatList" resultType="USR">
+		select * from CHT
 	</select>
-	
-	
+
+
 </mapper>

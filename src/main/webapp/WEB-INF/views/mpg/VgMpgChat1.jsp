@@ -395,8 +395,8 @@ ul {
 
 	<div class="container">
 		<!-- 채팅을위한 주석 -->
-		<span id="chatimg" style="display: none;">${mpgdata.USR_PHOTO}</span>
-		<span id="chatid" style="display: none;">${mpgdata.USR_ID}</span>
+		<span id="chatimg1" style="display: none;">${mpgdata.USR_PHOTO}</span>
+		<span id="chatid1" style="display: none;">${mpgdata.USR_ID}</span>
 
 		<!-- Page header start -->
 		<div class="page-title">
@@ -461,8 +461,8 @@ ul {
 	</div>
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script>
-		let img = document.getElementById("chatimg").innerHTML;
-		let usrid = document.getElementById("chatid").innerHTML;
+		let img = document.getElementById("chatimg1").innerHTML;
+		let usrid = document.getElementById("chatid1").innerHTML;
 		let peer = null;
 		let lastPeerId = null;
 		let conn = null;

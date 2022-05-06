@@ -36,8 +36,9 @@
 				<td>${chat.USR_CHAT_ID }</td>
 				<td>
 					<form class="admchat" method="post"
-						action="/mpg/VgMpgChat2.do">
+						action="VgMpgChat2.do"><!-- 컨트롤러 두개 받아서  -->
 						<input type="text" name="USR_CHAT_ID" value="${chat.USR_CHAT_ID }" style="display: none;">
+						<input type="text" name="USR_ID" value="${chat.USR_ID }" style="display: none;">
 						<button>연결</button>
 					</form>
 				</td>

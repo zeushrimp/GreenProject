@@ -1,3 +1,4 @@
+<%@page import="com.human.java.UsrVO.UsrVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +24,10 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+
+	
 <style type="text/css">
+
 body {
 	margin-top: 20px;
 }
@@ -355,8 +359,12 @@ ul {
 <body>
 <%String USR_CHAT_ID = request.getParameter("USR_CHAT_ID"); %>
 
+
+
+
 	<div class="container">
-	<div></div>
+		<span id="chatimg" style="display: none;">${mpgdata.USR_PHOTO}</span>
+		<span id="chatid" style="display: none;">${mpgdata.USR_ID}</span>
 		<!-- Page header start -->
 		<div class="page-title">
 			<div class="row gutters">
@@ -366,7 +374,7 @@ ul {
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<span>ID: </span> <input type="text" id="receiver-id"
 						placeholder="input the id" value="<%=USR_CHAT_ID %>" />
-					<button type="button" class="btn btn-primary" id="connect-button">Connect</button>
+					<button type="button" class="btn btn-primary" id="connect-button">연결하기</button>
 				</div>
 			</div>
 			<div class="row status" id="status"></div>
@@ -412,6 +420,8 @@ ul {
 	</div>
 	<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script>
+	let img = document.getElementById("chatimg").innerHTML;
+	let usrid = document.getElementById("chatid").innerHTML;
 		let peer = null;
 		let lastPeerId = null;
 		let conn = null;
@@ -495,10 +505,9 @@ ul {
 				msgHtml.push('	</div>');
 				msgHtml.push('	<div class="chat-avatar">');
 				msgHtml.push('		<img');
-				msgHtml
-						.push('		src="https://www.bootdey.com/img/Content/avatar/avatar4.png"');
-				msgHtml.push('		alt="Retail Admin">');
-				msgHtml.push('		<div class="chat-name">유저</div>');
+				msgHtml.push('			src="data:image/gif;base64,' + img + '"');
+				msgHtml.push('			alt="Retail Admin">');
+				msgHtml.push('		<div class="chat-name">' + usrid + '</div>');
 				msgHtml.push('	</div>');
 				msgHtml.push('</li>');
 			}
