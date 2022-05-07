@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -141,11 +142,18 @@ public class CmuCon {
 	}
 		
 	// 댓글 작성
+	@ResponseBody
 	@RequestMapping("/cmu_commentsave.do")
-	public String cmu_commentsave(CmuVO cmuvo, HttpSession session) {
+	public HashMap cmu_commentsave(CmuVO cmuvo, HttpSession session) {
 		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		CmuSer.cmu_commentsave(cmuvo);
-		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+		
+		HashMap map = new HashMap();
+		
+		map.put("sess", String.valueOf(session.getAttribute("usr_Id")));
+		map.put("list", CmuSer.cmu_commentlist(cmuvo));
+		
+		return map;
 	}
 
 	// 댓글 삭제
@@ -312,15 +320,23 @@ public class CmuCon {
     // ajax_rereply(대댓글)
     @ResponseBody
     @RequestMapping("/VgCmuRereply_ajax.do")
-    public List<CmuVO> cmu_Rereply_ajax(CmuVO cmuvo, HttpSession session) {
+    public List<?> cmu_Rereply_ajax(CmuVO cmuvo, HttpSession session, HttpServletRequest request) {
     	
     	cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+    	cmuvo.setCMU_PK(Integer.parseInt(request.getAttribute("CMU_PK").toString()));
     	System.out.println("==============");
     	System.out.println("ajax 진입 성공");
-    	System.out.println("usr : " + cmuvo.getUSR_ID());
+    	System.out.println("pk : " + cmuvo.getCMU_PK());
+    	System.out.println("pk : " + cmuvo.getCMU_PK());
+    	System.out.println("REF : " + cmuvo.getCCM_REF());
     	System.out.println("==============");
-    	
-    	return null;
+
+    	List<CmuVO> cmulist = CmuSer.cmu_readlist_ajax(cmuvo);
+    	// sevice > dao > mapper > 조건에 따라서
+    	System.out.println(cmulist.size());
+    	// list >  htmlS
+
+    	return cmulist;
     }
 }
 	

@@ -85,14 +85,14 @@
  	<insert id="insert_comment" parameterType="CMU">
  	<selectKey resultType="Integer" keyProperty="CCM_PK" order="BEFORE">
         SELECT NVL(MAX(CCM_PK),0)+1 FROM CMU_COM
-    </selectKey>       
+    </selectKey>
 	    INSERT INTO CMU_COM (CMU_PK, CCM_PK, USR_ID, CCM_DEL, CCM_CONTENT, CCM_REG, CCM_REF, CCM_REF_LEVEL)
 	    VALUES (#{CMU_PK}, #{CCM_PK}, #{USR_ID}, 1, #{CCM_CONTENT}, SYSDATE,
 		<choose>
         	<when test="CCM_REF==null">#{CCM_PK}, 0</when>
             <otherwise>#{CCM_REF}, #{CCM_REF_LEVEL}</otherwise>
         </choose>
-  		)	
+  		)
 	</insert>
 	
 	<!-- 댓글 수정 -->
@@ -107,6 +107,7 @@
 	 SELECT *
 	 FROM CMU_COM
 	 WHERE CMU_PK = #{CMU_PK} AND CCM_DEL = 1
+	 ORDER BY CCM_PK
 	</select>
 	
 	<!-- 댓글 삭제 -->

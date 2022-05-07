@@ -144,7 +144,7 @@
 							        </div>
 							        <c:set var="comment_ID" value="${replylist.USR_ID }" />
 							        <c:if test="${USR_ADMIN == 1 || USR_ID eq comment_ID}">
-								        <a class="comment-cmulink" href="#" <%-- onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')" --%>>
+								        <a class="comment-cmulink" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')" >
 								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />삭제</a>
 								        <a class="comment-cmulink" href="#" <%-- onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')" --%>>
 								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
@@ -153,7 +153,9 @@
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
 							    </div>
 							    <!-- 대댓글 히든 창 -->
-								<div class="rereply_ajax"></div>
+								<div class="rereply_ajax">
+
+								</div>
 							</li>
 							</c:forEach>					
 						</ol>											
@@ -165,18 +167,18 @@
 						<h2>댓글창</h2>
 						<div class="container">
 							<p><span class="req">*</span><strong>주의 :</strong> 욕설 및 모욕 등 타인의 기분을 상하게 하는 게시물의 내용은 삼가주시길바랍니다. <span class="req">*</span></p>
-							<form name="commentform" action="cmu_commentsave.do" method="post">
+							<form name="commentform" >
 							<!-- 여기서 할 일, 아이디 세션 받고 게시물 번호 받고(히든) -->
-								<div class="f-row">
+								<div class="f-row" id="comment_form">
 									<!-- 게시글 번호 받음 -->
-									<input type="hidden" id="CMU_PK" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
-									<input type="hidden" id="USR_ID" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
-									<textarea id="CCM_CONTENT" name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
+									<input type="hidden" name="CMU_PK" value="<c:out value="${cmuvo.CMU_PK}"/>">
+									<input type="hidden" name="USR_ID" value="<c:out value="${cmuvo.USR_ID}"/>">
+									<textarea name="CCM_CONTENT" placeholder="댓글을 작성해주세요."></textarea>
 								</div>
 								
 								<div class="f-row">
 									<div class="third bwrap">
-										<input type="submit" onclick="fn_commentsubmit()" value="댓글 작성" />
+										<input type="button" id="comment_btn" value="댓글 작성" />
 									</div>
 								</div>
 							</form>

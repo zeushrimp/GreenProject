@@ -27,5 +27,6 @@ public class CmuVO extends Pagination {
 	
 	private String searchtype;
 	private String keyword;	
+	
 }
 
