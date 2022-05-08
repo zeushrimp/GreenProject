@@ -24,12 +24,11 @@ function admin_userinfo_ajax(menuSelector){
 		url: '/adm/vg_admin_userinfo_ajax.do', // 컨트롤러의 requestMapping에 적혀진 값과 매칭시켜야 한다.
 		data: {"userinfo_ad_ajax" : menuSelector}, // "폼 데이터 변수 이름" : form 태그의 id에 해당하는 뭐를 넣어준 변수> menuSelector
 		success: function(data){ // ajax 진입 성공 시? 수행될 함수를 적어준다. 파라미터로는 바로 윗줄에 쓴 data 라는 값을 넣어줌
-//			alert("성공했습니다.");	
-			var tag_String = create_admin_userinfo_list(data);
+			var tag_string_userinfo = create_admin_userinfo_list(data);
 			// tag_String이라는 변수에 create_admin_userinfo_list(data)함수의 리턴값을 대입해준다
 			
 //			alert(tag_String);
-			$('#userinfo_ad_ajax').html(tag_String) 
+			$('#userinfo_ad_ajax').html(tag_string_userinfo);
             // 그냥 내 생각인데 active 클래스의 html 태그들을 tag_String에 담겨진 값으로 가공하려는 코딩인듯
 
 		},
@@ -47,12 +46,12 @@ function admin_rcp_ajax(menuSelector){
 		url: '/adm/select_rcp_list_ad_ajax.do',
 		data: {"rcp_list_ad_ajax" : menuSelector}, // input 태그내의 값
 		success: function(data){
-//			alert("성공했습니다.");	
-			var tag_String = create_admin_rcp_list(data);
+//			alert("우선 레시피 ajax 진입은 성공했습니다.");	
+			var tag_string_rcp = create_admin_rcp_list(data);		
+//			alert(tag_string_rcp);
+			$('#rcp_list_ad_ajax').html(tag_string_rcp); 
+//			$('#rcp_list_ad_ajax').append(str);			
 			
-			
-//			alert(tag_String);
-			$('#rcp_list_ad_ajax').html(tag_String) 
 		},
 		error: function(request,status,error){
 			alert("에러났음"+request.status + " \n error" + error);	
@@ -68,12 +67,12 @@ function admin_cmu_ajax(menuSelector){
 		url: '/adm/select_cmu_list_ad_ajax.do',
 		data: {"cmu_list_ad_ajax" : menuSelector}, // input 태그내의 값
 		success: function(data){
-//			alert("성공했습니다.");	
-			var tag_String = create_admin_cmu_list(data);
+//			alert("일단 커뮤니티 ajax 진입은 성공했습니다.");	
+			var tag_string_cmu = create_admin_cmu_list(data);
 			
 			
-//			alert(tag_String);
-			$('.active').html(tag_String) 
+//			alert(tag_string_cmu);
+			$('#cmu_list_ad_ajax').html(tag_string_cmu);
 		},
 		error: function(request,status,error){
 			alert("에러났음"+request.status + " \n error" + error);	
@@ -128,20 +127,28 @@ function create_admin_userinfo_list(data){
 function create_admin_rcp_list(data){
 	
 	var str = "";
-//	console.log(typeof data);                                           
-//	console.log(data);
+	str += '<table style="width:90%; margin: auto;" >'
+	str += '<th style="text-align: center">레시피 번호</th>'
+	str += '<th style="text-align: center">레시피 제목</th>'
+	str += '<th style="text-align: center">작성자</th>'
+	str += '<th style="text-align: center">작성일</th>'
+	str += '<th style="text-align: center">신고 횟수</th>'
+
+
 	for ( rcpvo in data ){
-//		console.log(typeof data[cmuvo]);
-//		console.log(data[cmuvo].CMU_PK);
-		
+	
+		str += '<tr>'
 		str += '<td style="width:20%">'+data[rcpvo].RCP_PK+'</td>'
 		str += '<td style="width:30%">'+data[rcpvo].RCP_TITLE+'</td>'
-		str += '<td style="width:10%">'+data[rcpvo].RCP_TITLE+'</td>'
+		str += '<td style="width:20%">'+data[rcpvo].USR_ID+'</td>'
 		str += '<td style="width:30%">'+data[rcpvo].RCP_REG+'</td>'
 		str += '<td style="width:40%">123456789</td>'
-
+		str += '</tr>'
+	
 		
-	}
+	}	
+	
+	str += '</table>'
 	
 	return str;
 }
@@ -150,19 +157,29 @@ function create_admin_rcp_list(data){
 function create_admin_cmu_list(data){
 	
 	var str = "";
-//	console.log(typeof data);                                           
-//	console.log(data);
-	for ( cmuvo in data ){
-//		console.log(typeof data[cmuvo]);
-//		console.log(data[cmuvo].CMU_PK);
-		
+	str += '<table style="width:90%; margin: auto;" >'
+	str += '<tr>'
+	str += '<th style="text-align: center">글 번호</th>'
+	str += '<th style="text-align: center">제목</th>'
+	str += '<th style="text-align: center">작성자</th>'
+	str += '<th style="text-align: center">작성일</th>'
+	str += '<th style="text-align: center">좋아요 수</th>'
+	str += '</tr>'
+
+
+	for ( cmuvo in data ){	
+		str += '<tr>'
 		str += '<td style="width:20%">'+data[cmuvo].CMU_PK+'</td>'
 		str += '<td style="width:30%">'+data[cmuvo].CMU_TITLE+'</td>'
 		str += '<td style="width:10%">'+data[cmuvo].USR_ID+'</td>'
 		str += '<td style="width:30%">'+data[cmuvo].CMU_REG+'</td>'
 		str += '<td style="width:30%">'+data[cmuvo].CMU_LIKE+'</td>'
-		
+		str += '</tr>'
 	}
+	
+//	$('#cmu_list_ad_ajax').append(str);
+	
+	str += '</table>'
 	
 	return str;
 }

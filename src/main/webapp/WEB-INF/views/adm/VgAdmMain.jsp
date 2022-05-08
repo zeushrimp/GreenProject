@@ -13,16 +13,16 @@
 
 <title>SocialChef</title>
 
-<link rel="stylesheet" href="../../resources/css/style.css" />
-<link rel="stylesheet" href="../../resources/css/icons.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/icons.css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
 	rel="stylesheet">
+<script src="/resources/js/jquery-3.1.0.min.js"></script>
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
 <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
-<script src="/resources/js/jquery-3.1.0.min.js"></script>
 <script src="/resources/js/vg_admin_main.js"></script>
-<link rel="shortcut icon" href="../../resources/images/favicon.ico" />
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 <style type="text/css">
 .tab-content .basic dt {
 	width: 25%;
@@ -72,7 +72,10 @@ td {
 	padding-right: 10px !important;
 }
 
+.tab-content{
+/*  	display: block !important; */
 
+}
 
 </style>
 
@@ -105,13 +108,14 @@ td {
 			</nav>
 			<!--//breadcrumbs-->
 
-
 			<!--content-->
+			
 			<section class="content">
 				<!--row-->
 				<div class="row">
+				
 <!-- 					<div class="three-fourth" > -->
-					  <div class="tabs-div">
+<!-- 					  <div class="tabs-div">
 						<nav class="tabs">
 							<ul>
 								<li class="active"><a href="#about" title="About me">회원관리</a></li>
@@ -120,11 +124,25 @@ td {
 
 							</ul>
 							</nav>
-						</div>
+						</div> -->
+						
+						
+					<div class="tabs-div">
+						<nav class="tabs">
+						<ul>
+							<li class="active admin_list"><a href="#about" title="About me">회원관리</a></li>
+							<li class="active admin_list"><a href="#recipes" title="My recipes">레시피 관리</a></li>
+							<li class="active admin_list"><a href="#posts" title="My posts">커뮤니티 관리</a></li>
+
+						</ul>
+						</nav>
+					</div>
+								
+				
 					<div class="three-fourth" >
 						<!--about-->
 						<div class="tab-content" id="about">
-								<div style="width: 1170px">
+							<div style="width: 1170px">
 								<table style="width:90%; margin: auto;">
 									<th>이름</th>
 									<th>이메일</th>
@@ -138,135 +156,111 @@ td {
 									<th>수정하기</th>
 									<th>신고하기</th>
 					
-					<form method="get" id="userinfo_ad_ajax" action="/adm/vg_admin_userinfo_ajax.do">
-						<c:forEach items="${AUSR }" var="vo" varStatus="status">		
+									<form method="get" id="userinfo_ad_ajax" action="/adm/vg_admin_userinfo_ajax.do">
+										<c:forEach items="${AUSR }" var="vo" varStatus="status">			
+											<tr>			
+												<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
+												<input type="hidden" class="USR_ID" value="${vo.USR_ID}"></td>
+												<td style="width:150px"><input type="textarea" class="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+												<td style="width:150px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+												<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
+												<input type="button" onclick="sample6_execDaumPostcode('${status.index}')" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
+												<input type="hidden"  class="sample6_postcode USR_ADDR1" value="${vo.USR_ADDR1 }"/>
+												<input type="hidden" class="sample6_address USR_ADDR2" value="${vo.USR_ADDR2 }">
+												<input type="text"  class="sample6_detailAddress USR_ADDR3" placeholder="상세주소" value="${vo.USR_ADDR3 }">
+												<input type="hidden" class="sample6_extraAddress" placeholder="참고항목">
+												</td>
+												<td style="width:140px"><input type="textarea" class="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+												<td style="width:140px">${vo.USR_DATE }</td>
+												<td style="width:100px">100</td>
+												<td style="width:75px">10</td>
+												<td style="width:90px">10</td>								
+												<td style="width:90px;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
+											  	<td style="width:90px;"><a type="button" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;"
+											  	href="delete_usr_info.do?USR_ID=${vo.USR_ID}&USR_PW=${vo.USR_PW}">삭제</a></td>
+											</tr>
+										</c:forEach>	
+									</form>
+								
 							
-							<tr>
-							
-								<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
-								<input type="hidden" class="USR_ID" value="${vo.USR_ID}"></td>
-								<td style="width:150px"><input type="textarea" class="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-								<td style="width:150px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-								<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
-								<input type="button" onclick="sample6_execDaumPostcode('${status.index}')" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
-								<input type="hidden"  class="sample6_postcode USR_ADDR1" value="${vo.USR_ADDR1 }"/>
-								<input type="hidden" class="sample6_address USR_ADDR2" value="${vo.USR_ADDR2 }">
-								<input type="text"  class="sample6_detailAddress USR_ADDR3" placeholder="상세주소" value="${vo.USR_ADDR3 }">
-								<input type="hidden" class="sample6_extraAddress" placeholder="참고항목">
-								</td>
-								<td style="width:140px"><input type="textarea" class="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-								<td style="width:140px">${vo.USR_DATE }</td>
-								<td style="width:100px">100</td>
-								<td style="width:75px">10</td>
-								<td style="width:90px">10</td>								
-								<td style="width:90px;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
-							  	<td style="width:90px;"><a type="button" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;"
-							  	href="delete_usr_info.do?USR_ID=${vo.USR_ID}&USR_PW=${vo.USR_PW}">삭제</a></td>
-							</tr>
-						</c:forEach>	
-							</form>
-						
-								<form method="post" action="/adm/ChangeUsrInfo.do" name=form>
-									<input type="hidden" id="FS_USR_ID" name="USR_ID">
-									<input type="hidden" id="FS_USR_EMAIL" name="USR_EMAIL">
-									<input type="hidden" id="FS_USR_NAME" name="USR_NAME">
-									<input type="hidden" id="FS_USR_PW" name="USR_PW">
-									<input type="hidden" id="FS_USR_ADDR1" name="USR_ADDR1">
-									<input type="hidden" id="FS_USR_ADDR2" name="USR_ADDR2">
-									<input type="hidden" id="FS_USR_ADDR3" name="USR_ADDR3">
-									<input type="hidden" id="FS_USR_TEL" name="USR_TEL">
-								</form>	
+									<form method="post" action="/adm/ChangeUsrInfo.do" name=form>
+										<input type="hidden" id="FS_USR_ID" name="USR_ID">
+										<input type="hidden" id="FS_USR_EMAIL" name="USR_EMAIL">
+										<input type="hidden" id="FS_USR_NAME" name="USR_NAME">
+										<input type="hidden" id="FS_USR_PW" name="USR_PW">
+										<input type="hidden" id="FS_USR_ADDR1" name="USR_ADDR1">
+										<input type="hidden" id="FS_USR_ADDR2" name="USR_ADDR2">
+										<input type="hidden" id="FS_USR_ADDR3" name="USR_ADDR3">
+										<input type="hidden" id="FS_USR_TEL" name="USR_TEL">
+									</form>	
 								</table>
 								<div class="pager">
-								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
-								<a href="#">4</a> <a href="#">5</a>
-							</div>
+									<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
+									<a href="#">4</a> <a href="#">5</a>
+								</div>
 							</div>
 						</div>
 
 						<!--//about-->
 
+
+
+
+
 						<!--my recipes-->
 						<div class="tab-content" id="recipes">
 							<div style="width: 1170px">
-							<table style="width:90%; margin: auto;" >
-									<th style="text-align: center">레시피 번호</th>
-									<th style="text-align: center">레시피 제목</th>
-									<th style="text-align: center">작성자</th>
-									<th style="text-align: center">작성일</th>
-									<th style="text-align: center">신고 횟수</th>	
+								 
+										<form method="get" id="rcp_list_ad_ajax">											
+										
+														
+
+					<!-- 				여기에는 레시피 글 목록이 들어감 (table) -->
+													
+										
+
+										</form>	
+
+
+								
+								<div class="pager">
+									<c:if test="${paging.startPage != 1 }">
+									<a href="select_rcp_list_ad.do?nowPage=${paging.startPage-1 }&cntPerPage=${paging.cntPerPage}">&lt;</a> 
+									</c:if>
+									<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="pagenum">
+										<c:choose>
+											<c:when test="${pagenum == paging.nowPage }">
+												<a class="current">${pagenum }</a>
+											</c:when>
+											<c:when test="${pagenum != paging.nowPage }">
+												<a href="select_rcp_list_ad.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}"
+													class="paging_num">${pagenum }</a>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:if test="${paging.endPage != paging.lastPage}">
+										<a
+											href="select_rcp_list_ad.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+									</c:if>
 									
-						<form method="get" id="rcp_list_ad_ajax">							
-						<%-- 	<c:forEach items="${RcpViewAll }" var="vo2" varStatus="status">	 --%>	
-							<tr>
-<%-- 								<td style="width:20%">${vo2.RCP_PK }</td>
-								<td style="width:30%">${vo2.RCP_TITLE }</td>
-								<td style="width:10%">${vo2.USR_ID }</td>
-								<td style="width:30%">${vo2.RCP_REG }</td>
-								<td style="width:40%">123456789</td> --%>
-								
-							</tr>	
-						 <%--    </c:forEach>  --%>
-						</form>	
-						
-								</table>
-								
-							<div class="pager">
-								<c:if test="${paging.startPage != 1 }">
-								<a href="select_rcp_list_ad.do?nowPage=${paging.startPage-1 }&cntPerPage=${paging.cntPerPage}">&lt;</a> 
-								</c:if>
-								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="pagenum">
-									<c:choose>
-										<c:when test="${pagenum == paging.nowPage }">
-											<a class="current">${pagenum }</a>
-										</c:when>
-										<c:when test="${pagenum != paging.nowPage }">
-											<a href="select_rcp_list_ad.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}"
-												class="paging_num">${pagenum }</a>
-										</c:when>
-									</c:choose>
-								</c:forEach>
-								<c:if test="${paging.endPage != paging.lastPage}">
-									<a
-										href="select_rcp_list_ad.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-								</c:if>
-								
-<!-- 								<a href="#">3</a>
-								<a href="#">4</a> <a href="#">5</a> -->
+	<!-- 								<a href="#">3</a>
+									<a href="#">4</a> <a href="#">5</a> -->
+								</div>
 							</div>
-						</div>
-						</div>
+							</div>
 						<!--//my recipes-->
 
-
-						<!--my favorites-->
-						
-						<!--//my favorites-->
 
 						<!--my posts-->
 						<div class="tab-content" id="posts">
 							<!--entries-->
 							<div style="width: 1170px">
-							<table style="width:90%; margin: auto;" >
-									<th style="text-align: center">글 번호</th>
-									<th style="text-align: center">제목</th>
-									<th style="text-align: center">작성자</th>
-									<th style="text-align: center">작성일</th>
-									<th style="text-align: center">좋아요 수</th>
-								
+
 					 <form method="get" id="cmu_list_ad_ajax">		
-					<%-- 	<c:forEach items="${CUM }" var="vo3" varStatus="status">		 --%>	
-							<tr>
-<%-- 								<td style="width:10%">${vo3.CMU_PK }</td>
-								<td style="width:50%">${vo3.CMU_TITLE }</td>
-								<td style="width:10%">${vo3.USR_ID }</td>
-								<td style="width:20%">${vo3.CMU_REG }</td>	
-								<td style="width:20%">${vo3.CMU_LIKE }</td>	 --%>								
-							</tr>	
-					 <%--   </c:forEach> --%>
+				<!-- 				여기에는 커뮤니티 글 목록이 들어감 (table) -->
 							</form>	
 								
-								</table>
+
 								
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
@@ -279,6 +273,8 @@ td {
 						</div>
 						<!--//my posts-->
 					</div>
+				</section>
+					
 				</div>
 				<!--//row-->
 			</section>
@@ -291,10 +287,10 @@ td {
 
 	<%@ include file="../../../Footer.jsp" %>
 
-	<script src="../../resources/js/jquery-3.1.0.min.js"></script>
-	<script src="../../resources/js/jquery.uniform.min.js"></script>
-	<script src="../../resources/js/jquery.slicknav.min.js"></script>
-	<script src="../../resources/js/scripts.js"></script>
+	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="/resources/js/jquery.uniform.min.js"></script>
+	<script src="/resources/js/jquery.slicknav.min.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 function submit_item(index) {
