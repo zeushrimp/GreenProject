@@ -39,9 +39,6 @@
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 	var index = 0; //이미지에 접근하는 인덱스
-	window.onload = function() {
-		slideShow();
-	}
 
 	function slideShow() {
 		var i;
