@@ -38,21 +38,30 @@
 
 # :books: 기술 스택
 
+<img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=Python&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=GitHub&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-Oracle-F80000?style=flat&logo=Oracle&logoColor=white"><br>
+<img src="https://img.shields.io/badge/-Spring-6DB33F?style=flat&logo=Spring&logoColor=white"><br>
+  
 <br>
 <br>
 <br>
 
 #  :key: 주요 기능
-## 1. 로그인
-## 2. 검색
-## 3. AI를 이용한 레시피 추천
-## 4. 채팅
-## 5. 지도
-## 6. 관리자 삭제 신고 기능
-## 7.
+### 1. 로그인
+### 2. 검색
+### 3. AI를 이용한 레시피 추천
+### 4. 채팅
+### 5. 지도
+### 6. 관리자 삭제 신고 기능
+### 7.
 
 <br>
 <br>
 <br>
 
 #  :seedling: 팀원
+
