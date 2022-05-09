@@ -9,10 +9,10 @@
 		(RCP_PK,
 		RCP_TITLE, RCP_CONTENT, RCP_CT, RCP_VEGE, RCP_COUNT, RCP_REG,
 		RCP_HIT,
-		RCP_LIKE, RCP_COM, USR_ID)
+		RCP_LIKE, RCP_COM, USR_ID, RCP_IMG)
 		VALUES(#{RCP_PK},#{RCP_TITLE},
 		#{RCP_CONTENT}, #{RCP_CT}, #{RCP_VEGE}, #{RCP_COUNT}, sysdate, 0, 0,
-		0, #{USR_ID})
+		0, #{USR_ID}, #{RCP_IMG})
 	</insert>
 
 	<insert id="insertResor" parameterType="RCP">
@@ -27,7 +27,7 @@
 		(RCPCT_PK,RCPCT_NUM, RCPCT_CONTENT, RCP_PK)
 		VALUES(RCPCT_PK.NEXTVAL,#{RCPCT_NUM}, #{RCPCT_CONTENT}, #{RCP_PK})
 	</insert>
-
+	
 	<select id="detailRcp" parameterType="RCP" resultType="RCP">
 		SELECT *
 		FROM RCP
@@ -41,6 +41,12 @@
 	<select id="detailRcp_cont" parameterType="RCP" resultType="RCP">
 		SELECT *
 		FROM RCP_CONT
+		WHERE RCP_PK = ${RCP_PK}
+	</select>
+	
+	<select id="detail_rcp_img" parameterType="RCP" resultType="RCP">
+		SELECT *
+		FROM RCP_PIC
 		WHERE RCP_PK = ${RCP_PK}
 	</select>
 
@@ -75,6 +81,12 @@
 		WHERE RCP_PK
 		= ${RCP_PK}
 	</delete>
+	
+	<delete id="delcheck_img" parameterType="RCP">
+		DELETE FROM RCP_PIC
+		WHERE RCP_PK
+		= ${RCP_PK}
+	</delete>
 
 	<update id="rewriteRcp" parameterType="RCP">
 		UPDATE RCP SET
@@ -105,18 +117,20 @@
 		RCP_HIT = RCP_HIT + 1 
 		WHERE RCP_PK = #{RCP_PK}
 	</update>
-	
+
 	<insert id="input_scrap" parameterType="RCP">
         insert into RCP_SCRAP
         (RCPSP_PK,RCP_PK,USR_ID)
         VALUES(RCPSP_PK.NEXTVAL,#{RCP_PK},#{USR_ID})
      
      </insert>
+     
 	<select id="ch_scrap_detail" parameterType="RCP" resultType="RCP">
 		select RCPSP_PK
 		from RCP_SCRAP
 		WHERE RCP_PK=#{RCP_PK} and USR_ID=#{USR_ID}
 	</select>
+	
 	<delete id="cancel_scrap" parameterType="RCP">
 		delete from RCP_SCRAP
 		where RCP_PK=#{RCP_PK} and USR_ID=#{USR_ID}	

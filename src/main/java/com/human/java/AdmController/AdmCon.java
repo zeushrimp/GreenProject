@@ -26,34 +26,16 @@ public class AdmCon {
 
 	@Autowired
 	private AdmSer AdmSer;
-
-
-//	// 관리자 페이지
-//	@RequestMapping("/VgAdmMain.do")
-//	public void show_main_admin(Model model, RcpListVO rcplistvo) {
-//
-//		// 회원 목록 보기
-//		model.addAttribute("AUSR", AdmSer.showAllusr());
-//		// 커뮤니티 게시글 목록
-//		model.addAttribute("CUM", AdmSer.select_cmu_list_ad());
-//		// 레시피 글 목록
-//		model.addAttribute("RcpViewAll", AdmSer.select_rcp_list_ad());
-//
-//		
-//
-//	}
 	
     // 관리자 페이지 중 회원목록_ajax이자 메인 화면
-    @ResponseBody
-    @RequestMapping("/vg_admin_userinfo_ajax.do")
-    public List<UsrVO> select_userinfo_ad_ajax(UsrVO usrvo ) {
+    @RequestMapping("/VgAdmMain.do")
+    public void select_userinfo_ad_ajax(Model model, UsrVO usrvo ) {
     	
-    	System.out.println("ajax 진입 성공");
-    	System.out.println("Cate : " + usrvo);
-    	List<UsrVO> usr_list = AdmSer.select_userinfo_ad_ajax(usrvo);
-    	System.out.println(usr_list.size());
 
-    	return usr_list;
+		// 회원 목록 보기
+		model.addAttribute("AUSR", AdmSer.select_userinfo_ad_ajax(usrvo));
+
+
     }
 	
     // 관리자 페이지 중 레시피 목록_ajax
@@ -61,7 +43,7 @@ public class AdmCon {
     @RequestMapping("/select_rcp_list_ad_ajax.do")
     public List<RcpVO> select_rcp_list_ad_ajax() {
     	
-    	System.out.println("ajax 진입 성공");
+    	System.out.println("레시피 ajax 진입 성공");
     	List<RcpVO> rcp_list = AdmSer.select_rcp_list_ad_ajax();
     	System.out.println(rcp_list.size());
 
@@ -74,7 +56,7 @@ public class AdmCon {
     public List<CmuVO> select_cmu_list_ad_ajax() {
     	
 
-    	System.out.println("ajax 진입 성공");
+    	System.out.println("커뮤니티 ajax 진입 성공");
     	List<CmuVO> cmu_list = AdmSer.select_cmu_list_ad_ajax();
     	System.out.println(cmu_list.size());
 
