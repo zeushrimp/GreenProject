@@ -376,6 +376,7 @@
 
 
 	<!--footer-->
+	<div style="padding-top: 400px"></div>
 	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
 	<%@ include file="VgMpgEdtMa.jsp"%>

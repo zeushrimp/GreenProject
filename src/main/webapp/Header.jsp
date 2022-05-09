@@ -93,6 +93,7 @@
 						</ul></li>
 					<li><a href="#" title="Vegcipe"><span>냉장고 레시피</span></a></li>
 					<li><a href="/mpg/VgMpgChat.do" title="chat"><span>실시간 채팅</span></a></li>
+					<li><a href="/usr/VgMapMain.do" title="map"><span>지도</span></a></li>
 			</nav>
 
 			<nav class="user-nav" role="navigation">
