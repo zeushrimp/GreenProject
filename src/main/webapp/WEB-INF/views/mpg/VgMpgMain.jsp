@@ -65,7 +65,7 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}" alt=""
+							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}" onerror="this.src='/resources/images/defaultpic.png'"
 								style="width: 500px; height: 250px;" />
 						</figure>
 						<div class="container">
@@ -176,7 +176,7 @@
 								<c:forEach items="${myrecipes}" var="rcpvo">
 									<div class="entry one-third">
 										<figure>
-											<img src="/resources/images/img.jpg" alt="" />
+											<img src="data:image/gif;base64,${rcpvo.RCP_IMG}" onerror="this.src='/resources/images/img.jpg'"/>
 											<figcaption>
 												<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcpvo.RCP_PK}"><i
 													class="icon icon-themeenergy_eye2"></i> <span>View
@@ -245,7 +245,7 @@
 								<c:forEach items="${myscraprcp}" var="scrpvo">
 									<div class="entry one-third">
 										<figure>
-											<img src="/resources/images/img.jpg" alt="" />
+											<img id="imgtest1" src="data:image/gif;base64,${scrpvo.RCP_IMG}" onerror="this.src='/resources/images/img.jpg'">
 											<figcaption>
 												<a href="/rcp/VgRcpDtail.do?RCP_PK=${scrpvo.RCP_PK}"><i
 													class="icon icon-themeenergy_eye2"></i> <span>View
@@ -327,8 +327,8 @@
 											<div class="excerpt">
 												<p>
 													<c:choose>
-														<c:when test="${fn:length(cmuvo.CMU_CONTENT) > 16}">
-															<c:out value="${fn:substring(cmuvo.CMU_CONTENT,0,15)}" />.... </c:when>
+														<c:when test="${fn:length(cmuvo.CMU_CONTENT) >= 0}">
+															<c:out value="${fn:substring(cmuvo.CMU_CONTENT,0,0)}" />더보시려면 클릭하세요.... </c:when>
 														<c:otherwise>
 															<c:out value="${cmuvo.CMU_CONTENT}" />
 														</c:otherwise>
