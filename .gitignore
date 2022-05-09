@@ -1,8 +1,22 @@
-MANIFEST.MF
-pom.properties
+META-INF\*
+/target/
+*/target/*
+*/target
+target/*
+/target
+target/
+\target\
+*\target\*
+*\target
 target\*
-META-INF/*
+\target
+target\
+.settings
+.factorypath
+.classpath
 .springBeans
+.project
+
 # Compiled class file
 *.class
 
