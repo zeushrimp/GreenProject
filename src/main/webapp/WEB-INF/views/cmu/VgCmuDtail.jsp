@@ -315,12 +315,14 @@
             <div class="close-area">X</div>
             <br>
             <div class="content">
+            
+            <form action="do_report_cmu.do">
                <p>신고 사유를 입력하세요.</p>
                <input type="text" class="report_text" style="width: 350px !important; height: 100px !important">
    				<br>
    				<br>
    				<button> 신고하기 </button>
-
+			</form>
             </div>
         </div>
     </div>	
