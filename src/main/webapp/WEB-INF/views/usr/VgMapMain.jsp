@@ -46,8 +46,7 @@
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 250px;
-	margin: 10px 0 30px 10px;
+
 	padding: 5px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
@@ -217,24 +216,26 @@
 	<!--//header-->
 	<div class="map_wrap">
 		<div id="map"
-			style="width: 70%; height: 100%; position: relative; overflow: hidden; margin: auto; border: 10px solid #ffebb5; background-color: #ffebb5; border-radius: 16px; box-shadow: inset 0 0 8px #deb13a;"></div>
-		<div>
-			<div id="menu_wrap" class="bg_white">
-				<div class="option">
-					<div>
-						<form onsubmit="searchPlaces(); return false;">
-							키워드 : <input type="text" value="우만동 맛집" id="keyword" size="15">
-							<button type="submit">검색하기</button>
-						</form>
-					</div>
+			style="width: 100%; height: 100%; position: relative; overflow: hidden; margin: auto; border: 10px solid #ffebb5; background-color: #ffebb5; border-radius: 16px; box-shadow: inset 0 0 8px #deb13a;"></div>
+
+		<div id="menu_wrap" class="bg_white"
+			style="border: 10px solid #ffebb5; background-color: #ffebb5; border-radius: 16px; box-shadow: inset 0 0 8px #deb13a;">
+			<div class="option">
+				<div>
+					<form onsubmit="searchPlaces(); return false;">
+						키워드 : <input type="text" value="우만동 채식" id="keyword" size="15">
+						<button type="submit">검색하기</button>
+					</form>
 				</div>
-				<hr>
-				<ul id="placesList"></ul>
-				<div id="pagination"></div>
 			</div>
+			<hr>
+			<ul id="placesList"></ul>
+			<div id="pagination"></div>
 		</div>
+
 	</div>
 	<!--footer-->
+	<div style="margin-top: 100px;"></div>
 	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
 
@@ -246,9 +247,9 @@
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
-			center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(37.2770324, 127.027542), // 지도의 중심좌표
 			level : 3
-		// 지도의 확대 레벨
+		// 지도의 확대 레벨 :3
 		};
 
 		// 지도를 생성합니다    
