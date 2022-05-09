@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="/resources/css/icons.css" />
 	<link href="http://resources/fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
 	<script src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/resources/js/cmu_comment.js"></script>
 	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
 	
@@ -40,6 +41,75 @@
 		.h_button{float: right; padding-bottom: 15px; padding-right: 15px;}
 		.comment-cmulink {float:right;margin-right:3px;top:3px;background:#239961;color:#fff !important;font-size:12px;font-weight:600;text-align:center;padding:6px 13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 		.reply-cmulink {float:right; width:100px; margin-right:5px;top:3px;background:#239961;color:#fff !important;font-size:13px;font-weight:600;text-align:center;padding:6px 13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+		
+		/* 모달 css */
+		 #modal.modal-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            
+            /* display: flex; */
+            display: none;
+			z-index: 999;
+
+            flex-direction: column;
+			align-items: center; 
+/*             justify-content: center; */
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(1.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        #modal .modal-window {
+            background: rgba( 69, 139, 197, 0.70 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width: 400px;
+            height: 500px;
+            position: relative;
+            top: -100px;
+            padding: 10px;
+            top: 10%;
+        }
+        #modal .title {
+            padding-left: 10px;
+            display: inline;
+            text-shadow: 1px 1px 2px gray;
+            color: white;
+            
+        }
+        #modal .title h2 {
+            display: inline;
+        }
+        #modal .close-area {
+            display: inline;
+            float: right;
+            padding-right: 10px;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px gray;
+            color: white;
+        }
+        
+        #modal .content {
+            margin-top: 20px;
+            padding: 0px 10px;
+            text-shadow: 1px 1px 2px gray;
+            color: white;
+        }	
+        
+        .report_text{
+/*         	width: 200px; */
+/*             height: 300px; */
+        
+        
+        }
+		
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTL5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +118,7 @@
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="modal-overlay">
 	<!--preloader-->
 	<div class="preloader">
 		<div class="spinner"></div>
@@ -108,10 +178,38 @@
 					<!-- 세션아이디 -->
 					<input type="hidden" name="USR_ID" value="${sessionScope.usr_Id }">
 					<div>
+					
+						<!-- 게시글 신고 -->
+						   <div class="h_button">
+								<button id="btn-modal">
+							 	이 게시글 신고하기
+								</button>
+							</div>
+							
+<!-- 					<div id="modal" class="modal-overlay"> -->
+<!--         			<div class="modal-window"> -->
+<!--             			<div class="title"> -->
+<!--                 			<h2>모달</h2> -->
+<!--             			</div> -->
+<!--             			<div class="close-area">X</div> -->
+<!--             		<div class="content"> -->
+<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
+<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
+<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
+<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
+<!--             		</div> -->
+<!--         		   </div> -->
+<!--     				</div>	 -->
+							
+							
+					
+					
 						<c:set var="USR_ADMIN" value="${sessionScope.usr_Admin }" />
 						<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
 						<c:set var="writer_ID" value="${cmuvo.USR_ID }" />
 						<c:if test="${USR_ADMIN == 1 || USR_ID eq writer_ID}">
+						
+				
 							<!-- 게시글 삭제 -->
 							<div class="h_button">
 								<a  href="/cmu/deletecmu.do?CMU_PK=${cmuvo.CMU_PK}"><input
@@ -127,9 +225,14 @@
 									type="button" name="updatecmu" id="updatecmu"
 									style="width: 130px;" value="수정하기" />
 								</a>
-							</div>
-						</c:if>
+							</div>			
+						</c:if>		
+						
+
+							
+								
 					</div>
+
 										
 					<!--comments-->
 					<div class="comments" id="comments">
@@ -195,15 +298,87 @@
 		</div>
 		<!--//wrap-->
 	</main>
-	<!--//main-->
+	<!--//main-->									
+
 		
     <!--footer-->
     <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
+    
+    <!-- 모달창 -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-window">
+        	<br>
+            <div class="title">
+                <h2>부적절한 게시글 신고</h2>
+            </div>
+            <div class="close-area">X</div>
+            <br>
+            <div class="content">
+               <p>신고 사유를 입력하세요.</p>
+               <input type="text" class="report_text" style="width: 350px !important; height: 100px !important">
+   				<br>
+   				<br>
+   				<button> 신고하기 </button>
+
+            </div>
+        </div>
+    </div>	
+		
+    
+    
 	
 	<script src="/resources/js/jquery.uniform.min.js"></script>
 	<script src="/resources/js/jquery.slicknav.min.js"></script>
 	<script src="/resources/js/scripts.js"></script>
+	<script>
+
+        const modal = document.getElementById("modal")
+
+        function modalOn() {
+            modal.style.display = "flex"
+        }
+        function isModalOn() {
+            return modal.style.display === "flex"
+        }
+        function modalOff() {
+            modal.style.display = "none"
+        }
+        const btnModal = document.getElementById("btn-modal")
+
+        btnModal.addEventListener("click", e => {
+            modalOn()
+            document.querySelector("#modal").css
+
+
+             
+        })
+        
+        const closeBtn = modal.querySelector(".close-area")
+        closeBtn.addEventListener("click", e => {
+            modalOff()
+        })
+        modal.addEventListener("click", e => {
+            const evTarget = e.target
+            if(evTarget.classList.contains("modal-overlay")) {
+                modalOff()
+            }
+        })
+        window.addEventListener("keyup", e => {
+            if(isModalOn() && e.key === "Escape") {
+                modalOff()
+            }
+        })
+        
+        
+        
+        
+        
+        
+
+        
+
+    </script>
 </body>
 </html>
 
