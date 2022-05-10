@@ -66,15 +66,14 @@ public class MpgMainDaoImpl implements MpgMainDao {
 
 	@Override
 	public List<RcpVO> scrapnum(UsrVO mpgvo) {
-		System.out.println("11");
 		return sqlSession.selectList("Mpg.scrapnum",mpgvo);
 		
 	}
 
 	@Override
-	public List<RcpVO> get_mpgscrcp(List<RcpVO> scrapnum) {
+	public List<RcpVO> get_mpgscrcp(UsrVO mpgvo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("Mpg.get_mpgscrcp",scrapnum);
+		return sqlSession.selectList("Mpg.get_mpgscrcp",mpgvo);
 	}
 
 	@Override

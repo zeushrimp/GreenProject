@@ -43,6 +43,26 @@ public class AiCon {
 
 	}
 
+	@RequestMapping("vegcipefile.do")
+	public String vegcipefile(MultipartFile file, HttpSession session,RcpVO rcpvo,Model model) throws IOException {
 	
+		rcpvo.setRCPRS_TITLE("양파")
+;
+		
+		System.out.println("================== file start ==================");
+		System.out.println("파일 이름: " + file.getName());
+		System.out.println("파일 실제 이름: " + file.getOriginalFilename());
+		System.out.println("파일 크기: " + file.getSize());
+		System.out.println("content type: " + file.getContentType());
+		System.out.println("================== file   END ==================");
 
+		List<RcpVO> airecipe = AiSer.Ai_recipe(rcpvo);
+		System.out.println(airecipe);
+		
+		model.addAttribute("vegcipe", airecipe);
+				
+		
+		return "/ai/VgAiList";
+
+	}
 }

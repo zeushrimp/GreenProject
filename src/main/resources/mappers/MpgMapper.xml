@@ -73,14 +73,11 @@
 		WHERE
 		usr_id =#{USR_ID}
 	</update>
-	<select id="get_mpgscrcp" resultType="RCP">
-		select *
-		from RCP
-		where RCP_PK in
-		<foreach collection="list" item="item" open="(" close=")"
-			separator=",">
-			#{item.RCP_PK}
-		</foreach>
+	<select id="get_mpgscrcp" parameterType="USR" resultType="RCP">
+		select rcp.*
+		from rcp_scrap , rcp
+		where rcp_scrap.RCP_PK=rcp.rcp_pk
+		And rcp_scrap.usr_id = #{USR_ID}
 	</select>
 
 	<update id="updatechatid" parameterType="USR">
@@ -91,9 +88,11 @@
 		ON (a.USR_ID = #{USR_ID})
 		WHEN MATCHED THEN
 		UPDATE
-		SET a.USR_CHAT_ID=#{USR_CHAT_ID}
+		SET
+		a.USR_CHAT_ID=#{USR_CHAT_ID}
 		WHEN NOT MATCHED THEN
-		INSERT (a.USR_ID ,a.USR_CHAT_ID)
+		INSERT (a.USR_ID
+		,a.USR_CHAT_ID)
 		VALUES (#{USR_ID},#{USR_CHAT_ID})
 	</update>
 

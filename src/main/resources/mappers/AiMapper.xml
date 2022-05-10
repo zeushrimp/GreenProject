@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Ai">
+
+	<select id="Ai_recipe" parameterType="RCP" resultType="RCP">
+		select rcp.*
+		from RCP_RESO , RCP
+		where RCP_RESO.RCP_PK=rcp.rcp_pk
+		And rcp_reso.rcprs_title = #{RCPRS_TITLE}
+	</select>
+
+</mapper>

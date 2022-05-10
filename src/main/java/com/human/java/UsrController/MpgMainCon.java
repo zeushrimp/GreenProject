@@ -70,7 +70,7 @@ public class MpgMainCon {
 
 		System.out.println("scrapnum : " + scrapnum.size());
 
-		model.addAttribute("myscraprcp", MpgMainSer.get_mpgscrcp(scrapnum));
+		model.addAttribute("myscraprcp", MpgMainSer.get_mpgscrcp(mpgvo));
 
 		for (int i = 0; i < scrapnum.size(); i++) {
 			System.out.println(scrapnum.get(i));

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="">사진 업로드 이거 누르면 파일 열기 창이 뜸 링크 아님</a>
-<a href="VgAiRegst.jsp">레시피 찾기 실행</a>
+
+
+	<form action="vegcipefile.do" method="post"
+		enctype="multipart/form-data">
+
+		<div class="inputArea">
+			<label for="gdsImg">이미지</label> <input type="file" id="gdsImg1"
+				name="file" accept="image/gif, image/jpeg, image/png" />
+			<div class="select_img">
+				<img src="" />
+			</div>
+
+			<input type="submit">
+	</form>
+
+	<script>
+		$("#gdsImg1")
+				.change(
+						function() {
+							if (this.files && this.files[0]) {
+								var reader = new FileReader;
+								reader.onload = function(data) {
+									$(".select_img img").attr("src",
+											data.target.result).width(300);
+								}
+								reader.readAsDataURL(this.files[0]);
+							}
+						});
+	</script>
 </body>
 </html>

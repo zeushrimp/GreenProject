@@ -95,7 +95,7 @@
 							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글
 									목록</a></li>
 						</ul></li>
-					<li><a href="/ai/VgAiVideo.do" title="chat"><span>냉장고 레시피</span></a></li>
+					<li><a href="/ai/VgAiVideo.do" title="chat" target="_blank"><span>냉장고 레시피</span></a></li>
 					<li><a href="/mpg/VgMpgChat.do" title="chat"><span>실시간
 								채팅</span></a></li>
 					<li><a href="/usr/VgMapMain.do" title="map"><span>지도</span></a></li>
