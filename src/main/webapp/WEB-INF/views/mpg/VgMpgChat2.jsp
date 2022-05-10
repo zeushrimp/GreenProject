@@ -565,7 +565,7 @@ ul>li:before {
 				msgHtml.push('	<div class="chat-avatar">');
 				msgHtml.push('		<img');
 				msgHtml.push('			src="data:image/gif;base64,' + img + '"');
-				msgHtml.push('			alt="Retail Admin">');
+				msgHtml.push('			alt="Retail Admin" onerror="this.src='+'\'/resources/images/defaultpic.png\''+'" />');
 				msgHtml.push('		<div class="chat-name">' + usrid + '</div>');
 				msgHtml.push('	</div>');
 				msgHtml.push('</li>');
