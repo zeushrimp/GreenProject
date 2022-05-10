@@ -185,25 +185,7 @@
 							 	이 게시글 신고하기
 								</button>
 							</div>
-							
-<!-- 					<div id="modal" class="modal-overlay"> -->
-<!--         			<div class="modal-window"> -->
-<!--             			<div class="title"> -->
-<!--                 			<h2>모달</h2> -->
-<!--             			</div> -->
-<!--             			<div class="close-area">X</div> -->
-<!--             		<div class="content"> -->
-<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
-<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
-<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
-<!--                 		<p>가나다라마바사 아자차카타파하</p> -->
-<!--             		</div> -->
-<!--         		   </div> -->
-<!--     				</div>	 -->
-							
-							
-					
-					
+				
 						<c:set var="USR_ADMIN" value="${sessionScope.usr_Admin }" />
 						<c:set var="USR_ID" value="${sessionScope.usr_Id }" />
 						<c:set var="writer_ID" value="${cmuvo.USR_ID }" />
@@ -227,12 +209,8 @@
 								</a>
 							</div>			
 						</c:if>		
-						
-
-							
-								
+														
 					</div>
-
 										
 					<!--comments-->
 					<div class="comments" id="comments">
@@ -241,16 +219,15 @@
 							<c:forEach var="replylist" items="${replylist}" varStatus="status">
 							<li class="comment depth-1">
 								<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>
-							    <div class="comment-box" style="width:100%; margin-left:<c:out value="${30*replylist.CCM_REF_LEVEL}"/>px;">
+							    <div class="comment-box" id="reply_${replylist.CCM_PK}" style="width:100%; margin-left:<c:out value="${30*replylist.CCM_REF_LEVEL}"/>px;">
 							        <div class="comment-author meta" style="display:inline-block;"> 
 							        <strong><c:out value="${replylist.USR_ID}"/></strong><c:out value="${replylist.CCM_REG}"/>
 							        </div>
 							        <c:set var="comment_ID" value="${replylist.USR_ID }" />
 							        <c:if test="${USR_ADMIN == 1 || USR_ID eq comment_ID}">
-								        <a class="comment-cmulink" href="#" onclick="fn_commentdelete('<c:out value="${replylist.CCM_PK}"/>')" >
-								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />삭제</a>
-								        <a class="comment-cmulink" href="#" <%-- onclick="fn_commentupdate('<c:out value="${replylist.CCM_PK}"/>')" --%>>
-								        	<input name="CMU_PK" id="cmurereply" type="hidden" value="${cmuvo.CMU_PK}" />수정</a>
+								        <button class="comment-cmulink" onclick="rereplydelete('${replylist.CMU_PK}','${replylist.CCM_PK}', '${replylist.USR_ID}')" value="삭제">삭제</button>
+								        <button class="comment-cmulink" onclick="rereplyupdate('${replylist.CMU_PK}','${replylist.CCM_PK}', '${replylist.USR_ID}', '${replylist.CCM_REG}', '${replylist.CCM_CONTENT}', '${replylist.CCM_REF_LEVEL}')" value="수정">수정</button>
+								       
 								    </c:if>
 								    	<button class="comment-cmulink" id="rereplybutton" name="rereplybutton" value="댓글">댓글</button>
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    

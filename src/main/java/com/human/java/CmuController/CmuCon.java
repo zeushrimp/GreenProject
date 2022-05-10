@@ -35,7 +35,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.human.java.CmuService.CmuSer;
 import com.human.java.CmuVO.CmuVO;
-import com.human.java.RcpVO.RcpVO;
 @Controller
 @RequestMapping("/cmu")
 public class CmuCon {
@@ -158,19 +157,39 @@ public class CmuCon {
 	}
 
 	// 댓글 삭제
+	@ResponseBody
 	@RequestMapping("/cmu_replydelete.do")
-	public String cmu_commentdelete(HttpServletRequest request, CmuVO cmuvo) {		
-		cmuvo.getCCM_PK();
+	public HashMap cmu_commentdelete(CmuVO cmuvo, HttpSession session) {
+		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		cmuvo.getCMU_PK();
+		cmuvo.getCCM_PK();		
+		
+		System.out.println(cmuvo.getCMU_PK());
+		
 		CmuSer.cmu_commentdelete(cmuvo);		
-		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+
+		HashMap map = new HashMap();
+		
+		map.put("sess", String.valueOf(session.getAttribute("usr_Id")));
+		map.put("list", CmuSer.cmu_commentlist(cmuvo));
+		
+		return map;
 	}
 	
 	// 댓글 수정
+	@ResponseBody
 	@RequestMapping("/cmu_replyupdate.do")
-	public String cmu_commentupdate(HttpServletRequest request, CmuVO cmuvo) {		
-		cmuvo.getCCM_PK();
-		CmuSer.cmu_commentupdate(cmuvo);		
-		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+	public HashMap cmu_commentupdate(CmuVO cmuvo, HttpSession session) {		
+		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+
+		CmuSer.cmu_commentupdate(cmuvo);
+		
+		HashMap map = new HashMap();
+		
+		map.put("sess", String.valueOf(session.getAttribute("usr_Id")));
+		map.put("list", CmuSer.cmu_commentlist(cmuvo));
+		
+		return map;
 	}	
 	
     // 이미지 업로드
@@ -364,15 +383,13 @@ public class CmuCon {
 //		} else if (report_check == 1) { // 신고하기를 이미 눌렀는데 또 누름
 //			CmuSer.cmu_report_plus_check(cmuvo);// 중복 방지 : cmu_reported 테이블의 reported_check 컬럼 1로...
 //			CmuSer.cmu_report_columm_one(cmuvo); // cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입 
-
 			System.out.println("한게시글에 신고는 한번만 하셈이라는 경고창 띄워주고 다시 모달 클릭 전 상황으로 돌아가셈");
 			
 //		}
 		
 //		return report_check; // 결과값 리턴
 			return "redirect:/cmu/VgCmuDtail.do";
-		    
-		
+		    		
 	   }
 	
     

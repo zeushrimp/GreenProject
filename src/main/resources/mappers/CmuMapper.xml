@@ -78,7 +78,7 @@
     <select id="count_reply" parameterType="CMU" resultType="Integer">
 	SELECT COUNT(*)
 	FROM CMU_COM
-	WHERE CMU_PK = #{CMU_PK}
+	WHERE CMU_PK = #{CMU_PK} AND CCM_DEL = 1
 	</select>
 		
 	<!-- 댓글 작성 -->

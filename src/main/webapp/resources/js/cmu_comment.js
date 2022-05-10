@@ -1,100 +1,3 @@
-// 댓글 이전코딩
-//function fn_commentsubmit(){
-//    if ($.trim($("#CCM_CONTENT").val()) == "") {
-//        alert("글 내용을 입력해주세요.");
-//        $("#CCM_CONTENT").focus();
-//        return;
-//    }
-//    $("#cmu_commentsave").submit();   
-//}
-//
-//// 댓글 삭제
-//function fn_commentdelete(CCM_PK){
-//    if (!confirm("삭제하시겠습니까?")) {
-//        return;
-//    }
-//    var form = document.updateform;
-//
-//    form.action="cmu_replydelete.do";
-//    form.CCM_PK.value=CCM_PK;
-//    form.submit();   
-//}
-//	
-
-// 댓글 기능
-// ajax 구현
-$(function(){
-	
-	$('#comment_btn').click(function(){
-	
-		var CMU_PK = $('#comment_form').children('input:eq(0)').val()
-		var USR_ID = $('#comment_form').children('input:eq(1)').val()
-		var CCM_CONTENT = $('#comment_form').children('textarea:eq(0)').val()
-		
-		$.ajax({
-			type:"POST",
-			url:"/cmu/cmu_commentsave.do",
-			data : {
-				"CMU_PK" : CMU_PK,
-				"USR_ID" : USR_ID,
-				"CCM_CONTENT" : CCM_CONTENT
-			},
-			success : function(dataMap){
-				
-				console.log(dataMap)
-				var add_comment_string = add_comment_List(dataMap)
-				
-				$('.comment-list').html(add_comment_string);
-				$('#comment_form').children('textarea:eq(0)').val('');
-				alert("등록되었습니다.");
-			},
-			error : function(request, status, error){
-				alert("code = " + request.status +" \n error = " + error);
-			}
-			
-		})
-	})
-	
-})
-
-// 	CCM_PK
-//CCM_CONTENT
-//CCM_REG
-//CCM_REF
-//CCM_REF_STEP
-//CCM_REF_LEVEL
-//CCM_DEL
-//USR_ID
-//CMU_PK
-function add_comment_List(dataMap){
-	var str = "";
-	usrId = dataMap['sess']
-	data = dataMap['list']
-	
-	console.log(usrId);
-	console.log(data);
-	for ( key in data ){
-		console.log(key)
-			str += '<li class="comment depth-1">'
-			str += '<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>'
-			str += '<div class="comment-box" style="width:100%; margin-left:'+30*data[key].CCM_REF_LEVEL+'px;">'
-			str += '<div class="comment-author meta" style="display:inline-block;"> '
-			str += '<strong>'+data[key].USR_ID+'</strong>'+data[key].CCM_REG
-			str += '</div>'
-			str += '<button class="comment-cmulink" class="rereplybutton" value="댓글">댓글</button>'
-			if( usrId == data[key].USR_ID ){
-				str += '<button class="comment-cmulink" class="rereplybutton" value="삭제">삭제</button>'
-				str += '<button class="comment-cmulink" class="rereplybutton" value="수정">수정</button>'				
-			}			
-			str += '<div class="comment-text" id="reply_'+data[key].CCM_PK+'">'+data[key].CCM_CONTENT+'</div>'								    
-			str += '</div>'
-			str += '<div class="rereply_ajax">'
-			str += '</div>'
-			str += '</li>'
-	}
-		return str;
-	}
-
 // 페이지 이전 버튼
 function fn_prev(page, range, rangesize, listsize, searchtype, keyword) {
 		
@@ -149,20 +52,7 @@ $(document).on('click', '#btnSearch', function(e){
 	console.log(url);
 });
 
-function fn_replyReplySave(){
-    var form = document.recommnetform;
-
-    if (form.CCM_CONTENT.value=="") {
-        alert("글 내용을 입력해주세요.");
-        form.CCM_CONTENT.focus();
-        return;
-    }
-   
-    form.action="cmu_commentsave.do";
-    form.submit();   
-}
-
-// ajax 카테고리
+// ajax 카테고리(전체 or 분류)
 $(function(){
 	$('.catebutton').click(function(e){
 		
@@ -177,7 +67,7 @@ $(function(){
 	})
 })
 
-// ajax 카테고리
+// ajax 카테고리(controller)
 function cate_ajax(menuSelector){	
 	$.ajax({
 		type: 'post', 
@@ -186,7 +76,6 @@ function cate_ajax(menuSelector){
 		success: function(data){
 //			alert("성공했습니다.");	
 			var tag_String = create_cate_list(data);			
-			
 //			alert(tag_String);
 			$('#listForm').html(tag_String) 
 		},
@@ -196,7 +85,7 @@ function cate_ajax(menuSelector){
 	})	
 }
 
-// ajax 카테고리
+// ajax 카테고리 분류 화면
 function create_cate_list(data){	
 	var str = "";
 //	console.log(typeof data);                                           
@@ -239,26 +128,160 @@ function create_cate_list(data){
 	return str;
 }
 
-// ajax 대댓글
-$(document).on('click', '#rereplybutton', function(e){
+// 댓글 ajax 구현
+$(function(){
+	
+	$('#comment_btn').click(function(){
+	
+		var CMU_PK = $('#comment_form').children('input:eq(0)').val() /* 게시판 번호 */
+		var USR_ID = $('#comment_form').children('input:eq(1)').val() /* 유저 아이디 */
+		var CCM_CONTENT = $('#comment_form').children('textarea:eq(0)').val() /* 댓글 내용 */
 		
-		var replyClick = e.target.value;
-		alert(replyClick);
-		
-		if(replyClick == '수정'){
-			alert('수정');
-			// 새로운 ajax 수정창
-		}else if(replyClick == '삭제'){
-			fn_commentdelete();				
-		}else if(replyClick == '댓글'){
-			var rereply_string= $('#recommnetform').serialize();
-			alert(rereply_string);
-			rereply_ajax(rereply_string);
-			// 새로운 ajax 댓글창
-		}
-});
+		$.ajax({
+			type:"POST",
+			url:"/cmu/cmu_commentsave.do",
+			data : {
+				"CMU_PK" : CMU_PK,
+				"USR_ID" : USR_ID,
+				"CCM_CONTENT" : CCM_CONTENT
+			},
+			success : function(dataMap){
+				
+				console.log(dataMap)
+				var add_comment_string = add_comment_List(dataMap)
+				
+				$('.comment-list').html(add_comment_string);
+				$('#comment_form').children('textarea:eq(0)').val('');
+				alert("등록되었습니다.");
+			},
+			error : function(request, status, error){
+				alert("code = " + request.status +" \n error = " + error);
+			}
+			
+		})
+	})
+	
+})
 
-// 대댓글 취소
+// 댓글 작성 리스트
+function add_comment_List(dataMap){
+	var str = "";
+	usrId = dataMap['sess']
+	data = dataMap['list']
+	
+	console.log($('#comments').children('h2').text(data.length+ ' comments'));
+	
+	console.log(usrId);
+	console.log(data);
+	for ( key in data ){
+		console.log(key)
+			str += '<li class="comment depth-1">'
+			str += '<div class="avatar"><a href="VgMpgMain.do"><img src="/resources/images/avatar.jpg" alt="" /></a></div>'
+			str += '<div class="comment-box" id="reply_'+data[key].CCM_PK+'" style="width:100%; margin-left:'+30*data[key].CCM_REF_LEVEL+'px;">'
+			str += '<div class="comment-author meta" style="display:inline-block;"> '
+			str += '<strong>'+data[key].USR_ID+'</strong>'+data[key].CCM_REG
+			str += '</div>'
+			str += '<button class="comment-cmulink rereplybutton" value="댓글">댓글</button>'
+			if( usrId == data[key].USR_ID ){
+				str += '<button class="comment-cmulink" onclick="rereplydelete()" value="삭제">삭제</button>'
+				str += '<button class="comment-cmulink onclick="rereplyupdate('
+				str += data[key].CMU_PK, data[key].CCM_PK, data[key].USR_ID, data[key].CCM_REG, data[key].CCM_CONTENT, data[key].CCM_REF_LEVEL;
+				str += ')" value="수정">수정</button>'				
+			}			
+			str += '<div class="comment-text" id="reply_'+data[key].CCM_PK+'">'+data[key].CCM_CONTENT+'</div>'								    
+			str += '</div>'
+			str += '<div class="rereply_ajax">'
+			str += '</div>'
+			str += '</li>'
+	}
+		return str;
+	}
+
+//ajax 댓글 수정창
+function rereplyupdate(CMU_PK, CCM_PK, USR_ID, CCM_REG, CCM_CONTENT, CCM_REF_LEVEL){
+	alert("댓글을 수정해주세요.");
+	console.log("댓글 수정");
+	
+	var str = "";
+	
+	str += '<div class="comment-box" id="reply_'+CCM_PK+'" style="width:100%; margin-left:'+30*CCM_REF_LEVEL+'px;">'
+	str += '<div class="comment-author meta" style="display:inline-block;"> '
+	str += '<strong>'+USR_ID+'</strong>'+CCM_REG
+	str += '</div>'
+	str += '<input type="hidden" name="CMU_PK" value="'+CMU_PK+'">'
+	str += '<input type="hidden" name="USR_ID" value="'+USR_ID+'">'
+	str += '<button class="comment-cmulink" onclick="add_comment_List()" value="수정취소">수정취소</button>'
+	str += '<button class="comment-cmulink" onclick="rereply_update_btn(\''+CMU_PK+'\',\''+CCM_PK+'\',\''+USR_ID+'\')" value="수정완료">수정완료</button>'					
+	str += '<textarea class="comment-text" style="height:40px; width:85% !important;" id="reply_box_'+CCM_PK+'">'+CCM_CONTENT+'</textarea>'								    
+	str += '</div>'
+	str += '<div class="rerepl`	`y_ajax">'
+	str += '</div>'
+	str += '</li>'
+	
+	var replyEdit = '#reply_'+CCM_PK;
+	$(replyEdit).replaceWith(str);
+};
+
+//ajax 댓글 수정 확인
+function rereply_update_btn(CMU_PK,CCM_PK,USR_ID){
+	
+	var textAreaEdit = '#reply_box_'+CCM_PK;
+	var CCM_CONTENT = $(textAreaEdit).val(); //$(#'')
+	
+	$.ajax({
+		url: '/cmu/cmu_replyupdate.do',
+		type: 'POST',
+		data: {
+				"CMU_PK" : CMU_PK,
+				"CCM_PK" : CCM_PK,
+				"USR_ID" : USR_ID,
+				"CCM_CONTENT" : CCM_CONTENT 
+				},
+		success: function(data){
+			console.log(data)
+			var add_comment_string = add_comment_List(data)
+			
+			$('.comment-list').html(add_comment_string);
+			$('#comment_form').children('textarea:eq(0)').val('');
+			alert("수정되었습니다.");
+		}, 
+		error: function(request,status,error){
+			alert("에러났습니다."+request.status + " \n error" + error);	
+		}
+								
+	});
+};
+
+//ajax 댓글 삭제창
+function rereplydelete(CMU_PK,CCM_PK,USR_ID){
+	alert("댓글을 삭제하겠습니다.");
+	console.log("댓글 삭제");
+	
+	$.ajax({
+		url: '/cmu/cmu_replydelete.do',
+		type: 'POST',
+		data: {
+				"CMU_PK" : CMU_PK,
+				"CCM_PK" : CCM_PK,
+				"USR_ID" : USR_ID
+				},
+		success: function(data){
+			alert("연결");
+			console.log(data)
+			var add_comment_string = add_comment_List(data)
+			
+			$('.comment-list').html(add_comment_string);
+			$('#comment_form').children('textarea:eq(0)').val('');
+			alert("삭제되었습니다.");
+		}, 
+		error: function(request,status,error){
+			alert("에러났습니다."+request.status + " \n error" + error);	
+		}
+								
+	});
+};
+
+// 대댓글 작성 취소
 function fn_replyReplyCancel(){
 		var url = "/cmu/VgCmuList.do?CMU_PK=";
 		url = url + CMU_PK;
@@ -267,6 +290,7 @@ function fn_replyReplyCancel(){
 
 // ajax 대댓글 작성
 function rereply_ajax(rereply_string){
+		
 	$.ajax({
 		type: 'post', 
 		url: '/cmu/VgCmuRereply_ajax.do',
@@ -291,7 +315,7 @@ function rereply_ajax(rereply_string){
 			str += '<div>'
 			str += '<!-- 수정, 취소 -->'
 			str += '<a class="reply-cmulink" onclick="fn_replyReplySave()">댓글 작성</a>'
-			str += '<a class="reply-cmulink" onclick="fn_replyReplyCancel()">취소</a>'
+			str += '<a class="reply-cmulink" onclick="fn_replyReplyCancle()">취소</a>'
 			str += '</div>'
 			str += '</form>'
 			str += '</div>';
