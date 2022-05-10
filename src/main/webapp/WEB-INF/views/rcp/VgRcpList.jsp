@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,43 +105,44 @@
 							<c:forEach items="${RcpViewAll }" var="rcplist">
 							
 								<div class="entry one-fourth">
-									<figure>
-									<f:choose>
-										<f:when test="${rcplist.RCP_IMG != null }">
-										<img src="data:image/gif;base64,${rcplist.RCP_IMG }" style="width: 270px !important; height: 203px !important;"/>
-										</f:when>
-										<f:otherwise>
-										<img src="/resources/images/img.jpg" alt="" />
-										</f:otherwise>
-										</f:choose>
-										<figcaption>
-											<a href="VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK}"><i
-												class="icon icon-themeenergy_eye2"></i> <span>레시피
-													보러가기</span></a>
-										</figcaption>
-									</figure>
-									
-									<div class="container">
-										<h2>
-											<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }">${rcplist.RCP_TITLE}</a>
-										</h2>
-										
-										<div class="actions">
-											<div>
-												<div class="writer"
-													style="width: 200px; border-right: none !important;">
-													<span>아이디 </span><a href="#">${rcplist.USR_ID}</a>
-												</div> 
-												<div class="likes">
-													<span>좋아요 </span><a href="#">${rcplist.RCP_LIKE}</a>
-												</div>
-												<div class="comments">
-													<span>조회수 </span><a href="VgRcpDtail.do#comments">${rcplist.RCP_HIT}</a>
-												</div>
+								<figure>
+									<img src="data:image/gif;base64,${rcplist.RCP_IMG }"
+										style="width: 270px !important; height: 203px !important;" onerror="this.src='/resources/images/rcp_default.png'" />
+									<figcaption>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK}"><i
+											class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
+									</figcaption>
+								</figure>
+
+								<div class="container">
+									<h2>
+										<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK }"> <c:choose>
+												<c:when test="${fn:length(rcplist.RCP_TITLE) > 13}">
+													<c:out value="${fn:substring(rcplist.RCP_TITLE,0,12)}" />.... </c:when>
+												<c:otherwise>
+													<c:out value="${rcplist.RCP_TITLE}" />
+												</c:otherwise>
+											</c:choose>
+
+										</a>
+									</h2>
+
+									<div class="actions">
+										<div>
+											<div class="writer"
+												style="width: 200px; border-right: none !important;">
+												<span>아이디 </span><a href="#">${rcplist.USR_ID}</a>
+											</div>
+											<div class="likes">
+												<span>좋아요 </span><a href="#">${rcplist.RCP_LIKE}</a>
+											</div>
+											<div class="comments">
+												<span>조회수 </span><a href="/rcp/VgRcpDtail.do#comments">${rcplist.RCP_HIT}</a>
 											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 								
 							</c:forEach>
 							<!-- /레시피 상세 조회 -->
