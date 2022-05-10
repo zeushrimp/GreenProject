@@ -30,7 +30,7 @@
 							style="text-align: center; display: inline-block;">
 							<div>
 								<h3>채소, 야채 사진을 넣어주세요.</h3>
-								<form id="Ai_imgsend" action="vegcipefile.do" method="post"
+								<form action="vegcipefilecheck.do" method="post"
 									enctype="multipart/form-data">
 									<!-- 생략 -->
 									<div class="inputArea">
@@ -41,9 +41,10 @@
 											<img src="" />
 										</div>
 
-										<input type="button"
-											class="close btn btn-default Ai_imgsend_next"
-											data-dismiss="modal" value="확인" onclick="Ai_imgsend()">
+										<input class="close btn btn-default Ai_imgsend_next"
+											type="button" data-target="#modal02" data-toggle="modal"
+											style="float: right; padding: 5px 10px;"value="확인">
+									</div>
 								</form>
 
 							</div>
@@ -68,15 +69,9 @@
 				}
 			});
 
-	function Ai_imgsend() {
-		$('.Ai_imgsend_next').click(function() {
 
-			$('#Ai_imgsend').submit();
-		})
-
-	}
 </script>
-
+<%@ include file="VgAiRegst.jsp"%>
 
 
 
