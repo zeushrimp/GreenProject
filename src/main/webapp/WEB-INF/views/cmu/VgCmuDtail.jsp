@@ -305,7 +305,7 @@
     <%@ include file="../../../Footer.jsp" %>
     <!--//footer-->
     
-    <!-- 모달창 -->
+    <!-- 신고 모달창 -->
     <div id="modal" class="modal-overlay">
         <div class="modal-window">
         	<br>
@@ -316,11 +316,15 @@
             <br>
             <div class="content">
             
-            <form action="do_report_cmu.do">
+            <form action="insert_report_cmu.do?CMU_PK=${cmuvo.CMU_PK}">
                <p>신고 사유를 입력하세요.</p>
-               <input type="text" class="report_text" style="width: 350px !important; height: 100px !important">
+               <input type="text" class="report_text" style="width: 350px !important;
+                height: 100px !important" name="cmu_report_reason">
+                <input type="hidden" name="CMU_PK" value="${cmuvo.CMU_PK}">
+				<input type="hidden" name="USR_ID" value="${cmuvo.USR_ID}">
    				<br>
    				<br>
+<!--    				<input type="hidden" name="CMU_PK"/> -->
    				<button> 신고하기 </button>
 			</form>
             </div>

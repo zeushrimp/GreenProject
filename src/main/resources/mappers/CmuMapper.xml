@@ -131,4 +131,30 @@
 	ORDER BY CMU_PK DESC
 	</select>
 	
+	<!-- 커뮤니티 게시글 신고하기 -->
+	<insert id="cmu_report_insert" parameterType="CMU">
+		INSERT INTO cmu_reported(CMU_PK, USR_ID_REPORTER,
+		USR_ID_REPORTED, REASON_REPORTED, REPORTED_CHECK)
+		VALUES (#{CMU_PK}, #{user_id_session}, #{USR_ID}, #{cmu_report_reason},1)
+	</insert>
+	
+	<!--  -->
+	
+<!-- 	커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별 -->
+<!-- 	<update id="cmu_report_check" parameterType="CMU"> -->
+<!-- 		update cmu_reported set reported_check = 1 -->
+<!-- 		where cmu_pk =#{cmu_pk} -->
+<!-- 		and user_id_reporter = #{user_id_session} -->
+<!-- 	</update> -->
+
+	
+	<!-- cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입  -->
+	<select id="cmu_report_columm_one" resultType="int">
+		select count(*) 
+		from CMU_REPORTED
+		where CMU_PK = #{CMU_PK}
+		and USR_ID_REPORTER = #{user_id_session}
+	</select>
+	
+	
   </mapper>

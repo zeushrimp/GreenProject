@@ -57,27 +57,52 @@ public class CmuSerImpl implements CmuSer{
 	}
 	
 	// 댓글 저장 (작성)
+	@Override
 	public void cmu_commentsave(CmuVO cmuvo) {
 		cmudao.cmu_commentsave(cmuvo);
 	}
 	
 	// 댓글 리스트 (댓글 불러오기)
+	@Override
 	public List<?> cmu_commentlist(CmuVO cmuvo) {
 		return cmudao.cmu_commentlist(cmuvo);
 	}
 	
 	// 댓글 삭제
+	@Override
 	public int cmu_commentdelete(CmuVO cmuvo) {
 		return cmudao.cmu_commentdelete(cmuvo);
 	}
 
 	// 댓글 수정
+	@Override
 	public int cmu_commentupdate(CmuVO cmuvo) {
 		return cmudao.cmu_commentupdate(cmuvo);
 	}
 
 	// ajax_category
+	@Override
 	public List<CmuVO> cmu_readlist_ajax(CmuVO cmuvo) {
 		return cmudao.cmu_readlist_ajax(cmuvo);
+	}
+
+    // 커뮤니티 게시글 신고하기
+	@Override
+	public void cmu_report_insert(CmuVO cmuvo) {
+		cmudao.cmu_report_insert(cmuvo);
+		
+	}
+
+    // 커뮤니티 게시글 신고 중복 체크
+//	@Override
+//	public int cmu_report_check(CmuVO cmuvo) {
+//		return cmudao.cmu_report_check(cmuvo);
+//	}
+
+	 // cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입 
+	@Override
+	public void cmu_report_columm_one(CmuVO cmuvo) {
+		cmudao.cmu_report_columm_one(cmuvo);
+		
 	}	
 }
