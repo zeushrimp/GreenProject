@@ -4,7 +4,8 @@
 .liSearch{width:100%;}
 .RcpList {background-color: white;width:65%;float:left;}
 .RcpSearch {background-color: white;height:40px; width:25%;float:left;margin-top: 50px;position:relative;}
-.RcpSearch input{font-size: 12px !important;width:325px;padding:10px !important; float:left;}
+#rcp_type{font-size: 12px !important; position:absolute;width:80% !important; height: 100% !important;font-size:11px; outline:none;float:left;}
+#type_submit{float: right;}
 .RcpSearch button{position:absolute;width:50px; height:auto;font-size:11px; border:0px;outline:none;float:left;}
 .boxed				{padding:0 !important;margin:10px !important;display:inline-block;width:1050px;}
 .boxed li 			{float:left;width:33.334%;height:90px;font-size:11px;line-height:1.2;font-weight:700;text-transform:uppercase;text-align:center;overflow:hidden;padding:0 !important;border-top:none !important;-webkit-transition: all .2s ease-in;-moz-transition: all .2s ease-in;-o-transition: all .2s ease-in;-ms-transition: all .2s ease-in;transition: all .2s ease-in;}

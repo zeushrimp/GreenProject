@@ -4,6 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Rcp">
+	
+	<!-- 레시피 등록부분 -->
 	<insert id="insertRcp" parameterType="RCP">
 		insert into RCP
 		(RCP_PK,
@@ -27,7 +29,9 @@
 		(RCPCT_PK,RCPCT_NUM, RCPCT_CONTENT, RCP_PK)
 		VALUES(RCPCT_PK.NEXTVAL,#{RCPCT_NUM}, #{RCPCT_CONTENT}, #{RCP_PK})
 	</insert>
+	<!-- 레시피 등록부분 -->
 	
+	<!-- 레시피 상세조회 -->
 	<select id="detailRcp" parameterType="RCP" resultType="RCP">
 		SELECT *
 		FROM RCP
@@ -43,27 +47,38 @@
 		FROM RCP_CONT
 		WHERE RCP_PK = ${RCP_PK}
 	</select>
-	
 	<select id="detail_rcp_img" parameterType="RCP" resultType="RCP">
 		SELECT *
 		FROM RCP_PIC
 		WHERE RCP_PK = ${RCP_PK}
 	</select>
+	<!-- 레시피 상세조회 -->
 
+	<!-- RCP_PK -->
 	<select id="getPK" resultType="int">
 		select RCP_PK.nextval from dual
 	</select>
-
+	<!-- RCP_PK -->
+	
+	<!-- 페이징 및 검색 -->
 	<select id="countRcp" parameterType="RCP" resultType="int">
-		SELECT
-		COUNT(*) FROM RCP
+		SELECT COUNT(*) 
+		FROM RCP
 	</select>
 	<select id="selectRcp" parameterType="RCP" resultType="RCP">
 		SELECT *
-		FROM RCP ORDER BY RCP_PK DESC OFFSET #{start} ROWS FETCH NEXT
+		FROM RCP 
+			<where>
+				<if test="search_text != null">
+					USR_ID LIKE '%'||#{search_text}||'%' OR RCP_TITLE LIKE '%'||#{search_text}||'%'
+				</if>
+			</where>
+		ORDER BY RCP_PK DESC OFFSET #{start} ROWS FETCH NEXT
 		#{cntPerPage} ROWS ONLY
 	</select>
-
+	<!-- 페이징 및 검색 -->
+	
+	<!-- 레시피 삭제 -->
 	<delete id="delcheck" parameterType="RCP">
 		DELETE FROM RCP
 		WHERE RCP_PK
@@ -87,7 +102,9 @@
 		WHERE RCP_PK
 		= ${RCP_PK}
 	</delete>
-
+	<!-- 레시피 삭제 -->
+	
+	<!-- 수정 -->
 	<update id="rewriteRcp" parameterType="RCP">
 		UPDATE RCP SET
 		RCP_TITLE = #{RCP_TITLE},
@@ -110,6 +127,7 @@
 		RCPRS_AMOUNT = #{RCPRS_AMOUNT}
 		WHERE RCP_PK = ${RCP_PK}
 	</update>
+	<!-- 수정 -->
 	
 	<!-- 조회수 올리기 -->
 	<update id="viewsCountRcp">
@@ -117,7 +135,9 @@
 		RCP_HIT = RCP_HIT + 1 
 		WHERE RCP_PK = #{RCP_PK}
 	</update>
-
+	<!-- 조회수 올리기 -->
+	
+	<!-- 레시피 스크랩 하기 -->
 	<insert id="input_scrap" parameterType="RCP">
         insert into RCP_SCRAP
         (RCPSP_PK,RCP_PK,USR_ID)
@@ -135,5 +155,5 @@
 		delete from RCP_SCRAP
 		where RCP_PK=#{RCP_PK} and USR_ID=#{USR_ID}	
 	</delete>
-	
+	<!-- 레시피 스크랩 하기 -->
 </mapper>

@@ -29,6 +29,7 @@ public class RcpCon {
 		return "/rcp/"+url;
 	}
 	
+	// 레시피 등록시 로그인 체크
 	@RequestMapping("VgRcpRegst_ck.do")
 	public String regstRcp(HttpSession session) {
 		if (session.getAttribute("usr_Id") == null) { 
@@ -38,7 +39,7 @@ public class RcpCon {
 		}
 	}	
 	
-	
+	// 레시피 등록 
 	@RequestMapping("VgRcpRegDone.do")
 	public String insertRcp(RcpVO rcpvo, HttpSession session, MultipartFile file) throws IOException {
 		int i=RcpSer.getPK();
@@ -73,12 +74,14 @@ public class RcpCon {
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
+	
+	// 레시피 전체 조회
 	@RequestMapping("VgRcpList.do")
 	public String boardList(RcpListVO rcplistvo, Model model, RcpVO rcpvo
 			, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
-		
-		int total = RcpSer.countRcp();
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage, String search_text) {
+
+		int total = RcpSer.countRcp(search_text);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "8";
@@ -88,19 +91,20 @@ public class RcpCon {
 			cntPerPage = "8";
 		}
 		rcplistvo = new RcpListVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		rcplistvo.setSearch_text(search_text);
 		model.addAttribute("paging", rcplistvo);
 		model.addAttribute("RcpViewAll", RcpSer.selectRcp(rcplistvo));
 		return "/rcp/VgRcpList";
 	}
 	
+	
+	// 레시피 상세조회
 	@RequestMapping("/VgRcpDtail.do")
 	public String detailRcp(RcpVO rcpvo, Model model, HttpSession session) {
 		RcpSer.viewsCountRcp(rcpvo.getRCP_PK());
 		RcpVO vo1 = new RcpVO();
 		vo1.setRCP_PK(rcpvo.getRCP_PK());
 		vo1.setUSR_ID(session.getAttribute("usr_Id")+"");
-		System.out.println(vo1.getUSR_ID());
-		System.out.println(vo1.getRCP_PK());
 		model.addAttribute("rcp_sp_ck",RcpSer.ch_scrap_detail(vo1));
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
 		model.addAttribute("detailRcp_reso", RcpSer.detailRcp_reso(rcpvo));
@@ -108,6 +112,7 @@ public class RcpCon {
 		return "/rcp/VgRcpDtail";
 	}
 	
+	// 레시피 삭제
 	@RequestMapping("/VgRcpDel.do")
 	public String delcheck(RcpVO rcpvo) {
 		RcpSer.delcheck(rcpvo);
@@ -116,6 +121,7 @@ public class RcpCon {
 ;		return "redirect:/rcp/VgRcpList.do";
 	}
 	
+	// 레시피 수정 데이터
 	@RequestMapping("/VgRcpRew.do")
 	public String startRewriteRcp(RcpVO rcpvo, Model model) {
 		model.addAttribute("RcpDtail", RcpSer.detailRcp(rcpvo));
@@ -124,6 +130,7 @@ public class RcpCon {
 		return "/rcp/VgRcpRew";
 	}
 	
+	// 레시피 수정 하기
 	@RequestMapping("/VgRcpRewDone.do")
 	public String rewcheck(RcpVO rcpvo, Model model, MultipartFile file) throws IOException  {
 		int pk = rcpvo.getRCP_PK();
@@ -137,7 +144,7 @@ public class RcpCon {
 			vo1.setRCPCT_CONTENT(Rcp_content[j]);
 			RcpSer.insertRcp_cont(vo1);
 		}
-//		System.out.println(rcpvo);
+
 		String[] Rcp_resours = rcpvo.getRCPRS_TITLE().split(",");
 		String[] Rcp_nyan = rcpvo.getRCPRS_AMOUNT().split(",");
 		for(int r=0; r<Rcp_resours.length; r++) {
@@ -160,11 +167,13 @@ public class RcpCon {
 		return "redirect:/rcp/VgRcpList.do";
 	}
 	
+	
+	// 레시피 스크랩
 	@RequestMapping("input_scrap.do")
 	public String input_scrap(RcpVO rcpvo, HttpSession session) {
-		System.out.println(rcpvo);
+
 	    String a=rcpvo.getRCP_PK()+"";
-	    System.out.println(a);
+
 	    RcpVO vo1 = new RcpVO();
 		vo1.setRCP_PK(rcpvo.getRCP_PK());
 		vo1.setUSR_ID(session.getAttribute("usr_Id")+"");
@@ -173,7 +182,7 @@ public class RcpCon {
 	    return "redirect:/rcp/VgRcpDtail.do?RCP_PK="+a;
 	   }
 	
-	
+	// 레시피 스크랩 취소
 	@RequestMapping("cancel_scrap.do")
 	public String cancel_scrap(RcpVO rcpvo, HttpSession session) {
 		RcpVO vo1 = new RcpVO();

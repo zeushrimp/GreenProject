@@ -19,9 +19,9 @@ public interface RcpSer {
 	public int getPK();
 	// pk 등록 끝
 	
-	// 게시물 총 갯수
-	public int countRcp();
-	// 게시물 총 갯수 끝
+	// 게시물 총 갯수 , 검색
+	public int countRcp(String search_text);
+	// 게시물 총 갯수 , 검색 끝
 	
 	// 페이징 처리 게시글 조회
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo);
@@ -62,12 +62,13 @@ public interface RcpSer {
 	public void viewsCountRcp(int RCP_HIT);
 	// 레시피 조회수 끝
 
-	
+	// 레시피 스크랩
 	public void input_scrap(RcpVO rcpvo);
 	
 	public RcpVO ch_scrap_detail(RcpVO rcpvo);
 	
 	public void cancel_scrap(RcpVO rcpvo);
+	// 레시피 스크랩 끝
 	
 }
 
