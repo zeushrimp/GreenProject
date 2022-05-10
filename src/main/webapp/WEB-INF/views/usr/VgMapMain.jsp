@@ -21,7 +21,7 @@
 	rel="stylesheet">
 <script src="https://use.fontawesome.com/e808bf9397.js"></script>
 <link rel="shortcut icon" href="/resources/images/favicon.ico" />
-<
+
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;
