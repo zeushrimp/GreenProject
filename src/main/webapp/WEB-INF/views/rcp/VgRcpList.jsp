@@ -60,7 +60,7 @@
 			<!--row-->
 			<div class="row">
 				<header class="s-title"> </header>
-				<!-- 				카테고리 및 검색 -->
+				<!-- 카테고리 및 검색 -->
 				<aside class="above-sidebar full-width">
 					<div class="RcpCategory">
 						<div class="RcpList">
@@ -72,19 +72,21 @@
 								<li><a href="#"><span>추천레시피</span></a></li>
 							</ul>
 							<ul class="boxed">
-								<li><a href="#"><span>프루테리언</span></a></li>
+								<li><a href="#"><span>프루테리</span></a></li>
 								<li><a href="#"><span>비건</span></a></li>
-								<li><a href="#"><span>락토 베지테리언</span></a></li>
-								<li><a href="#"><span>오보 베지테리언</span></a></li>
-								<li><a href="#"><span>락토 오보 베지테리언</span></a></li>
-								<li><a href="#"><span>페스코 베지테리언</span></a></li>
-								<li><a href="#"><span>폴로 베지테리언</span></a></li>
+								<li><a href="#"><span>락토</span></a></li>
+								<li><a href="#"><span>오보</span></a></li>
+								<li><a href="#"><span>락토 오보</span></a></li>
+								<li><a href="#"><span>페스코</span></a></li>
+								<li><a href="#"><span>폴로</span></a></li>
 								<li><a href="VgRcpList.do"><span>전체</span></a></li>
 							</ul>
 						</div>
 						<div class="RcpSearch">
-							<input type="text" placeholder="검색어 입력">
-							<button onclick="">검색</button>
+						<form action="VgRcpList.do" method="post">
+							<input id="rcp_type" type="text" placeholder="검색어 입력" name="search_text" value="${paging.search_text}">
+							<input id="type_submit" type="submit" value="검색" />
+						</form>
 							<!-- 온클릭 으로 검색 기능 VgUsrRegst.jsp 참고 -->
 
 
@@ -147,7 +149,7 @@
 							<div class="pager">
 								<c:if test="${paging.startPage != 1 }">
 									<a
-										href="VgRcpList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+										href="VgRcpList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&search_text=${paging.search_text}">&lt;</a>
 								</c:if>
 								<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
 									var="pagenum">
@@ -157,14 +159,14 @@
 										</c:when>
 										<c:when test="${pagenum != paging.nowPage }">
 											<a
-												href="VgRcpList.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}"
+												href="VgRcpList.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}&search_text=${paging.search_text}"
 												class="paging_num">${pagenum }</a>
 										</c:when>
 									</c:choose>
 								</c:forEach>
 								<c:if test="${paging.endPage != paging.lastPage}">
 									<a
-										href="VgRcpList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+										href="VgRcpList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&search_text=${paging.search_text}">&gt;</a>
 								</c:if>
 							</div>
 <!-- 						</form> -->

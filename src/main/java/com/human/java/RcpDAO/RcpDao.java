@@ -15,7 +15,7 @@ public interface RcpDao {
 
 	public int getPK();
 	
-	public int countRcp();
+	public int countRcp(String search_text);
 
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo);
 	

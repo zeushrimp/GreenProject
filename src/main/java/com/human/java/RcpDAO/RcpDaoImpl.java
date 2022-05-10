@@ -21,12 +21,10 @@ public class RcpDaoImpl implements RcpDao{
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
+	// 레시피 등록
 	@Override
 	public void insertRcp(RcpVO rcpvo) {
-//		System.out.println("안녕 DAO");
-//		System.out.println(rcpvo);
 		mybatis.insert("Rcp.insertRcp",rcpvo);
-		
 	}
 	
 	@Override
@@ -40,26 +38,29 @@ public class RcpDaoImpl implements RcpDao{
 		// TODO Auto-generated method stub
 		mybatis.insert("Rcp.insertResor",rcpvo);
 	}
-
+	// 레시피 등록
+	
+	// 페이징 밎 레시피 목록
 	@Override
-	public int countRcp() {
+	public int countRcp(String search_text) {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("Rcp.countRcp");
+		return mybatis.selectOne("Rcp.countRcp",search_text);
 	}
-
+	
 	@Override
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo) {
 		// TODO Auto-generated method stub
-//		System.out.println("안녕 Dao1");
-//		System.out.println(rcplistvo);
 		return mybatis.selectList("Rcp.selectRcp",rcplistvo);
 	}
-
+	// 페이징 밎 레시피 목록
+	
+	// RCP_PK 를 공유하지만 외래키로 받질 않아서 따로 생성
 	@Override
 	public int getPK() {
 		return mybatis.selectOne("Rcp.getPK");
 	}
-
+	
+	// 상세 레시피 조회
 	@Override
 	public RcpVO detailRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -69,14 +70,12 @@ public class RcpDaoImpl implements RcpDao{
 	@Override
 	public List<RcpVO> detailRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-//		System.out.println("detailRcp_reso : "+ rcpvo);
 		return mybatis.selectList("Rcp.detailRcp_reso", rcpvo);
 	}
 
 	@Override
 	public List<RcpVO> detailRcp_cont(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-//		System.out.println("detailRcp_cont : "+ rcpvo);
 		return mybatis.selectList("Rcp.detailRcp_cont", rcpvo);
 	}
 	
@@ -85,7 +84,9 @@ public class RcpDaoImpl implements RcpDao{
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("Rcp.detail_rcp_img", rcpvo);
 	}
-
+	// 상세 레시피 조회
+	
+	// 자기가 쓴 레시피삭제 
 	@Override
 	public void delcheck(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -110,7 +111,9 @@ public class RcpDaoImpl implements RcpDao{
 		// TODO Auto-generated method stub
 		mybatis.delete("Rcp.delcheck_img",rcpvo);
 	}
-
+	// 자기가 쓴 레시피삭제
+	
+	
 	@Override
 	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -132,13 +135,15 @@ public class RcpDaoImpl implements RcpDao{
 	}
 
 	
-	
+	// 조회수
 	@Override
 	public void viewsCountRcp(int RCP_HIT) {
 		// TODO Auto-generated method stub
 		mybatis.update("Rcp.viewsCountRcp",RCP_HIT);
 	}
-
+	// 조회수
+	
+	// 레시피 스크랩하기
 	@Override
 	public void input_scrap(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -157,5 +162,6 @@ public class RcpDaoImpl implements RcpDao{
 		// TODO Auto-generated method stub
 		mybatis.delete("Rcp.cancel_scrap",rcpvo);
 	}
-
+	// 레시피 스크랩하기
+	
 }

@@ -15,10 +15,11 @@ public class RcpSerImpl implements RcpSer{
 	
 	@Autowired
 	private RcpDao rcpdao;
-
+	
+	// 레시피 등록
 	@Override
 	public void insertRcp(RcpVO rcpvo) {
-//		System.out.println("안녕 Ser");
+
 		rcpdao.insertRcp(rcpvo);
 	}
 
@@ -33,27 +34,33 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.insertRcp_reso(rcpvo);
 	}
-
+	// 레시피 등록 끝
+	
+	// 게시물 총 갯수 , 검색
 	@Override
-	public int countRcp() {
-//		System.out.println("안녕 Ser1");
-//		System.out.println(rcpdao.countRcp());
-//		System.out.println("안녕 Ser1-1");
-		return rcpdao.countRcp();
+	public int countRcp(String search_text) {
+		// TODO Auto-generated method stub
+		return rcpdao.countRcp(search_text);
 	}
-
+	// 게시물 총 갯수 , 검색 끝
+	
+	// 페이징 처리 게시글 조회
 	@Override
 	public List<RcpVO> selectRcp(RcpListVO rcplistvo) {
 //		System.out.println("안녕 Ser2");
 		return rcpdao.selectRcp(rcplistvo);
 	}
+	// 페이징 처리 게시글 조회 끝
 
+	// pk 등록
 	@Override
 	public int getPK() {
 		// TODO Auto-generated method stub
 		return rcpdao.getPK();
 	}
-
+	// pk 등록 끝
+	
+	// 레시피 상세조회
 	@Override
 	public RcpVO detailRcp(RcpVO rcpvo) {
 //		System.out.println("안녕 Ser2");
@@ -78,7 +85,9 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		return rcpdao.detail_rcp_img(rcpvo);
 	}
-
+	// 레시피 상세조회
+	
+	// 레시피 삭제
 	@Override
 	public void delcheck(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -103,7 +112,9 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.delcheck_img(rcpvo);
 	}
+	// 레시피 삭제 끝
 
+	// 레시피 수정
 	@Override
 	public void rewriteRcp(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
@@ -114,14 +125,14 @@ public class RcpSerImpl implements RcpSer{
 	@Override
 	public void rewriteRcp_cont(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		System.out.println(rcpvo);
+//		System.out.println(rcpvo);
 		rcpdao.rewriteRcp_cont(rcpvo);
 	}
 
 	@Override
 	public void rewriteRcp_reso(RcpVO rcpvo) {
 		// TODO Auto-generated method stub
-		System.out.println(rcpvo);
+//		System.out.println(rcpvo);
 		rcpdao.rewriteRcp_reso(rcpvo);
 	}
 	
@@ -130,13 +141,17 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		
 	}
-
+	// 레시피 수정 끝
+	
+	// 레시피 조회수
 	@Override
 	public void viewsCountRcp(int RCP_HIT) {
 		// TODO Auto-generated method stub
 		rcpdao.viewsCountRcp(RCP_HIT);
 	}
-
+	// 레시피 조회수 끝
+	
+	// 레시피 스크랩
 	@Override
 	public void input_scrap(RcpVO rcpvo) {
 		rcpdao.input_scrap(rcpvo);
@@ -154,6 +169,7 @@ public class RcpSerImpl implements RcpSer{
 		// TODO Auto-generated method stub
 		rcpdao.cancel_scrap(rcpvo);
 	}
+	// 레시피 스크랩 끝
 	
 	
 }

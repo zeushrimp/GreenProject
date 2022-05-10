@@ -5,7 +5,9 @@ public class RcpListVO {
 	
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
-	private int cntPage = 8;
+	private int cntPage = 5;
+	// 검색어
+	private String search_text;
 	
 	public RcpListVO() {
 		
@@ -19,10 +21,13 @@ public class RcpListVO {
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage());
 	}
+	
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
 		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
 	}
+	
+	
 	// 시작, 끝 페이지 계산
 	public void calcStartEndPage(int nowPage, int cntPage) {
 		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
@@ -34,11 +39,15 @@ public class RcpListVO {
 			setStartPage(1);
 		}
 	}
+	
+	
 	// DB 쿼리에서 사용할 start, end값 계산
 	public void calcStartEnd(int nowPage, int cntPerPage) {
 		setEnd(nowPage - 1);
 		setStart(getEnd() * cntPerPage);
 	}
+	
+	
 	// Getter, Setter
 	public int getNowPage() {
 		return nowPage;
@@ -94,8 +103,18 @@ public class RcpListVO {
 	public void getCntPage(int cntPage) {
 		this.cntPage = cntPage;
 	}
+	
+	public String getSearch_text() {
+		return search_text;
+	}
+	
+	public void setSearch_text(String search_text) {
+		this.search_text = search_text;
+	}
+	
 	// Getter, Setter
 	
+
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
