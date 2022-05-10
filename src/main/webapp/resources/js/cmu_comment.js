@@ -55,9 +55,6 @@ $(function(){
 		})
 	})
 	
-
-
-	
 })
 
 // 	CCM_PK
@@ -97,10 +94,6 @@ function add_comment_List(dataMap){
 	}
 		return str;
 	}
-
-
-
-
 
 // 페이지 이전 버튼
 function fn_prev(page, range, rangesize, listsize, searchtype, keyword) {

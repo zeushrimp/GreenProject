@@ -10,7 +10,6 @@
 <meta name="description"
 	content="SocialChef - Social Recipe HTML Template">
 <meta name="author" content="themeenergy.com">
-
 <title>SocialChef</title>
 
 <link
@@ -75,24 +74,30 @@
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="../../test.jsp" title="SocialChef" class="logo" style="margin-right: 0"><img
+			<a href="../../test.jsp" title="SocialChef" class="logo"
+				style="margin-right: 0"><img
 				src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 
 			<nav class="main-nav" role="navigation" id="menu">
-				<ul style="width:600px; display:flex;justify-content: space-evenly;">
+				<ul
+					style="width: 600px; display: flex; justify-content: space-evenly;">
 					<li><a href="../../test.jsp" title="Home"><span>메인</span></a></li>
 					<li><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a>
 						<ul>
-							<li><a href="/rcp/VgRcpRegst_ck.do" title="RegRecipes">레시피 등록 </a></li>
+							<li><a href="/rcp/VgRcpRegst_ck.do" title="RegRecipes">레시피
+									등록 </a></li>
 							<li><a href="/rcp/VgRcpList.do" title="Recipe">레시피 목록</a></li>
 						</ul></li>
 					<li><a href="/cmu/VgCmuList.do" title="Community"><span>커뮤니티</span></a>
 						<ul>
-							<li><a href="/cmu/VgCmuRegst.do" title="Community post">게시글 등록</a></li>
-							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글 목록</a></li>
+							<li><a href="/cmu/VgCmuRegst.do" title="Community post">게시글
+									등록</a></li>
+							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글
+									목록</a></li>
 						</ul></li>
-					<li><a href="#" title="Vegcipe"><span>냉장고 레시피</span></a></li>
-					<li><a href="/mpg/VgMpgChat.do" title="chat"><span>실시간 채팅</span></a></li>
+					<li><a href="/ai/VgAiVideo.do" title="chat"><span>냉장고 레시피</span></a></li>
+					<li><a href="/mpg/VgMpgChat.do" title="chat"><span>실시간
+								채팅</span></a></li>
 					<li><a href="/usr/VgMapMain.do" title="map"><span>지도</span></a></li>
 			</nav>
 
@@ -100,18 +105,22 @@
 				<ul>
 					<li class="light"><a href="/rcp/VgRcpList.do"
 						title="Search for recipes"><i
-							class="icon icon-themeenergy_search"></i> <span>레시피<br>검색</span></a></li>
+							class="icon icon-themeenergy_search"></i> <span>레시피<br>검색
+						</span></a></li>
 					<li class="medium"><a href="/rcp/VgRcpRegst_ck.do"
 						title="Submit a recipe"><i
-							class="icon icon-themeenergy_fork-spoon"></i> <span>레시피<br>등록</span></a></li>
+							class="icon icon-themeenergy_fork-spoon"></i> <span>레시피<br>등록
+						</span></a></li>
 					<li class="dark"><f:choose>
 							<f:when test="${usr_Admin == 1}">
 								<a href='/adm/VgAdmMain.do' onfocus="this.blur()" class="mar"><i
-									class="icon icon-themeenergy_ufo-face"></i><span>관리자<br>페이지</span></a>
+									class="icon icon-themeenergy_ufo-face"></i><span>관리자<br>페이지
+								</span></a>
 							</f:when>
 							<f:otherwise>
 								<a href="/mpg/VgMpgMain.do" onfocus="this.blur()" class="mar"><i
-									class="icon icon-themeenergy_chef-hat"></i><span>마이<br>페이지</span></a>
+									class="icon icon-themeenergy_chef-hat"></i><span>마이<br>페이지
+								</span></a>
 							</f:otherwise>
 						</f:choose></li>
 					<li class="verydark"><f:choose>
@@ -129,6 +138,7 @@
 			</nav>
 		</div>
 	</header>
+
 	<!--//header-->
 
 </body>
