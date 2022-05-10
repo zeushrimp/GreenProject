@@ -10,5 +10,7 @@ public interface AiDao {
 
 	public List<RcpVO> Ai_recipe(RcpVO rcpvo);
 
+	public String countrcp();
+
 
 }

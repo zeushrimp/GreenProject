@@ -54,7 +54,9 @@
 
 
 			<div>먼저 냉장고에 있는 야채사진을 선택하세요.</div>
-			<div>350여개의 비건 레시피가 준비되어 있으며,</div>
+			<div>
+				<b style="color: #FF7F00;">${countrcp}</b> 개의 비건 레시피가 준비되어 있으며,
+			</div>
 			<div>지속적으로 업데이트 중입니다.</div>
 			<br>
 
@@ -68,14 +70,16 @@
 			<br>
 
 			<div>
-				<b>3. 여행</b>
+				<b>3. 냉장고 들어가기</b>
 			</div>
 
 
 			<div>모든 준비가 끝났습니다.</div>
 			<div style="display: inline-block;">웹에서 AI냉장고 레시피를 확인하세요.</div>
-
-			<button onclick="location.href='VgAiUpload.do'" style="float: right; padding: 5px 10px;"><i class="bi bi-power" style="font-weight: bold; font-size: large;"></i></button>
+			<button data-target="#modal01" data-toggle="modal"
+				style="float: right; padding: 5px 10px;">
+				<i class="bi bi-power" style="font-weight: bold; font-size: large;"></i>
+			</button>
 		</div>
 	</div>
 
@@ -84,6 +88,7 @@
 	<%@ include file="../../../Footer.jsp"%>
 	<!--//footer-->
 </body>
+<%@ include file="VgAiUpload.jsp"%>
 <script src="/resources/js/jquery-3.1.0.min.js"></script>
 <script src="/resources/js/jquery.uniform.min.js"></script>
 <script src="/resources/js/jquery.slicknav.min.js"></script>

@@ -21,4 +21,10 @@ public class AiSerImpl implements AiSer {
 		
 
 	}
+
+	@Override
+	public String countrcp() {
+		// TODO Auto-generated method stub
+		return aiDao.countrcp();
+	}
 }

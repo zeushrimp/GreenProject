@@ -65,4 +65,13 @@ public class AiCon {
 		return "/ai/VgAiList";
 
 	}
+	
+	@RequestMapping("VgAiVideo.do")
+	public String countrcp(Model model) {
+		
+		String countrcp = AiSer.countrcp();
+		model.addAttribute("countrcp", countrcp);
+		return "/ai/VgAiVideo";
+
+	}
 }

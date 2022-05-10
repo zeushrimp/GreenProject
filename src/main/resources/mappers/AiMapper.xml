@@ -6,10 +6,16 @@
 <mapper namespace="Ai">
 
 	<select id="Ai_recipe" parameterType="RCP" resultType="RCP">
-		select rcp.*
+		select
+		rcp.*
 		from RCP_RESO , RCP
 		where RCP_RESO.RCP_PK=rcp.rcp_pk
-		And rcp_reso.rcprs_title = #{RCPRS_TITLE}
+		And
+		rcp_reso.rcprs_title = #{RCPRS_TITLE}
+	</select>
+
+	<select id="countrcp" resultType="String">
+		SELECT COUNT(*) FROM rcp
 	</select>
 
 </mapper>

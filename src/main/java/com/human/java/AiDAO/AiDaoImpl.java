@@ -20,6 +20,12 @@ public class AiDaoImpl implements AiDao {
 		return sqlSession.selectList("Ai.Ai_recipe",rcpvo);
 	}
 
+	@Override
+	public String countrcp() {
+		
+		return sqlSession.selectOne("Ai.countrcp");
+	}
+
 	
 
 }
