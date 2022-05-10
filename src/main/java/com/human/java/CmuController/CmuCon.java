@@ -162,9 +162,7 @@ public class CmuCon {
 	public HashMap cmu_commentdelete(CmuVO cmuvo, HttpSession session) {
 		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		cmuvo.getCMU_PK();
-		cmuvo.getCCM_PK();		
-		
-		System.out.println(cmuvo.getCMU_PK());
+		cmuvo.getCCM_PK();				
 		
 		CmuSer.cmu_commentdelete(cmuvo);		
 
@@ -190,7 +188,20 @@ public class CmuCon {
 		map.put("list", CmuSer.cmu_commentlist(cmuvo));
 		
 		return map;
-	}	
+	}
+	// 댓글 수정 취소
+	@ResponseBody
+	@RequestMapping("/cmu_reply_update_cancel.do")
+	public HashMap cmu_commentupdatecancel(CmuVO cmuvo, HttpSession session) {		
+		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
+		
+		HashMap map = new HashMap();
+		
+		map.put("sess", String.valueOf(session.getAttribute("usr_Id")));
+		map.put("list", CmuSer.cmu_commentlist(cmuvo));
+		
+		return map;
+	}
 	
     // 이미지 업로드
     @RequestMapping(value="/imageupload.do", method = RequestMethod.POST)
@@ -337,29 +348,7 @@ public class CmuCon {
     	return cmulist;
     }
     
-    // ajax_rereply(대댓글)
-    @ResponseBody
-    @RequestMapping("/VgCmuRereply_ajax.do")
-    public List<?> cmu_Rereply_ajax(CmuVO cmuvo, HttpSession session, HttpServletRequest request) {
-    	
-    	cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
-    	cmuvo.setCMU_PK(Integer.parseInt(request.getAttribute("CMU_PK").toString()));
-    	System.out.println("==============");
-    	System.out.println("ajax 진입 성공");
-    	System.out.println("pk : " + cmuvo.getCMU_PK());
-    	System.out.println("pk : " + cmuvo.getCMU_PK());
-    	System.out.println("REF : " + cmuvo.getCCM_REF());
-    	System.out.println("==============");
-
-    	List<CmuVO> cmulist = CmuSer.cmu_readlist_ajax(cmuvo);
-    	// sevice > dao > mapper > 조건에 따라서
-    	System.out.println(cmulist.size());
-    	// list >  htmlS
-
-    	return cmulist;
-    }
-    
-    
+        
     // 커뮤니티 게시글 신고하기
 	@RequestMapping("/insert_report_cmu.do")
 	public String cmu_report_do(CmuVO cmuvo, HttpSession session, Model model) {
