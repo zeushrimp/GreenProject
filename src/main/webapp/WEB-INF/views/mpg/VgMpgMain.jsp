@@ -65,7 +65,8 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}" onerror="this.src='/resources/images/defaultpic.png'"
+							<img src="data:image/gif;base64,${mpgdata.USR_PHOTO}"
+								onerror="this.src='/resources/images/defaultpic.png'"
 								style="width: 500px; height: 250px;" />
 						</figure>
 						<div class="container">
@@ -176,7 +177,8 @@
 								<c:forEach items="${myrecipes}" var="rcpvo">
 									<div class="entry one-third">
 										<figure>
-											<img src="data:image/gif;base64,${rcpvo.RCP_IMG}" onerror="this.src='/resources/images/img.jpg'"/>
+											<img src="data:image/gif;base64,${rcpvo.RCP_IMG}"
+												onerror="this.src='/resources/images/img.jpg'" />
 											<figcaption>
 												<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcpvo.RCP_PK}"><i
 													class="icon icon-themeenergy_eye2"></i> <span>View
@@ -240,12 +242,14 @@
 						<!--my favorites-->
 						<div class="tab-content" id="favorites">
 							<div class="entries row">
-								
+
 								<!--item-->
 								<c:forEach items="${myscraprcp}" var="scrpvo">
 									<div class="entry one-third">
 										<figure>
-											<img id="imgtest1" src="data:image/gif;base64,${scrpvo.RCP_IMG}" onerror="this.src='/resources/images/img.jpg'">
+											<img id="imgtest1"
+												src="data:image/gif;base64,${scrpvo.RCP_IMG}"
+												onerror="this.src='/resources/images/img.jpg'">
 											<figcaption>
 												<a href="/rcp/VgRcpDtail.do?RCP_PK=${scrpvo.RCP_PK}"><i
 													class="icon icon-themeenergy_eye2"></i> <span>View
@@ -280,6 +284,19 @@
 										</div>
 									</div>
 								</c:forEach>
+								<!-- css 변경안되게 눈속임 -->
+								<div class="entry one-third jaewoocheck3"
+									style="visibility: hidden;">
+									<figure>
+										<img src="/resources/images/img.jpg" alt="" />
+										<figcaption></figcaption>
+									</figure>
+									<div class="container">
+										<h2></h2>
+										<div class="actions"></div>
+									</div>
+								</div>
+								<!-- css 변경안되게 눈속임 -->
 							</div>
 							<div class="pager">
 								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>

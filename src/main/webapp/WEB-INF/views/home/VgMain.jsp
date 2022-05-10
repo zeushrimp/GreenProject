@@ -38,6 +38,9 @@
 <!-- 해당 페이지의 헤더 탭에 색깔이 들어오도록 해주는 js. 헤더의 li에 준 id를 addClass앞의 괄호에만 넣어주세요 -->
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
+	window.onload = function() {
+		slideShow();
+	}
 	var index = 0; //이미지에 접근하는 인덱스
 
 	function slideShow() {
@@ -86,7 +89,10 @@ width
 
 
 
+
+
 :
+
 
 
 
@@ -94,7 +100,10 @@ width
 
 
 
+
 1170px
+
+
 
 
 
@@ -206,14 +215,15 @@ width
 								<!--item-->
 								<div class="entry one-third" style="width: 33.3%">
 									<figure>
-									<f:choose>
-										<f:when test="${vo1.RCP_IMG != null }">
-										<img src="data:image/gif;base64,${vo1.RCP_IMG }" style="width: 369.59px !important; height: 277.19px !important;" />
-										</f:when>
-										<f:otherwise>
-										<img src="../../resources/images/img.jpg"  />
-										</f:otherwise>
-									</f:choose>
+										<f:choose>
+											<f:when test="${vo1.RCP_IMG != null }">
+												<img src="data:image/gif;base64,${vo1.RCP_IMG }"
+													style="width: 369.59px !important; height: 277.19px !important;" />
+											</f:when>
+											<f:otherwise>
+												<img src="../../resources/images/img.jpg" />
+											</f:otherwise>
+										</f:choose>
 										<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
@@ -268,12 +278,13 @@ width
 									<figure>
 										<f:choose>
 											<f:when test="${vo2.RCP_IMG != null} ">
-												<img src="data:image/gif;base64,${vo2.RCP_IMG }" style="width: 369.59px !important; height: 277.19px !important;" />
+												<img src="data:image/gif;base64,${vo2.RCP_IMG }"
+													style="width: 369.59px !important; height: 277.19px !important;" />
 											</f:when>
-										<f:otherwise>
-											<img src="../../resources/images/img.jpg"  />
-										</f:otherwise>
-									</f:choose>
+											<f:otherwise>
+												<img src="../../resources/images/img.jpg" />
+											</f:otherwise>
+										</f:choose>
 										<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
