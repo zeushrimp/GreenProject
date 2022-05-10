@@ -223,18 +223,17 @@
 							        <div class="comment-author meta" style="display:inline-block;"> 
 							        <strong><c:out value="${replylist.USR_ID}"/></strong><c:out value="${replylist.CCM_REG}"/>
 							        </div>
+							        <button class="comment-cmulink" onclick="rereply_comment('${replylist.CMU_PK}','${replylist.CCM_PK}','${replylist.USR_ID}')" value="댓글">댓글</button>
 							        <c:set var="comment_ID" value="${replylist.USR_ID }" />
 							        <c:if test="${USR_ADMIN == 1 || USR_ID eq comment_ID}">
 								        <button class="comment-cmulink" onclick="rereplydelete('${replylist.CMU_PK}','${replylist.CCM_PK}', '${replylist.USR_ID}')" value="삭제">삭제</button>
 								        <button class="comment-cmulink" onclick="rereplyupdate('${replylist.CMU_PK}','${replylist.CCM_PK}', '${replylist.USR_ID}', '${replylist.CCM_REG}', '${replylist.CCM_CONTENT}', '${replylist.CCM_REF_LEVEL}')" value="수정">수정</button>
 								       
 								    </c:if>
-								    	<button class="comment-cmulink" id="rereplybutton" name="rereplybutton" value="댓글">댓글</button>
 								    <div class="comment-text" id="reply <c:out value="${replylist.CCM_PK}"/>"><c:out value="${replylist.CCM_CONTENT}"/></div>								    
 							    </div>
 							    <!-- 대댓글 히든 창 -->
-								<div class="rereply_ajax">
-
+								<div class="rereply_ajax_${replylist.CCM_PK}">
 								</div>
 							</li>
 							</c:forEach>					

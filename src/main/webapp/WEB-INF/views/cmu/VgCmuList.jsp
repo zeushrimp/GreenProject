@@ -122,8 +122,8 @@
 									<!-- 상세 페이지 가는 링크 -->
 									<h2>
 										<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"><c:choose>
-												<c:when test="${fn:length(cmuvo.CMU_TITLE) > 10}">
-													<c:out value="${fn:substring(cmuvo.CMU_TITLE,0,9)}" />.... </c:when>
+												<c:when test="${fn:length(cmuvo.CMU_TITLE) > 8}">
+													<c:out value="${fn:substring(cmuvo.CMU_TITLE,0,7)}" />.... </c:when>
 												<c:otherwise>
 													<c:out value="${cmuvo.CMU_TITLE}" />
 												</c:otherwise>
