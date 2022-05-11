@@ -90,7 +90,7 @@
 						</ul></li>
 					<li><a href="/cmu/VgCmuList.do" title="Community"><span>커뮤니티</span></a>
 						<ul>
-							<li><a href="/cmu/VgCmuRegst.do" title="Community post">게시글
+							<li><a href="/cmu/VgCmuRegst_header.do" title="Community post">게시글
 									등록</a></li>
 							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글
 									목록</a></li>

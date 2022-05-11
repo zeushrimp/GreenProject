@@ -51,12 +51,15 @@ public class CmuCon {
 	}
 
 	// 글 쓸 때, 유저인지 아닌지 확인
-	@RequestMapping("cmu_check.do")
-	public String cmu_check(HttpSession session) {
-
+	@RequestMapping("VgCmuRegst_header.do")
+	public String cmu_check(HttpSession session, HttpServletResponse response) throws IOException {
 		// 또는 관리자 or 회원 아니면 로그인 창
 		if (session.getAttribute("usr_Id") == null) {
-			return "redirect:/usr/VgUsrlogin.do";
+			response.setContentType("text/html; charset=UTF-8");			 
+			PrintWriter out = response.getWriter();			 
+			out.println("<script>alert('로그인 후 이용해 주시기 바랍니다.'); location.href='http://localhost:8080/usr/VgUsrLogin.do';</script>");			 
+			out.flush();
+
 		}
 		return "redirect:/cmu/VgCmuRegst.do";
 
