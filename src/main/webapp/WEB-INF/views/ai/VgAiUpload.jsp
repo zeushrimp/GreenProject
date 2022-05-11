@@ -30,7 +30,7 @@
 							style="text-align: center; display: inline-block;">
 							<div>
 								<h3>채소, 야채 사진을 넣어주세요.</h3>
-								<form action="vegcipefilecheck.do" method="post"
+								<form action="vegcipefile.do" method="post"
 									enctype="multipart/form-data">
 									<!-- 생략 -->
 									<div class="inputArea">
