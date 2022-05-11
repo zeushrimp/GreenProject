@@ -73,45 +73,8 @@
 	display: flex;
 }
 
-#img1
-,
-#img2
-,
-#img3
-,
-#img4
-,
-{
-width
+#img1, #img2, #img3, #img4 {width : 1170px ;}
 
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-1170px
-
-
-
-
-
-
-
-
-;
-}
 .next, .next:active, .next:focus {
 	width: 100px;
 	height: 30px;

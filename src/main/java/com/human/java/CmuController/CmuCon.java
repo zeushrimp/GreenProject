@@ -52,7 +52,7 @@ public class CmuCon {
 
 	// 글 쓸 때, 유저인지 아닌지 확인
 	@RequestMapping("VgCmuRegst_check.do")
-	public String cmu_Regst_check(HttpSession session, HttpServletResponse response) throws IOException {
+	public String cmu_Regst_check(HttpSession session, HttpServletResponse response, CmuVO cmuvo, Model model) throws IOException {
 		// 또는 관리자 or 회원 아니면 로그인 창
 		if (session.getAttribute("usr_Id") == null) {
 			response.setContentType("text/html; charset=UTF-8");			 
@@ -61,6 +61,7 @@ public class CmuCon {
 			out.flush();
 
 		}
+				
 		return "redirect:/cmu/VgCmuRegst.do";
 
 	}
@@ -122,7 +123,7 @@ public class CmuCon {
 
 	// 커뮤니티 상세보기 & 댓글 불러오기
 	@RequestMapping("/VgCmuDtail.do")
-	public String cmu_detailread(CmuVO cmuvo,Model model){
+	public String cmu_detailread(CmuVO cmuvo, Model model){
 		
 		List<?> replylist = CmuSer.cmu_commentlist(cmuvo);
 				
@@ -135,7 +136,7 @@ public class CmuCon {
 	
 	// 게시글 수정 폼으로 가기
 	@RequestMapping(value = "/updatecmuform.do")
-	public String cmuupdateform(CmuVO cmuvo,Model model){
+	public String cmuupdateform(CmuVO cmuvo, Model model){
 		
 		List<?> replylist = CmuSer.cmu_commentlist(cmuvo);
 		
