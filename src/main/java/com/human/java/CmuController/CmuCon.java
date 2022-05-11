@@ -65,7 +65,7 @@ public class CmuCon {
 
 	}
 
-	// 글 쓸 때, 유저인지 아닌지 확인
+	// 게시글 읽을 때, 유저인지 아닌지 확인
 	@RequestMapping("VgCmuDetail_check.do")
 	public String cmu_Detail_check(HttpSession session, HttpServletResponse response) throws IOException {
 		// 또는 관리자 or 회원 아니면 로그인 창
