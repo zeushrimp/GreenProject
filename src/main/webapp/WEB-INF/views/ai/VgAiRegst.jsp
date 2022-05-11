@@ -39,13 +39,14 @@
 											<img src="" />
 										</div>
 										<div>
-											<div>양파 입니다.</div>
-											<div><input type="text" value="양파" name="RCPRS_TITLE"></div>
+											<div>양파(변수) 입니다.</div>
+											<div>맞다면 확인을, 아니라면 밑값을 지우고 재료이름을 입력해주세요.</div>
+											<div><input type="text" value="양파"  name="RCPRS_TITLE"></div>
 											</div>
 
 											<input type="button"
 												class="close btn btn-default Ai_imgsend_next"
-												data-dismiss="modal" value="확인" onclick="Ai_imgsend()">
+												value="확인" onclick="Ai_imgsend()">
 										</div>
 								</form>
 
@@ -72,6 +73,7 @@
 			});
 
 	function Ai_imgsend() {
+		alert('잠시만기다려주세요.');
 		$('.Ai_imgsend_next').click(function() {
 
 			$('#Ai_imgsend').submit();
