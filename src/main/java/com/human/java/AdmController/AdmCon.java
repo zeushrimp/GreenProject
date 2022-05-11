@@ -61,20 +61,22 @@ public class AdmCon {
 			, @RequestParam(value="now_page", required=false)String now_page
 			, @RequestParam(value="cnt_per_page", required=false)String cnt_per_page) {
     	
-    	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
-		int total = AdmSer.ad_userinfo_listcnt();
-		if (now_page == null && cnt_per_page == null) {
-			now_page = "1";
-			cnt_per_page = "8";
-		} else if (now_page == null) {
-			now_page = "1";
-		} else if (cnt_per_page == null) { 
-			cnt_per_page = "8";
-		}
     	System.out.println("레시피 ajax 진입 성공");
     	// 레시피 목록 뽑은거를 rcp_list에 담음
     	List<RcpVO> rcp_list = AdmSer.select_rcp_list_ad_ajax(admlistvo);
     	System.out.println(rcp_list.size());
+    	
+//    	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
+//		int total = AdmSer.ad_userinfo_listcnt();
+//		if (now_page == null && cnt_per_page == null) {
+//			now_page = "1";
+//			cnt_per_page = "8";
+//		} else if (now_page == null) {
+//			now_page = "1";
+//		} else if (cnt_per_page == null) { 
+//			cnt_per_page = "8";
+//		}
+
 
     	return rcp_list;
     }
@@ -86,16 +88,16 @@ public class AdmCon {
 			, @RequestParam(value="now_page", required=false)String now_page
 			, @RequestParam(value="cnt_per_page", required=false)String cnt_per_page) {
     	
-    	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
-		int total = AdmSer.ad_userinfo_listcnt();
-		if (now_page == null && cnt_per_page == null) {
-			now_page = "1";
-			cnt_per_page = "8";
-		} else if (now_page == null) {
-			now_page = "1";
-		} else if (cnt_per_page == null) { 
-			cnt_per_page = "8";
-		}
+//    	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
+//		int total = AdmSer.ad_userinfo_listcnt();
+//		if (now_page == null && cnt_per_page == null) {
+//			now_page = "1";
+//			cnt_per_page = "8";
+//		} else if (now_page == null) {
+//			now_page = "1";
+//		} else if (cnt_per_page == null) { 
+//			cnt_per_page = "8";
+//		}
     	System.out.println("커뮤니티 ajax 진입 성공");
     	List<CmuVO> cmu_list = AdmSer.select_cmu_list_ad_ajax(admlistvo);
     	System.out.println(cmu_list.size());
