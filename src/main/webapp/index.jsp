@@ -266,7 +266,7 @@ width: 100%;
 							<!--item-->
 							<div class="entry one-third" style="width:33.3%">
 								<figure>
-									<img src="resources/images/img.jpg" alt="" />
+									<img src="resources/images/rcp_default.png" alt="" />
 									<figcaption>
 										<a href="VgRcpDtail.jsp"><i
 											class="icon icon-themeenergy_eye2"></i> <span>View

@@ -76,7 +76,7 @@ public class CmuCon {
 			out.flush();
 
 		}
-		return "/cmu/VgCmuDtail.do";
+		return "redirect:/cmu/VgCmuList.do";
 
 	}
 	
