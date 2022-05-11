@@ -130,7 +130,22 @@
 	 WHERE CMU_CATE = #{CMU_CATE}
 	ORDER BY CMU_PK DESC
 	</select>
-	
+
+	<!-- 게시글 좋아요 -->
+	<update id="updateLike" >
+	UPDATE CMU
+	SET CMU_LIKE = CMU_LIKE + 1
+	WHERE CMU_PK = #{CMU_PK}
+	</update>
+
+	<!-- 게시글 좋아요 취소 -->
+	<update id="updateLikeCancel" >
+	UPDATE CMU
+	SET CMU_LIKE = CMU_LIKE - 1
+	WHERE CMU_PK = #{CMU_PK}
+	</update>
+
+
 	<!-- 커뮤니티 게시글 신고하기 -->
 	<insert id="cmu_report_insert" parameterType="CMU">
 		INSERT INTO cmu_reported(CMU_PK, USR_ID_REPORTER,

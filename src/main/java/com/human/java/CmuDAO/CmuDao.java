@@ -24,7 +24,7 @@ public interface CmuDao {
 
 	// 게시글 삭제
 	void deletewrite(CmuVO cmuvo) throws Exception;
-
+	
 	// 댓글 총 갯수
 	public int cmu_replycount(CmuVO cmuvo);
 	

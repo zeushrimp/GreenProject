@@ -90,8 +90,8 @@ public class CmuCon {
 		
 		// 전체 게시글 개수를 얻어와 listCnt에 저장
 		int listcnt = CmuSer.cmu_listcnt(search);
-
-		model.addAttribute("replycount", CmuSer.cmu_replycount(cmuvo));
+		
+		model.addAttribute("replycount", CmuSer.cmu_replycount(search));
 		//검색
 		search.pageInfo(page, range, listcnt);
 		//페이징
@@ -347,8 +347,8 @@ public class CmuCon {
 
     	return cmulist;
     }
-    
-        
+ 
+
     // 커뮤니티 게시글 신고하기
 	@RequestMapping("/insert_report_cmu.do")
 	public String cmu_report_do(CmuVO cmuvo, HttpSession session, Model model) {
