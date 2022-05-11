@@ -74,10 +74,12 @@
 		usr_id =#{USR_ID}
 	</update>
 	<select id="get_mpgscrcp" parameterType="USR" resultType="RCP">
-		select rcp.*
+		select
+		rcp.*
 		from rcp_scrap , rcp
 		where rcp_scrap.RCP_PK=rcp.rcp_pk
-		And rcp_scrap.usr_id = #{USR_ID}
+		And
+		rcp_scrap.usr_id = #{USR_ID}
 	</select>
 
 	<update id="updatechatid" parameterType="USR">
@@ -89,15 +91,19 @@
 		WHEN MATCHED THEN
 		UPDATE
 		SET
-		a.USR_CHAT_ID=#{USR_CHAT_ID}
-		WHEN NOT MATCHED THEN
+		a.USR_CHAT_ID=#{USR_CHAT_ID},
+		a.USR_CHAT_DATE = sysdate
+		WHEN NOT MATCHED
+		THEN
 		INSERT (a.USR_ID
-		,a.USR_CHAT_ID)
-		VALUES (#{USR_ID},#{USR_CHAT_ID})
+		,a.USR_CHAT_ID,a.USR_CHAT_DATE)
+		VALUES
+		(#{USR_ID},#{USR_CHAT_ID},sysdate)
 	</update>
 
 	<select id="getChatList" resultType="USR">
-		select * from CHT
+		SELECT * FROM CHT WHERE NOT
+		usr_chat_date is NULL ORDER BY usr_chat_date desc
 	</select>
 
 

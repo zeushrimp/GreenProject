@@ -417,7 +417,7 @@ ul>li:before {
 	<%@ include file="../../../Header.jsp"%>
 	<div style="padding-top: 200px"></div>
 	<!--//header-->
-	<div class="container" style="float: none; max-width:1170px; border: 5px #49A54C solid; ">
+	<div class="container" style="float: none; max-width:1170px; border: 10px solid #e1e4f4; background-color: #f4f5fb; border-radius: 16px; box-shadow: inset 0 0 8px #f4f5fb;">
 		<span id="chatimg" style="display: none;">${mpgdata.USR_PHOTO}</span>
 		<span id="chatid" style="display: none;">${mpgdata.USR_ID}</span>
 		<!-- Page header start -->
@@ -429,7 +429,7 @@ ul>li:before {
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<span>ID: </span> <input type="text" id="receiver-id"
 						placeholder="input the id" value="<%=USR_CHAT_ID%>" />
-					<button type="button" class="btn btn-primary" id="connect-button">연결하기</button>
+					<button type="button" class="btn btn-primary" id="connect-button" style="float: right;">연결하기</button>
 				</div>
 			</div>
 			<div class="row status" id="status"></div>

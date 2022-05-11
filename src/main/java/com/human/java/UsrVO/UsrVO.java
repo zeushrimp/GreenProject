@@ -27,4 +27,5 @@ public class UsrVO {
 	Date USR_DATE;
 	String USR_PHOTO;
 	String USR_CHAT_ID;
+	Date USR_CHAT_DATE;
 }

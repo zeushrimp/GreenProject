@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -411,7 +412,7 @@ ul>li:before {
 	<!--//header-->
 
 	<div class="container"
-		style="float: none; max-width: 1170px; border: 5px #49A54C solid;">
+		style="float: none; max-width: 1170px; border: 10px solid #e1e4f4; background-color: #f4f5fb; border-radius: 16px; box-shadow: inset 0 0 8px #f4f5fb;">
 		<!-- 채팅을위한 주석 -->
 		<span id="chatimg1" style="display: none;">${mpgdata.USR_PHOTO}</span>
 		<span id="chatid1" style="display: none;">${mpgdata.USR_ID}</span>
@@ -424,7 +425,7 @@ ul>li:before {
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="">
 					<div id="receiver-id" style="font-weight: bold; display: none;">ID:</div>
-					<divstyle ="font-weight:bold;> 관리자를 호출중입니다...
+					<divstyle="font-weight:bold;>
 				</div>
 
 
@@ -563,7 +564,8 @@ ul>li:before {
 				msgHtml.push('<div class="chat-avatar">');
 				msgHtml.push('	<img');
 				msgHtml.push('			src="data:image/gif;base64,' + img + '"');
-				msgHtml.push('			alt="Retail Admin" onerror="this.src='+'\'/resources/images/defaultpic.png\''+'" />');
+				msgHtml.push('			alt="Retail Admin" onerror="this.src='
+						+ '\'/resources/images/defaultpic.png\'' + '" />');
 				msgHtml.push('		<div class="chat-name">' + usrid + '</div>');
 				msgHtml.push('	</div>');
 				msgHtml.push('		<div class="chat-text">' + msg + '');
@@ -622,12 +624,15 @@ ul>li:before {
 			setTimeout(
 					function() {
 						var peerid = $('#receiver-id_input').val();
+						var now = new Date();
+
 						$
 								.ajax({
 									url : "/mpg/updatechatid.do",
 									type : 'POST',
 									data : {
-										"USR_CHAT_ID" : peerid
+										"USR_CHAT_ID" : peerid,
+										"USR_CHAT_DATE" : now
 									},
 									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 									success : function(data) {

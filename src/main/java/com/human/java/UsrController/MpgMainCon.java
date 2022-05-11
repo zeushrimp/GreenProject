@@ -260,10 +260,11 @@ public class MpgMainCon {
 		
 		System.out.println("id : " + mpgvo.getUSR_ID());
 		System.out.println("chatid : " + mpgvo.getUSR_CHAT_ID());
+		System.out.println("time : " + mpgvo.getUSR_CHAT_DATE());
 		
 		MpgMainSer.updatechatid(mpgvo);
 
-		return "관리자를 호출하였습니다.";
+		return "The admin has been called.";
 	}
 	
 	@RequestMapping("VgMpgChat2.do")
