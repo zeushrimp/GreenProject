@@ -337,7 +337,7 @@ width
 							<c:forEach items="${MainCmu }" var="vo3">
 								<div class="entry one-third" style="width: 33.3%">
 									<figure>
-										<img src="../../resources/images/img.jpg" alt="" />
+										<img src="../../resources/images/rcp_default.png" alt="" />
 										<figcaption>
 											<a href="/cmu/VgCmuDtail.do?CMU_PK=${vo3.CMU_PK}"><i
 												class="icon icon-themeenergy_eye2"></i> <span>글 바로가기</span></a>
