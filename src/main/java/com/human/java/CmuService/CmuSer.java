@@ -45,11 +45,13 @@ public interface CmuSer {
     // 커뮤니티 게시글 신고하기
     public void cmu_report_insert(CmuVO cmuvo);
     
-    // 신고 중복 방지
-//    public int cmu_report_check(CmuVO cmuvo);
+    // cmu 테이블의 cmu_report(신고횟수) 컬럼에 신고수 누적하여 합계
+    public void cmu_report_columm_add(CmuVO cmuvo);  
     
-    // cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입 
-    public void cmu_report_columm_one(CmuVO cmuvo);  
+    // 신고 중복 방지
+    public int cmu_report_check(CmuVO cmuvo);
+    
+
     
     
     

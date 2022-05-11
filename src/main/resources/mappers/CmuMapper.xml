@@ -155,21 +155,20 @@
 	
 	<!--  -->
 	
-<!-- 	커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별 -->
-<!-- 	<update id="cmu_report_check" parameterType="CMU"> -->
-<!-- 		update cmu_reported set reported_check = 1 -->
-<!-- 		where cmu_pk =#{cmu_pk} -->
-<!-- 		and user_id_reporter = #{user_id_session} -->
-<!-- 	</update> -->
+	<!-- cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입  -->
+ 	<update id="cmu_report_columm_add" parameterType="CMU">
+ 		update cmu set cmu_report = cmu_report + 1 
+ 		where cmu_pk =#{CMU_PK}
+ 	</update> 
 
 	
-	<!-- cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입  -->
-	<select id="cmu_report_columm_one" resultType="int">
-		select count(*) 
-		from CMU_REPORTED
-		where CMU_PK = #{CMU_PK}
-		and USR_ID_REPORTER = #{user_id_session}
-	</select>
+ 	<!-- 커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별 -->
+	<select id="cmu_report_check" resultType="int">
+		select count(*)  
+ 		from CMU_REPORTED
+ 		where CMU_PK = #{CMU_PK}
+ 		and USR_ID_REPORTER = #{user_id_session}
+ 	</select>
 	
 	
   </mapper>

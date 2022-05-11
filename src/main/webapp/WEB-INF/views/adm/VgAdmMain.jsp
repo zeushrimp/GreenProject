@@ -156,7 +156,7 @@ td {
 									<th>수정하기</th>
 									<th>신고하기</th>
 					
-									<form method="get" id="userinfo_ad_ajax" action="/adm/vg_admin_userinfo_ajax.do">
+									<form method="get" id="userinfo_ad_ajax" action="/adm/VgAdmMain.do">
 										<c:forEach items="${AUSR }" var="vo" varStatus="status">			
 											<tr>			
 												<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
@@ -194,10 +194,31 @@ td {
 										<input type="hidden" id="FS_USR_TEL" name="USR_TEL">
 									</form>	
 								</table>
+								
+								
+								<!-- 관리자 페이지 중 회원목록 페이징 버튼 -->
 								<div class="pager">
-									<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
-									<a href="#">4</a> <a href="#">5</a>
+									<c:if test="${paging_ad.start_page != 1 }">
+									<a href="/adm/VgAdmMain.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a> 
+									</c:if>
+									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum">
+										<c:choose>
+											<c:when test="${pagenum == paging_ad.now_page }">
+												<a class="current">${pagenum }</a>
+											</c:when>
+											<c:when test="${pagenum != paging_ad.now_page }">
+												<a href="/adm/VgAdmMain.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}"
+													class="paging_num">${pagenum }</a>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:if test="${paging_ad.end_page != paging_ad.last_page}">
+										<a
+											href="/adm/VgAdmMain.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a>
+									</c:if>
 								</div>
+								
+								
 							</div>
 						</div>
 
@@ -222,29 +243,26 @@ td {
 										</form>	
 
 
-								
+								<!-- 관리자 페이지 중 레시피 글 목록 페이징 버튼 -->
 								<div class="pager">
-									<c:if test="${paging.startPage != 1 }">
-									<a href="select_rcp_list_ad.do?nowPage=${paging.startPage-1 }&cntPerPage=${paging.cntPerPage}">&lt;</a> 
+									<c:if test="${paging_ad.start_page != 1 }">
+									<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a> 
 									</c:if>
-									<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="pagenum">
+									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum">
 										<c:choose>
-											<c:when test="${pagenum == paging.nowPage }">
+											<c:when test="${pagenum == paging_ad.now_page }">
 												<a class="current">${pagenum }</a>
 											</c:when>
-											<c:when test="${pagenum != paging.nowPage }">
-												<a href="select_rcp_list_ad.do?nowPage=${pagenum }&cntPerPage=${paging.cntPerPage}"
+											<c:when test="${pagenum != paging_ad.now_page }">
+												<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}"
 													class="paging_num">${pagenum }</a>
 											</c:when>
 										</c:choose>
 									</c:forEach>
-									<c:if test="${paging.endPage != paging.lastPage}">
+									<c:if test="${paging_ad.end_page != paging_ad.last_page}">
 										<a
-											href="select_rcp_list_ad.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+											href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a>
 									</c:if>
-									
-	<!-- 								<a href="#">3</a>
-									<a href="#">4</a> <a href="#">5</a> -->
 								</div>
 							</div>
 							</div>
@@ -262,10 +280,28 @@ td {
 								
 
 								
-							<div class="pager">
-								<a href="#">1</a> <a href="#" class="current">2</a> <a href="#">3</a>
-								<a href="#">4</a> <a href="#">5</a>
-							</div>
+								<div class="pager">
+									<c:if test="${paging_ad.start_page != 1 }">
+									<a href="/adm/select_cum_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a> 
+									</c:if>
+									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum">
+										<c:choose>
+											<c:when test="${pagenum == paging_ad.now_page }">
+												<a class="current">${pagenum }</a>
+											</c:when>
+											<c:when test="${pagenum != paging_ad.now_page }">
+												<a href="/adm/select_cmu_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}"
+													class="paging_num">${pagenum }</a>
+											</c:when>
+										</c:choose>
+									</c:forEach>
+									<c:if test="${paging_ad.end_page != paging_ad.last_page}">
+										<a
+											href="/adm/select_cmu_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a>
+									</c:if>
+								</div>
+							
+							
 						</div>
 							</div>
 							<!--//entries-->

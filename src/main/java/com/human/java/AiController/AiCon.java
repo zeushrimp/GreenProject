@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.NestedServletException;
 
 import com.human.java.AIService.AiSer;
 import com.human.java.CmuVO.CmuVO;
@@ -44,9 +45,9 @@ public class AiCon {
 	}
 
 	@RequestMapping("vegcipefile.do")
-	public String vegcipefile(MultipartFile file, HttpSession session,RcpVO rcpvo,Model model) throws IOException {
+	public void vegcipefile(MultipartFile file, HttpSession session,RcpVO rcpvo,Model model) throws NestedServletException {
 	
-		rcpvo.setRCPRS_TITLE("양파")
+		rcpvo.setRCPRS_TITLE("RCPRS_TITLE")
 ;
 		
 		System.out.println("================== file start ==================");
@@ -56,13 +57,9 @@ public class AiCon {
 		System.out.println("content type: " + file.getContentType());
 		System.out.println("================== file   END ==================");
 
-		List<RcpVO> airecipe = AiSer.Ai_recipe(rcpvo);
-		System.out.println(airecipe);
 		
-		model.addAttribute("vegcipe", airecipe);
 				
 		
-		return "/ai/VgAiList";
 
 	}
 	
@@ -74,4 +71,19 @@ public class AiCon {
 		return "/ai/VgAiVideo";
 
 	}
+	
+	@RequestMapping("vegcipefilecheck.do")
+	public String vegcipefilecheck(Model model, RcpVO rcpvo) {
+		
+		
+		
+		List<RcpVO> airecipe = AiSer.Ai_recipe(rcpvo);
+		System.out.println(airecipe);
+		
+		model.addAttribute("vegcipe", airecipe);
+		
+		return "/ai/VgAiList";
+
+	}
+	
 }

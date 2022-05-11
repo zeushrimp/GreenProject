@@ -96,17 +96,18 @@ public class CmuDaoImpl implements CmuDao{
 		
 	}
 
-    // 커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별
-//	@Override
-//	public int cmu_report_check(CmuVO cmuvo) {
-//		return mybatis.selectOne("Cmu.cmu_report_check ", cmuvo);
-//	}
-
 	// cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입 
 	@Override
-	public void cmu_report_columm_one(CmuVO cmuvo) {
-		mybatis.update("Cmu.cmu_report_columm_one", cmuvo);
+	public void cmu_report_columm_add(CmuVO cmuvo) {
+		mybatis.update("Cmu.cmu_report_columm_add", cmuvo);
 		
+	}
+	
+
+    // 커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별
+	@Override
+	public int cmu_report_check(CmuVO cmuvo) {
+		return mybatis.selectOne("Cmu.cmu_report_check", cmuvo);
 	}
 	
 	
