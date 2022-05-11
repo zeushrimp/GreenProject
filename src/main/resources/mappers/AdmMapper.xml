@@ -5,22 +5,50 @@
     
   <mapper namespace="Adm">
   
+  
+  	<!--회원목록 보기 / 총 게시물 수 매퍼 for 페이징 (관리자) -->
+    <select id="ad_userinfo_listcnt" parameterType="USR" resultType="int">
+  		SELECT COUNT(*)
+  		FROM USR
+  	</select>
+  	
+  	<!--레시피 목록 보기 / 총 게시물 수 매퍼 for 페이징 (관리자) -->
+    <select id="ad_rcp_listcnt" parameterType="RCP" resultType="int">
+  		SELECT COUNT(*)
+  		FROM RCP
+  	</select>
+  	
+  	
+  	<!--커뮤니티 글 보기 / 총 게시물 수 매퍼 for 페이징 (관리자) -->
+    <select id="ad_cmu_listcnt" parameterType="CMU" resultType="int">
+  		SELECT COUNT(*)
+  		FROM CMU
+  	</select>
+  
+  
     <!-- 회원 목록 보기 (관리자) -->
   	<select id="select_userinfo_ad_ajax" resultType="USR">
   		SELECT *
   		FROM USR
+  		ORDER BY USR_DATE DESC OFFSET #{start} ROWS FETCH NEXT
+		#{cnt_per_page} ROWS ONLY
   	</select>
   	
   	  	<!-- 레시피 목록 조회 (관리자) -->
   	<select id="select_rcp_list_ad_ajax" resultType="RCP">
 		SELECT * FROM RCP
 		ORDER BY RCP_PK
+		OFFSET #{start} ROWS FETCH NEXT
+		#{cnt_per_page} ROWS ONLY
 	</select>
 	
   	<!-- 커뮤니티 게시글 목록 조회 (관리자) -->
   	<select id="select_cmu_list_ad_ajax" resultType="CMU" parameterType="CMU">
 		SELECT * FROM CMU
 		ORDER BY CMU_PK
+		OFFSET #{start} ROWS FETCH NEXT
+		#{cnt_per_page} ROWS ONLY
+		
 <!-- 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 			<if test="searchtype=='CMU_TITLE' and keyword != null and keyword != '' ">
 				AND CMU_TITLE like '%'||#{keyword}||'%'
