@@ -88,11 +88,11 @@
 									등록 </a></li>
 							<li><a href="/rcp/VgRcpList.do" title="Recipe">레시피 목록</a></li>
 						</ul></li>
-					<li><a href="/cmu/VgCmuList.do" title="Community"><span>커뮤니티</span></a>
+					<li><a href="/cmu/VgCmuDetail_check.do" title="Community"><span>커뮤니티</span></a>
 						<ul>
 							<li><a href="/cmu/VgCmuRegst_check.do" title="Community post">게시글
 									등록</a></li>
-							<li><a href="/cmu/VgCmuList.do" title="Community list">게시글
+							<li><a href="/cmu/VgCmuDetail_check.do" title="Community list">게시글
 									목록</a></li>
 						</ul></li>
 					<li><a href="/ai/VgAiVideo.do" title="chat" ><span>냉장고 레시피</span></a></li>
