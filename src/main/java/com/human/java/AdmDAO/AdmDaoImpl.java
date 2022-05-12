@@ -42,7 +42,6 @@ public class AdmDaoImpl implements AdmDao{
 	// 회원 목록 불러오기 + 페이징 (관리자)
 	@Override
 	public List<UsrVO> select_userinfo_ad_ajax(AdmListVO admlistvo) {
-		System.out.println("다오 탓다");
 		// TODO Auto-generated method stub
 		return mybatis.selectList("Adm.select_userinfo_ad_ajax",admlistvo);
 	}
@@ -51,7 +50,7 @@ public class AdmDaoImpl implements AdmDao{
 	@Override
 	public List<RcpVO> select_rcp_list_ad_ajax(AdmListVO admlistvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("Adm.select_rcp_list_ad_ajax");
+		return mybatis.selectList("Adm.select_rcp_list_ad_ajax",admlistvo);
 	}
 
 	
@@ -59,7 +58,7 @@ public class AdmDaoImpl implements AdmDao{
 	@Override
 	public List<CmuVO> select_cmu_list_ad_ajax(AdmListVO admlistvo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectList("Adm.select_cmu_list_ad_ajax");
+		return mybatis.selectList("Adm.select_cmu_list_ad_ajax",admlistvo);
 	}
 	
 	// 관리자 회원 정보 변경 (관리자)

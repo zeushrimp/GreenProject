@@ -1,4 +1,42 @@
-// 1. jsp 파일에서 뭔 버튼이나 그런거 딱 눌럿을때 onclick? 그런걸 js로 해야댐
+// 페이지 이전 버튼
+function fn_prev(page, range, rangesize, listsize) {
+		
+	var page = ((range - 2) * rangesize) + 1;
+	var range = range - 1;
+		
+	var url = "/VgCmuList.do";
+	url = url + "?page=" + page;
+	url = url + "&range=" + range;
+	url = url + "&listsize=" + listsize;
+	location.href = url;
+	}
+
+// 페이지 번호 클릭
+function fn_pagination(page, range, rangesize, listsize) {
+
+	var url = "/cmu/VgCmuList.do";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		url = url + "&listsize=" + listsize;
+
+
+		location.href = url;	
+	}
+
+// 페이지다음 버튼
+// 다음 페이지 범위의 가장 앞 페이지로 이동
+function fn_next(page, range, rangesize, listsize) {
+	var page = parseInt((range * rangesize)) + 1;
+	var range = parseInt(range) + 1;			
+	var url = "/cmu/VgCmuList.do";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		url = url + "&listsize=" + listsize;
+
+		location.href = url;
+	}
+
+
 
 // 뭐 누르면 뭐 나오는지
 $(function(){
@@ -46,15 +84,13 @@ function admin_rcp_ajax(menuSelector){
 		url: '/adm/select_rcp_list_ad_ajax.do',
 		data: {"rcp_list_ad_ajax" : menuSelector}, // input 태그내의 값
 		success: function(data){
-//			alert("우선 레시피 ajax 진입은 성공했습니다.");	
 			var tag_string_rcp = create_admin_rcp_list(data);		
-//			alert(tag_string_rcp);
 			$('#rcp_list_ad_ajax').html(tag_string_rcp); 
-//			$('#rcp_list_ad_ajax').append(str);			
-			
+	
 		},
 		error: function(request,status,error){
-			alert("에러났음"+request.status + " \n error" + error);	
+			alert("에러났음"+request.status + " \n error" + error);
+	
 		}		
 	})	
 }
@@ -67,11 +103,7 @@ function admin_cmu_ajax(menuSelector){
 		url: '/adm/select_cmu_list_ad_ajax.do',
 		data: {"cmu_list_ad_ajax" : menuSelector}, // input 태그내의 값
 		success: function(data){
-//			alert("일단 커뮤니티 ajax 진입은 성공했습니다.");	
 			var tag_string_cmu = create_admin_cmu_list(data);
-			
-			
-//			alert(tag_string_cmu);
 			$('#cmu_list_ad_ajax').html(tag_string_cmu);
 		},
 		error: function(request,status,error){
@@ -124,64 +156,120 @@ function admin_cmu_ajax(menuSelector){
 //}
 
 // 레시피 관련 리스트를 추출할 함수
-function create_admin_rcp_list(data){
-	
+function create_admin_rcp_list(data){	
 	var str = "";
+
+	var rcpvoList = data['rcpvo']
+	var pagnig = data['pagnig']
+
 	str += '<table style="width:90%; margin: auto;" >'
 	str += '<th style="text-align: center">레시피 번호</th>'
 	str += '<th style="text-align: center">레시피 제목</th>'
 	str += '<th style="text-align: center">작성자</th>'
 	str += '<th style="text-align: center">작성일</th>'
-	str += '<th style="text-align: center">신고 횟수</th>'
-
-
-	for ( rcpvo in data ){
+	str += '<th style="text-align: center">좋아요 수</th>'
 	
+
+	for ( rcpvo in rcpvoList ){ 
 		str += '<tr>'
-		str += '<td style="width:20%">'+data[rcpvo].RCP_PK+'</td>'
-		str += '<td style="width:30%">'+data[rcpvo].RCP_TITLE+'</td>'
-		str += '<td style="width:20%">'+data[rcpvo].USR_ID+'</td>'
-		str += '<td style="width:30%">'+data[rcpvo].RCP_REG+'</td>'
-		str += '<td style="width:40%">123456789</td>'
-		str += '</tr>'
+		str += '<td style="width:100px">'+rcpvoList[rcpvo].RCP_PK+'</td>'
+		str += '<td style="width:400px">'+rcpvoList[rcpvo].RCP_TITLE+'</td>'
+		str += '<td style="width:100px">'+rcpvoList[rcpvo].USR_ID+'</td>'
+		str += '<td style="width:100px">'+rcpvoList[rcpvo].RCP_REG+'</td>'
+		str += '<td style="width:100px">'+rcpvoList[rcpvo].RCP_LIKE+'</td>'
+		str += '</tr>'	
+	}
 	
-		
-	}	
-	
+
 	str += '</table>'
+	str += '<div class="pager">'
+	if( pagnig.start_page != 1 ){
+    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page=' + pagnig.start_page - 1 + '&cnt_per_page=' + pagnig.cnt_per_page + '&lt;</a>'
+	}
+	for (var pagenum = pagnig.start_page; pagenum <= pagnig.end_page; pagenum++ ){
+    if(pagenum == pagnig.now_page){
+        str += '<a class="current">' + pagenum + '</a>'
+    }else if (pagenum != pagnig.now_page){
+        str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='+pagenum + '&cnt_per_page=' + pagnig.cnt_per_page + ' "class="paging_num">' 
+        str += pagenum + '</a>'
+    }
+	}
+	if(pagnig.end_page != pagnig.last_page){
+    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='
+    str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+
+	}
+
+
+	//	str += '<c:forEach begin=' + pagnig.start_page + 'end=' + pagnig.end_page + 'var="pagenum">'
+	//	str += '<c:choose>'
+	//	str += '<c:when test=" ' + 'pagenum ==' + pagnig.now_page + ' ">'
+	//	str += '<a class="current">' + 'pagenum' + '</a>'
+	//	str += '</c:when>'
+	//	str += '<c:when test=" ' + 'pagenum !=' + pagnig.now_page + ' ">'
+	//	str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page=pagenum' + '&cnt_per_page=' + pagnig.cnt_per_page + 'class="paging_num">' 
+	//	str += 'pagenum </a>'
+	//	str += '</c:when>'
+	//	str += '</c:choose>'
+	//	str += '</c:forEach>'
+	//	str += '<c:if test=" ' + pagnig.end_page != pagnig.last_page + ' ">'
+	//	str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='
+	//	str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+	//	str += '</c:if>'
+	//	str += '</div>'
+
+
 	
 	return str;
 }
 
 // 커뮤니티 관련 리스트를 추출할 함수
 function create_admin_cmu_list(data){
-	
 	var str = "";
+	var cmuvoList = data['cmuvo']
+	var pagnig = data['pagnig']
+
+	
 	str += '<table style="width:90%; margin: auto;" >'
-	str += '<tr>'
-	str += '<th style="text-align: center">글 번호</th>'
-	str += '<th style="text-align: center">제목</th>'
+	str += '<th style="text-align: center">게시글 번호</th>'
+	str += '<th style="text-align: center">글 제목</th>'
 	str += '<th style="text-align: center">작성자</th>'
 	str += '<th style="text-align: center">작성일</th>'
 	str += '<th style="text-align: center">좋아요 수</th>'
-	str += '</tr>'
+	
 
-
-	for ( cmuvo in data ){	
+	for ( cmuvo in cmuvoList ){ 
 		str += '<tr>'
-		str += '<td style="width:20%">'+data[cmuvo].CMU_PK+'</td>'
-		str += '<td style="width:30%">'+data[cmuvo].CMU_TITLE+'</td>'
-		str += '<td style="width:10%">'+data[cmuvo].USR_ID+'</td>'
-		str += '<td style="width:30%">'+data[cmuvo].CMU_REG+'</td>'
-		str += '<td style="width:30%">'+data[cmuvo].CMU_LIKE+'</td>'
-		str += '</tr>'
+		str += '<td style="width:20%">'+cmuvoList[cmuvo].CMU_PK+'</td>'
+		str += '<td style="width:30%">'+cmuvoList[cmuvo].CMU_TITLE+'</td>'
+		str += '<td style="width:20%">'+cmuvoList[cmuvo].USR_ID+'</td>'
+		str += '<td style="width:30%">'+cmuvoList[cmuvo].CMU_REG+'</td>'
+		str += '<td style="width:40%">'+cmuvoList[cmuvo].CMU_HIT+'</td>'
+		str += '</tr>'	
 	}
 	
-//	$('#cmu_list_ad_ajax').append(str);
 	
 	str += '</table>'
+	str += '<div class="pager">'
+	if( pagnig.start_page != 1 ){
+    str += '<a href="/adm/select_cmu_list_ad_ajax.do?now_page=' + pagnig.start_page - 1 + '&cnt_per_page=' + pagnig.cnt_per_page + '&lt;</a>'
+	}
+	for (var pagenum = pagnig.start_page; pagenum <= pagnig.end_page; pagenum++ ){
+    if(pagenum == pagnig.now_page){
+        str += '<a class="current">' + pagenum + '</a>'
+    }else if (pagenum != pagnig.now_page){
+        str += '<a href="/adm/select_cmu_list_ad_ajax.do?now_page='+pagenum + '&cnt_per_page=' + pagnig.cnt_per_page + ' "class="paging_num">' 
+        str += pagenum + '</a>'
+    }
+	}
+	if(pagnig.end_page != pagnig.last_page){
+    str += '<a href="/adm/select_cmu_list_ad_ajax.do?now_page='
+    str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+
+	}
 	
 	return str;
+
 }
 
 

@@ -236,34 +236,34 @@ td {
 										
 														
 
-					<!-- 				여기에는 레시피 글 목록이 들어감 (table) -->
-													
+					<!-- 				여기에는 레시피 글 목록이 들어감 (table)        -->
+					<!--                관리자 페이지 중 레시피 글 목록 페이징 버튼        -->				
 										
 
 										</form>	
 
 
-								<!-- 관리자 페이지 중 레시피 글 목록 페이징 버튼 -->
-								<div class="pager">
-									<c:if test="${paging_ad.start_page != 1 }">
-									<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a> 
-									</c:if>
-									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum">
-										<c:choose>
-											<c:when test="${pagenum == paging_ad.now_page }">
-												<a class="current">${pagenum }</a>
-											</c:when>
-											<c:when test="${pagenum != paging_ad.now_page }">
-												<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}"
-													class="paging_num">${pagenum }</a>
-											</c:when>
-										</c:choose>
-									</c:forEach>
-									<c:if test="${paging_ad.end_page != paging_ad.last_page}">
-										<a
-											href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a>
-									</c:if>
-								</div>
+							
+<!-- 								<div class="pager"> -->
+<%-- 									<c:if test="${paging_ad.start_page != 1 }"> --%>
+<%-- 									<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a>  --%>
+<%-- 									</c:if> --%>
+<%-- 									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum"> --%>
+<%-- 										<c:choose> --%>
+<%-- 											<c:when test="${pagenum == paging_ad.now_page }"> --%>
+<%-- 												<a class="current">${pagenum }</a> --%>
+<%-- 											</c:when> --%>
+<%-- 											<c:when test="${pagenum != paging_ad.now_page }"> --%>
+<%-- 												<a href="/adm/select_rcp_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}" --%>
+<%-- 													class="paging_num">${pagenum }</a> --%>
+<%-- 											</c:when> --%>
+<%-- 										</c:choose> --%>
+<%-- 									</c:forEach> --%>
+<%-- 									<c:if test="${paging_ad.end_page != paging_ad.last_page}"> --%>
+<!-- 										<a -->
+<%-- 											href="/adm/select_rcp_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a> --%>
+<%-- 									</c:if> --%>
+<!-- 								</div> -->
 							</div>
 							</div>
 						<!--//my recipes-->
@@ -274,32 +274,33 @@ td {
 							<!--entries-->
 							<div style="width: 1170px">
 
-					 <form method="get" id="cmu_list_ad_ajax">		
+					 		<form method="get" id="cmu_list_ad_ajax">		
 				<!-- 				여기에는 커뮤니티 글 목록이 들어감 (table) -->
+				<!--                관리자 페이지 중 레시피 글 목록 페이징 버튼  -->	
 							</form>	
 								
 
 								
-								<div class="pager">
-									<c:if test="${paging_ad.start_page != 1 }">
-									<a href="/adm/select_cum_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a> 
-									</c:if>
-									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum">
-										<c:choose>
-											<c:when test="${pagenum == paging_ad.now_page }">
-												<a class="current">${pagenum }</a>
-											</c:when>
-											<c:when test="${pagenum != paging_ad.now_page }">
-												<a href="/adm/select_cmu_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}"
-													class="paging_num">${pagenum }</a>
-											</c:when>
-										</c:choose>
-									</c:forEach>
-									<c:if test="${paging_ad.end_page != paging_ad.last_page}">
-										<a
-											href="/adm/select_cmu_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a>
-									</c:if>
-								</div>
+<!-- 								<div class="pager"> -->
+<%-- 									<c:if test="${paging_ad.start_page != 1 }"> --%>
+<%-- 									<a href="/adm/select_cum_list_ad_ajax.do?now_page=${paging_ad.start_page-1 }&cnt_per_page=${paging_ad.cnt_per_page}">&lt;</a>  --%>
+<%-- 									</c:if> --%>
+<%-- 									<c:forEach begin="${paging_ad.start_page }" end="${paging_ad.end_page }" var="pagenum"> --%>
+<%-- 										<c:choose> --%>
+<%-- 											<c:when test="${pagenum == paging_ad.now_page }"> --%>
+<%-- 												<a class="current">${pagenum }</a> --%>
+<%-- 											</c:when> --%>
+<%-- 											<c:when test="${pagenum != paging_ad.now_page }"> --%>
+<%-- 												<a href="/adm/select_cmu_list_ad_ajax.do?now_page=${pagenum }&cnt_per_page=${paging_ad.cnt_per_page}" --%>
+<%-- 													class="paging_num">${pagenum }</a> --%>
+<%-- 											</c:when> --%>
+<%-- 										</c:choose> --%>
+<%-- 									</c:forEach> --%>
+<%-- 									<c:if test="${paging_ad.end_page != paging_ad.last_page}"> --%>
+<!-- 										<a -->
+<%-- 											href="/adm/select_cmu_list_ad_ajax.do?now_page=${paging_ad.end_page+1 }&cnt_per_page=${paging_ad.cnt_per_page}">&gt;</a> --%>
+<%-- 									</c:if> --%>
+<!-- 								</div> -->
 							
 							
 						</div>
@@ -313,9 +314,9 @@ td {
 					
 				</div>
 				<!--//row-->
-			</section>
+	<!-- 		</section> -->
 			<!--//content-->
-		</div>
+
 
 		<!--//wrap-->
 	</main>

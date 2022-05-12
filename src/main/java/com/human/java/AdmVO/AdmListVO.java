@@ -3,7 +3,7 @@ package com.human.java.AdmVO;
 public class AdmListVO {
 	
 	
-	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
+	//           현재페이지, 시작페이지,    끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int now_page, start_page, end_page, total, cnt_per_page, last_page, start, end;
 	private int cnt_page = 5;
 	
@@ -149,9 +149,9 @@ public class AdmListVO {
 
 	@Override
 	public String toString() {
-		return "PagingVO [nowPage=" + now_page + ", startPage=" + start_page + ", endPage=" + end_page + ", total=" + total
-				+ ", cntPerPage=" + cnt_per_page + ", lastPage=" + last_page + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cnt_page + "]";
+		return "AdmVO [now_page=" + now_page + ", start_page=" + start_page + ", end_page=" + end_page + ", total=" + total
+				+ ", cnt_per_page=" + cnt_per_page + ", last_page=" + last_page + ", start=" + start + ", end=" + end
+				+ ", cnt_page=" + cnt_page + "]";
 	}
 	
 	

@@ -42,7 +42,6 @@ public class AdmSerImpl implements AdmSer{
 	// 회원 목록 불러오기 + 페이징 (관리자)
 	@Override
 	public List<UsrVO> select_userinfo_ad_ajax(UsrVO usrvo, AdmListVO admlistvo) {
-    	System.out.println("서비스 탔다");
 		return admdao.select_userinfo_ad_ajax(admlistvo);
 	}
 
