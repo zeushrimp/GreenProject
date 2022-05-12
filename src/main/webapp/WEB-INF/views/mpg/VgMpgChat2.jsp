@@ -404,7 +404,7 @@ ul>li:before {
 	content: none;
 }
 </style>
-<title>비시트 1:1 상담소(관리자)</title>
+<title>Vegcipe</title>
 </head>
 <body>
 	<%

@@ -10,7 +10,7 @@
 <meta name="description"
 	content="SocialChef - Social Recipe HTML Template">
 <meta name="author" content="themeenergy.com">
-<title>SocialChef</title>
+<title>Vegcipe</title>
 
 <link
 	href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"

@@ -14,7 +14,7 @@
 <scirpt src="E:\work\jquery\3.3.1\jquery.min.js"></scirpt>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Vegcipe</title>
 
 </head>
 <body>

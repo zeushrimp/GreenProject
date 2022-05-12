@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비시트 채팅 리스트</title>
+<title>Vegcipe</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
