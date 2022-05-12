@@ -1,87 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<scirpt src="E:\work\jquery\3.3.1\jquery.min.js"></scirpt>
-
 <meta charset="UTF-8">
 <title>Vegcipe</title>
+<link rel="stylesheet" href="/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
+<link rel="stylesheet" href="/resources/css/Mpg.css" />
+<link rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/resources/css/icons.css" />
+<link
+   href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800"
+   rel="stylesheet">
+<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 
+<style>
+@import
+   url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+   ;
+</style>
 </head>
 <body>
-	<div class="row">
-		<div class="modal" id="modal02" tabindex="-1">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div style="text-align: center;">
-						<div class="modal-body"
-							style="text-align: center; display: inline-block;">
-							<div>
-								<h3>Vegcipe가 재료를 구별했는지 확인해주세요!</h3>
-								<form id="Ai_imgsend1" action="vegcipefilecheck.do" method="post">
-									<!-- 생략 -->
-									<div class="inputArea">
-										<label for="gdsImg">이미지</label>
-										<div class="select_img01">
-											<img src="" />
-										</div>
-										<div>
-											<div>${vegcipefirst} 입니다.</div>
-											<div>맞다면 확인을, 아니라면 ${vegcipefirst}를(을) 지우고 재료이름을 입력해주세요.</div>
-											<div>
-												<input type="text" value="${vegcipefirst}" name="RCPRS_TITLE">
-											</div>
+   <!--header-->
+   <%@ include file="../../../Header.jsp"%>
+   <div style="padding-top: 200px"></div>
+   <!--//header-->
+
+   <div
+      style="max-width: 1170px; margin: auto; display: flex; border: 20px solid #fffff0; background-color: #fffff0; border-radius: 16px; box-shadow: inset 0 0 8px #e6d2b5;">
+      <div style="width: 60%;">
+         <p>사진박스</p>
+      </div>
+      <div
+         style="width: 40%; font-family: 'Noto Sans KR', sans-serif; padding: 15px 20px 0px 45px; text-align: left;">
+         <h2 style="font-weight: 700;">결과를 확인하세요</h2>
+         <div
+            style="font-weight: bold; font-size: larger; color: #239961; padding-bottom: 15px;">VEGCIPE</div>
+
+         <div>
+            <b>${vegcipefirst} 입니다.</b>
+         </div>
 
 
-											<input type="button"
-												class="close btn btn-default Ai_imgsend_next"
-												data-dismiss="modal" value="확인" onclick="Ai_imgsend_next()">
+         <div>맞다면 확인을, 아니라면 ${vegcipefirst}를(을) 지우고 재료이름을 입력해주세요.</div>
+         <form id="Ai_imgsend1" action="vegcipefilecheck.do" method="post">
+            <div>
+               <input type="text" value="${vegcipefirst}" name="RCPRS_TITLE">
+            </div>
+            <br> <input type="button" value="확인" class="Ai_imgsend_fisrt"
+               onclick="Ai_imgsend_next()" >
+               <br>
+         </form>
+      </div>
+   </div>
 
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+   <!--footer-->
+   <div style="margin-top: 100px;"></div>
+   <%@ include file="../../../Footer.jsp"%>
+   <!--//footer-->
 </body>
+
+<script src="/resources/js/jquery-3.1.0.min.js"></script>
+<script src="/resources/js/jquery.uniform.min.js"></script>
+<script src="/resources/js/jquery.slicknav.min.js"></script>
+<script src="/resources/js/scripts.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/Mpg.js"></script>
 <script>
-	$("#gdsImg01").change(
-			function() {
-				if (this.files && this.files[0]) {
-					var reader = new FileReader;
-					reader.onload = function(data) {
-						$(".select_img01 img").attr("src", data.target.result)
-								.width(300);
-					}
-					reader.readAsDataURL(this.files[0]);
-				}
-			});
+function Ai_imgsend_next() {
+	alert('잠시만기다려주세요.');
+	$('.Ai_imgsend_fisrt').click(function() {
+		$('#Ai_imgsend1').submit();
+	})
 
-	function Ai_imgsend_next() {
-		alert('레시프를 찾는 중입니다.');
-		$('.Ai_imgsend_next').click(function() {
+};
 
-			$('#Ai_imgsend1').submit();
-		})
-
-	}
 </script>
 
-
-
-
-</div>
 </html>
