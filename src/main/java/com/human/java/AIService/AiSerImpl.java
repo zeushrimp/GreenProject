@@ -23,7 +23,6 @@ public class AiSerImpl implements AiSer {
 	public List<RcpVO> Ai_recipe(RcpVO rcpvo) {
 		return aiDao.Ai_recipe(rcpvo);
 		
-
 	}
 
 	@Override

@@ -33,26 +33,14 @@ public class AiCon {
 
 	}
 	
+	// 냉레 사진 업로드 경로
 	@RequestMapping("vegcipefile.do")
 	public ModelAndView vegcipefile(MultipartFile file, HttpSession session, RcpVO rcpvo) throws Exception{
 	
-		rcpvo.setRCPRS_TITLE("RCPRS_TITLE")
-;
+		rcpvo.setRCPRS_TITLE("RCPRS_TITLE");
 		
 		ModelAndView mav = new ModelAndView("redirect:/ai/VgAiVideo.do");
-		
-//		String photoImg = null;
-//		if (file != null) {
-//			Base64.Encoder encoder = Base64.getEncoder();
-//			byte[] photoEncode = encoder.encode(file.getBytes());
-//			photoImg = new String(photoEncode, "UTF8");
-//		}
-//		System.out.println(photoImg);
-//
-//		
-//		String s = photoImg;;
-		
-		
+						
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
 		System.out.println("파일 실제 이름: " + file.getOriginalFilename());
@@ -62,9 +50,13 @@ public class AiCon {
 
 		AiSer.store_image(file);
 		AiSer.upload_pic(file);
+		
+		System.out.println(mav);
+		
 		return mav;
 	}
 	
+	// 냉레 AI 모달 동영상
 	@RequestMapping("VgAiVideo.do")
 	public String countrcp(Model model) {
 		
@@ -74,11 +66,10 @@ public class AiCon {
 
 	}
 	
+	// 사진 업로드 후 레시피
 	@RequestMapping("vegcipefilecheck.do")
 	public String vegcipefilecheck(Model model, RcpVO rcpvo) {
-		
-		
-		
+						
 		List<RcpVO> airecipe = AiSer.Ai_recipe(rcpvo);
 		System.out.println(airecipe);
 		

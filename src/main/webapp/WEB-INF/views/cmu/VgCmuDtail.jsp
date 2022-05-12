@@ -11,7 +11,7 @@
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
 	
-	<title>베지피 커뮤니티</title>
+	<title>Vegcipe</title>
 	
 	<link rel="shortcut icon" href="/resources/images/favicon.ico" />
 	<link rel="stylesheet" href="/resources/css/style.css" />

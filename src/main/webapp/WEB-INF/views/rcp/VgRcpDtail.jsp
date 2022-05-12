@@ -13,7 +13,7 @@
 	content="SocialChef - Social Recipe HTML Template">
 <meta name="author" content="themeenergy.com">
 
-<title>SocialChef</title>
+<title>Vegcipe</title>
 
 <!-- <link rel="stylesheet" href="../../../resources/css/styleHeader.css" /> -->
 <!-- <link rel="stylesheet" href="../../../resources/css/styleFooter.css" /> -->

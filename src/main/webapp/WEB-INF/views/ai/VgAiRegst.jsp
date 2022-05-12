@@ -3,18 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 제이쿼리 홈페이지 -->
+
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-
-<!-- 구글 -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- 다운받은 제이쿼리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <scirpt src="E:\work\jquery\3.3.1\jquery.min.js"></scirpt>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Vegcipe</title>
 
 </head>
 <body>

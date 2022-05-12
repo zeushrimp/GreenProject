@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Vegcipe</title>
 </head>
 <body>
 나에게 딱맞는 레시피 모달
