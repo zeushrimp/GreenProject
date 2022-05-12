@@ -74,14 +74,14 @@
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="../../test.jsp" title="SocialChef" class="logo"
+			<a href="/home/VgMain.do" title="SocialChef" class="logo"
 				style="margin-right: 0"><img
 				src="../resources/images/ico/logo.png" alt="SocialChef logo" /></a>
 
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul
 					style="width: 600px; display: flex; justify-content: space-evenly;">
-					<li><a href="../../test.jsp" title="Home"><span>메인</span></a></li>
+					<li><a href="/home/VgMain.do" title="Home"><span>메인</span></a></li>
 					<li><a href="/rcp/VgRcpList.do" title="Recipes"><span>레시피</span></a>
 						<ul>
 							<li><a href="/rcp/VgRcpRegst_ck.do" title="RegRecipes">레시피
