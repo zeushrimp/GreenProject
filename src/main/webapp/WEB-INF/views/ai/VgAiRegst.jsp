@@ -30,8 +30,8 @@
 							style="text-align: center; display: inline-block;">
 							<div>
 								<h3>Vegcipe가 재료를 구별했는지 확인해주세요!</h3>
-								<form id="Ai_imgsend" action="vegcipefilecheck.do" method="post"
-									>
+								<form id="Ai_imgsend1" action="vegcipefilecheck.do" method="post"
+									enctype="multipart/form-data">
 									<!-- 생략 -->
 									<div class="inputArea">
 										<label for="gdsImg">이미지</label>
@@ -46,7 +46,7 @@
 
 											<input type="button"
 												class="close btn btn-default Ai_imgsend_next"
-												value="확인" onclick="Ai_imgsend()">
+												value="확인" onclick="Ai_imgsend_next()">
 										</div>
 								</form>
 
@@ -72,11 +72,11 @@
 				}
 			});
 
-	function Ai_imgsend() {
+	function Ai_imgsend_next() {
 		alert('잠시만기다려주세요.');
 		$('.Ai_imgsend_next').click(function() {
 
-			$('#Ai_imgsend').submit();
+			$('#Ai_imgsend1').submit();
 		})
 
 	}

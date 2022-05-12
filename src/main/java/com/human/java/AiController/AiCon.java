@@ -45,10 +45,24 @@ public class AiCon {
 	}
 
 	@RequestMapping("vegcipefile.do")
-	public void vegcipefile(MultipartFile file, HttpSession session,RcpVO rcpvo,Model model) throws NestedServletException {
+	public ModelAndView vegcipefile(MultipartFile file, HttpSession session, RcpVO rcpvo) throws IOException{
 	
 		rcpvo.setRCPRS_TITLE("RCPRS_TITLE")
 ;
+		
+		ModelAndView mav = new ModelAndView("redirect:/ai/VgAiVideo.do");
+		
+//		String photoImg = null;
+//		if (file != null) {
+//			Base64.Encoder encoder = Base64.getEncoder();
+//			byte[] photoEncode = encoder.encode(file.getBytes());
+//			photoImg = new String(photoEncode, "UTF8");
+//		}
+//		System.out.println(photoImg);
+//
+//		
+//		String s = photoImg;;
+		
 		
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
@@ -57,10 +71,8 @@ public class AiCon {
 		System.out.println("content type: " + file.getContentType());
 		System.out.println("================== file   END ==================");
 
-		
-				
-		
-
+		AiSer.upload_pic(String.valueOf(file));
+		return mav;
 	}
 	
 	@RequestMapping("VgAiVideo.do")
