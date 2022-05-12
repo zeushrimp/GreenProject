@@ -10,7 +10,7 @@
 	content="SocialChef - Social Recipe HTML Template">
 <meta name="author" content="themeenergy.com">
 
-<title>지도생성하기</title>
+<title>Vegcipe</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />

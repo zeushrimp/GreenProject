@@ -13,7 +13,7 @@
 	content="SocialChef - Social Recipe HTML Template">
 <meta name="author" content="themeenergy.com">
 
-<title>SocialChef</title>
+<title>Vegcipe</title>
 
 
 <link rel="stylesheet" href="../../resources/css/icons.css" />
@@ -206,7 +206,7 @@
 											<div>
 
 												<div class="likes">
-													<i class="fa fa-heart"></i>${vo1.RCP_LIKE }
+													<i class="fa fa-heart"></i>${vo1.RCP_HIT }
 												</div>
 												<div class="comments">
 													<i class="fa fa-comment"></i>${vo1.RCP_COM }
