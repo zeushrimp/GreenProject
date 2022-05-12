@@ -50,7 +50,8 @@ public class AiSerImpl implements AiSer {
             while((outputStr=input.readLine())!=null)
             {
                 // outputStr : 사진 비교해서 나오는 답
-                System.out.println("채소이름 : "+outputStr);                
+                System.out.println("채소이름 : "+outputStr);
+                return outputStr;
             }
             input.close();
             
@@ -62,9 +63,10 @@ public class AiSerImpl implements AiSer {
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		return "outputStr";
+		return "outputStr error";
 	}
 
+	// 사진 저장 위치
 	@Override
 	public Boolean store_image(MultipartFile file) throws Exception {
         Boolean result = Boolean.FALSE;

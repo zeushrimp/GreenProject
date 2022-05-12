@@ -5,7 +5,8 @@
 <head>
 
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <scirpt src="E:\work\jquery\3.3.1\jquery.min.js"></scirpt>
 
 <meta charset="UTF-8">
@@ -25,8 +26,7 @@
 							style="text-align: center; display: inline-block;">
 							<div>
 								<h3>Vegcipe가 재료를 구별했는지 확인해주세요!</h3>
-								<form id="Ai_imgsend1" action="vegcipefilecheck.do" method="post"
-									enctype="multipart/form-data">
+								<form id="Ai_imgsend1" action="vegcipefilecheck.do" method="post">
 									<!-- 생략 -->
 									<div class="inputArea">
 										<label for="gdsImg">이미지</label>
@@ -34,17 +34,20 @@
 											<img src="" />
 										</div>
 										<div>
-											<div>양파(변수) 입니다.</div>
-											<div>맞다면 확인을, 아니라면 밑값을 지우고 재료이름을 입력해주세요.</div>
-											<div><input type="text" value="양파"  name="RCPRS_TITLE"></div>
+											<div>${vegcipefirst} 입니다.</div>
+											<div>맞다면 확인을, 아니라면 ${vegcipefirst}를(을) 지우고 재료이름을 입력해주세요.</div>
+											<div>
+												<input type="text" value="${vegcipefirst}" name="RCPRS_TITLE">
 											</div>
+
 
 											<input type="button"
 												class="close btn btn-default Ai_imgsend_next"
-												value="확인" onclick="Ai_imgsend_next()">
-										</div>
-								</form>
+												data-dismiss="modal" value="확인" onclick="Ai_imgsend_next()">
 
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 
@@ -68,7 +71,7 @@
 			});
 
 	function Ai_imgsend_next() {
-		alert('잠시만기다려주세요.');
+		alert('레시프를 찾는 중입니다.');
 		$('.Ai_imgsend_next').click(function() {
 
 			$('#Ai_imgsend1').submit();

@@ -54,14 +54,10 @@ $(document).on('click', '#btnSearch', function(e){
 
 // ajax 카테고리(전체 or 분류)
 $(function(){
-	$('.catebutton').click(function(e){
-		
-		var menuSelector = e.target.value;
-		
+	$('.catebutton').click(function(e){		
+		var menuSelector = e.target.value;		
 		if( menuSelector == '전체'){
-//			alert('전체');
 		}else{
-//			alert(menuSelector)
 			cate_ajax(menuSelector);	
 		}
 	})
@@ -74,9 +70,7 @@ function cate_ajax(menuSelector){
 		url: '/cmu/VgCmuList_ajax.do',
 		data: {"CMU_CATE" : menuSelector}, // input 태그내의 값
 		success: function(data){
-//			alert("성공했습니다.");	
 			var tag_String = create_cate_list(data);			
-//			alert(tag_String);
 			$('#listForm').html(tag_String) 
 		},
 		error: function(request,status,error){
@@ -129,8 +123,7 @@ function create_cate_list(data){
 }
 
 // 댓글 ajax 구현
-$(function(){
-	
+$(function(){	
 	$('#comment_btn').click(function(){
 	
 		var CMU_PK = $('#comment_form').children('input:eq(0)').val() /* 게시판 번호 */
@@ -145,8 +138,7 @@ $(function(){
 				"USR_ID" : USR_ID,
 				"CCM_CONTENT" : CCM_CONTENT
 			},
-			success : function(dataMap){
-				
+			success : function(dataMap){				
 				console.log(dataMap)
 				var add_comment_string = add_comment_List(dataMap)
 				
@@ -255,8 +247,7 @@ function rereply_update_btn(CMU_PK,CCM_PK,USR_ID){
 };
 
 //ajax 댓글 수정 취소
-function rereply_update_cancel_btn(CMU_PK,CCM_PK,USR_ID){
-		
+function rereply_update_cancel_btn(CMU_PK,CCM_PK,USR_ID){		
 	$.ajax({
 		url: '/cmu/cmu_reply_update_cancel.do',
 		type: 'POST',
@@ -274,16 +265,14 @@ function rereply_update_cancel_btn(CMU_PK,CCM_PK,USR_ID){
 		}, 
 		error: function(request,status,error){
 			alert("에러났습니다."+request.status + " \n error" + error);	
-		}
-								
+		}								
 	});
 };
 
 //ajax 댓글 삭제창
 function rereplydelete(CMU_PK,CCM_PK,USR_ID){
 	alert("댓글을 삭제하겠습니다.");
-	console.log("댓글 삭제");
-	
+	console.log("댓글 삭제");	
 	$.ajax({
 		url: '/cmu/cmu_replydelete.do',
 		type: 'POST',

@@ -93,8 +93,7 @@
 							</select>
 						</div>
 						<div style="width: 300px; padding: 0px 3px 20px 0px; float: left;">
-							<input type="text"
-								<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
+							<input type="text" class="form-control form-control-sm"
 								name="keyword" id="keyword" placeholder="검색어를 입력하세요">
 						</div>
 						<div>

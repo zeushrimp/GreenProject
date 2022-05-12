@@ -1,7 +1,7 @@
 package com.human.java.AiController;
 
-import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.human.java.AIService.AiSer;
 import com.human.java.RcpVO.RcpVO;
@@ -35,12 +34,8 @@ public class AiCon {
 	
 	// 냉레 사진 업로드 경로
 	@RequestMapping("vegcipefile.do")
-	public ModelAndView vegcipefile(MultipartFile file, HttpSession session, RcpVO rcpvo) throws Exception{
-	
-		rcpvo.setRCPRS_TITLE("RCPRS_TITLE");
-		
-		ModelAndView mav = new ModelAndView("redirect:/ai/VgAiVideo.do");
-						
+	public String vegcipefile(MultipartFile file, HttpSession session, Model model) throws Exception{
+									
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
 		System.out.println("파일 실제 이름: " + file.getOriginalFilename());
@@ -49,11 +44,13 @@ public class AiCon {
 		System.out.println("================== file   END ==================");
 
 		AiSer.store_image(file);
-		AiSer.upload_pic(file);
 		
-		System.out.println(mav);
+		String vegcipefirst = AiSer.upload_pic(file);
 		
-		return mav;
+		System.out.println("업로드 사진 후 : "+vegcipefirst);
+		model.addAttribute("vegcipefirst", vegcipefirst);
+		
+		return "/ai/VgAiRegst";
 	}
 	
 	// 냉레 AI 모달 동영상
@@ -68,12 +65,15 @@ public class AiCon {
 	
 	// 사진 업로드 후 레시피
 	@RequestMapping("vegcipefilecheck.do")
-	public String vegcipefilecheck(Model model, RcpVO rcpvo) {
-						
+	public String vegcipefilecheck(Locale locale, Model model, RcpVO rcpvo, String RCPRS_TITLE ) {
+		
+		System.out.println(rcpvo.getRCPRS_TITLE());
+
 		List<RcpVO> airecipe = AiSer.Ai_recipe(rcpvo);
-		System.out.println(airecipe);
+		System.out.println("업로드 후 리스트 : "+airecipe);
 		
 		model.addAttribute("vegcipe", airecipe);
+		System.out.println(model.addAttribute("vegcipe", airecipe));
 		
 		return "/ai/VgAiList";
 
