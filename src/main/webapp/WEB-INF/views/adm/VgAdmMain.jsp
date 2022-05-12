@@ -144,17 +144,14 @@ td {
 						<div class="tab-content" id="about">
 							<div style="width: 1170px">
 								<table style="width:90%; margin: auto;">
-									<th>이름</th>
-									<th>이메일</th>
-									<th>비밀번호</th>
-									<th>주소</th>
-									<th>전화번호</th>
-									<th>가입일자</th>
-									<th>레시피</th>
-									<th>글수</th>
-									<th>신고</th>
-									<th>수정하기</th>
-									<th>신고하기</th>
+									<th style="text-align: center">이름</th>
+									<th style="text-align: center">이메일</th>
+<!-- 									<th style="text-align: center">비밀번호</th> -->
+									<th style="text-align: center">주소</th>
+									<th style="text-align: center">전화번호</th>
+									<th style="text-align: center">가입일자</th>
+									<th style="text-align: center">수정하기</th>
+									<th style="text-align: center">강퇴하기</th>
 					
 									<form method="get" id="userinfo_ad_ajax" action="/adm/VgAdmMain.do">
 										<c:forEach items="${AUSR }" var="vo" varStatus="status">			
@@ -162,7 +159,7 @@ td {
 												<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
 												<input type="hidden" class="USR_ID" value="${vo.USR_ID}"></td>
 												<td style="width:150px"><input type="textarea" class="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-												<td style="width:150px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
+<%-- 												<td style="width:150px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td> --%>
 												<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
 												<input type="button" onclick="sample6_execDaumPostcode('${status.index}')" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
 												<input type="hidden"  class="sample6_postcode USR_ADDR1" value="${vo.USR_ADDR1 }"/>
@@ -171,12 +168,9 @@ td {
 												<input type="hidden" class="sample6_extraAddress" placeholder="참고항목">
 												</td>
 												<td style="width:140px"><input type="textarea" class="USR_TEL" value="${vo.USR_TEL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-												<td style="width:140px">${vo.USR_DATE }</td>
-												<td style="width:100px">100</td>
-												<td style="width:75px">10</td>
-												<td style="width:90px">10</td>								
-												<td style="width:90px;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
-											  	<td style="width:90px;"><a type="button" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;"
+												<td style="width:140px">${vo.USR_DATE }</td>							
+												<td style="width:110px;"><input type="button"  onclick="submit_item('${status.index}')" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;" value="수정"></td>
+											  	<td style="width:110px;"><a type="button" style="width: 100%; padding-left: 0; padding-right: 0; background: none !important; border:none !important; color: #444;"
 											  	href="delete_usr_info.do?USR_ID=${vo.USR_ID}&USR_PW=${vo.USR_PW}">삭제</a></td>
 											</tr>
 										</c:forEach>	

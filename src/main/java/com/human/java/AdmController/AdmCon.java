@@ -32,7 +32,6 @@ public class AdmCon<V> {
     		,@RequestParam(value="now_page", required=false)String now_page,
 			 @RequestParam(value="cnt_per_page", required=false)String cnt_per_page 		
     		) {
-    	System.out.println("컨트롤러 탔다");
     	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
 		int total = AdmSer.ad_userinfo_listcnt();
 		if (now_page == null && cnt_per_page == null) {
@@ -97,11 +96,11 @@ public class AdmCon<V> {
 		
 		if (now_page == null && cnt_per_page == null) {
 			now_page = "1";
-			cnt_per_page = "8";
+			cnt_per_page = "20";
 		} else if (now_page == null) {
 			now_page = "1";
 		} else if (cnt_per_page == null) { 
-			cnt_per_page = "8";
+			cnt_per_page = "20";
 		}
 		
 		admlistvo = new AdmListVO(total, Integer.parseInt(now_page), Integer.parseInt(cnt_per_page));

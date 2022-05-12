@@ -167,7 +167,7 @@ function create_admin_rcp_list(data){
 	str += '<th style="text-align: center">레시피 제목</th>'
 	str += '<th style="text-align: center">작성자</th>'
 	str += '<th style="text-align: center">작성일</th>'
-	str += '<th style="text-align: center">좋아요 수</th>'
+	str += '<th style="text-align: center">채식 타입</th>'
 	
 
 	for ( rcpvo in rcpvoList ){ 
@@ -176,7 +176,7 @@ function create_admin_rcp_list(data){
 		str += '<td style="width:400px">'+rcpvoList[rcpvo].RCP_TITLE+'</td>'
 		str += '<td style="width:100px">'+rcpvoList[rcpvo].USR_ID+'</td>'
 		str += '<td style="width:100px">'+rcpvoList[rcpvo].RCP_REG+'</td>'
-		str += '<td style="width:100px">'+rcpvoList[rcpvo].RCP_LIKE+'</td>'
+		str += '<td style="width:90px">'+rcpvoList[rcpvo].RCP_VEGE+'</td>'
 		str += '</tr>'	
 	}
 	
@@ -235,16 +235,16 @@ function create_admin_cmu_list(data){
 	str += '<th style="text-align: center">글 제목</th>'
 	str += '<th style="text-align: center">작성자</th>'
 	str += '<th style="text-align: center">작성일</th>'
-	str += '<th style="text-align: center">좋아요 수</th>'
+	str += '<th style="text-align: center">신고 수</th>'
 	
 
 	for ( cmuvo in cmuvoList ){ 
 		str += '<tr>'
-		str += '<td style="width:20%">'+cmuvoList[cmuvo].CMU_PK+'</td>'
-		str += '<td style="width:30%">'+cmuvoList[cmuvo].CMU_TITLE+'</td>'
-		str += '<td style="width:20%">'+cmuvoList[cmuvo].USR_ID+'</td>'
-		str += '<td style="width:30%">'+cmuvoList[cmuvo].CMU_REG+'</td>'
-		str += '<td style="width:40%">'+cmuvoList[cmuvo].CMU_HIT+'</td>'
+		str += '<td style="width:100px">'+cmuvoList[cmuvo].CMU_PK+'</td>'
+		str += '<td style="width:400px">'+cmuvoList[cmuvo].CMU_TITLE+'</td>'
+		str += '<td style="width:100px">'+cmuvoList[cmuvo].USR_ID+'</td>'
+		str += '<td style="width:100px">'+cmuvoList[cmuvo].CMU_REG+'</td>'
+		str += '<td style="width:100px">'+cmuvoList[cmuvo].CMU_REPORT+'</td>'
 		str += '</tr>'	
 	}
 	

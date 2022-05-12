@@ -29,6 +29,7 @@ public class CmuVO extends Pagination {
 	private String keyword;	
 	
 	private String user_id_session; // 세션에 담긴 user_id (신고기능 관련)
+	private int CMU_REPORT; // 게시글에 대한 신고 숫자
 	private String cmu_report_reason; // 신고하는 이유 (사용자 입력값) 
 	
 	
