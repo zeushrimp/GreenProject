@@ -2,8 +2,10 @@ package com.human.java.AIService;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.human.java.RcpVO.RcpVO;
-import com.human.java.UsrVO.UsrVO;
+
 
 
 
@@ -13,7 +15,10 @@ public interface AiSer {
 	
 	public String countrcp();
 	
+	// 사진 업로드
+	public Boolean store_image(MultipartFile file) throws Exception;
+	
 	//	변수를 사진...사진을 줘야 됨 (request?)
-	public String upload_pic();
+	public String upload_pic(MultipartFile file);
 	
 }

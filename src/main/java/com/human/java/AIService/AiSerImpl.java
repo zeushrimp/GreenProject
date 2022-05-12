@@ -1,12 +1,14 @@
 package com.human.java.AIService;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.human.java.AiDAO.AiDao;
 import com.human.java.RcpVO.RcpVO;
@@ -31,10 +33,10 @@ public class AiSerImpl implements AiSer {
 	}
 
 	@Override
-	public String upload_pic() {
+	public String upload_pic(MultipartFile file) {
 		String command = "C:\\ProgramData\\Anaconda3\\python.exe";  // 명령어
 	    String arg1 = "C:\\jython\\jython.py"; // 인자
-	    String inputStr = "양파.jpg"; // 업로드해서 가져오는 사진 이미지
+	    String inputStr = file.getOriginalFilename(); // 업로드해서 가져오는 사진 이미지
 	    
 	    ProcessBuilder builder = new ProcessBuilder(command, arg1, inputStr);
 	    
@@ -62,5 +64,22 @@ public class AiSerImpl implements AiSer {
 			System.out.println(e.toString());
 		}
 		return "outputStr";
+	}
+
+	@Override
+	public Boolean store_image(MultipartFile file) throws Exception {
+        Boolean result = Boolean.FALSE;
+        try{
+        	
+            File destination = new File("C:\\jython\\" + file.getOriginalFilename());
+            file.transferTo(destination);
+
+            result = Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println("에러 : " + e.getMessage());
+        }finally {
+            return result;
+        }
+
 	}
 }
