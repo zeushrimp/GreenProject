@@ -276,8 +276,8 @@ html, body {
 
 								<dl class="ingredients">
 									<c:forEach items="${detailRcp_reso }" var="detailRcp_reso">
-										<dt>${detailRcp_reso.RCPRS_AMOUNT }</dt>
-										<dd>${detailRcp_reso.RCPRS_TITLE }</dd>
+										<dt>${detailRcp_reso.RCPRS_TITLE }</dt>
+										<dd>${detailRcp_reso.RCPRS_AMOUNT }</dd>
 									</c:forEach>
 								</dl>
 							</article>
