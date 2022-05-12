@@ -52,28 +52,29 @@ public class CmuCon {
 
 	// 글 쓸 때, 유저인지 아닌지 확인
 	@RequestMapping("VgCmuRegst_check.do")
-	public String cmu_Regst_check(HttpSession session, HttpServletResponse response, CmuVO cmuvo, Model model) throws IOException {
+	public String cmu_Regst_check(HttpSession session,
+			HttpServletResponse response, CmuVO cmuvo, Model model) throws IOException {
 		// 또는 관리자 or 회원 아니면 로그인 창
 		if (session.getAttribute("usr_Id") == null) {
 			response.setContentType("text/html; charset=UTF-8");			 
 			PrintWriter out = response.getWriter();			 
-			out.println("<script>alert('로그인 후 이용해 주시기 바랍니다.'); location.href='http://localhost:8080/usr/VgUsrLogin.do';</script>");			 
+			out.println("<script>alert('로그인 후 이용해 주시기 바랍니다.'); "
+					+ "location.href='http://localhost:8080/usr/VgUsrLogin.do';</script>");			 
 			out.flush();
-
-		}
-				
+		}				
 		return "redirect:/cmu/VgCmuRegst.do";
-
 	}
 
 	// 게시글 읽을 때, 유저인지 아닌지 확인
 	@RequestMapping("VgCmuDetail_check.do")
-	public String cmu_Detail_check(HttpSession session, HttpServletResponse response) throws IOException {
+	public String cmu_Detail_check(HttpSession session
+			, HttpServletResponse response) throws IOException {
 		// 또는 관리자 or 회원 아니면 로그인 창
 		if (session.getAttribute("usr_Id") == null) {
 			response.setContentType("text/html; charset=UTF-8");			 
 			PrintWriter out = response.getWriter();			 
-			out.println("<script>alert('로그인 후 이용해 주시기 바랍니다.'); location.href='http://localhost:8080/usr/VgUsrLogin.do';</script>");			 
+			out.println("<script>alert('로그인 후 이용해 주시기 바랍니다.'); "
+					+ "location.href='http://localhost:8080/usr/VgUsrLogin.do';</script>");			 
 			out.flush();
 
 		}
@@ -84,8 +85,6 @@ public class CmuCon {
 	// 커뮤니티 글 작성하기(버튼)
 	@RequestMapping("cmu_write.do")
 	public String cmu_write(CmuVO cmuvo, HttpSession session) {
-		// 여기서 서비스 호출
-		// 세션에서 아이디만 가져오기
 		cmuvo.setUSR_ID(String.valueOf(session.getAttribute("usr_Id")));
 		CmuSer.cmu_write(cmuvo);
 
@@ -148,7 +147,8 @@ public class CmuCon {
 		
 	// 게시글 수정하기
 	@RequestMapping(value = "/updatecmu.do")
-	public String updatewrite(@ModelAttribute("CmuVO") CmuVO cmuvo, HttpServletRequest request) throws Exception {
+	public String updatewrite(@ModelAttribute("CmuVO") CmuVO cmuvo
+			, HttpServletRequest request) throws Exception {
 		CmuSer.updatewrite(cmuvo);
 		return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 	}
@@ -249,8 +249,7 @@ public class CmuCon {
     		Path path2 = FileSystems.getDefault().getPath("");
     		String directoryName2 = path2.toAbsolutePath().toString();
     		System.out.println("Current Working Directory is = " +directoryName2);
-    		
-    		
+    		   		
     		String root = request.getContextPath(); // return 프로젝트 Path
     		String uri = request.getRequestURI(); // return 프로젝트+파일경로
     		String servlet = request.getServletPath(); // return 파일명
@@ -260,8 +259,7 @@ public class CmuCon {
     		System.out.println("uri" + uri);
     		System.out.println("servlet" + servlet);
     		System.out.println("url" + url);
-    		
-    		
+    		    		
     		Resource resource = (Resource) resourceLoader.getResource("classpath:file/hello.html");
     		
     		String path = session.getServletContext().getRealPath("/resources/cmupic");
@@ -395,7 +393,7 @@ public class CmuCon {
 		} else if (report_check == 1) { // 신고하기를 이미 눌렀는데 또 누름
 
 			alert.println("<script>alert('한 게시글에 신고는 한개만 가능합니다.');</script>");
-//			alert.flush();
+			//alert.flush();
 			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 			
 		} else {
@@ -403,10 +401,7 @@ public class CmuCon {
 			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 		}
 		
-		
-		    		
 	   }
-
     
 }
 	
