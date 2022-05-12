@@ -27,7 +27,7 @@
   	FROM (
   	SELECT *
   	FROM RCP
-  	ORDER BY RCP_LIKE DESC
+  	ORDER BY RCP_HIT DESC
   	)WHERE ROWNUM<![CDATA[<]]>4
   	</select>
   </mapper>

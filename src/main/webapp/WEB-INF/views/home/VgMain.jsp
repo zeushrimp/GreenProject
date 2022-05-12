@@ -187,7 +187,7 @@
 												<img src="../../resources/images/rcp_default.png" />
 											</f:otherwise>
 										</f:choose>
-										<figcaption>
+									<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo1.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
 										</figcaption>
@@ -240,7 +240,7 @@
 								<div class="entry one-third" style="width: 33.3%">
 									<figure>
 										<f:choose>
-											<f:when test="${vo2.RCP_IMG != null} ">
+											<f:when test="${vo2.RCP_IMG != null }">
 												<img src="data:image/gif;base64,${vo2.RCP_IMG }"
 													style="width: 369.59px !important; height: 277.19px !important;" />
 											</f:when>
@@ -248,7 +248,7 @@
 												<img src="../../resources/images/rcp_default.png" />
 											</f:otherwise>
 										</f:choose>
-										<figcaption>
+									<figcaption>
 											<a href="/rcp/VgRcpDtail.do?RCP_PK=${vo2.RCP_PK }"><i
 												class="icon icon-themeenergy_eye2"></i> <span>레시피 보기</span></a>
 										</figcaption>
