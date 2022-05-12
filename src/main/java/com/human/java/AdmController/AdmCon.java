@@ -129,22 +129,14 @@ public class AdmCon<V> {
 
 	 // 회원 정보 삭제
 	 @RequestMapping("/delete_usr_info.do")
-	 public String delete_usr_info(UsrVO usrvo, HttpServletResponse response) {
+	 public String delete_usr_info(UsrVO usrvo, HttpServletResponse response) throws IOException{
 		 AdmSer.delete_usr_info(usrvo);
 		 response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out;
-			try {
-				out = response.getWriter();
-				out.println("<script>"
-						+ "alert('회원이 삭제되었습니다.');"
-						+ "</script>");
+			out = response.getWriter();
+			out.println("<script>" + "alert('회원이 삭제되었습니다.');" + "</script>");
 
-			} catch (IOException e) {
-		
-				e.printStackTrace();
-			}
-	
-		 
+
 
 		 return "redirect:/adm/VgAdmMain.do";
 	 

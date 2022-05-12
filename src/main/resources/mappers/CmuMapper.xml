@@ -146,23 +146,20 @@
 	</update>
 
 
-	<!-- 커뮤니티 게시글 신고하기 -->
+	<!-- 커뮤니티 게시글 신고 : cmu 테이블에 신고정보 insert -->
 	<insert id="cmu_report_insert" parameterType="CMU">
 		INSERT INTO cmu_reported(CMU_PK, USR_ID_REPORTER,
 		USR_ID_REPORTED, REASON_REPORTED, REPORTED_CHECK)
 		VALUES (#{CMU_PK}, #{user_id_session}, #{USR_ID}, #{cmu_report_reason},1)
 	</insert>
 	
-	<!--  -->
-	
-	<!-- cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입  -->
+	<!-- cmu 테이블 / cmu_report 컬럼에 신고수 누적   -->
  	<update id="cmu_report_columm_add" parameterType="CMU">
  		update cmu set cmu_report = cmu_report + 1 
  		where cmu_pk =#{CMU_PK}
  	</update> 
-
 	
- 	<!-- 커뮤니티 게시글 신고 중복 체크를 위해 0,1 판별 -->
+ 	<!-- cmu_reported 신고 중복 체크 -->
 	<select id="cmu_report_check" resultType="int">
 		select count(*)  
  		from CMU_REPORTED

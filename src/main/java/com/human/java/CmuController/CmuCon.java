@@ -368,39 +368,35 @@ public class CmuCon {
 
     // 커뮤니티 게시글 신고하기
 	@RequestMapping("/insert_report_cmu.do")
-	public String cmu_report_do(CmuVO cmuvo, HttpSession session, Model model, HttpServletResponse response) throws IOException {
-		
-		// 일단 세션에 있는 id 받아와야 됨
+	public String cmu_report_do(CmuVO cmuvo, HttpSession session, Model model,
+			HttpServletResponse response) throws IOException {	
+		// 세션에 있는 id를 받아온다
 		cmuvo.setUser_id_session((String) session.getAttribute("usr_Id"));	
-		System.out.println(cmuvo);
-		// alert 창 때문에
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter alert = response.getWriter();
 
-		// 한사람이 여러번 신고하기 누르는것을 방지하기 위함이다.
+		// 한사람이 여러번 신고하기 누르는것을 방지하기 위한 변수
 		int report_check = CmuSer.cmu_report_check(cmuvo);
 	   
-		if (report_check == 0) { // 신고하기를 처음 누름
-			
+		if (report_check == 0) { // 신고하기를 처음 누른 경우,			
 			model.addAttribute("cmuvo",CmuSer.cmu_detailread(cmuvo));
-			CmuSer.cmu_report_insert(cmuvo); // cmu_reported 테이블에 게시글 pk, 신고자, 피신고자, 신고사유 입력
+			CmuSer.cmu_report_insert(cmuvo); // cmu_reported 테이블에 신고 정보 입력
+			CmuSer.cmu_report_columm_add(cmuvo); // cmu 테이블 / cmu_report 컬럼에 1 삽입 (중복 신고 방지)
 			
-			CmuSer.cmu_report_columm_add(cmuvo); // cmu 테이블의 cmu_report 컬럼의 값에 1이라는 값을 삽입
+			alert.println("<script>" + "alert('신고가 완료되었습니다.');" +" </script>");
+			alert.flush();
 			
-			alert.println("<script>alert('신고가 완료되었습니다..');</script>");
 			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
 			
 		} else if (report_check == 1) { // 신고하기를 이미 눌렀는데 또 누름
-
-			alert.println("<script>alert('한 게시글에 신고는 한개만 가능합니다.');</script>");
-			//alert.flush();
-			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
-			
-		} else {
-			
-			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
-		}
+			alert.println("<script>" + "alert('한 게시글에 신고는 한번만 가능합니다.');" + "</script>");
+			alert.flush();
 		
+			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+			
+		} else {	
+			return "redirect:/cmu/VgCmuDtail.do?CMU_PK=" + cmuvo.getCMU_PK();
+		}		
 	   }
     
 }
