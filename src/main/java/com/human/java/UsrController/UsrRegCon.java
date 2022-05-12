@@ -77,7 +77,7 @@ public class UsrRegCon {
 		UsrRegSer.insertUsr(usrvo);
 		
 		
-		return "redirect:/usr/VgUsrLogin.do";
+		return "redirect:/usr/VgUsrRegst_ok.do";
 	}
 
 

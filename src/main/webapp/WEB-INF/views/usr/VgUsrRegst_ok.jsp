@@ -8,11 +8,9 @@
 </head>
 <body>
 <script>
-alert("로그인에 성공하셨습니다");
-location.href="/home/VgMain.do";
-
+alert("회원가입에 성공하셨습니다.");
+location.href="/usr/VgUsrLogin.do";
+// response.sendRedirect("login.do");
 </script>
-
 </body>
-
 </html>

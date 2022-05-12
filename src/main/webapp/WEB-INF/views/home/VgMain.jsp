@@ -184,7 +184,7 @@
 													style="width: 369.59px !important; height: 277.19px !important;" />
 											</f:when>
 											<f:otherwise>
-												<img src="../../resources/images/img.jpg" />
+												<img src="../../resources/images/rcp_default.png" />
 											</f:otherwise>
 										</f:choose>
 										<figcaption>
@@ -245,7 +245,7 @@
 													style="width: 369.59px !important; height: 277.19px !important;" />
 											</f:when>
 											<f:otherwise>
-												<img src="../../resources/images/img.jpg" />
+												<img src="../../resources/images/rcp_default.png" />
 											</f:otherwise>
 										</f:choose>
 										<figcaption>
