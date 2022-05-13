@@ -1,5 +1,6 @@
 package com.human.java.AiController;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,6 +36,15 @@ public class AiCon {
 	// 냉레 사진 업로드 경로
 	@RequestMapping("vegcipefile.do")
 	public String vegcipefile(MultipartFile file, HttpSession session, Model model) throws Exception{
+		
+		String photoImg = null;
+		if (file != null) {
+			Base64.Encoder encoder = Base64.getEncoder();
+			byte[] photoEncode = encoder.encode(file.getBytes());
+			photoImg = new String(photoEncode, "UTF8");
+		}
+		
+		model.addAttribute("vegimg", photoImg);
 									
 		System.out.println("================== file start ==================");
 		System.out.println("파일 이름: " + file.getName());
@@ -49,6 +59,9 @@ public class AiCon {
 		
 		System.out.println("업로드 사진 후 : "+vegcipefirst);
 		model.addAttribute("vegcipefirst", vegcipefirst);
+		
+		
+		
 		
 		return "/ai/VgAiRegst";
 	}
