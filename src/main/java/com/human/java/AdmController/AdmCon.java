@@ -42,7 +42,7 @@ public class AdmCon<V> {
 		} else if (cnt_per_page == null) { 
 			cnt_per_page = "20";
 		}
-		
+		System.out.println("회원관리"+now_page);
 		admlistvo = new AdmListVO(total, Integer.parseInt(now_page), Integer.parseInt(cnt_per_page));
 		model.addAttribute("paging_ad", admlistvo);  	
 		// 회원 목록 보기
@@ -51,29 +51,68 @@ public class AdmCon<V> {
 
     }
 	
+//    // 관리자 페이지 중 레시피 목록_ajax
+//    @ResponseBody
+//    @RequestMapping("/select_rcp_list_ad_ajax.do")
+//    public HashMap select_rcp_list_ad_ajax(RcpVO rcpvo, AdmListVO admlistvo
+//			,Model model, @RequestParam(value="now_page", required=false)String now_page
+//			, @RequestParam(value="cnt_per_page", required=false)String cnt_per_page) {
+//    	
+//    	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
+//		int total = AdmSer.ad_rcp_listcnt();
+//
+//		//
+//		if (now_page == null && cnt_per_page == null) {
+//			now_page = "1";
+//			cnt_per_page = "20";
+//		} else if (now_page == null) {
+//			now_page = "1";
+//		} else if (cnt_per_page == null) { 
+//			cnt_per_page = "20";
+//		}
+//
+//		admlistvo = new AdmListVO(total, Integer.parseInt(now_page), Integer.parseInt(cnt_per_page));
+//    	// 페이징 관련해서 model addAttribute
+////    	model.addAttribute("paging_ad", admlistvo);
+//    	
+//		
+//		HashMap rcp_page_map = new HashMap();
+//    	
+//    	rcp_page_map.put("rcpvo", AdmSer.select_rcp_list_ad_ajax(admlistvo));
+//    	rcp_page_map.put("pagnig", admlistvo);
+//    	
+//    	
+//    	return rcp_page_map;
+//    }
+    
+    
+    
     // 관리자 페이지 중 레시피 목록_ajax
     @ResponseBody
     @RequestMapping("/select_rcp_list_ad_ajax.do")
     public HashMap select_rcp_list_ad_ajax(RcpVO rcpvo, AdmListVO admlistvo
-			,Model model, @RequestParam(value="now_page", required=false)String now_page
-			, @RequestParam(value="cnt_per_page", required=false)String cnt_per_page) {
+			,Model model, @RequestParam(value="now_page", required=false)int now_page,
+			@RequestParam(value="cnt_per_page", required=false)int cnt_per_page) {
     	
+    	System.out.println("ajax 진입");
     	// 전체 게시글 개수를 얻어와 total에 저장 (회원목록)
 		int total = AdmSer.ad_rcp_listcnt();
-
-		if (now_page == null && cnt_per_page == null) {
-			now_page = "1";
-			cnt_per_page = "20";
-		} else if (now_page == null) {
-			now_page = "1";
-		} else if (cnt_per_page == null) { 
-			cnt_per_page = "20";
-		}
-
-		admlistvo = new AdmListVO(total, Integer.parseInt(now_page), Integer.parseInt(cnt_per_page));
+		
+		cnt_per_page = 20;
+		
+		int start_page_vo = admlistvo.getStart(); // 0
+	
+		System.out.println("now_page : " + now_page);
+		admlistvo = new AdmListVO(total, now_page, cnt_per_page); // 2 일경우 20 ~ 39
+		// nowpage null이면 1되게끔 할라면 하기
     	// 페이징 관련해서 model addAttribute
 //    	model.addAttribute("paging_ad", admlistvo);
     	
+
+
+		System.out.println("start_page : " + admlistvo.getStart()); // 20
+
+		
 		
 		HashMap rcp_page_map = new HashMap();
     	
@@ -83,7 +122,11 @@ public class AdmCon<V> {
     	
     	return rcp_page_map;
     }
-
+    
+    
+    
+    
+    
     // 관리자 페이지 중 커뮤니티 목록_ajax
     @ResponseBody
     @RequestMapping("/select_cmu_list_ad_ajax.do")
@@ -129,17 +172,14 @@ public class AdmCon<V> {
 
 	 // 회원 정보 삭제
 	 @RequestMapping("/delete_usr_info.do")
-	 public String delete_usr_info(UsrVO usrvo, HttpServletResponse response) throws IOException{
+	 public String delete_usr_info(UsrVO usrvo, HttpServletResponse response)
+			 throws IOException{
 		 AdmSer.delete_usr_info(usrvo);
 		 response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out;
 			out = response.getWriter();
 			out.println("<script>" + "alert('회원이 삭제되었습니다.');" + "</script>");
-
-
-
-		 return "redirect:/adm/VgAdmMain.do";
-	 
+		 return "redirect:/adm/VgAdmMain.do";	 
 	 }		
 	 
 

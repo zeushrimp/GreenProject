@@ -146,7 +146,6 @@ td {
 								<table style="width:90%; margin: auto;">
 									<th style="text-align: center">이름</th>
 									<th style="text-align: center">이메일</th>
-<!-- 									<th style="text-align: center">비밀번호</th> -->
 									<th style="text-align: center">주소</th>
 									<th style="text-align: center">전화번호</th>
 									<th style="text-align: center">가입일자</th>
@@ -159,7 +158,6 @@ td {
 												<td style="width:95px"><input type="textarea" class="USR_NAME" value="${vo.USR_NAME }" style="width: 100%; padding-left: 0; padding-right: 0;">
 												<input type="hidden" class="USR_ID" value="${vo.USR_ID}"></td>
 												<td style="width:150px"><input type="textarea" class="USR_EMAIL" value="${vo.USR_EMAIL }" style="width: 100%; padding-left: 0; padding-right: 0;"></td>
-<%-- 												<td style="width:150px"><input type="textarea" class="USR_PW" value="${vo.USR_PW }" style="width: 100%; padding-left: 0; padding-right: 0;"></td> --%>
 												<td style="width:300px"><span class="text1">${vo.USR_ADDR2 }</span>
 												<input type="button" onclick="sample6_execDaumPostcode('${status.index}')" value="주소 변경" style="height:24px; background: none !important; border:none !important; float:right; color: #444; padding-bottom: 5px; padding-top: 5px;">
 												<input type="hidden"  class="sample6_postcode USR_ADDR1" value="${vo.USR_ADDR1 }"/>

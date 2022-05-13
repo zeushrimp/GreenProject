@@ -68,8 +68,7 @@ public class AdmSerImpl implements AdmSer{
 	// 회원 정보 삭제
 	@Override
 	public void delete_usr_info(UsrVO usrvo) {
-		admdao.delete_usr_info(usrvo);
-		
+		admdao.delete_usr_info(usrvo);	
 	}
 
 

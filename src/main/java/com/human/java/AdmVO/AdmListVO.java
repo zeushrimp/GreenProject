@@ -5,6 +5,7 @@ public class AdmListVO {
 	
 	//           현재페이지, 시작페이지,    끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int now_page, start_page, end_page, total, cnt_per_page, last_page, start, end;
+	//페이지 리스트에 게시되는 페이지 수
 	private int cnt_page = 5;
 	
 	public AdmListVO() {

@@ -1,41 +1,3 @@
-// 페이지 이전 버튼
-function fn_prev(page, range, rangesize, listsize) {
-		
-	var page = ((range - 2) * rangesize) + 1;
-	var range = range - 1;
-		
-	var url = "/VgCmuList.do";
-	url = url + "?page=" + page;
-	url = url + "&range=" + range;
-	url = url + "&listsize=" + listsize;
-	location.href = url;
-	}
-
-// 페이지 번호 클릭
-function fn_pagination(page, range, rangesize, listsize) {
-
-	var url = "/cmu/VgCmuList.do";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&listsize=" + listsize;
-
-
-		location.href = url;	
-	}
-
-// 페이지다음 버튼
-// 다음 페이지 범위의 가장 앞 페이지로 이동
-function fn_next(page, range, rangesize, listsize) {
-	var page = parseInt((range * rangesize)) + 1;
-	var range = parseInt(range) + 1;			
-	var url = "/cmu/VgCmuList.do";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&listsize=" + listsize;
-
-		location.href = url;
-	}
-
 
 
 // 뭐 누르면 뭐 나오는지
@@ -43,13 +5,14 @@ $(function(){
 	$('.active').click(function(e){
 		// active 클래스에 있는 뭐 클릭하면 아래의 코드들이 실행되는 거임
 		var menuSelector = e.target.text;
+		
 		// 일단 menuSelector라는 변수에 active 클래스의 value 값을 대입한다
 		if( menuSelector == '회원관리'){ // 그래서 그 value 값이 '회원관리'와 같으면
 /*            admin_userinfo_ajax(menuSelector); // admin_userinfo_ajax 함수를 호출한다*/
 		}else if(menuSelector == '레시피 관리'){ // 근데 그 value 값이 '레시피 관리'와 같으면
-			admin_rcp_ajax(menuSelector);	  // admin_rcp_ajax 함수를 호출한다
+				admin_rcp_ajax(menuSelector,1,20);	  // admin_rcp_ajax 함수를 호출한다 ()
 		}else if (menuSelector == '커뮤니티 관리'){ // 근데 그 value 값이 '커뮤니티 관리'와 같으면
-            admin_cmu_ajax(menuSelector);     // admin_cmu_ajax 함수를 호출한다
+           	 	admin_cmu_ajax(menuSelector);     // admin_cmu_ajax 함수를 호출한다
         }
 	})
 })
@@ -76,15 +39,40 @@ $(function(){
 //	})	
 //}
 
+//function fn_move_page(){
+//	
+//	admin_rcp_ajax(menuSelector, now_page);
+//}
+
+// 페이지 버튼 눌렀을때 그 페이지 뜨게 함 일단 임시로
+//$(function test(){	
+//	$('.current').click(function(e){
+//	
+//        var now_page = e.target.text;
+//
+//        alert(now_page);
+//
+//		})
+//	
+//})
+//
+
+
 // '레시피 관리' 관련 데이터를 불러올 함수이다.
-function admin_rcp_ajax(menuSelector){
-	
+function admin_rcp_ajax(menuSelector,now_page,cnt_per_page){
+	alert(now_page)
+	alert(cnt_per_page)
+
 	$.ajax({
 		type: 'post', 
 		url: '/adm/select_rcp_list_ad_ajax.do',
-		data: {"rcp_list_ad_ajax" : menuSelector}, // input 태그내의 값
+		data: {"rcp_list_ad_ajax" : menuSelector,
+				"now_page" : now_page,
+				"cnt_per_page" : cnt_per_page
+		       }, // input 태그내의 값
 		success: function(data){
-			var tag_string_rcp = create_admin_rcp_list(data);		
+			var tag_string_rcp = create_admin_rcp_list(data);
+			alert(data)	
 			$('#rcp_list_ad_ajax').html(tag_string_rcp); 
 	
 		},
@@ -157,11 +145,12 @@ function admin_cmu_ajax(menuSelector){
 
 // 레시피 관련 리스트를 추출할 함수
 function create_admin_rcp_list(data){	
+	
 	var str = "";
 
 	var rcpvoList = data['rcpvo']
 	var pagnig = data['pagnig']
-
+	alert("태그생성");
 	str += '<table style="width:90%; margin: auto;" >'
 	str += '<th style="text-align: center">레시피 번호</th>'
 	str += '<th style="text-align: center">레시피 제목</th>'
@@ -180,25 +169,52 @@ function create_admin_rcp_list(data){
 		str += '</tr>'	
 	}
 	
-
 	str += '</table>'
 	str += '<div class="pager">'
 	if( pagnig.start_page != 1 ){
-    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page=' + pagnig.start_page - 1 + '&cnt_per_page=' + pagnig.cnt_per_page + '&lt;</a>'
+				
+//    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page=' + pagnig.start_page - 1 + '&cnt_per_page=' + pagnig.cnt_per_page + '>&lt;</a>'
+	  str += '<a href="javascript:void(0);" name="cnt_per_page" onclick="admin_rcp_ajax(\'레시피 관리\', '+ pagnig.start_page-1 +', '+ pagnig.cnt_per_page +')">&lt;</a>'
+	
 	}
 	for (var pagenum = pagnig.start_page; pagenum <= pagnig.end_page; pagenum++ ){
     if(pagenum == pagnig.now_page){
-        str += '<a class="current">' + pagenum + '</a>'
+        str += '<a class="current" name="now_page">' + pagenum + '</a>'
     }else if (pagenum != pagnig.now_page){
-        str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='+pagenum + '&cnt_per_page=' + pagnig.cnt_per_page + ' "class="paging_num">' 
+        str += '<a href="javascript:void(0);" class="paging_num" name="cnt_per_page" onclick="admin_rcp_ajax(\'레시피 관리\', '+pagenum+', '+pagnig.cnt_per_page+')">' 
         str += pagenum + '</a>'
     }
 	}
 	if(pagnig.end_page != pagnig.last_page){
-    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='
-    str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+//    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='
+//    str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+	str += '<a href="javascript:void(0);" onclick="admin_rcp_ajax(\'레시피 관리\', '+pagnig.end_page+1+', '+pagnig.cnt_per_page+')">&gt;</a>'
 
 	}
+
+
+//	str += '</table>'
+//	str += '<div class="pager">'
+//	if( pagnig.start_page != 1 ){		
+//    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page=' + pagnig.start_page - 1 + '&cnt_per_page=' + pagnig.cnt_per_page + '&lt;</a>'
+//	}
+//	for (var pagenum = pagnig.start_page; pagenum <= pagnig.end_page; pagenum++ ){
+//    if(pagenum == pagnig.now_page){
+//        str += '<a class="current" name="now_page">' + pagenum + '</a>'
+//    }else if (pagenum != pagnig.now_page){
+//        str += '<a href="javascript:void(0);" class="paging_num" onclick="admin_rcp_ajax(\'레시피 관리\', '+pagenum+', '+cnt_per_page+')">' 
+//        str += pagenum + '</a>'
+//    }
+//	}
+//	if(pagnig.end_page != pagnig.last_page){
+//    str += '<a href="/adm/select_rcp_list_ad_ajax.do?now_page='
+//    str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
+//
+//	}
+
+
+
+
 
 
 	//	str += '<c:forEach begin=' + pagnig.start_page + 'end=' + pagnig.end_page + 'var="pagenum">'
@@ -217,6 +233,7 @@ function create_admin_rcp_list(data){
 	//	str += pagnig.end_page+1 + '&cnt_per_page=' + pagnig.cnt_per_page + ' ">&gt;</a>'
 	//	str += '</c:if>'
 	//	str += '</div>'
+
 
 
 	

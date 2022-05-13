@@ -72,8 +72,7 @@ public class AdmDaoImpl implements AdmDao{
 	@Override
 	public void delete_usr_info(UsrVO usrvo) {
 		// TODO Auto-generated method stub
-		mybatis.delete("Adm.delete_usr_info",usrvo);
-		
+		mybatis.delete("Adm.delete_usr_info",usrvo);	
 	}
 
 
