@@ -33,6 +33,15 @@
 	  <script src="https://oss.maxcdn.com/libs/respond.resources/js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
+<script type="text/javascript">
+	window.onload = function() {
+		var vidNum = "/resources/videos/mainvideo"
+				+ (Math.floor(Math.random() * 30) + 1) + ".mp4";
+		var objVid = document.getElementById("introVid");
+		objVid.setAttribute("src", vidNum);
+		slideShow();
+	}
+</script>
 <body>
 	<!--preloader-->
 	<div class="preloader">
@@ -61,39 +70,42 @@
 			<!--row-->
 			<div class="row">
 				<header class="s-title"> </header>
-				<!-- 				카테고리 및 검색 -->
-				<aside class="above-sidebar full-width">
-					<div class="RcpCategory">
-						<div class="RcpList">
-							<ul class="boxed">
-								<li><span></span></li>
-							</ul>
-							<ul class="boxed">
-								<li><a href="#"><span>베스트레시피</span></a></li>
-								<li><a href="#"><span>추천레시피</span></a></li>
-							</ul>
-							<ul class="boxed">
-								<li><a href="#"><span>프루테리언</span></a></li>
-								<li><a href="#"><span>비건</span></a></li>
-								<li><a href="#"><span>락토 베지테리언</span></a></li>
-								<li><a href="#"><span>오보 베지테리언</span></a></li>
-								<li><a href="#"><span>락토 오보 베지테리언</span></a></li>
-								<li><a href="#"><span>페스코 베지테리언</span></a></li>
-								<li><a href="#"><span>폴로 베지테리언</span></a></li>
-								<li><a href="VgRcpList.do"><span>전체</span></a></li>
-							</ul>
-						</div>
-						<div class="RcpSearch">
-							<input type="text" placeholder="검색어 입력">
-							<button onclick="">검색</button>
-							<!-- 온클릭 으로 검색 기능 VgUsrRegst.jsp 참고 -->
-
-
-						</div>
+				<div
+					style="max-width: 1170px; margin: auto; display: flex; border: 20px solid #fffff0; background-color: #fffff0; border-radius: 16px; box-shadow: inset 0 0 8px #e6d2b5;">
+					<div style="width: 60%;">
+						<video id="introVid" muted autoplay loop class="mainvideo"></video>
 					</div>
-					<!-- 카테고리 및 검색 -->
-				</aside>
+					<div
+						style="width: 40%; font-family: 'Noto Sans KR', sans-serif; padding: 15px 20px 0px 45px; text-align: left;">
+						<h2 style="font-weight: 700;">Green Project</h2>
+						<div
+							style="font-weight: bold; font-size: larger; color: #239961; padding-bottom: 15px;">VEGCIPE</div>
 
+						<div>
+							<b>이렇게 저희는 AI Vegcipe 구현에 성공했습니다.</b>
+						</div>
+						<br>
+
+
+
+						<div>강석우 김나미 김수지 신재우 장수완</div>
+						<div>4조였습니다.</div>
+						<br>
+
+						<div>
+							<b>다들 고생하셨습니다.</b>
+						</div>
+
+
+						<div>화이팅!</div>
+						<div style="display: inline-block;">다들 모두 행복한 취업되세요!</div>
+
+					</div>
+				</div>
+				<div style="margin-bottom: 100px;"></div>
+				<header class="s-title">
+					<h2 class="ribbon bright">AI 추천 레시피</h2>
+				</header>
 				<!--content-->
 				<section class="content full-width">
 					<!--entries-->
@@ -105,7 +117,8 @@
 							<div class="entry one-fourth">
 								<figure>
 									<img src="data:image/gif;base64,${rcplist.RCP_IMG }"
-										style="width: 270px !important; height: 203px !important;" onerror="this.src='/resources/images/rcp_default.png'" />
+										style="width: 270px !important; height: 203px !important;"
+										onerror="this.src='/resources/images/rcp_default.png'" />
 									<figcaption>
 										<a href="/rcp/VgRcpDtail.do?RCP_PK=${rcplist.RCP_PK}"><i
 											class="icon icon-themeenergy_eye2"></i> <span>레시피 보러가기</span></a>
