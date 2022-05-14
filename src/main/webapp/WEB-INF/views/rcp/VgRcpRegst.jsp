@@ -102,28 +102,26 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 								</div>
 								<div class="f-row">
 									<div class="third" style="width: 50%">
-										<span>조리시간 총 </span><input type="number" placeholder="조리 시간"
+										<span>조리시간 총 </span><input type="text" placeholder="예) 2분"
 											style="float: none !important; width: 80px !important;"
-											name="RCP_CT" id="RCP_CT" /><span> 분 소요 (숫자로만 입력해주세요)</span>
+											name="RCP_CT" id="RCP_CT" /><span></span>
 									</div>
 									<div class="third" style="float: right !important;">
 										<select name="RCP_VEGE" id="RCP_VEGE" required>
 											<option value="" disabled selected style="display: none;">알맞는
 												채식의 유형을 선택해주세요</option>
-											<option value="프루테리언">프루테리언</option>
 											<option value="비건">비건</option>
-											<option value="락토 베지테리언">락토 베지테리언</option>
-											<option value="오보 베지테리언">오보 베지테리언</option>
-											<option value="락토 오보 베지테리언">락토 오보 베지테리언</option>
-											<option value="페스코 베지테리언">페스코 베지테리언</option>
-											<option value="폴로 베지테리언">폴로 베지테리언</option>
+											<option value="락토">락토</option>
+											<option value="오보">오보</option>
+											<option value="락토-오보">락토-오보</option>
+											<option value="페스코">페스코</option>
+											<option value="폴로">폴로</option>
 										</select>
 									</div>
 									<div class="third" style="width: 50%">
-										<span>조리분량 총 </span><input type="number" placeholder="조리 분량"
+										<span>조리분량 총 </span><input type="text" placeholder="예) 2인분"
 											style="float: none !important; width: 80px !important;"
-											name="RCP_COUNT" id="RCP_COUNT" /><span> 인분 (숫자로만
-											입력해주세요)</span>
+											name="RCP_COUNT" id="RCP_COUNT" /><span> </span>
 									</div>
 								</div>
 							</section>

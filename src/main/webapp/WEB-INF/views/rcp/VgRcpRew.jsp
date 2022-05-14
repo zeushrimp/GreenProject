@@ -109,7 +109,9 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 				<!--row-->
 				<div class="row">
 					<header class="s-title"> </header>
-				<form name="form" action="VgRcpRewDone.do" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+					
+				<form name="form" action="VgRcpRewDone.do" method="post" accept-charset="UTF-8"
+				 enctype="multipart/form-data">
 					<!--content-->
 					<section class="content full-width">
 						<div class="submit_recipe container">
@@ -123,7 +125,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 												입력하기</span>
 											<input type="text" placeholder="레시피의 제목을 입력해주세요"
 												style="width: 75% !important; float: right !important;"
-												name="RCP_TITLE" id="RCP_TITLE" value="${RcpDtail.RCP_TITLE }" required/>
+												name="RCP_TITLE" id="RCP_TITLE" 
+												value="${RcpDtail.RCP_TITLE }" required/>
 												
 										</div>
 									</div>
@@ -134,13 +137,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 											<input type="text"
 												placeholder="레시피를 소개할 수 있는 한줄설명을 입력해주세요"
 												style="width: 75% !important; float: right !important;"
-												name="RCP_CONTENT" id="RCP_CONTENT" value="${RcpDtail.RCP_CONTENT }" required/>
+												name="RCP_CONTENT" id="RCP_CONTENT" 
+												value="${RcpDtail.RCP_CONTENT }" required/>
 												
 										</div>
 									</div>
 									<div class="f-row">
 										<div class="third" style="width: 50%">
-											<span>조리시간 총 </span><input type="number" placeholder="조리 시간"
+											<span>조리시간 총 </span><input type="text" placeholder="예) 2분"
 												style="float: none !important; width: 80px !important;"
 												name="RCP_CT" id="RCP_CT" value="${RcpDtail.RCP_CT }" /><span> 분 소요 (숫자로만 입력해주세요)</span>
 										</div>
@@ -148,17 +152,16 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 											<select name="RCP_VEGE" id="RCP_VEGE">
 												<option disabled selected style="display: none;">알맞는
 													채식의 유형을 선택해주세요</option>
-												<option value="프루테리언">프루테리언</option>
 												<option value="비건">비건</option>
-												<option value="락토 베지테리언">락토 베지테리언</option>
-												<option value="오보 베지테리언">오보 베지테리언</option>
-												<option value="락토 오보 베지테리언">락토 오보 베지테리언</option>
-												<option value="페스코 베지테리언">페스코 베지테리언</option>
-												<option value="폴로 베지테리언">폴로 베지테리언</option>
+												<option value="락토">락토</option>
+												<option value="오보">오보</option>
+												<option value="락토-오보">락토-오보</option>
+												<option value="페스코">페스코</option>
+												<option value="폴로">폴로</option>
 											</select>
 										</div>
 										<div class="third" style="width: 50%">
-											<span>조리분량 총 </span><input type="number" placeholder="조리 분량"
+											<span>조리분량 총 </span><input type="text" placeholder="예) 2인분"
 												style="float: none !important; width: 80px !important;"
 												name="RCP_COUNT" id="RCP_COUNT" value="${RcpDtail.RCP_COUNT }" required/><span> 인분 (숫자로만 입력해주세요)</span>
 										</div>

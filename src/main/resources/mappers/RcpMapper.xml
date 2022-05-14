@@ -26,8 +26,8 @@
 
 	<insert id="insertCont" parameterType="RCP">
 		insert into RCP_CONT
-		(RCPCT_PK,RCPCT_NUM, RCPCT_CONTENT, RCP_PK)
-		VALUES(RCPCT_PK.NEXTVAL,#{RCPCT_NUM}, #{RCPCT_CONTENT}, #{RCP_PK})
+		(RCPCT_PK, RCPCT_CONTENT, RCP_PK)
+		VALUES(RCPCT_PK.NEXTVAL, #{RCPCT_CONTENT}, #{RCP_PK})
 	</insert>
 	<!-- 레시피 등록부분 -->
 	
