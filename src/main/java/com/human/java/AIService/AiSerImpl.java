@@ -64,7 +64,7 @@ public class AiSerImpl implements AiSer {
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-		return "outputStr error";
+		return "잘 모르겠어요~ 식재료를 적어주세요!";
 	}
 
 	// 사진 저장 위치
