@@ -243,8 +243,8 @@ public class CmuCon {
     		
     		//이미지 경로 생성
 			/* String path = "C:\\Users\\img" + "ckImage/"; */	// 이미지 경로 설정(폴더 자동 생성)
-    		String pdfPath = request.getSession().getServletContext().getRealPath("../../../../");
-    		System.out.println("pdfPath" + pdfPath);	
+    		String Path = request.getSession().getServletContext().getRealPath("/resources/images/");
+    		System.out.println("pdfPath" + Path);	
     		
     		Path path2 = FileSystems.getDefault().getPath("");
     		String directoryName2 = path2.toAbsolutePath().toString();
@@ -259,10 +259,8 @@ public class CmuCon {
     		System.out.println("uri" + uri);
     		System.out.println("servlet" + servlet);
     		System.out.println("url" + url);
-    		    		
-    		Resource resource = (Resource) resourceLoader.getResource("classpath:file/hello.html");
     		
-    		String path = session.getServletContext().getRealPath("/resources/cmupic");
+    		String path = session.getServletContext().getRealPath("/resources/images/");
     		
     		String ckUploadPath = path + "/" + uid + "_" + fileName;
     		File folder = new File(path);
@@ -307,7 +305,7 @@ public class CmuCon {
     	
     	//서버에 저장된 이미지 경로
 		/* String path = "C:\\Users\\img" + "ckImage/"; */	// 저장된 이미지 경로
-    	String path = session.getServletContext().getRealPath("/resources/cmupic");
+    	String path = session.getServletContext().getRealPath("/resources/images/");
     	System.out.println("path:"+path);
     	String sDirPath = path + "/" + uid + "_" + fileName;
     	
