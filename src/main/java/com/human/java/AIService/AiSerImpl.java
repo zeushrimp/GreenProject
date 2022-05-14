@@ -31,6 +31,7 @@ public class AiSerImpl implements AiSer {
 		return aiDao.countrcp();
 	}
 
+	// 사진 파이썬 연결 및 AI 답 제출
 	@Override
 	public String upload_pic(MultipartFile file) {
 		String command = "C:\\ProgramData\\Anaconda3\\python.exe";  // 명령어
@@ -41,9 +42,9 @@ public class AiSerImpl implements AiSer {
 	    
 	    Process process;
 		try {
-//			builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+			// builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 			builder.redirectError(ProcessBuilder.Redirect.INHERIT);
-//			builder.redirectInput(ProcessBuilder.Redirect.INHERIT);
+			// builder.redirectInput(ProcessBuilder.Redirect.INHERIT);
 			String outputStr; 
 			process = builder.start();
 			BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -81,6 +82,5 @@ public class AiSerImpl implements AiSer {
         }finally {
             return result;
         }
-
 	}
 }
