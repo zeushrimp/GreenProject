@@ -110,7 +110,7 @@
 						<c:forEach items="${cmupagelist}" var="cmuvo">
 							<div class="entry one-third">
 								<figure>
-									<img src="/resources/images/rcp_default.png" alt="" /> <!-- 이미지 가져오는 걸로 -->
+									<img src="/resources/images/rcp_default.png" alt="../../resources/images/rcp_default.png" /> <!-- 이미지 가져오는 걸로 -->
 									<!-- 상세 페이지 가는 링크 -->
 									<figcaption>
 											<a href="/cmu/VgCmuDtail.do?CMU_PK=${cmuvo.CMU_PK}"></a><i
