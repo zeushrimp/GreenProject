@@ -85,5 +85,5 @@
 
 |<img src="https://avatars.githubusercontent.com/kmori1966"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/nameecod"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/hasta" width="80" height="80">|<img src="https://avatars.githubusercontent.com/zeushrimp"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/deucal"  width="80" height="80">|
 |:----:|:----:|:----:|:----:|:----:|
-|[@kmori1966](https://github.com/kmori1966)|[@nameecod](https://github.com/nameecod)|[@hasta](https://github.com/hasta)|[@zeushrimp](https://github.com/zeushrimp)|[@deucal](https://github.com/deucal)|
-|강석우|김나미|김수지|신재우|장수완|
+|[@kmori1966](https://github.com/kmori1966)|[@nameecod](https://github.com/nameecod)|[@zeushrimp](https://github.com/zeushrimp)|[@deucal](https://github.com/deucal)|
+|강석우|김나미|신재우|장수완|
