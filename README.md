@@ -2,7 +2,7 @@
 
 
 안녕하세요. 저희는 휴면 교육 센터 4조 입니다.<br>
-강석우,김나미,김수지,신재우,장수완 으로 팀을 이뤘습니다.
+강석우,김나미,신재우,장수완 으로 팀을 이뤘습니다.
 <br>
 <br>
 
@@ -84,6 +84,6 @@
 #  :seedling: 팀원
 
 |<img src="https://avatars.githubusercontent.com/kmori1966"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/nameecod"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/hasta" width="80" height="80">|<img src="https://avatars.githubusercontent.com/zeushrimp"  width="80" height="80">|<img src="https://avatars.githubusercontent.com/deucal"  width="80" height="80">|
-|:----:|:----:|:----:|:----:|:----:|
+|:----:|:----:|:----:|:----:|
 |[@kmori1966](https://github.com/kmori1966)|[@nameecod](https://github.com/nameecod)|[@zeushrimp](https://github.com/zeushrimp)|[@deucal](https://github.com/deucal)|
 |강석우|김나미|신재우|장수완|
